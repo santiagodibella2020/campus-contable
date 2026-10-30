@@ -151,6 +151,10 @@ tfoot td{font-weight:700;border-top:2px solid var(--ink)}
   .asi .ln select{grid-column:1 / -1}
   .asi .hd.acc{display:none}
   .prog span.t{display:none}
+  header.top{flex-wrap:nowrap;gap:10px}
+  .brand{font-size:1.1rem;white-space:nowrap}
+  .brand small{display:none}
+  .bar{width:48px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
