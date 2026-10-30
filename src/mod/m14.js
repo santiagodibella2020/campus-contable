@@ -1,0 +1,87 @@
+/* Módulo 14 · Teoría contable y normas profesionales */
+CAMPUS.content[14] = {
+lessons:[
+ {lead:"La contabilidad es una disciplina técnica con su propia teoría. Entenderla te permite resolver casos que ninguna norma prevé.",
+  html:`<h3>¿Ciencia, técnica o tecnología?</h3><p>El debate es clásico. La corriente que predomina en Argentina (con autores como Carlos García Casella y Juan Carlos Viegas) entiende la contabilidad como una <b>disciplina</b> que estudia la realidad patrimonial y no patrimonial de los entes, con una <b>teoría general</b> y distintos <b>modelos</b> aplicables según los usuarios.</p>
+  <h3>Segmentos contables</h3><ul><li><b>Patrimonial o financiera:</b> para usuarios externos, regulada por normas profesionales.</li><li><b>Gerencial:</b> para la dirección, sin normas obligatorias.</li><li><b>Gubernamental:</b> el patrimonio y el presupuesto del Estado.</li><li><b>Social y ambiental:</b> impacto en la comunidad y el ambiente.</li><li><b>Económica:</b> las cuentas nacionales a nivel país.</li></ul>
+  <h3>Modelos contables</h3><p>Un modelo contable resulta de combinar tres decisiones:</p>
+  <ol><li><b>Unidad de medida:</b> moneda nominal o moneda homogénea (ajustada por inflación).</li><li><b>Criterios de medición:</b> costos históricos o valores corrientes.</li><li><b>Capital a mantener:</b> financiero o físico.</li></ol>
+  <p>Las normas argentinas adoptan, en general, un modelo mixto: moneda homogénea cuando hay inflación significativa, una combinación de costos y valores corrientes según el rubro, y capital financiero.</p>`,
+  ex:[{type:"pick",title:"¿Qué segmento contable es?",options:["Patrimonial","Gerencial","Gubernamental","Social y ambiental"],items:[["Estados contables presentados a un banco","Patrimonial"],["Informe de costos por línea de producto para el directorio","Gerencial"],["Cuenta de inversión del Estado nacional","Gubernamental"],["Reporte de emisiones de carbono de la empresa","Social y ambiental"]]}]},
+ {lead:"El marco conceptual define para qué sirve la información contable, qué elementos tiene y qué cualidades debe reunir.",
+  html:`<p>En Argentina, el marco conceptual estaba en la <b>RT 16</b> y hoy está integrado en la <b>RT 54</b>. Las NIIF tienen su propio Marco Conceptual (IASB, revisado en 2018), muy similar en lo esencial.</p>
+  <h3>Objetivo</h3><p>Brindar información sobre el patrimonio del ente, su evolución y sus flujos de efectivo, útil para que los usuarios tomen decisiones económicas (invertir, prestar, controlar a la administración).</p>
+  <h3>Elementos de los estados contables</h3><div class="tw"><table><thead><tr><th>Elemento</th><th>Definición resumida</th></tr></thead><tbody>
+  <tr><td><b>Activo</b></td><td>Recurso controlado por el ente, del que se esperan beneficios económicos futuros, como resultado de hechos pasados.</td></tr>
+  <tr><td><b>Pasivo</b></td><td>Obligación presente del ente, que probablemente requiera entregar recursos, como resultado de hechos pasados.</td></tr>
+  <tr><td><b>Patrimonio neto</b></td><td>Activo menos pasivo.</td></tr>
+  <tr><td><b>Ingresos y gastos</b></td><td>Aumentos y disminuciones del PN vinculados con las actividades principales.</td></tr>
+  <tr><td><b>Ganancias y pérdidas</b></td><td>Aumentos y disminuciones del PN por actividades secundarias o hechos ajenos a la voluntad del ente.</td></tr>
+  <tr><td><b>Aportes y retiros de los propietarios</b></td><td>Cambios en el PN por transacciones con los dueños.</td></tr></tbody></table></div>
+  <h3>Supuestos</h3><p><b>Empresa en marcha:</b> se supone que el ente seguirá operando. Si no, los activos se miden a valores de liquidación. <b>Devengamiento:</b> los efectos se reconocen cuando ocurren, no cuando se cobran o pagan.</p>`,
+  ex:[{type:"tf",items:[["Para ser activo, un recurso tiene que ser propiedad legal del ente","Falso","Alcanza con que lo controle (por ejemplo, un bien en leasing)."],["Un pasivo surge de hechos pasados","Verdadero"],["Una pérdida por un incendio es un “gasto”","Falso","Es una pérdida: un hecho ajeno a las actividades principales."],["Si una empresa va a liquidarse, el supuesto de empresa en marcha no aplica","Verdadero"]]}]},
+ {lead:"Para que sirva, la información contable tiene que reunir ciertas cualidades. Son los criterios con que se juzga cualquier norma.",
+  html:`<div class="tw"><table><thead><tr><th>Requisito</th><th>Qué significa</th></tr></thead><tbody>
+  <tr><td><b>Pertinencia</b></td><td>Es útil para las decisiones del usuario: tiene valor predictivo o confirmatorio.</td></tr>
+  <tr><td><b>Confiabilidad</b></td><td>Es creíble. Incluye <i>aproximación a la realidad</i> (esencialidad, neutralidad, integridad) y <i>verificabilidad</i>.</td></tr>
+  <tr><td><b>Esencialidad</b></td><td>Prevalece la sustancia económica sobre la forma legal.</td></tr>
+  <tr><td><b>Neutralidad</b></td><td>No está sesgada para inducir una decisión.</td></tr>
+  <tr><td><b>Integridad</b></td><td>No omite nada significativo.</td></tr>
+  <tr><td><b>Sistematicidad</b></td><td>Se elabora con un sistema ordenado de reglas.</td></tr>
+  <tr><td><b>Comparabilidad</b></td><td>Se puede comparar con otros períodos y otros entes. Por eso se presentan cifras comparativas.</td></tr>
+  <tr><td><b>Claridad</b></td><td>Se entiende con un esfuerzo razonable.</td></tr></tbody></table></div>
+  <h3>Restricciones</h3><ul><li><b>Oportunidad:</b> información tardía pierde utilidad.</li><li><b>Equilibrio entre costo y beneficio.</b></li><li><b>Significación (materialidad):</b> se pueden simplificar los temas cuyo efecto no cambiaría las decisiones.</li></ul>
+  <div class="note"><b>¿Y la prudencia?</b> La prudencia no es un requisito que habilite subvaluar activos: eso violaría la neutralidad. Se acepta como actitud ante la incertidumbre, por ejemplo al no reconocer ganancias que todavía no se realizaron.</div>`,
+  ex:[{type:"pick",title:"¿Qué requisito está en juego?",options:["Esencialidad","Neutralidad","Integridad","Comparabilidad","Significación"],items:[
+   ["Un bien en leasing se registra como activo aunque legalmente sea del banco","Esencialidad"],["Se omite informar un juicio importante en las notas","Integridad"],["Se cambia de método de inventario cada año sin explicarlo","Comparabilidad"],
+   ["Se subvaluan los activos para mostrar menos ganancia","Neutralidad"],["Se registra como gasto una calculadora de $ 15.000 aunque dure años","Significación"]]}]},
+ {lead:"En Argentina las normas contables las elabora la FACPCE, pero cada Consejo Profesional las pone en vigencia en su jurisdicción.",
+  html:`<h3>Actores</h3><ul><li><b>FACPCE</b> (Federación Argentina de Consejos Profesionales de Ciencias Económicas): aprueba las Resoluciones Técnicas (RT), con proyectos del CENCyA (Consejo Elaborador de Normas de Contabilidad y Auditoría).</li><li><b>Consejos Profesionales</b> provinciales y de CABA (CPCE): adoptan las RT en su jurisdicción. Las normas obligan a los matriculados de ese Consejo.</li><li><b>Organismos de control</b> con facultades propias: CNV (sociedades con oferta pública), BCRA (bancos), Superintendencia de Seguros, IGJ (sociedades en CABA), INAES (cooperativas y mutuales).</li></ul>
+  <h3>Resoluciones Técnicas más importantes</h3><div class="tw"><table><thead><tr><th>RT</th><th>Tema</th></tr></thead><tbody>
+  <tr><td class="mono">RT 54</td><td>Norma Unificada Argentina de Contabilidad (marco conceptual, reconocimiento, medición y presentación). Vigente para ejercicios iniciados desde el 1/1/2025.</td></tr>
+  <tr><td class="mono">RT 6</td><td>Estados contables en moneda homogénea (ajuste por inflación).</td></tr>
+  <tr><td class="mono">RT 21</td><td>Valor patrimonial proporcional, consolidación y combinaciones de negocios (según el alcance que hoy mantiene).</td></tr>
+  <tr><td class="mono">RT 22</td><td>Actividad agropecuaria.</td></tr>
+  <tr><td class="mono">RT 24</td><td>Cooperativas.</td></tr>
+  <tr><td class="mono">RT 26</td><td>Adopción de las NIIF y de la NIIF para PyMEs.</td></tr>
+  <tr><td class="mono">RT 37</td><td>Normas de auditoría, revisión, otros encargos de aseguramiento, certificación y servicios relacionados.</td></tr></tbody></table></div>
+  <p>Antes de la RT 54, la estructura era: RT 16 (marco conceptual), RT 17 (desarrollo de cuestiones de aplicación general), RT 8 y 9 (presentación), RT 41 (entes pequeños y medianos). Vas a encontrar referencias a ellas en balances de ejercicios anteriores a 2025.</p>`,
+  ex:[{type:"tf",items:[["Las RT de la FACPCE rigen automáticamente en todo el país, sin intervención de los Consejos","Falso","Cada CPCE las adopta para su jurisdicción."],["La CNV puede exigir normas específicas a las sociedades que cotizan","Verdadero"],["La RT 6 trata del ajuste por inflación","Verdadero"],["La RT 54 unificó en una sola norma el marco conceptual, la medición y la presentación","Verdadero"]]}]},
+ {lead:"Las NIIF son las normas contables internacionales del IASB. En Argentina son obligatorias para algunas entidades y optativas para el resto.",
+  html:`<h3>Quién las aplica en Argentina</h3><ul><li><b>Obligatorias</b> (RT 26 y normas de la CNV): las sociedades con oferta pública de acciones u obligaciones negociables, salvo algunas exceptuadas.</li><li><b>Bancos:</b> el BCRA las adoptó con algunas excepciones propias.</li><li><b>Optativas:</b> cualquier otra entidad puede elegir NIIF completas o la NIIF para PyMEs, en lugar de las normas argentinas.</li></ul>
+  <h3>Algunas normas NIIF clave</h3><div class="tw"><table><thead><tr><th>Norma</th><th>Tema</th></tr></thead><tbody>
+  <tr><td class="mono">NIC 1</td><td>Presentación de estados financieros</td></tr><tr><td class="mono">NIC 2</td><td>Inventarios (al menor entre costo y VNR)</td></tr>
+  <tr><td class="mono">NIC 16</td><td>Propiedades, planta y equipo</td></tr><tr><td class="mono">NIC 29</td><td>Información financiera en economías hiperinflacionarias</td></tr>
+  <tr><td class="mono">NIIF 9</td><td>Instrumentos financieros</td></tr><tr><td class="mono">NIIF 15</td><td>Ingresos de contratos con clientes</td></tr><tr><td class="mono">NIIF 16</td><td>Arrendamientos (casi todos los alquileres se registran como activo y pasivo)</td></tr></tbody></table></div>
+  <h3>Diferencias frecuentes con las normas argentinas</h3><ul><li><b>Inventarios:</b> NIIF usa el menor entre costo y VNR; la tradición argentina, el costo de reposición.</li><li><b>Arrendamientos:</b> NIIF 16 obliga a reconocer el derecho de uso y el pasivo; las normas argentinas mantienen un enfoque más simple para los arrendatarios.</li><li><b>Terminología:</b> “estados financieros” en NIIF, “estados contables” en las RT.</li></ul>`,
+  ex:[{type:"tf",items:[["Una sociedad que emite obligaciones negociables en la bolsa debe aplicar NIIF","Verdadero"],["Una PyME argentina no puede aplicar NIIF aunque quiera","Falso","Puede optar por NIIF completas o NIIF para PyMEs."],["La NIC 29 trata de las economías hiperinflacionarias","Verdadero"],["Según NIIF, los inventarios se miden al mayor entre costo y VNR","Falso","Al menor."]]}]},
+ {lead:"Con inflación, sumar pesos de distintas fechas es como sumar monedas distintas. El ajuste por inflación expresa todo en moneda de poder adquisitivo de cierre.",
+  html:`<h3>Cuándo se aplica</h3><p>La RT 6 se aplica cuando el contexto es de inflación alta. El indicador principal es que la inflación acumulada de tres años alcance o supere el <b>100%</b>. La FACPCE declaró que esa condición se cumplía desde los cierres del 1/7/2018 (Resolución JG 539/18). El índice que se usa es una serie que combina IPIM e IPC del INDEC.</p>
+  <h3>Partidas monetarias y no monetarias</h3><ul><li><b>Monetarias:</b> están expresadas en moneda de cierre por su naturaleza (caja, créditos y deudas en pesos sin cláusula de ajuste). No se reexpresan, pero generan un resultado por la pérdida del poder adquisitivo.</li><li><b>No monetarias:</b> mercaderías, bienes de uso, capital. Se reexpresan con el coeficiente desde su fecha de origen.</li></ul>
+  <div class="formula">Coeficiente = Índice de cierre / Índice de la fecha de origen</div>
+  <h3>RECPAM</h3><p>El <b>Resultado por Exposición al Cambio en el Poder Adquisitivo de la Moneda</b> surge por tener partidas monetarias. Tener efectivo o créditos en pesos genera una <b>pérdida</b>; tener deudas en pesos, una <b>ganancia</b>.</p>
+  <p>Ejemplo: tenés $ 1.000.000 en caja todo el año y la inflación fue 50%. Al cierre seguís teniendo $ 1.000.000, pero al inicio esos pesos valían lo que hoy valen $ 1.500.000: la pérdida por exposición es <b>$ 500.000</b>.</p>
+  <h3>Capital</h3><p>El capital social se mantiene a su valor nominal y la reexpresión se muestra en <b>Ajuste de capital</b>. Capital $ 2.000.000 aportado cuando el índice era 100, con índice de cierre 180 → reexpresado $ 3.600.000, ajuste de capital $ 1.600.000.</p>`,
+  ex:[{type:"num",items:[{q:"Un terreno se compró a $ 5.000.000 cuando el índice era 200. Al cierre el índice es 350. ¿Valor reexpresado?",a:8750000,u:"$"},{q:"Capital de $ 2.000.000 suscripto con índice 100; índice de cierre 180. ¿Ajuste de capital?",a:1600000,u:"$"},{q:"Una deuda en pesos de $ 800.000 se mantuvo todo el año con inflación del 25%. ¿RECPAM? (ganancia, sin signo)",a:200000,u:"$"}]},
+   {type:"pick",title:"¿Partida monetaria o no monetaria?",options:["Monetaria","No monetaria"],items:[["Caja en pesos","Monetaria"],["Mercaderías","No monetaria"],["Deudores por ventas en pesos","Monetaria"],["Rodados","No monetaria"],["Proveedores en pesos","Monetaria"],["Capital social","No monetaria"]]}]},
+ {lead:"Para saber si una empresa ganó, primero hay que definir qué capital tiene que mantener intacto. Recién lo que sobra es ganancia.",
+  html:`<h3>Capital financiero y capital físico</h3><ul><li><b>Capital financiero:</b> hay ganancia si el PN al cierre (en moneda homogénea) supera al del inicio, sin contar aportes y retiros. Es el que adoptan las normas argentinas.</li><li><b>Capital físico:</b> hay ganancia solo si, además, la empresa mantiene su capacidad operativa (puede reponer sus bienes). Los resultados por tenencia quedan en el PN como ajuste.</li></ul>
+  <h3>Tipos de resultados</h3><ul><li><b>Operativos:</b> ventas menos costos de la actividad principal.</li><li><b>Resultados por tenencia:</b> cambios en el valor de los activos mientras se tienen (por ejemplo, la mercadería que se encarece antes de venderla).</li><li><b>Resultados financieros:</b> intereses, diferencias de cambio, RECPAM.</li></ul>
+  <h3>Ejemplo integrador</h3><p>Compraste mercadería a $ 100. Al momento de venderla, su costo de reposición es $ 130 y la vendés a $ 160. Con valores corrientes:</p>
+  <ul><li>Resultado operativo (venta menos costo de reposición): 160 − 130 = <b>30</b>.</li><li>Resultado por tenencia: 130 − 100 = <b>30</b>.</li><li>Resultado total: 60 (igual que con costo histórico, pero mejor explicado).</li></ul>
+  <p>La separación muestra que la mitad de la ganancia vino de “comprar bien” y no de “vender bien”: información muy útil para la gestión.</p>`,
+  ex:[{type:"num",items:[{q:"Mercadería comprada a $ 200; al vender, costo de reposición $ 260; precio de venta $ 300. ¿Resultado operativo con valores corrientes?",a:40,u:"$"},{q:"¿Resultado por tenencia?",a:60,u:"$"},{q:"PN al inicio $ 10.000.000 (moneda de cierre), al cierre $ 12.500.000, aportes del año $ 1.000.000, dividendos $ 300.000. ¿Resultado del ejercicio con capital financiero?",a:1800000,u:"$",hint:"12.500.000 − 10.000.000 − 1.000.000 + 300.000"}]}]},
+],
+eval:[
+ {q:"Un modelo contable surge de definir…",o:["El plan de cuentas","Unidad de medida, criterios de medición y capital a mantener","El tipo societario","El software contable"],a:1},
+ {q:"Para reconocer un activo es necesario que el ente…",o:["Sea su propietario legal","Lo controle y espere beneficios futuros","Lo haya pagado","Lo tenga asegurado"],a:1},
+ {q:"La prevalencia de la sustancia sobre la forma corresponde al requisito de…",o:["Esencialidad","Claridad","Oportunidad","Sistematicidad"],a:0},
+ {q:"Subvaluar activos “por prudencia” viola…",o:["La neutralidad","La significación","La oportunidad","Nada"],a:0},
+ {q:"¿Quién pone en vigencia las RT en cada provincia?",o:["ARCA","El Consejo Profesional de la jurisdicción","El Congreso","La CNV"],a:1},
+ {q:"La RT 26 trata de…",o:["Ajuste por inflación","Adopción de NIIF","Cooperativas","Auditoría"],a:1},
+ {q:"La condición de inflación para aplicar la RT 6 es una inflación acumulada en 3 años de…",o:["25%","50%","100% o más","200%"],a:2},
+ {q:"Tener efectivo en pesos durante un año con inflación genera…",o:["Una ganancia por exposición","Una pérdida por exposición (RECPAM)","Un resultado por tenencia","Nada"],a:1},
+ {q:"En moneda homogénea, el capital social se muestra…",o:["Reexpresado en la misma cuenta","A valor nominal, con la reexpresión en Ajuste de capital","En el pasivo","En resultados"],a:1},
+ {q:"Las normas argentinas adoptan el concepto de capital…",o:["Físico","Financiero","Operativo","Tributario"],a:1},
+ {q:"Según NIIF, los inventarios se miden…",o:["Al costo de reposición","Al menor entre costo y VNR","Al valor razonable","Al precio de venta"],a:1},
+]};
