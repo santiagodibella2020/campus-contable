@@ -234,6 +234,22 @@ ol.lessons li.ev{list-style:"★  "}
 .vid b{color:var(--accent)}
 .vid ul{margin:6px 0 6px 18px;padding:0}
 .vid li{margin:3px 0}
+
+.sym{border-bottom:1.5px dotted var(--accent);cursor:pointer;border-radius:2px;padding:0 1px}
+.sym:hover,.sym.on{background:var(--accent-soft);color:var(--accent)}
+#symPop{position:absolute;z-index:30;background:var(--sheet);color:var(--ink);border:1px solid var(--accent);border-radius:8px;padding:10px 12px;box-shadow:0 6px 20px rgba(0,0,0,.18);font-size:.95rem;line-height:1.45}
+#symPop b{color:var(--accent)}
+#symPop div{margin-top:4px}
+.symleg{background:var(--accent-soft);border:1px solid var(--rule);border-radius:8px;padding:10px 14px;margin:0 0 16px}
+.symleg summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.symleg dl{margin:8px 0 0;display:grid;gap:8px}
+.symleg dl div{display:grid;grid-template-columns:minmax(52px,auto) 1fr;gap:10px;align-items:baseline}
+.symleg dt{font-family:var(--f-mono);font-weight:500}
+.symleg dd{margin:0;font-size:.95rem}
+.stepctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.stepctl .btn{font-size:.95rem}
+.ejr li.now{background:var(--accent-soft);border-radius:4px;outline:4px solid var(--accent-soft)}
+.ejr li{margin:4px 0}
 </style>
 <header class="top">
   <button class="menu-btn" id="menuBtn" aria-label="Abrir plan de estudios">Plan ☰</button>
@@ -5654,6 +5670,181 @@ xq(17, [
 ]);
 })();
 
+/* Símbolos y siglas: se pueden tocar en las lecciones para ver qué significan.
+   g = generales; los números son los módulos (pisan a los generales). [nombre, explicación] */
+CAMPUS.sym = {
+ g:{
+  "IVA":["Impuesto al Valor Agregado","Impuesto que se paga sobre el consumo. La alícuota general es 21%."],
+  "PN":["Patrimonio neto","Lo que es de los dueños: Activo − Pasivo."],
+  "CMV":["Costo de mercaderías vendidas","Lo que costó la mercadería que se vendió."],
+  "ARCA":["Agencia de Recaudación y Control Aduanero","El organismo que cobra los impuestos nacionales (ex AFIP)."],
+  "RT":["Resolución Técnica","Norma contable profesional que aprueba la FACPCE."],
+  "%":["Por ciento","“De cada 100”. 21% = 21/100 = 0,21."],
+  "Δ":["Delta: variación","Cuánto cambió algo. ΔCT es cuánto cambió el costo total."],
+  "ln":["Logaritmo natural","La tecla “ln” de la calculadora. Sirve para despejar un exponente."],
+  "√":["Raíz cuadrada","El número que multiplicado por sí mismo da el de adentro: √16 = 4."],
+  "Σ":["Sumatoria","“Sumá todos”. Σ x significa sumar todos los valores de x."]
+ },
+ 2:{
+  "x":["Incógnita o variable","El número que no conocemos y queremos encontrar, o el valor de entrada de una función."],
+  "y":["Variable de salida","El resultado de la función para cada x."],
+  "m":["Pendiente","Cuánto sube y cuando x aumenta 1. En costos, el costo variable por unidad."],
+  "b":["Ordenada al origen (o coeficiente b)","En una recta: el valor de y cuando x = 0. En una cuadrática a·x² + b·x + c: el número que acompaña a x."],
+  "a":["Coeficiente a","En a·x² + b·x + c, el número que acompaña a x². Si es negativo, la parábola tiene un máximo."],
+  "c":["Término independiente","En a·x² + b·x + c, el número que está solo, sin x."],
+  "q":["Cantidad","Unidades producidas o vendidas."],
+  "p":["Precio","Precio de venta de cada unidad."],
+  "C":["Capital","El dinero inicial."],
+  "M":["Monto","El dinero al final, con los intereses."],
+  "i":["Tasa de interés","Por período y en decimal: 5% = 0,05."],
+  "t":["Tiempo","Cantidad de períodos."],
+  "IT":["Ingreso total","Lo que cobrás por vender: precio × cantidad (p · q)."],
+  "CT":["Costo total","Todo lo que cuesta producir q unidades: costo fijo + costo variable."],
+  "CF":["Costo fijo","No cambia con la cantidad: alquiler, sueldos administrativos."],
+  "cv":["Costo variable unitario","Lo que cuesta cada unidad extra: materia prima, comisiones."],
+  "B":["Beneficio","Ganancia: ingreso total − costo total."],
+  "B'":["Derivada del beneficio","Cuánto cambia la ganancia por una unidad más. En el máximo vale 0."],
+  "B''":["Segunda derivada del beneficio","Si es negativa, el punto encontrado es un máximo."],
+  "IMg":["Ingreso marginal","Lo que agrega al ingreso vender una unidad más. Es la derivada del IT."],
+  "CMg":["Costo marginal","Lo que cuesta producir una unidad más. Es la derivada del CT."],
+  "CMe":["Costo medio","Costo por unidad: CT / q."],
+  "q*":["Cantidad de equilibrio","La cantidad donde no ganás ni perdés (B = 0)."],
+  "f'(x)":["Derivada de f","La pendiente de la función f en el punto x."],
+  "CT'(q)":["Derivada del costo total","El costo marginal: cuánto cuesta una unidad más."],
+  "det":["Determinante","Número que se calcula con una matriz cuadrada: a·d − b·c en una de 2 × 2."],
+  "detₓ":["Determinante de x","El determinante con la columna de x reemplazada por los términos independientes."],
+  "x_vértice":["x del vértice","La x donde la parábola llega a su máximo o mínimo: −b / (2a)."]
+ },
+ 3:{
+  "n":["Cantidad de datos","Cuántos datos hay (en la muestra o la población)."],
+  "f":["Frecuencia absoluta","Cuántas veces aparece un valor."],
+  "F":["Frecuencia acumulada","Cuántos datos hay hasta ese valor, inclusive."],
+  "f/n":["Frecuencia relativa","La proporción de veces que aparece un valor."],
+  "σ":["Sigma: desvío estándar","Cuánto se alejan, en promedio, los datos de la media."],
+  "σ²":["Varianza","El promedio de los desvíos al cuadrado."],
+  "μ":["Mu: media de la población","El promedio de toda la población."],
+  "CV":["Coeficiente de variación","σ / media. Compara dispersión entre series de distinto tamaño."],
+  "z":["Valor z","A cuántos desvíos de la media está un dato: (x − μ) / σ."],
+  "x":["Un dato","Cada valor observado."],
+  "xᵢ":["El dato número i","x₁ es el primero, x₂ el segundo, y así."],
+  "P(A)":["Probabilidad de A","Qué tan posible es que pase A, entre 0 y 1."],
+  "P(A | B)":["Probabilidad condicional","Probabilidad de A sabiendo que ya pasó B."],
+  "Q1":["Primer cuartil","Deja por debajo el 25% de los datos."],
+  "Q2":["Segundo cuartil","La mediana: deja por debajo el 50%."],
+  "Q3":["Tercer cuartil","Deja por debajo el 75% de los datos."],
+  "H₀":["Hipótesis nula","Lo que se supone cierto hasta que los datos muestren lo contrario."],
+  "α":["Alfa: nivel de significación","El riesgo aceptado de rechazar H₀ siendo verdadera (por ejemplo, 5%)."],
+  "E":["Error máximo","El margen de error que aceptás al estimar."],
+  "IPC":["Índice de Precios al Consumidor","Mide cómo cambian los precios de una canasta de consumo. Lo publica el INDEC."],
+  "PPP":["Precio promedio ponderado","Promedio de precios pesado por las cantidades compradas."]
+ },
+ 4:{
+  "Qd":["Cantidad demandada","Cuánto quieren comprar los consumidores a cada precio."],
+  "Qo":["Cantidad ofrecida","Cuánto quieren vender las empresas a cada precio."],
+  "p":["Precio","Precio de venta del bien."],
+  "q":["Cantidad","Unidades producidas o vendidas."],
+  "Q":["Cantidad de equilibrio","La cantidad que se compra y se vende en el equilibrio."],
+  "CT":["Costo total","CF + CV."],
+  "CF":["Costo fijo","No cambia con la producción."],
+  "CV":["Costo variable","Cambia con la producción."],
+  "CMe":["Costo medio","CT / q: costo por unidad."],
+  "CVMe":["Costo variable medio","CV / q. Si el precio no lo cubre, conviene cerrar en el corto plazo."],
+  "CMg":["Costo marginal","Lo que cuesta producir una unidad más."],
+  "IMg":["Ingreso marginal","Lo que agrega vender una unidad más."],
+  "IT":["Ingreso total","Precio × cantidad."]
+ },
+ 5:{
+  "PBI":["Producto Bruto Interno","Valor de los bienes y servicios finales producidos en el país en un período."],
+  "C":["Consumo","Gasto de los hogares."],
+  "I":["Inversión","Compra de máquinas, construcciones y aumento de stocks."],
+  "G":["Gasto del gobierno","Compras del Estado."],
+  "X":["Exportaciones","Lo que el país vende al exterior."],
+  "M":["Importaciones","Lo que el país compra al exterior."],
+  "c":["Propensión marginal a consumir","De cada peso extra de ingreso, cuánto se gasta (0,8 = 80 centavos)."],
+  "PNB":["Producto Nacional Bruto","Lo producido por los residentes del país, estén donde estén."],
+  "M1":["Agregado monetario M1","Billetes en manos del público más cuentas corrientes."],
+  "M2":["Agregado monetario M2","M1 más cajas de ahorro."],
+  "M3":["Agregado monetario M3","M2 más plazos fijos y otros depósitos."],
+  "BCRA":["Banco Central de la República Argentina","Emite el peso y regula a los bancos."],
+  "TCN":["Tipo de cambio nominal","Cuántos pesos cuesta un dólar."],
+  "TCR":["Tipo de cambio real","El tipo de cambio corregido por la inflación de los dos países."],
+  "P*":["Precios externos","Nivel de precios del otro país."],
+  "P":["Precios internos","Nivel de precios de Argentina."],
+  "PEA":["Población económicamente activa","Ocupados + desocupados."],
+  "CBA":["Canasta Básica Alimentaria","Lo mínimo en alimentos. Quien no la cubre es indigente."],
+  "CBT":["Canasta Básica Total","Alimentos + otros bienes y servicios. Quien no la cubre es pobre."],
+  "INDEC":["Instituto Nacional de Estadística y Censos","Publica las estadísticas oficiales."],
+  "EMAE":["Estimador Mensual de Actividad Económica","Cómo evoluciona la actividad mes a mes."],
+  "EPH":["Encuesta Permanente de Hogares","De ahí salen empleo, desocupación y pobreza."]
+ },
+ 9:{
+  "PEPS":["Primero entrado, primero salido","Lo primero que se compró es lo primero que se considera vendido."],
+  "EI":["Existencia inicial","Mercadería al principio del período."],
+  "EF":["Existencia final","Mercadería que queda al final (según el recuento)."]
+ },
+ 11:{
+  "C":["Capital","El dinero inicial (lo que depositás o te prestan)."],
+  "M":["Monto","Capital + intereses al final."],
+  "I":["Interés","La ganancia (o el costo) por el uso del dinero."],
+  "i":["Tasa por período","En decimal: 3% = 0,03."],
+  "n":["Cantidad de períodos","En la misma unidad que la tasa."],
+  "TNA":["Tasa nominal anual","La tasa “de vidriera”, sin capitalizar."],
+  "TEM":["Tasa efectiva mensual","Lo que rinde de verdad en 30 días."],
+  "TEA":["Tasa efectiva anual","Lo que rinde en un año reinvirtiendo los intereses."],
+  "CFT":["Costo financiero total","Tasa + gastos + seguros + impuestos de un préstamo."],
+  "D":["Descuento","La quita al cobrar un documento antes del vencimiento."],
+  "N":["Valor nominal","El importe escrito en el documento."],
+  "d":["Tasa de descuento","Se aplica sobre el valor nominal."],
+  "VA":["Valor actual","Cuánto vale hoy un importe futuro."],
+  "VF":["Valor futuro (final)","Cuánto se junta al final."],
+  "c":["Cuota","El pago de cada período."],
+  "V":["Valor del préstamo","El capital prestado."],
+  "VAN":["Valor actual neto","Flujos futuros traídos a hoy menos la inversión. Si es positivo, conviene."],
+  "TIR":["Tasa interna de retorno","La tasa que hace VAN = 0."],
+  "k":["Costo de capital","La tasa mínima que tiene que rendir el proyecto."],
+  "I₀":["Inversión inicial","Lo que se pone en el año 0."],
+  "F₁":["Flujo del año 1","Lo que entra (o sale) en el año 1."],
+  "r":["Tasa real","Lo que se gana descontada la inflación."],
+  "π":["Pi: inflación","La tasa de inflación del período."],
+  "UVA":["Unidad de Valor Adquisitivo","Unidad que se actualiza por inflación (CER)."],
+  "CER":["Coeficiente de Estabilización de Referencia","Índice diario basado en la inflación."]
+ },
+ 14:{
+  "RECPAM":["Resultado por exposición al cambio en el poder adquisitivo de la moneda","Lo que se gana o pierde por tener partidas monetarias con inflación."]
+ },
+ 17:{
+  "MP":["Materia prima","Los materiales que forman el producto."],
+  "MOD":["Mano de obra directa","El trabajo de quienes transforman la materia prima."],
+  "CIF":["Costos indirectos de fabricación","La carga fabril: todo lo demás de la fábrica."],
+  "OT":["Orden de trabajo","Cada pedido distinto en el costeo por órdenes."]
+ },
+ 18:{
+  "CF":["Costos fijos","No cambian con el volumen."],
+  "cv":["Costo variable unitario","Lo que cuesta cada unidad extra."],
+  "p":["Precio de venta","Por unidad."],
+  "Q":["Cantidad","Unidades."],
+  "EI":["Existencia inicial","Stock al principio."],
+  "EF":["Existencia final","Stock que se quiere tener al final."]
+ },
+ 23:{
+  "β":["Beta","Cuánto se mueve la acción respecto del mercado. β = 1,2: un 20% más."],
+  "CAPM":["Modelo de valuación de activos de capital","Rendimiento exigido = libre de riesgo + β × prima de mercado."],
+  "WACC":["Costo promedio ponderado del capital","Mezcla del costo de la deuda y del capital propio."],
+  "ke":["Costo del capital propio","Lo que exigen los accionistas."],
+  "kd":["Costo de la deuda","La tasa de los préstamos."],
+  "t":["Alícuota del impuesto","Tasa del impuesto a las ganancias."],
+  "E":["Capital propio (equity)","El financiamiento de los dueños."],
+  "D":["Deuda","El financiamiento de terceros."],
+  "V":["Valor total","E + D."],
+  "ROE":["Rentabilidad del patrimonio neto","Resultado / PN."],
+  "ROA":["Rentabilidad del activo","Resultado / Activo."]
+ },
+ 24:{
+  "ROE":["Rentabilidad del patrimonio neto","Resultado neto / PN: cuánto ganan los dueños por cada peso que pusieron."],
+  "ROA":["Rentabilidad del activo","Resultado / Activo."]
+ }
+};
+
 /* Glosario: [término, definición, módulo] */
 CAMPUS.glosario = [
 ["Activo","Recursos que controla el ente por hechos pasados y de los que espera beneficios económicos futuros.",1],
@@ -6104,12 +6295,98 @@ function LESSON(v, n, i){
   <div id="lessonDone"></div>
   ${lessonSrc(n,L)}
   <div class="pager">${i>0?`<a href="#${lid(n,i-1)}">← ${esc(m.l[i-1])}</a>`:`<a href="#m${n}">← Módulo ${n}</a>`}${i<m.l.length-1?`<a href="#${lid(n,i+1)}">${esc(m.l[i+1])} →</a>`:(hasTP(n)?`<a href="#m${n}-tp">Trabajo práctico →</a>`:`<a href="#m${n}-eval">Evaluación del módulo →</a>`)}</div>`;
+  enhanceLesson($(".prose",v), n);
   const left = new Set(exs.map((_,k)=>k));
   const finish = ()=>{ if(!state.done[id]){ complete(id); $("#lessonDone").innerHTML = fbHTML(true,`Lección ${n}.${i+1} completada.`); } };
   exs.forEach((e,k)=>EX[e.type](e, $(`#ex-${id}-${k}`), ()=>{ left.delete(k); if(!left.size) finish(); }));
   if(!exs.length) $("#readBtn").onclick = ()=>{ finish(); $("#readBtn").textContent="Lección leída ✓"; };
   if(state.done[id]) $("#lessonDone").innerHTML = `<p class="src">Ya completaste esta lección. Podés repetir los ejercicios para practicar.</p>`;
 }
+
+/* ---------- lecciones interactivas: símbolos que se tocan y ejemplos paso a paso ---------- */
+const reEsc = t => t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+const SPANISH1 = new Set(["a","y","o","e"]);
+function symDict(n){ return Object.assign({}, (CAMPUS.sym&&CAMPUS.sym.g)||{}, (CAMPUS.sym&&CAMPUS.sym[n])||{}); }
+function decorateSyms(root, n){
+  const D = symDict(n); const keys = Object.keys(D).sort((a,b)=>b.length-a.length);
+  if(!keys.length) return [];
+  const OP = "[=·×+\\-−/()²³'ⁿ<>≤≥]";
+  const multi = keys.filter(k=>k.length>1 || !/[A-Za-z]/.test(k));
+  const single = keys.filter(k=>k.length===1 && /[A-Za-z]/.test(k));
+  const B = "(?<![\\p{L}\\p{N}_'*])", A = "(?![\\p{L}\\p{N}_'*ₓ])";
+  const reMulti = multi.length ? new RegExp(multi.map(k=>B+reEsc(k)+(/[\p{L}\p{N}]$/u.test(k)?A:"")).join("|"),"gu") : null;
+  const reSingleMath = single.length ? new RegExp(single.filter(k=>!SPANISH1.has(k)).map(k=>`(?:${B}${k}${A}(?=\\s*${OP}))|(?:(?<=${OP}\\s*)${k}${A})`).join("|")||"(?!)","gu") : null;
+  const reSingleAll = single.length ? new RegExp(single.map(k=>B+k+A).join("|"),"gu") : null;
+  const found = new Set();
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode(t){
+    const pe = t.parentElement; if(!pe || pe.closest("a,button,textarea,input,.sym,.vid,.symleg,h1,h2,h3,script,style,label")) return NodeFilter.FILTER_REJECT;
+    return t.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; }});
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(t=>{
+    const inMath = !!t.parentElement.closest(".formula,.mono");
+    const regs = [reMulti, inMath?reSingleAll:reSingleMath].filter(Boolean);
+    const txt = t.nodeValue; const hits=[];
+    regs.forEach(re=>{ re.lastIndex=0; let m; while((m=re.exec(txt))){ if(!m[0]){ re.lastIndex++; continue; } hits.push([m.index, m[0]]); } });
+    if(!hits.length) return;
+    hits.sort((x,y)=>x[0]-y[0]||y[1].length-x[1].length);
+    const frag=document.createDocumentFragment(); let pos=0;
+    hits.forEach(([i,k])=>{ if(i<pos || !D[k]) return; frag.appendChild(document.createTextNode(txt.slice(pos,i)));
+      const s=document.createElement("span"); s.className="sym"; s.tabIndex=0; s.setAttribute("role","button"); s.dataset.k=k; s.dataset.n=n; s.textContent=k; s.setAttribute("aria-label",k+": "+D[k][0]);
+      frag.appendChild(s); found.add(k); pos=i+k.length; });
+    frag.appendChild(document.createTextNode(txt.slice(pos))); t.parentNode.replaceChild(frag,t);
+  });
+  return [...found].filter(k=>D[k]);
+}
+function symLegend(root, n, found){
+  if(!found.length) return;
+  const D = symDict(n);
+  const d = document.createElement("details"); d.className="symleg";
+  d.innerHTML = `<summary>¿Qué significa cada letra y sigla de esta lección? (${found.length})</summary><p class="src">También podés tocar cualquier letra o sigla subrayada con puntos en el texto.</p><dl>${found.sort((a,b)=>a.localeCompare(b)).map(k=>`<div><dt>${esc(k)}</dt><dd><b>${esc(D[k][0])}.</b> ${esc(D[k][1])}</dd></div>`).join("")}</dl>`;
+  root.insertBefore(d, root.firstChild);
+}
+let symPop=null;
+function showSym(el){
+  const D = symDict(+el.dataset.n), e = D[el.dataset.k]; if(!e) return;
+  if(!symPop){ symPop=document.createElement("div"); symPop.id="symPop"; symPop.setAttribute("role","dialog"); document.body.appendChild(symPop); }
+  symPop.innerHTML = `<b>${esc(el.dataset.k)}</b> · ${esc(e[0])}<div>${esc(e[1])}</div>`;
+  symPop.hidden=false;
+  const r = el.getBoundingClientRect(), w = Math.min(300, window.innerWidth-24);
+  symPop.style.width = w+"px";
+  symPop.style.left = Math.max(12, Math.min(window.scrollX + r.left, window.scrollX + window.innerWidth - w - 12))+"px";
+  symPop.style.top = (window.scrollY + r.bottom + 6)+"px";
+  document.querySelectorAll(".sym.on").forEach(x=>x.classList.remove("on")); el.classList.add("on");
+}
+function hideSym(){ if(symPop) symPop.hidden=true; document.querySelectorAll(".sym.on").forEach(x=>x.classList.remove("on")); }
+document.addEventListener("click", e=>{ const s=e.target.closest(".sym"); if(s){ e.preventDefault(); if(s.classList.contains("on")) hideSym(); else showSym(s); } else if(!e.target.closest("#symPop")) hideSym(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") hideSym(); const s=e.target.closest&&e.target.closest(".sym"); if(s&&(e.key==="Enter"||e.key===" ")){ e.preventDefault(); showSym(s); } });
+window.addEventListener("hashchange", hideSym);
+
+function stepper(box){
+  const ol = [...box.children].find(c=>c.tagName==="OL"); if(!ol) return;
+  const steps = [...ol.children].filter(c=>c.tagName==="LI"); if(steps.length<2) return;
+  const after = []; let sib = ol.nextSibling; while(sib){ after.push(sib); sib=sib.nextSibling; }
+  const ctl = document.createElement("div"); ctl.className="stepctl";
+  ol.after(ctl);
+  let k = 0;
+  const wrapAfter = document.createElement("div"); wrapAfter.className="after"; after.forEach(x=>wrapAfter.appendChild(x)); ctl.after(wrapAfter);
+  function draw(){
+    steps.forEach((li,j)=>{ li.hidden = j>=k; li.classList.toggle("now", j===k-1 && k<steps.length); });
+    ol.hidden = k===0; wrapAfter.hidden = k<steps.length;
+    const all = k>=steps.length;
+    ctl.innerHTML = all
+      ? `<span class="src">Resolución completa: ${steps.length} pasos.</span><button type="button" class="btn ghost" data-s="reset">Volver a empezar</button>`
+      : `<button type="button" class="btn" data-s="next">${k===0?"Ver el paso 1":`Siguiente paso (${k+1} de ${steps.length})`}</button>${k>0?`<button type="button" class="btn ghost" data-s="all">Ver todo</button>`:`<button type="button" class="btn ghost" data-s="all">Ver la resolución completa</button>`}<span class="src">${k===0?`Pensalo vos primero. Tiene ${steps.length} pasos.`:`Paso ${k} de ${steps.length}`}</span>`;
+  }
+  ctl.addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return;
+    if(b.dataset.s==="next") k++; else if(b.dataset.s==="all") k=steps.length; else k=0;
+    draw(); if(b.dataset.s==="next"){ const li=steps[k-1]; if(li && li.getBoundingClientRect().bottom > window.innerHeight-80) li.scrollIntoView({block:"center",behavior:"smooth"}); } });
+  draw();
+}
+function enhanceLesson(prose, n){
+  try{ const found = decorateSyms(prose, n); symLegend(prose, n, found); }catch(e){}
+  prose.querySelectorAll(".ejr").forEach(stepper);
+}
+
 const EVAL_N = 15;
 function EVAL(v, n){
   const m = MOD(n); const Q = CAMPUS.content[n].eval.concat((CAMPUS.xeval&&CAMPUS.xeval[n])||[]); const K = Math.min(EVAL_N, Q.length);

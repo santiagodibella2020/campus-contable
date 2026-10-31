@@ -316,12 +316,98 @@ function LESSON(v, n, i){
   <div id="lessonDone"></div>
   ${lessonSrc(n,L)}
   <div class="pager">${i>0?`<a href="#${lid(n,i-1)}">← ${esc(m.l[i-1])}</a>`:`<a href="#m${n}">← Módulo ${n}</a>`}${i<m.l.length-1?`<a href="#${lid(n,i+1)}">${esc(m.l[i+1])} →</a>`:(hasTP(n)?`<a href="#m${n}-tp">Trabajo práctico →</a>`:`<a href="#m${n}-eval">Evaluación del módulo →</a>`)}</div>`;
+  enhanceLesson($(".prose",v), n);
   const left = new Set(exs.map((_,k)=>k));
   const finish = ()=>{ if(!state.done[id]){ complete(id); $("#lessonDone").innerHTML = fbHTML(true,`Lección ${n}.${i+1} completada.`); } };
   exs.forEach((e,k)=>EX[e.type](e, $(`#ex-${id}-${k}`), ()=>{ left.delete(k); if(!left.size) finish(); }));
   if(!exs.length) $("#readBtn").onclick = ()=>{ finish(); $("#readBtn").textContent="Lección leída ✓"; };
   if(state.done[id]) $("#lessonDone").innerHTML = `<p class="src">Ya completaste esta lección. Podés repetir los ejercicios para practicar.</p>`;
 }
+
+/* ---------- lecciones interactivas: símbolos que se tocan y ejemplos paso a paso ---------- */
+const reEsc = t => t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+const SPANISH1 = new Set(["a","y","o","e"]);
+function symDict(n){ return Object.assign({}, (CAMPUS.sym&&CAMPUS.sym.g)||{}, (CAMPUS.sym&&CAMPUS.sym[n])||{}); }
+function decorateSyms(root, n){
+  const D = symDict(n); const keys = Object.keys(D).sort((a,b)=>b.length-a.length);
+  if(!keys.length) return [];
+  const OP = "[=·×+\\-−/()²³'ⁿ<>≤≥]";
+  const multi = keys.filter(k=>k.length>1 || !/[A-Za-z]/.test(k));
+  const single = keys.filter(k=>k.length===1 && /[A-Za-z]/.test(k));
+  const B = "(?<![\\p{L}\\p{N}_'*])", A = "(?![\\p{L}\\p{N}_'*ₓ])";
+  const reMulti = multi.length ? new RegExp(multi.map(k=>B+reEsc(k)+(/[\p{L}\p{N}]$/u.test(k)?A:"")).join("|"),"gu") : null;
+  const reSingleMath = single.length ? new RegExp(single.filter(k=>!SPANISH1.has(k)).map(k=>`(?:${B}${k}${A}(?=\\s*${OP}))|(?:(?<=${OP}\\s*)${k}${A})`).join("|")||"(?!)","gu") : null;
+  const reSingleAll = single.length ? new RegExp(single.map(k=>B+k+A).join("|"),"gu") : null;
+  const found = new Set();
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode(t){
+    const pe = t.parentElement; if(!pe || pe.closest("a,button,textarea,input,.sym,.vid,.symleg,h1,h2,h3,script,style,label")) return NodeFilter.FILTER_REJECT;
+    return t.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; }});
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(t=>{
+    const inMath = !!t.parentElement.closest(".formula,.mono");
+    const regs = [reMulti, inMath?reSingleAll:reSingleMath].filter(Boolean);
+    const txt = t.nodeValue; const hits=[];
+    regs.forEach(re=>{ re.lastIndex=0; let m; while((m=re.exec(txt))){ if(!m[0]){ re.lastIndex++; continue; } hits.push([m.index, m[0]]); } });
+    if(!hits.length) return;
+    hits.sort((x,y)=>x[0]-y[0]||y[1].length-x[1].length);
+    const frag=document.createDocumentFragment(); let pos=0;
+    hits.forEach(([i,k])=>{ if(i<pos || !D[k]) return; frag.appendChild(document.createTextNode(txt.slice(pos,i)));
+      const s=document.createElement("span"); s.className="sym"; s.tabIndex=0; s.setAttribute("role","button"); s.dataset.k=k; s.dataset.n=n; s.textContent=k; s.setAttribute("aria-label",k+": "+D[k][0]);
+      frag.appendChild(s); found.add(k); pos=i+k.length; });
+    frag.appendChild(document.createTextNode(txt.slice(pos))); t.parentNode.replaceChild(frag,t);
+  });
+  return [...found].filter(k=>D[k]);
+}
+function symLegend(root, n, found){
+  if(!found.length) return;
+  const D = symDict(n);
+  const d = document.createElement("details"); d.className="symleg";
+  d.innerHTML = `<summary>¿Qué significa cada letra y sigla de esta lección? (${found.length})</summary><p class="src">También podés tocar cualquier letra o sigla subrayada con puntos en el texto.</p><dl>${found.sort((a,b)=>a.localeCompare(b)).map(k=>`<div><dt>${esc(k)}</dt><dd><b>${esc(D[k][0])}.</b> ${esc(D[k][1])}</dd></div>`).join("")}</dl>`;
+  root.insertBefore(d, root.firstChild);
+}
+let symPop=null;
+function showSym(el){
+  const D = symDict(+el.dataset.n), e = D[el.dataset.k]; if(!e) return;
+  if(!symPop){ symPop=document.createElement("div"); symPop.id="symPop"; symPop.setAttribute("role","dialog"); document.body.appendChild(symPop); }
+  symPop.innerHTML = `<b>${esc(el.dataset.k)}</b> · ${esc(e[0])}<div>${esc(e[1])}</div>`;
+  symPop.hidden=false;
+  const r = el.getBoundingClientRect(), w = Math.min(300, window.innerWidth-24);
+  symPop.style.width = w+"px";
+  symPop.style.left = Math.max(12, Math.min(window.scrollX + r.left, window.scrollX + window.innerWidth - w - 12))+"px";
+  symPop.style.top = (window.scrollY + r.bottom + 6)+"px";
+  document.querySelectorAll(".sym.on").forEach(x=>x.classList.remove("on")); el.classList.add("on");
+}
+function hideSym(){ if(symPop) symPop.hidden=true; document.querySelectorAll(".sym.on").forEach(x=>x.classList.remove("on")); }
+document.addEventListener("click", e=>{ const s=e.target.closest(".sym"); if(s){ e.preventDefault(); if(s.classList.contains("on")) hideSym(); else showSym(s); } else if(!e.target.closest("#symPop")) hideSym(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") hideSym(); const s=e.target.closest&&e.target.closest(".sym"); if(s&&(e.key==="Enter"||e.key===" ")){ e.preventDefault(); showSym(s); } });
+window.addEventListener("hashchange", hideSym);
+
+function stepper(box){
+  const ol = [...box.children].find(c=>c.tagName==="OL"); if(!ol) return;
+  const steps = [...ol.children].filter(c=>c.tagName==="LI"); if(steps.length<2) return;
+  const after = []; let sib = ol.nextSibling; while(sib){ after.push(sib); sib=sib.nextSibling; }
+  const ctl = document.createElement("div"); ctl.className="stepctl";
+  ol.after(ctl);
+  let k = 0;
+  const wrapAfter = document.createElement("div"); wrapAfter.className="after"; after.forEach(x=>wrapAfter.appendChild(x)); ctl.after(wrapAfter);
+  function draw(){
+    steps.forEach((li,j)=>{ li.hidden = j>=k; li.classList.toggle("now", j===k-1 && k<steps.length); });
+    ol.hidden = k===0; wrapAfter.hidden = k<steps.length;
+    const all = k>=steps.length;
+    ctl.innerHTML = all
+      ? `<span class="src">Resolución completa: ${steps.length} pasos.</span><button type="button" class="btn ghost" data-s="reset">Volver a empezar</button>`
+      : `<button type="button" class="btn" data-s="next">${k===0?"Ver el paso 1":`Siguiente paso (${k+1} de ${steps.length})`}</button>${k>0?`<button type="button" class="btn ghost" data-s="all">Ver todo</button>`:`<button type="button" class="btn ghost" data-s="all">Ver la resolución completa</button>`}<span class="src">${k===0?`Pensalo vos primero. Tiene ${steps.length} pasos.`:`Paso ${k} de ${steps.length}`}</span>`;
+  }
+  ctl.addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return;
+    if(b.dataset.s==="next") k++; else if(b.dataset.s==="all") k=steps.length; else k=0;
+    draw(); if(b.dataset.s==="next"){ const li=steps[k-1]; if(li && li.getBoundingClientRect().bottom > window.innerHeight-80) li.scrollIntoView({block:"center",behavior:"smooth"}); } });
+  draw();
+}
+function enhanceLesson(prose, n){
+  try{ const found = decorateSyms(prose, n); symLegend(prose, n, found); }catch(e){}
+  prose.querySelectorAll(".ejr").forEach(stepper);
+}
+
 const EVAL_N = 15;
 function EVAL(v, n){
   const m = MOD(n); const Q = CAMPUS.content[n].eval.concat((CAMPUS.xeval&&CAMPUS.xeval[n])||[]); const K = Math.min(EVAL_N, Q.length);

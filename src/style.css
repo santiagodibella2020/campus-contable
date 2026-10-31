@@ -225,3 +225,19 @@ ol.lessons li.ev{list-style:"★  "}
 .vid b{color:var(--accent)}
 .vid ul{margin:6px 0 6px 18px;padding:0}
 .vid li{margin:3px 0}
+
+.sym{border-bottom:1.5px dotted var(--accent);cursor:pointer;border-radius:2px;padding:0 1px}
+.sym:hover,.sym.on{background:var(--accent-soft);color:var(--accent)}
+#symPop{position:absolute;z-index:30;background:var(--sheet);color:var(--ink);border:1px solid var(--accent);border-radius:8px;padding:10px 12px;box-shadow:0 6px 20px rgba(0,0,0,.18);font-size:.95rem;line-height:1.45}
+#symPop b{color:var(--accent)}
+#symPop div{margin-top:4px}
+.symleg{background:var(--accent-soft);border:1px solid var(--rule);border-radius:8px;padding:10px 14px;margin:0 0 16px}
+.symleg summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.symleg dl{margin:8px 0 0;display:grid;gap:8px}
+.symleg dl div{display:grid;grid-template-columns:minmax(52px,auto) 1fr;gap:10px;align-items:baseline}
+.symleg dt{font-family:var(--f-mono);font-weight:500}
+.symleg dd{margin:0;font-size:.95rem}
+.stepctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.stepctl .btn{font-size:.95rem}
+.ejr li.now{background:var(--accent-soft);border-radius:4px;outline:4px solid var(--accent-soft)}
+.ejr li{margin:4px 0}
