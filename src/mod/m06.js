@@ -15,7 +15,8 @@ lessons:[
   <tr><td>Clásica</td><td>Henri Fayol</td><td>Funciones del administrador: prever, organizar, dirigir, coordinar, controlar.</td></tr>
   <tr><td>Burocrática</td><td>Max Weber</td><td>Reglas formales, jerarquía, autoridad basada en el cargo.</td></tr>
   <tr><td>Relaciones humanas</td><td>Elton Mayo</td><td>La motivación y el grupo influyen en la productividad.</td></tr>
-  <tr><td>Sistémica y contingente</td><td>Von Bertalanffy, Lawrence y Lorsch</td><td>No hay una única mejor forma: depende del contexto.</td></tr></tbody></table></div>`,
+  <tr><td>Sistémica y contingente</td><td>Von Bertalanffy, Lawrence y Lorsch</td><td>No hay una única mejor forma: depende del contexto.</td></tr></tbody></table></div>
+  ${CAMPUS.vid([["Las organizaciones","las organizaciones administracion explicacion"]])}`,
   ex:[{type:"pick",title:"¿Qué escuela representa cada idea?",options:["Científica","Clásica","Burocrática","Relaciones humanas","Contingente"],items:[
     ["Medir con cronómetro cuánto tarda un operario en cada tarea","Científica"],["Definir las funciones de prever, organizar, dirigir, coordinar y controlar","Clásica"],
     ["Manuales de procedimiento y jerarquías formales","Burocrática"],["Los experimentos de Hawthorne sobre la motivación","Relaciones humanas"],["La estructura ideal depende del contexto de la empresa","Contingente"]]}]},
@@ -26,7 +27,8 @@ lessons:[
   <ul><li><b>FODA:</b> Fortalezas y Debilidades (internas), Oportunidades y Amenazas (externas).</li>
   <li><b>Cinco fuerzas de Porter:</b> rivalidad entre competidores, amenaza de nuevos ingresantes, de sustitutos, poder de negociación de clientes y de proveedores.</li>
   <li><b>Estrategias genéricas de Porter:</b> liderazgo en costos, diferenciación o enfoque en un nicho.</li>
-  <li><b>PESTEL:</b> factores políticos, económicos, sociales, tecnológicos, ecológicos y legales del contexto.</li></ul>`,
+  <li><b>PESTEL:</b> factores políticos, económicos, sociales, tecnológicos, ecológicos y legales del contexto.</li></ul>
+  ${CAMPUS.vid([["Planeamiento estratégico","planeamiento estratégico administracion explicacion"]])}`,
   ex:[{type:"pick",title:"Clasificá en el FODA de un estudio contable",options:["Fortaleza","Debilidad","Oportunidad","Amenaza"],items:[
     ["Equipo con mucha experiencia en impuestos","Fortaleza"],["No tiene un sistema de gestión de clientes","Debilidad"],["Cambios normativos frecuentes que generan demanda de asesoramiento","Oportunidad"],
     ["Software que automatiza liquidaciones simples a bajo costo","Amenaza"],["Dependencia de dos clientes que explican el 60% de los honorarios","Debilidad"],["Crecimiento de emprendedores que necesitan inscribirse","Oportunidad"]]}]},
@@ -37,7 +39,8 @@ lessons:[
   <h3>Tipos de estructura</h3><ul><li><b>Funcional:</b> por áreas especializadas. Simple y eficiente, pero puede generar “silos”.</li>
   <li><b>Divisional:</b> por producto o región, cada división casi autónoma.</li><li><b>Matricial:</b> doble dependencia (función y proyecto).</li></ul>
   <div class="note"><b>Oposición de intereses.</b> Un principio del control interno es separar funciones: quien autoriza una compra no debería ser quien registra el pago ni quien custodia el dinero. Esto se diseña desde la estructura y lo vemos en el Módulo 10.</div>
-  <h3>Manuales</h3><p>La estructura se documenta en manuales de organización (funciones de cada puesto), de procedimientos (cómo se hace cada tarea) y de políticas (criterios para decidir).</p>`,
+  <h3>Manuales</h3><p>La estructura se documenta en manuales de organización (funciones de cada puesto), de procedimientos (cómo se hace cada tarea) y de políticas (criterios para decidir).</p>
+  ${CAMPUS.vid([["Estructura organizacional","estructura organizacional administracion explicacion"]])}`,
   ex:[{type:"tf",items:[["Una estructura funcional agrupa las tareas por especialidad","Verdadero"],["En una matricial cada empleado tiene un único jefe","Falso","Tiene doble dependencia."],["La auditoría interna suele ser un órgano de staff","Verdadero"],["Es buena práctica que la misma persona autorice, pague y registre las compras","Falso","Viola la oposición de intereses."]]}]},
  {lead:"Dirigir es lograr que las personas hagan lo planificado. Implica liderar, motivar, comunicar y decidir.",
   html:`<h3>Teorías de la motivación</h3><ul><li><b>Maslow:</b> pirámide de necesidades (fisiológicas, seguridad, sociales, estima, autorrealización).</li>
@@ -45,13 +48,15 @@ lessons:[
   <li><b>McGregor:</b> Teoría X (las personas evitan el trabajo y necesitan control) frente a Teoría Y (buscan responsabilidad).</li></ul>
   <h3>Estilos de liderazgo</h3><p>Autocrático, democrático o participativo, y <i>laissez-faire</i>. El liderazgo situacional sostiene que el estilo debe adaptarse a la madurez del equipo.</p>
   <h3>El proceso de decisión</h3><ol><li>Identificar el problema.</li><li>Generar alternativas.</li><li>Evaluarlas con criterios (costo, riesgo, tiempo).</li><li>Elegir e implementar.</li><li>Controlar el resultado.</li></ol>
-  <p>Herbert Simon mostró que las personas deciden con <b>racionalidad limitada</b>: no buscan la mejor opción posible sino una satisfactoria, porque la información y el tiempo son escasos. La información contable confiable reduce esa limitación.</p>`,
+  <p>Herbert Simon mostró que las personas deciden con <b>racionalidad limitada</b>: no buscan la mejor opción posible sino una satisfactoria, porque la información y el tiempo son escasos. La información contable confiable reduce esa limitación.</p>
+  ${CAMPUS.vid([["Dirección, liderazgo y decisiones","dirección liderazgo y decisiones administracion explicacion"]])}`,
   ex:[{type:"pick",title:"Según Herzberg, ¿es factor higiénico o motivador?",options:["Higiénico","Motivador"],items:[["El sueldo","Higiénico"],["El reconocimiento por un buen trabajo","Motivador"],["Las condiciones de la oficina","Higiénico"],["Tareas desafiantes con responsabilidad","Motivador"],["La relación con el supervisor","Higiénico"]]}]},
  {lead:"Controlar es comparar lo que pasó con lo que se planificó, entender por qué hay diferencias y corregir.",
   html:`<h3>El ciclo de control</h3><ol><li>Fijar estándares o metas.</li><li>Medir el desempeño real.</li><li>Comparar y calcular desvíos.</li><li>Analizar causas y tomar acciones correctivas.</li></ol>
   <h3>Tipos de control</h3><ul><li><b>Preventivo:</b> antes de que ocurra (aprobación previa de una compra).</li><li><b>Concurrente:</b> durante la operación (supervisión).</li><li><b>Posterior:</b> después (comparar el presupuesto con lo real).</li></ul>
   <h3>Indicadores y tablero de comando</h3><p>Un indicador clave de desempeño (KPI) mide un objetivo: margen bruto, días de cobro, rotación de inventario, ventas por empleado. El <b>Balanced Scorecard</b> de Kaplan y Norton organiza los indicadores en cuatro perspectivas: financiera, clientes, procesos internos, y aprendizaje y crecimiento.</p>
-  <div class="note"><b>El contador en el control.</b> El presupuesto (Módulo 18), el análisis de desvíos y los indicadores financieros (Módulo 24) son herramientas que normalmente arma y explica el área contable.</div>`,
+  <div class="note"><b>El contador en el control.</b> El presupuesto (Módulo 18), el análisis de desvíos y los indicadores financieros (Módulo 24) son herramientas que normalmente arma y explica el área contable.</div>
+  ${CAMPUS.vid([["Control de gestión","control de gestión administracion explicacion"]])}`,
   ex:[{type:"num",items:[{q:"Se presupuestaron ventas por $ 5.000.000 y se vendieron $ 4.600.000. ¿Desvío en %? (con signo)",a:-8,u:"%",tol:0.05},{q:"Un vendedor tiene meta de 40 clientes nuevos y logró 46. ¿Porcentaje de cumplimiento?",a:115,u:"%",tol:0.05}]},
    {type:"pick",title:"¿Qué tipo de control es?",options:["Preventivo","Concurrente","Posterior"],items:[["El gerente debe firmar toda compra superior a $ 1 millón","Preventivo"],["Un supervisor revisa la línea de producción durante el turno","Concurrente"],["A fin de mes se comparan gastos reales con los presupuestados","Posterior"]]}]},
  {lead:"Antes de emprender hay que elegir una forma jurídica. La elección cambia la responsabilidad, los impuestos y las obligaciones contables.",
@@ -63,7 +68,8 @@ lessons:[
   <tr><td><b>SA</b></td><td>Limitada a las acciones</td><td>IVA, Ganancias de sociedades</td><td>Empresas medianas y grandes, posibilidad de cotizar</td></tr>
   <tr><td><b>Cooperativa</b></td><td>Limitada</td><td>Régimen especial</td><td>Grupos que se asocian para un fin común (trabajo, consumo, vivienda)</td></tr></tbody></table></div>
   <p>Los detalles de cada tipo societario están en el Módulo 16; los impuestos, en los Módulos 20 y 21.</p>
-  <h3>Plan de negocios</h3><p>Antes de empezar conviene armar un plan con: descripción del producto, análisis de mercado y competencia, plan comercial, plan de operaciones, organización y equipo, y proyección económica y financiera (inversión inicial, flujo de fondos, punto de equilibrio).</p>`,
+  <h3>Plan de negocios</h3><p>Antes de empezar conviene armar un plan con: descripción del producto, análisis de mercado y competencia, plan comercial, plan de operaciones, organización y equipo, y proyección económica y financiera (inversión inicial, flujo de fondos, punto de equilibrio).</p>
+  ${CAMPUS.vid([["Formas jurídicas y emprendimiento","formas jurídicas y emprendimiento administracion explicacion"]])}`,
   ex:[{type:"tf",items:[["En el Monotributo, la persona responde con todo su patrimonio personal","Verdadero"],["Una SRL puede tener hasta 50 socios","Verdadero","Art. 146 de la Ley General de Sociedades."],["Una SA nunca paga Impuesto a las Ganancias porque lo pagan los accionistas","Falso","La sociedad tributa Ganancias como sujeto y además se gravan los dividendos."],["La SAS limita la responsabilidad de los socios al capital que suscriben","Verdadero"]]}]},
 ],
 eval:[

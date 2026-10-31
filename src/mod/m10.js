@@ -5,7 +5,8 @@ lessons:[
   html:`<h3>Sistema administrativo</h3><p>Es el conjunto de procedimientos, formularios, personas y sistemas informáticos que procesan las operaciones de la organización y producen información. Un buen sistema es <b>eficaz</b> (logra el objetivo), <b>eficiente</b> (con pocos recursos) y <b>seguro</b> (protege los activos y la confiabilidad de los datos).</p>
   <h3>Elementos de un circuito</h3><ul><li><b>Sectores</b> que intervienen (compras, almacén, contaduría, tesorería).</li><li><b>Documentos</b> que se generan y circulan, con sus copias.</li><li><b>Controles</b> en cada paso.</li><li><b>Archivos y registros</b> donde queda la información.</li></ul>
   <h3>Cursogramas</h3><p>Un cursograma es un diagrama que muestra cómo circulan los documentos entre los sectores. En Argentina se usa la norma IRAM 34.503 para los símbolos: operación, control, archivo, documento, decisión, conector. Se lee por columnas (una por sector) de arriba hacia abajo.</p>
-  <h3>Relevamiento y rediseño</h3><p>Para mejorar un circuito: se releva cómo funciona hoy (entrevistas, observación, documentos), se detectan problemas (demoras, duplicaciones, falta de controles), se propone un nuevo diseño y se documenta en un manual de procedimientos.</p>`,
+  <h3>Relevamiento y rediseño</h3><p>Para mejorar un circuito: se releva cómo funciona hoy (entrevistas, observación, documentos), se detectan problemas (demoras, duplicaciones, falta de controles), se propone un nuevo diseño y se documenta en un manual de procedimientos.</p>
+  ${CAMPUS.vid([["Procesos y circuitos administrativos","procesos y circuitos administrativos sistemas administrativos explicacion"]])}`,
   ex:[{type:"tf",items:[["Un circuito administrativo bien diseñado incluye controles en distintos pasos","Verdadero"],["El cursograma sirve para registrar asientos contables","Falso","Muestra el recorrido de documentos y tareas entre sectores."],["Eficiencia significa lograr el objetivo usando la menor cantidad de recursos","Verdadero"],["Para rediseñar un circuito conviene primero relevar cómo funciona en la realidad","Verdadero"]]}]},
  {lead:"Cada operación queda respaldada por un comprobante. En Argentina, ARCA define qué comprobante emitir y cómo.",
   html:`<div class="tw"><table><thead><tr><th>Comprobante</th><th>Función</th></tr></thead><tbody>
@@ -22,7 +23,8 @@ lessons:[
   <tr><td class="mono">C</td><td>Monotributista o exento</td><td>Cualquier comprador (no hay IVA que discriminar)</td></tr>
   <tr><td class="mono">M</td><td>Responsable inscripto con observaciones de ARCA</td><td>Responsable inscripto (con retención total del IVA por el comprador)</td></tr>
   <tr><td class="mono">E</td><td>Exportador</td><td>Cliente del exterior</td></tr></tbody></table></div>
-  <p>Hoy todos los contribuyentes deben emitir <b>factura electrónica</b>, que se autoriza con un <b>CAE</b> (Código de Autorización Electrónico) otorgado por ARCA. Por el Régimen de Transparencia Fiscal al Consumidor (Ley 27.743), las facturas a consumidores finales deben informar el IVA y otros impuestos nacionales contenidos en el precio.</p>`,
+  <p>Hoy todos los contribuyentes deben emitir <b>factura electrónica</b>, que se autoriza con un <b>CAE</b> (Código de Autorización Electrónico) otorgado por ARCA. Por el Régimen de Transparencia Fiscal al Consumidor (Ley 27.743), las facturas a consumidores finales deben informar el IVA y otros impuestos nacionales contenidos en el precio.</p>
+  ${CAMPUS.vid([["Documentación comercial","documentación comercial sistemas administrativos explicacion"]])}`,
   ex:[{type:"pick",title:"¿Qué letra de factura corresponde?",options:["A","B","C","E"],items:[
    ["Un responsable inscripto le vende a otro responsable inscripto","A"],["Un responsable inscripto le vende a un consumidor final","B"],["Un monotributista le vende a un responsable inscripto","C"],
    ["Un responsable inscripto le vende a un monotributista","B"],["Una empresa exporta servicios de software a un cliente de España","E"]]},
@@ -31,14 +33,16 @@ lessons:[
   html:`<h3>Pasos típicos</h3><ol><li>El sector que necesita algo emite una <b>solicitud de compra</b>.</li><li>Compras pide <b>cotizaciones</b> a varios proveedores y arma un cuadro comparativo.</li><li>Se emite la <b>orden de compra</b>, autorizada según montos.</li>
   <li>Almacén recibe la mercadería con el remito, controla cantidad y calidad, y emite un <b>informe de recepción</b>.</li><li>Cuentas a pagar recibe la factura y hace el <b>control de tres vías</b>: compara orden de compra, informe de recepción y factura.</li>
   <li>Contaduría <b>registra</b> la factura (subdiario de compras y libro IVA Compras).</li><li>Se emite la <b>orden de pago</b>, autorizada por quien corresponda, calculando retenciones impositivas.</li><li>Tesorería <b>paga</b> y archiva el recibo del proveedor.</li></ol>
-  <div class="note"><b>El control de tres vías</b> evita pagar mercadería que no llegó, pagar un precio distinto del pactado o pagar dos veces la misma factura. Es uno de los controles más importantes del área.</div>`,
+  <div class="note"><b>El control de tres vías</b> evita pagar mercadería que no llegó, pagar un precio distinto del pactado o pagar dos veces la misma factura. Es uno de los controles más importantes del área.</div>
+  ${CAMPUS.vid([["Circuito de compras y pagos","circuito de compras y pagos sistemas administrativos explicacion"]])}`,
   ex:[{type:"order",title:"Ordená el circuito de compras",items:["Solicitud de compra del sector usuario","Pedido de cotizaciones","Emisión y aprobación de la orden de compra","Recepción de la mercadería e informe de recepción","Control de tres vías con la factura","Registración en el subdiario de compras","Emisión de la orden de pago","Pago al proveedor"]}]},
  {lead:"El circuito de ventas convierte un pedido en dinero cobrado, cuidando que no se venda a quien no va a pagar.",
   html:`<h3>Pasos típicos</h3><ol><li>Se recibe la <b>nota de pedido</b> del cliente.</li><li>Créditos y cobranzas <b>aprueba el crédito</b>: controla el límite y la situación del cliente.</li><li>Depósito prepara la mercadería y emite el <b>remito</b>.</li>
   <li>Facturación emite la <b>factura</b> en base al remito firmado y a la lista de precios vigente.</li><li>Contaduría registra (subdiario de ventas y libro IVA Ventas) y actualiza la cuenta corriente del cliente.</li>
   <li>Cobranzas gestiona el cobro y emite el <b>recibo</b>.</li><li>Tesorería deposita los valores y se concilia con el banco.</li></ol>
   <h3>Cuenta corriente de clientes y antigüedad de saldos</h3><p>El análisis de antigüedad (al día, 1 a 30 días, 31 a 60, más de 90) sirve para gestionar la cobranza y para calcular la previsión de incobrables (Módulo 9).</p>
-  <h3>Indicador: días de cobro</h3><div class="formula">Días de cobro = Saldo de deudores / Ventas a crédito anuales × 365</div>`,
+  <h3>Indicador: días de cobro</h3><div class="formula">Días de cobro = Saldo de deudores / Ventas a crédito anuales × 365</div>
+  ${CAMPUS.vid([["Circuito de ventas y cobranzas","circuito de ventas y cobranzas sistemas administrativos explicacion"]])}`,
   ex:[{type:"order",title:"Ordená el circuito de ventas",items:["Recepción de la nota de pedido","Aprobación del crédito","Preparación y despacho con remito","Emisión de la factura","Registración y cuenta corriente del cliente","Cobranza y emisión del recibo","Depósito y conciliación bancaria"]},
    {type:"num",items:[{q:"Saldo de deudores $ 3.000.000; ventas a crédito anuales $ 36.500.000. ¿Días de cobro?",a:30,tol:0.1}]}]},
  {lead:"Tesorería administra el dinero: recibe, paga, custodia y planifica los fondos.",
@@ -49,7 +53,8 @@ lessons:[
   <tr><td>Reposición: se gastaron $ 70.000 en librería y movilidad</td><td class="mono">Gastos de librería / Movilidad a Banco · 70.000</td></tr></tbody></table></div>
   <p>El saldo de Fondo fijo no cambia con la reposición: sigue siendo $ 100.000.</p>
   <h3>Arqueo de caja</h3><p>Es el recuento sorpresivo del efectivo y los valores, en presencia del responsable, comparado con el saldo contable. Las diferencias se investigan y se registran.</p>
-  <h3>Controles clave</h3><ul><li>Depositar las cobranzas en forma íntegra y diaria (no pagar gastos con cobranzas).</li><li>Firmas conjuntas para pagos importantes.</li><li>Quien maneja el dinero no registra ni concilia.</li></ul>`,
+  <h3>Controles clave</h3><ul><li>Depositar las cobranzas en forma íntegra y diaria (no pagar gastos con cobranzas).</li><li>Firmas conjuntas para pagos importantes.</li><li>Quien maneja el dinero no registra ni concilia.</li></ul>
+  ${CAMPUS.vid([["Tesorería y fondos fijos","tesorería y fondos fijos sistemas administrativos explicacion"]])}`,
   ex:[{type:"tf",items:[["Al reponer el fondo fijo, se debitan las cuentas de gasto","Verdadero"],["La reposición del fondo fijo disminuye el saldo de la cuenta Fondo fijo","Falso"],["Es buena práctica pagar gastos con el efectivo de las cobranzas antes de depositarlas","Falso","Las cobranzas se depositan íntegras."],["El arqueo de caja debe ser sorpresivo","Verdadero"]]}]},
  {lead:"El control interno es el proceso diseñado para dar seguridad razonable de que la organización cumple sus objetivos operativos, de información y de cumplimiento.",
   html:`<p>El marco más usado es el <b>COSO</b> (Committee of Sponsoring Organizations, actualizado en 2013). Tiene <b>cinco componentes</b>:</p>
@@ -60,7 +65,8 @@ lessons:[
   <tr><td><b>Información y comunicación</b></td><td>Sistemas que generan datos confiables y los comunican a quien los necesita.</td></tr>
   <tr><td><b>Supervisión (monitoreo)</b></td><td>Auditoría interna, revisiones periódicas de que los controles funcionan.</td></tr></tbody></table></div>
   <h3>Segregación de funciones</h3><p>Ninguna persona debería tener el control de una operación de punta a punta. Se separan cuatro funciones: <b>autorización</b>, <b>custodia</b> de los activos, <b>registración</b> y <b>control</b>.</p>
-  <h3>Limitaciones</h3><p>El control interno da seguridad <b>razonable</b>, no absoluta: puede fallar por errores humanos, por colusión entre empleados o porque la dirección pasa por encima de los controles.</p>`,
+  <h3>Limitaciones</h3><p>El control interno da seguridad <b>razonable</b>, no absoluta: puede fallar por errores humanos, por colusión entre empleados o porque la dirección pasa por encima de los controles.</p>
+  ${CAMPUS.vid([["Control interno: el modelo COSO","control interno el modelo coso sistemas administrativos explicacion"]])}`,
   ex:[{type:"pick",title:"¿Qué componente del COSO es?",options:["Entorno de control","Evaluación de riesgos","Actividades de control","Información y comunicación","Supervisión"],items:[
    ["La empresa aprueba un código de ética firmado por todos los empleados","Entorno de control"],["Se hace una conciliación bancaria mensual","Actividades de control"],["Auditoría interna revisa cada año si los controles funcionan","Supervisión"],
    ["Se analiza qué procesos tienen más probabilidad de fraude","Evaluación de riesgos"],["El sistema emite un reporte diario de ventas a la gerencia","Información y comunicación"],["El tesorero no puede registrar asientos en el sistema contable","Actividades de control"]]}]},

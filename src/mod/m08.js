@@ -8,7 +8,8 @@ lessons:[
   <ul><li><b>Públicas</b> (art. 146): el Estado nacional, las provincias, los municipios, las entidades autárquicas.</li>
   <li><b>Privadas</b> (art. 148): sociedades, asociaciones civiles, simples asociaciones, fundaciones, iglesias, mutuales, cooperativas, consorcios de propiedad horizontal, entre otras.</li></ul>
   <h3>Atributos de la persona jurídica</h3><p>Nombre (denominación), domicilio y sede, objeto, patrimonio y duración. El <b>objeto</b> marca qué actividades puede realizar.</p>
-  <div class="note"><b>Inoponibilidad de la personalidad.</b> Si la persona jurídica se usa para fines ajenos a ella, para violar la ley o perjudicar a terceros, los socios o controlantes que lo hicieron posible responden personalmente (art. 144).</div>`,
+  <div class="note"><b>Inoponibilidad de la personalidad.</b> Si la persona jurídica se usa para fines ajenos a ella, para violar la ley o perjudicar a terceros, los socios o controlantes que lo hicieron posible responden personalmente (art. 144).</div>
+  ${CAMPUS.vid([["Personas humanas y jurídicas","personas humanas y jurídicas codigo civil y comercial explicacion"]])}`,
   ex:[{type:"pick",title:"¿Persona humana, jurídica pública o jurídica privada?",options:["Humana","Jurídica pública","Jurídica privada"],items:[
    ["Un consorcio de propiedad horizontal","Jurídica privada"],["La Provincia de Córdoba","Jurídica pública"],["Un comerciante monotributista","Humana"],["Una fundación","Jurídica privada"],["Una cooperativa de trabajo","Jurídica privada"],["Un municipio","Jurídica pública"]]},
    {type:"tf",items:[["La capacidad de ejercicio plena se adquiere a los 21 años","Falso","A los 18 años, art. 25 del CCyC."],["Las deudas de una SRL son, en principio, deudas personales de sus socios","Falso","La persona jurídica tiene patrimonio propio."]]}]},
@@ -23,7 +24,8 @@ lessons:[
   <tr><td><b>Lesión</b></td><td>Aprovechar la necesidad, debilidad o inexperiencia de otro para obtener una ventaja patrimonial desproporcionada.</td></tr>
   <tr><td><b>Simulación</b></td><td>Encubrir el verdadero carácter del acto (una venta que en realidad es una donación).</td></tr>
   <tr><td><b>Fraude</b></td><td>Actos del deudor para perjudicar a sus acreedores (por ejemplo, transferir bienes para que no se los embarguen).</td></tr></tbody></table></div>
-  <h3>Nulidad</h3><p><b>Absoluta:</b> el acto contraviene el orden público; puede declararla el juez de oficio y no se puede confirmar. <b>Relativa:</b> protege a ciertas personas; solo ellas pueden pedirla y se puede confirmar (art. 386 y siguientes).</p>`,
+  <h3>Nulidad</h3><p><b>Absoluta:</b> el acto contraviene el orden público; puede declararla el juez de oficio y no se puede confirmar. <b>Relativa:</b> protege a ciertas personas; solo ellas pueden pedirla y se puede confirmar (art. 386 y siguientes).</p>
+  ${CAMPUS.vid([["Hechos y actos jurídicos","hechos y actos jurídicos codigo civil y comercial explicacion"]])}`,
   ex:[{type:"pick",title:"Identificá el vicio",options:["Error","Dolo","Violencia","Lesión","Simulación","Fraude"],items:[
    ["Alguien firma un contrato bajo amenaza de muerte","Violencia"],["El vendedor adultera el cuentakilómetros del auto","Dolo"],["Un deudor dona su casa a un hijo para que sus acreedores no la ejecuten","Fraude"],
    ["Se compra a precio vil el campo de un anciano que necesitaba plata urgente","Lesión"],["Se escritura una venta, pero en realidad nunca se pagó precio: es un regalo","Simulación"],["Se compra un terreno creyendo que es otro lote","Error"]]}]},
@@ -33,7 +35,8 @@ lessons:[
   <h3>Obligaciones de dar dinero</h3><p>Si se pactó en moneda extranjera, según los arts. 765 y 766 en su redacción vigente (modificados por el DNU 70/2023), el deudor debe entregar la moneda pactada.</p>
   <h3>Intereses</h3><ul><li><b>Compensatorios</b> (art. 767): el precio por el uso del capital.</li><li><b>Moratorios</b> (art. 768): por el atraso en pagar.</li><li><b>Punitorios</b> (art. 769): sanciones convencionales por incumplimiento.</li></ul>
   <h3>Mora</h3><p>Como regla, la mora es <b>automática</b>: se produce por el solo vencimiento del plazo, sin necesidad de intimación (art. 886).</p>
-  <h3>Extinción</h3><p>Pago, compensación, confusión, novación, dación en pago, renuncia, remisión e imposibilidad de cumplimiento.</p>`,
+  <h3>Extinción</h3><p>Pago, compensación, confusión, novación, dación en pago, renuncia, remisión e imposibilidad de cumplimiento.</p>
+  ${CAMPUS.vid([["Obligaciones","obligaciones codigo civil y comercial explicacion"]])}`,
   ex:[{type:"pick",title:"¿Cómo se extinguió la obligación?",options:["Pago","Compensación","Confusión","Novación","Renuncia"],items:[
    ["El cliente transfiere lo que debía","Pago"],["A y B se deben mutuamente $ 100.000 y se cancelan","Compensación"],["El deudor hereda el crédito de su acreedor","Confusión"],
    ["Se reemplaza la deuda vieja por una nueva con otras condiciones y la vieja se extingue","Novación"],["El acreedor declara que no va a cobrar","Renuncia"]]},
@@ -47,7 +50,8 @@ lessons:[
   <tr><td>Riesgo</td><td><b>Conmutativos</b> (ventajas ciertas) o <b>aleatorios</b> (dependen de un hecho incierto, como el seguro)</td></tr>
   <tr><td>Forma</td><td><b>Formales</b> o <b>no formales</b></td></tr>
   <tr><td>Negociación</td><td><b>Paritarios</b> o <b>por adhesión</b> a cláusulas generales predispuestas</td></tr></tbody></table></div>
-  <h3>Contrato de consumo</h3><p>Entre un proveedor y un consumidor final. Tiene protección especial (arts. 1092 y siguientes del CCyC y Ley 24.240 de Defensa del Consumidor): las cláusulas abusivas se tienen por no escritas y en caso de duda se interpreta a favor del consumidor.</p>`,
+  <h3>Contrato de consumo</h3><p>Entre un proveedor y un consumidor final. Tiene protección especial (arts. 1092 y siguientes del CCyC y Ley 24.240 de Defensa del Consumidor): las cláusulas abusivas se tienen por no escritas y en caso de duda se interpreta a favor del consumidor.</p>
+  ${CAMPUS.vid([["Contratos: parte general","contratos parte general codigo civil y comercial explicacion"]])}`,
   ex:[{type:"pick",title:"Clasificá cada contrato",options:["Unilateral gratuito","Bilateral oneroso conmutativo","Bilateral oneroso aleatorio"],items:[
    ["Compraventa de una computadora","Bilateral oneroso conmutativo"],["Donación de dinero a una fundación","Unilateral gratuito"],["Seguro contra incendio","Bilateral oneroso aleatorio"],["Alquiler de un local","Bilateral oneroso conmutativo"]]}]},
  {lead:"Estos son los contratos que más vas a ver en empresas y en sus estados contables.",
@@ -60,7 +64,8 @@ lessons:[
   <tr><td><b>Cuenta corriente bancaria</b> (art. 1393)</td><td>El banco cumple los pagos del cliente con los fondos depositados o el crédito acordado.</td><td>Banco c/c, descubiertos</td></tr>
   <tr><td><b>Agencia, concesión y franquicia</b></td><td>Contratos de distribución y colaboración comercial.</td><td>Comisiones, regalías</td></tr></tbody></table></div>
   <h3>Títulos valores</h3><ul><li><b>Cheque</b> (Ley 24.452): orden de pago a un banco. Puede ser común o de pago diferido, y hoy también electrónico (ECHEQ).</li><li><b>Pagaré y letra de cambio</b> (Decreto-ley 5965/63).</li>
-  <li><b>Factura de Crédito Electrónica MiPyME</b> (Ley 27.440): obligatoria en ventas de MiPyMEs a grandes empresas por encima de un monto mínimo; se puede negociar en el mercado.</li></ul>`,
+  <li><b>Factura de Crédito Electrónica MiPyME</b> (Ley 27.440): obligatoria en ventas de MiPyMEs a grandes empresas por encima de un monto mínimo; se puede negociar en el mercado.</li></ul>
+  ${CAMPUS.vid([["Contratos comerciales","contratos comerciales codigo civil y comercial explicacion"]])}`,
   ex:[{type:"pick",title:"¿Qué contrato es?",options:["Compraventa","Locación","Leasing","Mutuo","Fideicomiso"],items:[
    ["El banco le presta $ 10 millones a la empresa a devolver en 24 cuotas","Mutuo"],["La empresa usa una máquina pagando un canon mensual y al final puede comprarla","Leasing"],
    ["Se transfieren terrenos a un administrador para construir y entregar departamentos a inversores","Fideicomiso"],["La empresa alquila un depósito por 3 años","Locación"],["Un cliente compra 100 cajas de mercadería","Compraventa"]]}]},
@@ -74,7 +79,8 @@ lessons:[
   <h3>Suspensión e interrupción</h3><ul><li><b>Suspensión:</b> detiene el cómputo por un tiempo; después sigue contando lo que faltaba. Por ejemplo, la interpelación fehaciente suspende por seis meses (art. 2541).</li>
   <li><b>Interrupción:</b> borra el tiempo transcurrido y empieza a contar de nuevo. Por ejemplo, el reconocimiento de la deuda o la demanda judicial.</li></ul>
   <h3>Caducidad</h3><p>Extingue el derecho no ejercido en el plazo. A diferencia de la prescripción, no se suspende ni se interrumpe, salvo disposición legal (art. 2567).</p>
-  <div class="note"><b>Plazos tributarios.</b> En impuestos nacionales, la Ley 11.683 fija su propia prescripción: 5 años para contribuyentes inscriptos y 10 años para no inscriptos (art. 56). Desde la Ley 27.799 de Inocencia Fiscal (2026), el plazo baja a 3 años para el inscripto que presentó sus declaraciones juradas en término y pagó, si ARCA no detecta una “discrepancia significativa”. Por eso, y por el art. 328 del CCyC, se conservan los registros contables y la documentación al menos 10 años.</div>`,
+  <div class="note"><b>Plazos tributarios.</b> En impuestos nacionales, la Ley 11.683 fija su propia prescripción: 5 años para contribuyentes inscriptos y 10 años para no inscriptos (art. 56). Desde la Ley 27.799 de Inocencia Fiscal (2026), el plazo baja a 3 años para el inscripto que presentó sus declaraciones juradas en término y pagó, si ARCA no detecta una “discrepancia significativa”. Por eso, y por el art. 328 del CCyC, se conservan los registros contables y la documentación al menos 10 años.</div>
+  ${CAMPUS.vid([["Prescripción y caducidad","prescripción y caducidad codigo civil y comercial explicacion"]])}`,
   ex:[{type:"num",items:[{q:"¿Cuál es el plazo genérico de prescripción del CCyC, en años?",a:5,tol:0},{q:"¿Cuántos años prescribe la acción de ARCA contra un contribuyente no inscripto?",a:10,tol:0},{q:"¿Cuántos años se deben conservar los libros contables según el art. 328 del CCyC?",a:10,tol:0}]},
    {type:"tf",items:[["La interrupción de la prescripción borra el tiempo ya transcurrido","Verdadero"],["La caducidad, como regla, se puede interrumpir con una carta documento","Falso"]]}]},
  {lead:"El Código Civil y Comercial regula la contabilidad en los arts. 320 a 331. Es la base legal de los libros que llevás como contador.",
@@ -89,7 +95,8 @@ lessons:[
   <tr><td class="mono">327</td><td><b>Diario:</b> se registran todas las operaciones; se pueden usar resúmenes de períodos no mayores a un mes.</td></tr>
   <tr><td class="mono">328</td><td><b>Conservación:</b> 10 años desde el último asiento para los libros y desde su fecha para la documentación.</td></tr>
   <tr><td class="mono">329</td><td><b>Actos sujetos a autorización:</b> sustituir libros por medios mecánicos o digitales, con autorización del Registro Público.</td></tr>
-  <tr><td class="mono">330</td><td><b>Eficacia probatoria:</b> la contabilidad bien llevada hace prueba a favor de quien la lleva en litigios con otros obligados; siempre hace prueba en su contra.</td></tr></tbody></table></div>`,
+  <tr><td class="mono">330</td><td><b>Eficacia probatoria:</b> la contabilidad bien llevada hace prueba a favor de quien la lleva en litigios con otros obligados; siempre hace prueba en su contra.</td></tr></tbody></table></div>
+  ${CAMPUS.vid([["La contabilidad en el Código Civil y Comercial","la contabilidad en el código civil y comercial codigo civil y comercial explicacion"]])}`,
   ex:[{type:"mc",items:[
    {q:"¿Qué libros son indispensables según el art. 322?",o:["Diario y Mayor","Diario e Inventario y Balances","Caja y Bancos","IVA Compras e IVA Ventas"],a:1},
    {q:"Un comerciante borra con corrector un asiento del Diario. ¿Qué artículo viola?",o:["320","324","328","330"],a:1},

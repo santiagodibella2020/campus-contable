@@ -9,7 +9,8 @@ lessons:[
   <tr><td>Contabilidad</td><td>Contaduría General de la Nación (CGN)</td><td>Registra las transacciones y prepara la Cuenta de Inversión</td></tr></tbody></table></div>
   <p>Los cuatro sistemas están interrelacionados: cada transacción presupuestaria se registra una sola vez y alimenta a todos (el sistema e-SIDIF).</p>
   <h3>Los sistemas de control</h3><ul><li><b>Control interno:</b> la <b>Sindicatura General de la Nación (SIGEN)</b>, que depende del Poder Ejecutivo, coordina las unidades de auditoría interna de cada organismo.</li><li><b>Control externo:</b> la <b>Auditoría General de la Nación (AGN)</b>, que asiste técnicamente al Congreso. Tiene rango constitucional (art. 85 de la Constitución) y la preside una persona propuesta por el principal partido de la oposición.</li></ul>
-  <h3>La Cuenta de Inversión</h3><p>Cada año el Poder Ejecutivo presenta al Congreso la <b>Cuenta de Inversión</b>, que muestra cómo se ejecutó el presupuesto y la situación del Tesoro y de la deuda. El Congreso la aprueba o la rechaza, con el dictamen de la AGN.</p>`,
+  <h3>La Cuenta de Inversión</h3><p>Cada año el Poder Ejecutivo presenta al Congreso la <b>Cuenta de Inversión</b>, que muestra cómo se ejecutó el presupuesto y la situación del Tesoro y de la deuda. El Congreso la aprueba o la rechaza, con el dictamen de la AGN.</p>
+  ${CAMPUS.vid([["La administración financiera del Estado","la administración financiera del estado sector publico argentina explicacion"]])}`,
   ex:[{type:"pick",title:"¿Qué órgano es?",options:["ONP","TGN","CGN","SIGEN","AGN"],items:[["Prepara la Cuenta de Inversión","CGN"],["Asiste al Congreso en el control externo","AGN"],["Coordina las auditorías internas del Poder Ejecutivo","SIGEN"],["Administra los fondos y realiza los pagos","TGN"],["Formula el proyecto de presupuesto","ONP"]]},
    {type:"tf",items:[["La AGN tiene rango constitucional.",true,"Art. 85 de la Constitución Nacional."],["La SIGEN es un órgano de control externo que depende del Congreso.",false,"Es control interno y depende del Poder Ejecutivo."],["La Cuenta de Inversión la aprueba el Congreso.",true]]}]},
  {lead:"El presupuesto público se clasifica de varias formas, y cada una responde a una pregunta distinta: quién gasta, en qué, para qué y con qué fondos.",
@@ -21,7 +22,8 @@ lessons:[
   <tr><td>Económico</td><td>¿Es corriente o de capital?</td><td>Gastos de consumo frente a inversión real</td></tr>
   <tr><td>Programático</td><td>¿Qué producción pública se obtiene?</td><td>Programa de vacunación con sus metas físicas</td></tr></tbody></table></div>
   <h3>Esquema ahorro-inversión-financiamiento</h3><div class="formula">Ingresos corrientes − Gastos corrientes = Resultado económico (ahorro)<br>Ahorro + Ingresos de capital − Gastos de capital = Resultado financiero<br>El resultado financiero se cubre (o se aplica) con fuentes y aplicaciones financieras: deuda, uso de reservas, amortización de deuda.</div>
-  <h3>Presupuesto por programas</h3><p>La Ley 24.156 adopta la técnica de <b>presupuesto por programas</b>: cada programa tiene un responsable, recursos asignados y <b>metas físicas</b> (vacunas aplicadas, kilómetros de ruta). Así se puede medir no solo cuánto se gastó sino qué se obtuvo.</p>`,
+  <h3>Presupuesto por programas</h3><p>La Ley 24.156 adopta la técnica de <b>presupuesto por programas</b>: cada programa tiene un responsable, recursos asignados y <b>metas físicas</b> (vacunas aplicadas, kilómetros de ruta). Así se puede medir no solo cuánto se gastó sino qué se obtuvo.</p>
+  ${CAMPUS.vid([["Clasificadores presupuestarios","clasificadores presupuestarios sector publico argentina explicacion"]])}`,
   ex:[{type:"num",items:[
    {q:"Ingresos corrientes $ 900.000 M y gastos corrientes $ 850.000 M. ¿Resultado económico?",a:50000,u:"$ M"},
    {q:"Con ingresos de capital $ 10.000 M y gastos de capital $ 90.000 M, ¿resultado financiero? (déficit, sin signo)",a:30000,u:"$ M"},
@@ -32,7 +34,8 @@ lessons:[
   <div class="formula">Crédito ≥ Compromiso ≥ Devengado ≥ Pagado</div>
   <h3>Deuda exigible</h3><p>La diferencia entre lo devengado y lo pagado es la <b>deuda exigible</b> del Estado con sus proveedores. Al cierre del ejercicio, los gastos devengados y no pagados se cancelan en el ejercicio siguiente con los fondos disponibles.</p>
   <h3>Etapas del recurso</h3><p>Del lado de los ingresos se registra el <b>recurso devengado</b> (nace el derecho de cobro) y el <b>percibido</b> (ingresa a la Tesorería). Para los impuestos, el criterio práctico suele ser el percibido.</p>
-  <h3>Diferencias con la contabilidad privada</h3><ul><li>El objetivo no es medir ganancia sino controlar la ejecución del presupuesto y rendir cuentas.</li><li>La contabilidad presupuestaria convive con la patrimonial (activos, pasivos y patrimonio del Estado).</li><li>La referencia internacional son las Normas Internacionales de Contabilidad para el Sector Público (NICSP o IPSAS).</li></ul>`,
+  <h3>Diferencias con la contabilidad privada</h3><ul><li>El objetivo no es medir ganancia sino controlar la ejecución del presupuesto y rendir cuentas.</li><li>La contabilidad presupuestaria convive con la patrimonial (activos, pasivos y patrimonio del Estado).</li><li>La referencia internacional son las Normas Internacionales de Contabilidad para el Sector Público (NICSP o IPSAS).</li></ul>
+  ${CAMPUS.vid([["Etapas del gasto y del recurso","etapas del gasto y del recurso sector publico argentina explicacion"]])}`,
   ex:[{type:"order",title:"Ordená las etapas del gasto",items:["Crédito presupuestario","Compromiso","Devengado","Pagado"]},
    {type:"num",items:[
     {q:"Crédito $ 500 M, comprometido $ 420 M, devengado $ 380 M, pagado $ 300 M. ¿Deuda exigible?",a:80,u:"$ M"},
@@ -47,7 +50,8 @@ lessons:[
   <p>Muchas veces se suma una cuarta E, la <b>efectividad</b> (o impacto): si el programa cambió la realidad que quería cambiar, por ejemplo si bajó la tasa de la enfermedad.</p>
   <h3>Tablero de control</h3><p>Es un conjunto acotado de indicadores clave, con metas y semáforos, que permite a la dirección ver de un vistazo si la gestión va bien. El <b>cuadro de mando integral</b> (Kaplan y Norton) los ordena en cuatro perspectivas: financiera, clientes (o ciudadanos), procesos internos, y aprendizaje y crecimiento.</p>
   <h3>Requisitos de un buen indicador</h3><ul><li>Relevante para un objetivo.</li><li>Medible con datos confiables y a tiempo.</li><li>Comparable con una meta, con períodos anteriores o con otras organizaciones.</li><li>Con un responsable asignado.</li></ul>
-  <h3>Auditoría de gestión</h3><p>La AGN y las auditorías internas no solo revisan la legalidad y los números: también hacen <b>auditorías de gestión</b>, que evalúan la eficacia, la eficiencia y la economía de los programas.</p>`,
+  <h3>Auditoría de gestión</h3><p>La AGN y las auditorías internas no solo revisan la legalidad y los números: también hacen <b>auditorías de gestión</b>, que evalúan la eficacia, la eficiencia y la economía de los programas.</p>
+  ${CAMPUS.vid([["Control de gestión e indicadores","control de gestión e indicadores sector publico argentina explicacion"]])}`,
   ex:[{type:"num",items:[
    {q:"Meta: 200.000 vacunas; aplicadas: 170.000. ¿Eficacia? (en %)",a:85,u:"%",tol:0.01},
    {q:"Costo total del programa $ 340.000.000. ¿Costo por vacuna aplicada?",a:2000,u:"$"},

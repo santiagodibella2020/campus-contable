@@ -31,7 +31,8 @@ lessons:[
   <p>Se complementan con <b>notas</b> y <b>anexos</b>, que forman parte integrante de los estados.</p>
   <h3>Reglas generales de presentación</h3><ul><li>Se presentan <b>comparativos</b> con el ejercicio anterior.</li><li>Identifican al ente, la fecha de cierre, el período cubierto y la moneda de presentación.</li><li>Expresados en moneda homogénea cuando corresponde (RT 54).</li><li>Firmados por el representante legal; si se auditan, se acompañan del informe del auditor.</li></ul>
   <p>Las normas de presentación estaban en las RT 8 (general) y RT 9 (entes comerciales, industriales y de servicios); hoy están en el capítulo de presentación de la RT 54. Los modelos de estados que vas a ver en este módulo siguen esa estructura.</p>
-  <h3>Obligaciones legales</h3><p>El art. 326 del CCyC exige confeccionar estados contables al cierre de cada ejercicio. Las sociedades tienen, además, las reglas de los arts. 62 a 65 de la Ley General de Sociedades, y las que están en el art. 299 deben presentarlos ante el organismo de control.</p>`,
+  <h3>Obligaciones legales</h3><p>El art. 326 del CCyC exige confeccionar estados contables al cierre de cada ejercicio. Las sociedades tienen, además, las reglas de los arts. 62 a 65 de la Ley General de Sociedades, y las que están en el art. 299 deben presentarlos ante el organismo de control.</p>
+  ${CAMPUS.vid([["Estructura de los estados contables","estructura de los estados contables estados contables explicacion"]])}`,
   ex:[{type:"pick",title:"¿Qué estado contable responde la pregunta?",options:["Situación patrimonial","Resultados","Evolución del PN","Flujo de efectivo"],items:[["¿Cuánto debe la empresa al cierre?","Situación patrimonial"],["¿Cuánto ganó en el año?","Resultados"],["¿Cuántos dividendos se distribuyeron?","Evolución del PN"],["¿Por qué tiene menos plata si ganó?","Flujo de efectivo"],["¿Cuánto vale su stock de mercaderías?","Situación patrimonial"]]}]},
  {lead:"El estado de situación patrimonial muestra el activo, el pasivo y el patrimonio neto, ordenados de mayor a menor liquidez.",
   html:`<h3>Corriente y no corriente</h3><p>Un activo es <b>corriente</b> si se espera convertir en efectivo o consumir dentro de los 12 meses del cierre. Un pasivo es corriente si vence dentro de ese plazo.</p>
@@ -43,7 +44,8 @@ lessons:[
   <tr><td>Caja y bancos</td><td class="r num">500</td></tr><tr><td>Créditos por ventas</td><td class="r num">1.500</td></tr><tr><td>Bienes de cambio</td><td class="r num">1.000</td></tr><tr><td><b>Activo corriente</b></td><td class="r num"><b>3.000</b></td></tr>
   <tr><td>Bienes de uso</td><td class="r num">5.000</td></tr><tr><td><b>Total del activo</b></td><td class="r num"><b>8.000</b></td></tr>
   <tr><td>Deudas comerciales</td><td class="r num">900</td></tr><tr><td>Préstamos (corrientes)</td><td class="r num">700</td></tr><tr><td>Cargas fiscales y sociales</td><td class="r num">400</td></tr><tr><td><b>Pasivo corriente</b></td><td class="r num"><b>2.000</b></td></tr>
-  <tr><td>Préstamos (no corrientes)</td><td class="r num">3.000</td></tr><tr><td><b>Total del pasivo</b></td><td class="r num"><b>5.000</b></td></tr><tr><td><b>Patrimonio neto</b></td><td class="r num"><b>3.000</b></td></tr></tbody></table></div>`,
+  <tr><td>Préstamos (no corrientes)</td><td class="r num">3.000</td></tr><tr><td><b>Total del pasivo</b></td><td class="r num"><b>5.000</b></td></tr><tr><td><b>Patrimonio neto</b></td><td class="r num"><b>3.000</b></td></tr></tbody></table></div>
+  ${CAMPUS.vid([["Estado de situación patrimonial","estado de situación patrimonial estados contables explicacion"]])}`,
   ex:[{type:"pick",title:"¿En qué rubro se presenta?",options:["Caja y bancos","Créditos por ventas","Otros créditos","Bienes de cambio","Bienes de uso","Cargas fiscales"],items:[
    ["Saldo a favor de IVA","Otros créditos"],["IVA a pagar del mes","Cargas fiscales"],["Mercadería en el depósito","Bienes de cambio"],["Cupones de tarjeta de crédito a cobrar","Créditos por ventas"],["Fondo fijo","Caja y bancos"],["Camioneta de reparto","Bienes de uso"],["Anticipo de Ganancias pagado","Otros créditos"]]},
    {type:"tf",items:[["Un préstamo que vence en 18 meses es pasivo corriente","Falso"],["La cuota de un préstamo a largo plazo que vence en los próximos 12 meses se clasifica como corriente","Verdadero"]]}]},
@@ -61,7 +63,8 @@ lessons:[
   <tr><td>− Impuesto a las ganancias</td><td>Impuesto corriente y diferido</td></tr>
   <tr><td><b>= Resultado neto del ejercicio</b></td><td>Pasa al estado de evolución del PN</td></tr></tbody></table></div>
   <p>Si hay operaciones en discontinuación, su resultado se muestra por separado. El <b>Anexo de gastos</b> (información requerida por el art. 64 de la Ley General de Sociedades) desagrega los gastos por naturaleza (sueldos, alquileres, amortizaciones) y por función.</p>
-  <p><b>Novedades de la RT 54:</b> ya no existe la categoría de <b>resultados extraordinarios</b>, así que todos los resultados se presentan dentro de los ordinarios. Además, el ente puede mostrar los resultados financieros y por tenencia (incluido el RECPAM) en <b>una sola línea</b> y desagregarlos en notas.</p>`,
+  <p><b>Novedades de la RT 54:</b> ya no existe la categoría de <b>resultados extraordinarios</b>, así que todos los resultados se presentan dentro de los ordinarios. Además, el ente puede mostrar los resultados financieros y por tenencia (incluido el RECPAM) en <b>una sola línea</b> y desagregarlos en notas.</p>
+  ${CAMPUS.vid([["Estado de resultados","estado de resultados estados contables explicacion"]])}`,
   ex:[{type:"custom",title:"Armá el estado de resultados",render:armarER},
    {type:"pick",title:"¿Comercialización o administración?",options:["Comercialización","Administración"],items:[["Comisiones de vendedores","Comercialización"],["Honorarios del contador","Administración"],["Publicidad en redes","Comercialización"],["Sueldo del gerente general","Administración"],["Fletes de entrega a clientes","Comercialización"],["Deudores incobrables","Comercialización"]]}]},
  {lead:"El estado de evolución del patrimonio neto muestra qué cambió en el PN durante el ejercicio y por qué.",
@@ -73,7 +76,8 @@ lessons:[
   <tr><td>Aumento de capital en efectivo</td><td class="r num">100</td><td></td><td></td><td></td><td class="r num">100</td></tr>
   <tr><td>Resultado del ejercicio</td><td></td><td></td><td></td><td class="r num">650</td><td class="r num">650</td></tr>
   <tr><td><b>Saldos al cierre</b></td><td class="r num"><b>1.100</b></td><td class="r num"><b>600</b></td><td class="r num"><b>190</b></td><td class="r num"><b>1.110</b></td><td class="r num"><b>3.000</b></td></tr></tbody></table></div>
-  <p>Los números entre paréntesis son disminuciones. Las <b>modificaciones de saldos iniciales</b> (corrección de errores de ejercicios anteriores o cambios de criterio) se muestran al principio, ajustando los saldos de inicio, nunca contra el resultado del ejercicio.</p>`,
+  <p>Los números entre paréntesis son disminuciones. Las <b>modificaciones de saldos iniciales</b> (corrección de errores de ejercicios anteriores o cambios de criterio) se muestran al principio, ajustando los saldos de inicio, nunca contra el resultado del ejercicio.</p>
+  ${CAMPUS.vid([["Estado de evolución del patrimonio neto","estado de evolución del patrimonio neto estados contables explicacion"]])}`,
   ex:[{type:"num",items:[{q:"PN inicial $ 4.000.000; aporte de capital $ 500.000; dividendos en efectivo $ 600.000; resultado del ejercicio $ 900.000. ¿PN al cierre?",a:4800000,u:"$"},{q:"En el mismo caso, la asamblea también destinó $ 45.000 a reserva legal. ¿Cuánto cambia el PN total por ese movimiento?",a:0,u:"$",tol:0,hint:"Es una reclasificación entre columnas."}]},
    {type:"tf",items:[["La distribución de dividendos en efectivo disminuye el patrimonio neto","Verdadero"],["La corrección de un error de un ejercicio anterior se registra como resultado del ejercicio actual","Falso","Se ajustan los saldos iniciales."],["Constituir reserva legal disminuye el PN total","Falso"]]}]},
  {lead:"Una empresa puede ganar plata y quedarse sin efectivo. El estado de flujo de efectivo muestra por qué.",
@@ -83,7 +87,8 @@ lessons:[
   <h3>Ajustes en el método indirecto</h3><div class="tw"><table><thead><tr><th>Partida</th><th>Ajuste</th></tr></thead><tbody>
   <tr><td>Amortizaciones, previsiones (gastos que no son salida de efectivo)</td><td>Se suman</td></tr><tr><td>Ganancias por venta de bienes de uso (su cobro va a inversión)</td><td>Se restan</td></tr>
   <tr><td>Aumento de créditos o de bienes de cambio</td><td>Se resta</td></tr><tr><td>Disminución de créditos o de bienes de cambio</td><td>Se suma</td></tr>
-  <tr><td>Aumento de deudas operativas</td><td>Se suma</td></tr><tr><td>Disminución de deudas operativas</td><td>Se resta</td></tr></tbody></table></div>`,
+  <tr><td>Aumento de deudas operativas</td><td>Se suma</td></tr><tr><td>Disminución de deudas operativas</td><td>Se resta</td></tr></tbody></table></div>
+  ${CAMPUS.vid([["Estado de flujo de efectivo","estado de flujo de efectivo estados contables explicacion"]])}`,
   ex:[{type:"custom",title:"Armá el flujo de efectivo",render:armarEFE},
    {type:"pick",title:"¿En qué actividad se clasifica?",options:["Operativa","Inversión","Financiación"],items:[["Pago de sueldos","Operativa"],["Compra de una máquina","Inversión"],["Préstamo bancario recibido","Financiación"],["Cobros a clientes","Operativa"],["Pago de dividendos","Financiación"],["Venta de un rodado usado","Inversión"]]}]},
  {lead:"Las notas y los anexos amplían los estados contables. Sin ellos, los números no se pueden interpretar.",
@@ -93,7 +98,8 @@ lessons:[
   <tr><td>Activos intangibles</td><td>Igual estructura que bienes de uso</td></tr><tr><td>Inversiones</td><td>Detalle de títulos, acciones y participaciones</td></tr>
   <tr><td>Previsiones</td><td>Saldos iniciales, aumentos, usos y saldos finales</td></tr><tr><td>Costo de las mercaderías vendidas</td><td>EI + compras − EF, o el costo de producción</td></tr>
   <tr><td>Información sobre gastos</td><td>Por naturaleza y por función (art. 64 de la LGS)</td></tr><tr><td>Activos y pasivos en moneda extranjera</td><td>Moneda, monto, tipo de cambio aplicado</td></tr></tbody></table></div>
-  <h3>Información complementaria de las sociedades</h3><p>Junto con los estados, el directorio presenta la <b>memoria</b> (art. 66 de la LGS), que explica la situación de la sociedad, su evolución y las perspectivas, y la propuesta de distribución de utilidades.</p>`,
+  <h3>Información complementaria de las sociedades</h3><p>Junto con los estados, el directorio presenta la <b>memoria</b> (art. 66 de la LGS), que explica la situación de la sociedad, su evolución y las perspectivas, y la propuesta de distribución de utilidades.</p>
+  ${CAMPUS.vid([["Notas, anexos e información complementaria","notas anexos e información complementaria estados contables explicacion"]])}`,
   ex:[{type:"pick",title:"¿Dónde se informa?",options:["Nota","Anexo","Memoria"],items:[["Un juicio con pérdida posible","Nota"],["Movimientos de bienes de uso del ejercicio","Anexo"],["Propuesta del directorio sobre los dividendos","Memoria"],["Un incendio ocurrido después del cierre","Nota"],["Saldos en dólares y tipo de cambio usado","Anexo"],["Un plazo fijo prendado en garantía de un préstamo","Nota"]]}]},
  {lead:"Cuando una empresa controla a otras, se presentan estados consolidados como si el grupo fuera una sola entidad.",
   html:`<h3>Tipos de relación entre sociedades</h3><div class="tw"><table><thead><tr><th>Relación</th><th>Indicio habitual</th><th>Tratamiento</th></tr></thead><tbody>
@@ -102,7 +108,8 @@ lessons:[
   <tr><td><b>Influencia significativa</b></td><td>Entre 20% y 50% de los votos, o participación en el directorio</td><td>Valor patrimonial proporcional</td></tr>
   <tr><td><b>Sin influencia</b></td><td>Menos del 20%</td><td>Costo o valor razonable</td></tr></tbody></table></div>
   <h3>Valor patrimonial proporcional (VPP)</h3><p>La inversión se mide por el porcentaje del PN de la participada. Si la participada gana $ 1.000.000 y tenés el 30%, tu inversión sube $ 300.000 y reconocés esa ganancia.</p>
-  <h3>Consolidación</h3><ol><li>Se suman, rubro por rubro, los estados de la controlante y las controladas.</li><li>Se eliminan la inversión de la controlante y el PN de la controlada.</li><li>Se eliminan los saldos y operaciones entre empresas del grupo (ventas, créditos y deudas recíprocas) y los resultados no realizados.</li><li>La parte del PN y del resultado de las controladas que no pertenece a la controlante se muestra como <b>participación no controladora</b>.</li></ol>`,
+  <h3>Consolidación</h3><ol><li>Se suman, rubro por rubro, los estados de la controlante y las controladas.</li><li>Se eliminan la inversión de la controlante y el PN de la controlada.</li><li>Se eliminan los saldos y operaciones entre empresas del grupo (ventas, créditos y deudas recíprocas) y los resultados no realizados.</li><li>La parte del PN y del resultado de las controladas que no pertenece a la controlante se muestra como <b>participación no controladora</b>.</li></ol>
+  ${CAMPUS.vid([["Estados consolidados","estados consolidados estados contables explicacion"]])}`,
   ex:[{type:"num",items:[{q:"Tenés el 30% de una sociedad que ganó $ 1.000.000. ¿Cuánto reconocés por VPP?",a:300000,u:"$"},{q:"La controlante posee el 80% de una controlada con PN de $ 10.000.000. ¿Participación no controladora?",a:2000000,u:"$"}]},
    {type:"pick",title:"¿Qué tratamiento corresponde?",options:["Consolidar","VPP","Costo o valor razonable"],items:[["Participación del 65% de los votos","Consolidar"],["Participación del 25% con un director propio","VPP"],["Participación del 3% en una empresa que cotiza","Costo o valor razonable"],["50% en un negocio conjunto con otro socio","VPP"]]}]},
 ],
