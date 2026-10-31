@@ -1,7 +1,7 @@
 /* Plan de estudios: estructura modelada sobre la carrera de Contador Público (UBA y otras universidades nacionales) */
 const CAMPUS = { content: {} };
 /* Caja de videos: enlaces a búsquedas de YouTube en canales de matemática reconocidos */
-CAMPUS.vid=(items)=>`<div class="vid"><b>▶ Videos para ver este tema</b><ul>${items.map(([t,q])=>`<li><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${t}</a></li>`).join("")}</ul><span class="src">Cada enlace abre YouTube con la búsqueda del tema en un canal reconocido (Julioprofe, Matemáticas profe Alex o Khan Academy en español). Elegí el video cuyo título coincida con el tema y miralo antes de hacer los ejercicios.</span></div>`;
+CAMPUS.vid=(items)=>`<div class="vid"><b>▶ Videos para ver este tema</b><ul>${items.map(([t,q])=>`<li><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${t}</a></li>`).join("")}</ul><span class="src">Cada enlace abre YouTube con la búsqueda del tema, en lo posible en canales reconocidos (Julioprofe, Matemáticas profe Alex, Khan Academy en español). Elegí el video cuyo título coincida con el tema y miralo antes de hacer los ejercicios.</span></div>`;
 CAMPUS.cycles = [
   {id:"basico", t:"Ciclo Básico", d:"Las bases que en la facultad se ven en el CBC y los primeros años: la lógica contable, matemática, estadística, economía, administración y derecho."},
   {id:"general", t:"Ciclo General", d:"El oficio contable completo y las herramientas de trabajo: ciclo contable, circuitos administrativos, cálculo financiero y sistemas."},

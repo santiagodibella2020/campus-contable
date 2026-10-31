@@ -248,7 +248,7 @@ ol.lessons li.ev{list-style:"★  "}
 /* Plan de estudios: estructura modelada sobre la carrera de Contador Público (UBA y otras universidades nacionales) */
 const CAMPUS = { content: {} };
 /* Caja de videos: enlaces a búsquedas de YouTube en canales de matemática reconocidos */
-CAMPUS.vid=(items)=>`<div class="vid"><b>▶ Videos para ver este tema</b><ul>${items.map(([t,q])=>`<li><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${t}</a></li>`).join("")}</ul><span class="src">Cada enlace abre YouTube con la búsqueda del tema en un canal reconocido (Julioprofe, Matemáticas profe Alex o Khan Academy en español). Elegí el video cuyo título coincida con el tema y miralo antes de hacer los ejercicios.</span></div>`;
+CAMPUS.vid=(items)=>`<div class="vid"><b>▶ Videos para ver este tema</b><ul>${items.map(([t,q])=>`<li><a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${t}</a></li>`).join("")}</ul><span class="src">Cada enlace abre YouTube con la búsqueda del tema, en lo posible en canales reconocidos (Julioprofe, Matemáticas profe Alex, Khan Academy en español). Elegí el video cuyo título coincida con el tema y miralo antes de hacer los ejercicios.</span></div>`;
 CAMPUS.cycles = [
   {id:"basico", t:"Ciclo Básico", d:"Las bases que en la facultad se ven en el CBC y los primeros años: la lógica contable, matemática, estadística, economía, administración y derecho."},
   {id:"general", t:"Ciclo General", d:"El oficio contable completo y las herramientas de trabajo: ciclo contable, circuitos administrativos, cálculo financiero y sistemas."},
@@ -834,12 +834,27 @@ lessons:[
   <tr><td>10 a 20</td><td class="r num">6</td><td class="r num">0,30</td><td class="r num">14</td></tr>
   <tr><td>20 a 30</td><td class="r num">4</td><td class="r num">0,20</td><td class="r num">18</td></tr>
   <tr><td>30 a 40</td><td class="r num">2</td><td class="r num">0,10</td><td class="r num">20</td></tr></tbody></table></div>
-  <p>Leés: el 70% de los clientes paga con menos de 20 días de atraso (0,40 + 0,30). Los gráficos típicos son el histograma (cuantitativas), el de barras y el de sectores (cualitativas).</p>`,
+  <p>Leés: el 70% de los clientes paga con menos de 20 días de atraso (0,40 + 0,30). Los gráficos típicos son el histograma (cuantitativas), el de barras y el de sectores (cualitativas).</p>
+  <h3>Paso a paso: armar una tabla de frecuencias</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Facturas emitidas por día durante 10 días: 3, 5, 3, 4, 5, 3, 2, 4, 3, 5.
+  <ol><li><b>Ordená</b> los valores posibles de menor a mayor: 2, 3, 4, 5.</li>
+  <li><b>Contá</b> cuántas veces aparece cada uno. Eso es la frecuencia absoluta (f): el 2 aparece 1 vez, el 3 aparece 4 veces, el 4 aparece 2 veces y el 5 aparece 3 veces. Control: 1 + 4 + 2 + 3 = 10 ✔ (tiene que dar el total de datos, n).</li>
+  <li><b>Dividí</b> cada f por n para obtener la frecuencia relativa: 0,1; 0,4; 0,2; 0,3. Control: suman 1. Multiplicadas por 100 son porcentajes.</li>
+  <li><b>Acumulá</b> sumando fila por fila: 1; 1 + 4 = 5; 5 + 2 = 7; 7 + 3 = 10. La última acumulada siempre es n.</li></ol>
+  <div class="tw"><table><thead><tr><th class="r">Facturas</th><th class="r">f</th><th class="r">f/n</th><th class="r">F</th></tr></thead><tbody>
+  <tr><td class="r num">2</td><td class="r num">1</td><td class="r num">0,10</td><td class="r num">1</td></tr>
+  <tr><td class="r num">3</td><td class="r num">4</td><td class="r num">0,40</td><td class="r num">5</td></tr>
+  <tr><td class="r num">4</td><td class="r num">2</td><td class="r num">0,20</td><td class="r num">7</td></tr>
+  <tr><td class="r num">5</td><td class="r num">3</td><td class="r num">0,30</td><td class="r num">10</td></tr></tbody></table></div>
+  Lectura: la acumulada 5 de la fila del 3 dice que en 5 de los 10 días se emitieron 3 facturas <b>o menos</b>.</div>
+  <p>Cuando los datos son muchos y continuos (importes, días de atraso), se agrupan en <b>intervalos</b> como en la tabla de arriba (0 a 10, 10 a 20…). Convención: cada intervalo incluye el límite inferior y no el superior, así un dato no se cuenta dos veces.</p>
+  <div class="err"><b>Errores comunes</b><ul><li>Confundir discreta (se cuenta: 3 empleados) con continua (se mide: $ 1.250,37).</li><li>Creer que una variable es cuantitativa porque usa números: el código postal o el número de CUIT son nominales.</li><li>Olvidarse de controlar que las frecuencias sumen n y las relativas sumen 1.</li></ul></div>
+  ${CAMPUS.vid([["Tipos de variables estadísticas (Matemáticas profe Alex)","matematicas profe alex tipos de variables estadistica"],["Tabla de frecuencias paso a paso (Julioprofe)","julioprofe tabla de frecuencias"],["Tabla de frecuencias con datos agrupados (Matemáticas profe Alex)","matematicas profe alex tabla de frecuencias datos agrupados"],["Cómo se lee un histograma","matematicas profe alex histograma"]])}`,
   ex:[{type:"pick",title:"Clasificá cada variable",options:["Nominal","Ordinal","Discreta","Continua"],items:[
    ["Tipo de comprobante (A, B, C)","Nominal"],["Cantidad de facturas emitidas en el mes","Discreta"],["Importe de cada venta","Continua"],
    ["Categoría de Monotributo (A a K)","Ordinal","Las categorías van de menor a mayor facturación: tienen orden."],["Provincia del domicilio fiscal","Nominal"],
    ["Cantidad de hijos de un empleado","Discreta"],["Nivel de satisfacción del cliente (1 a 5 estrellas)","Ordinal"],["Tiempo que tarda un cliente en pagar","Continua"]]},
-   {type:"num",title:"Con la tabla de la lección",items:[{q:"¿Qué porcentaje de clientes tiene 20 días de atraso o más?",a:30,u:"%",tol:0.1},{q:"¿Cuántos clientes tienen menos de 30 días de atraso?",a:18}]}]},
+   {type:"num",title:"Con la tabla de la lección",items:[{q:"¿Qué porcentaje de clientes tiene 20 días de atraso o más?",a:30,u:"%",tol:0.1,ex:"Son las dos últimas filas: 0,20 + 0,10 = 0,30 → 30%. También: 1 − 0,70."},{q:"¿Cuántos clientes tienen menos de 30 días de atraso?",a:18,ex:"Es la acumulada de la fila 20 a 30: 18."},{q:"Con el ejemplo de las facturas por día, ¿qué porcentaje de los días se emitieron 4 facturas o más?",a:50,u:"%",tol:0.1,hint:"Sumá las relativas del 4 y del 5.",ex:"0,20 + 0,30 = 0,50 → 50%. También: 1 − 5/10 (acumulada del 3)."}]}]},
  {lead:"Las medidas de posición resumen un conjunto de datos en un solo valor representativo.",
   html:`<ul><li><b>Media aritmética:</b> la suma de los datos dividida por la cantidad. Datos 4, 8, 6, 10, 12 → media 40/5 = 8.</li>
   <li><b>Mediana:</b> el valor del medio con los datos ordenados. 4, 6, <b>8</b>, 10, 12 → mediana 8. Si la cantidad es par, es el promedio de los dos centrales.</li>
@@ -849,12 +864,26 @@ lessons:[
   <p>Cuando cada dato tiene un peso distinto. Es exactamente el método del <b>precio promedio ponderado (PPP)</b> que se usa para valuar inventarios:</p>
   <div class="formula">Compra 1: 100 u a $ 50 · Compra 2: 300 u a $ 60 → PPP = (5.000 + 18.000) / 400 = $ 57,50</div>
   <h3>Cuartiles y percentiles</h3>
-  <p>Dividen los datos ordenados en partes iguales. El primer cuartil (Q1) deja por debajo el 25% de los datos; el percentil 90 deja por debajo el 90%. La mediana es el Q2.</p>`,
+  <p>Dividen los datos ordenados en partes iguales. El primer cuartil (Q1) deja por debajo el 25% de los datos; el percentil 90 deja por debajo el 90%. La mediana es el Q2.</p>
+  <h3>Paso a paso con los datos de la lección anterior</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Facturas por día: 3, 5, 3, 4, 5, 3, 2, 4, 3, 5 (n = 10).
+  <ol><li><b>Media:</b> sumo todo, 3 + 5 + 3 + 4 + 5 + 3 + 2 + 4 + 3 + 5 = 37, y divido por la cantidad: 37 / 10 = <b>3,7</b> facturas por día.</li>
+  <li><b>Mediana:</b> primero ordeno: 2, 3, 3, 3, <u>3</u>, <u>4</u>, 4, 5, 5, 5. Como n es par (10), hay dos datos en el medio: el 5.º (3) y el 6.º (4). Promedio: (3 + 4) / 2 = <b>3,5</b>.</li>
+  <li><b>Moda:</b> el valor que más se repite es el 3 (4 veces). Moda = <b>3</b>.</li></ol>
+  Para ubicar la mediana: con n impar está en la posición (n + 1) / 2; con n par, es el promedio de las posiciones n/2 y n/2 + 1.</div>
+  <div class="ejr"><b>Ejemplo resuelto · media ponderada (PPP)</b>Compra 1: 100 u a $ 50. Compra 2: 300 u a $ 60.
+  <ol><li>Multiplico cada precio por su cantidad (el “peso”): 100 × 50 = 5.000; 300 × 60 = 18.000.</li><li>Sumo esos productos: 23.000.</li><li>Divido por la suma de los pesos (400 unidades): 23.000 / 400 = <b>$ 57,50</b>.</li></ol>
+  Si hubieras hecho el promedio simple (50 + 60) / 2 = 55, estaría mal: compraste el triple de unidades a $ 60, así que ese precio tiene que pesar más.</div>
+  <div class="ejr"><b>Ejemplo resuelto · cuartiles</b>Datos ordenados: 4, 6, 8, 10, 12, 14, 16 (n = 7).
+  <ol><li>Q2 (mediana): posición (7 + 1) / 2 = 4 → <b>10</b>.</li><li>Q1: posición (n + 1) / 4 = 2 → <b>6</b>. El 25% de los datos está por debajo.</li><li>Q3: posición 3 · (n + 1) / 4 = 6 → <b>14</b>.</li></ol>
+  Hay varios métodos para calcular cuartiles y la hoja de cálculo puede dar valores levemente distintos; la idea es siempre la misma.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Buscar la mediana sin ordenar primero los datos.</li><li>Promediar precios sin ponderar por las cantidades.</li><li>Pensar que siempre hay una sola moda: puede haber dos (bimodal) o ninguna.</li></ul></div>
+  ${CAMPUS.vid([["Media, mediana y moda (Matemáticas profe Alex)","matematicas profe alex media mediana y moda"],["Media ponderada (Julioprofe)","julioprofe media ponderada"],["Cuartiles y percentiles (Matemáticas profe Alex)","matematicas profe alex cuartiles datos no agrupados"]])}`,
   ex:[{type:"num",items:[
-   {q:"Ventas diarias: 120, 150, 90, 200, 140. ¿Cuál es la media?",a:140},
-   {q:"Con esos mismos datos, ¿cuál es la mediana?",a:140,hint:"Ordená: 90, 120, 140, 150, 200"},
-   {q:"Sueldos: 800, 900, 900, 1.000, 1.200, 5.000 (en miles). ¿Cuál es la mediana?",a:950,hint:"Hay 6 datos: promediá el 3.º y el 4.º"},
-   {q:"Compraste 200 u a $ 40 y 50 u a $ 70. ¿Cuál es el precio promedio ponderado?",a:46,u:"$"}]}]},
+   {q:"Ventas diarias: 120, 150, 90, 200, 140. ¿Cuál es la media?",a:140,ex:"Suma 700 / 5 datos = 140."},
+   {q:"Con esos mismos datos, ¿cuál es la mediana?",a:140,hint:"Ordená: 90, 120, 140, 150, 200",ex:"Ordenados: 90, 120, 140, 150, 200. El del medio (posición 3) es 140."},
+   {q:"Sueldos: 800, 900, 900, 1.000, 1.200, 5.000 (en miles). ¿Cuál es la mediana?",a:950,hint:"Hay 6 datos: promediá el 3.º y el 4.º",ex:"n = 6, par: los centrales son el 3.º (900) y el 4.º (1.000). (900 + 1.000) / 2 = 950. La media daría 1.633: el 5.000 la arrastra."},
+   {q:"Compraste 200 u a $ 40 y 50 u a $ 70. ¿Cuál es el precio promedio ponderado?",a:46,u:"$",ex:"(200 × 40 + 50 × 70) / 250 = (8.000 + 3.500) / 250 = 46."},{q:"Facturas por día: 3, 5, 3, 4, 5, 3, 2, 4, 3, 5. ¿Cuál es la media?",a:3.7,tol:0.01,hint:"Suma 37",ex:"37 / 10 = 3,7."},{q:"Con esos datos, ¿cuál es la mediana?",a:3.5,tol:0.01,hint:"Ordená y promediá el 5.º y el 6.º dato.",ex:"2, 3, 3, 3, 3, 4, 4, 5, 5, 5: (3 + 4) / 2 = 3,5."}]}]},
  {lead:"Dos empresas pueden tener la misma venta promedio y riesgos muy distintos. La dispersión mide cuánto se alejan los datos del promedio.",
   html:`<ul><li><b>Rango:</b> máximo menos mínimo.</li>
   <li><b>Varianza:</b> el promedio de los desvíos al cuadrado respecto de la media.</li>
@@ -863,12 +892,27 @@ lessons:[
   <div class="formula">σ² = Σ (xᵢ − media)² / n   ·   σ = √σ²   ·   CV = σ / media</div>
   <p>Ejemplo con 2, 4, 4, 4, 5, 5, 7, 9: media = 5. Desvíos al cuadrado: 9, 1, 1, 1, 0, 0, 4, 16 → suma 32 → varianza 32/8 = 4 → σ = 2 → CV = 40%.</p>
   <p>Si los datos son una <b>muestra</b> y querés estimar la varianza de la población, se divide por <b>n − 1</b> en lugar de n (varianza muestral corregida).</p>
-  <div class="note"><b>Aplicación.</b> En finanzas, el desvío estándar de los rendimientos es la medida clásica de riesgo (Módulo 23). En auditoría, un desvío grande en una cuenta respecto de su comportamiento habitual es una señal para investigar.</div>`,
+  <div class="note"><b>Aplicación.</b> En finanzas, el desvío estándar de los rendimientos es la medida clásica de riesgo (Módulo 23). En auditoría, un desvío grande en una cuenta respecto de su comportamiento habitual es una señal para investigar.</div>
+  <h3>Paso a paso: varianza y desvío con una tabla</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Ventas de tres días: 10, 20 y 30.
+  <ol><li>Calculo la media: (10 + 20 + 30) / 3 = 20.</li><li>A cada dato le resto la media (desvío) y lo elevo al cuadrado:
+  <div class="tw"><table><thead><tr><th class="r">x</th><th class="r">x − media</th><th class="r">(x − media)²</th></tr></thead><tbody>
+  <tr><td class="r num">10</td><td class="r num">−10</td><td class="r num">100</td></tr>
+  <tr><td class="r num">20</td><td class="r num">0</td><td class="r num">0</td></tr>
+  <tr><td class="r num">30</td><td class="r num">10</td><td class="r num">100</td></tr>
+  <tr><td><b>Suma</b></td><td class="r num">0</td><td class="r num"><b>200</b></td></tr></tbody></table></div></li>
+  <li>¿Por qué al cuadrado? Porque los desvíos siempre suman 0 (los negativos compensan a los positivos). Elevando al cuadrado todos quedan positivos.</li>
+  <li>Varianza poblacional: 200 / 3 = <b>66,67</b>. Si fuera una muestra: 200 / (3 − 1) = <b>100</b>.</li>
+  <li>Desvío estándar: √66,67 = <b>8,16</b>. Está en las mismas unidades que las ventas.</li>
+  <li>Coeficiente de variación: 8,16 / 20 = 0,408 → <b>40,8%</b>.</li></ol>
+  Interpretación: “en promedio, las ventas se alejan unos 8 de la media de 20”.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Olvidarse de elevar al cuadrado los desvíos (la suma daría 0).</li><li>Informar la varianza como si fuera el desvío: hay que sacar la raíz.</li><li>Dividir por n cuando los datos son una muestra y se pide la varianza muestral (n − 1).</li></ul></div>
+  ${CAMPUS.vid([["Varianza y desviación estándar (Matemáticas profe Alex)","matematicas profe alex varianza y desviacion estandar"],["Coeficiente de variación (Julioprofe)","julioprofe coeficiente de variacion"],["Varianza poblacional y muestral, por qué n − 1","varianza muestral n-1 explicacion facil"]])}`,
   ex:[{type:"num",items:[
-   {q:"Datos 10, 20, 30. ¿Cuál es la varianza poblacional?",a:66.67,tol:0.05,hint:"Media 20; desvíos² 100, 0, 100"},
-   {q:"Con los mismos datos, ¿cuál es el desvío estándar? (dos decimales)",a:8.16,tol:0.02},
-   {q:"Una serie tiene media 200 y σ = 30. ¿Cuál es su coeficiente de variación en %?",a:15,u:"%",tol:0.1},
-   {q:"Sucursal A: media 1.000, σ 100. Sucursal B: media 500, σ 75. ¿Qué CV tiene la sucursal B en %?",a:15,u:"%",tol:0.1,ex:"A tiene CV 10%: es relativamente más estable que B."}]}]},
+   {q:"Datos 10, 20, 30. ¿Cuál es la varianza poblacional?",a:66.67,tol:0.05,hint:"Media 20; desvíos² 100, 0, 100",ex:"Desvíos al cuadrado: 100 + 0 + 100 = 200. Dividido n = 3: 66,67."},
+   {q:"Con los mismos datos, ¿cuál es el desvío estándar? (dos decimales)",a:8.16,tol:0.02,ex:"√66,67 = 8,16."},
+   {q:"Una serie tiene media 200 y σ = 30. ¿Cuál es su coeficiente de variación en %?",a:15,u:"%",tol:0.1,ex:"CV = 30 / 200 = 0,15 → 15%."},
+   {q:"Sucursal A: media 1.000, σ 100. Sucursal B: media 500, σ 75. ¿Qué CV tiene la sucursal B en %?",a:15,u:"%",tol:0.1,ex:"A tiene CV 10%: es relativamente más estable que B."},{q:"Datos 10, 20, 30 tomados como muestra. ¿Cuál es la varianza muestral?",a:100,hint:"Dividí la suma de desvíos² por n − 1",ex:"200 / (3 − 1) = 100."}]}]},
  {lead:"La probabilidad mide qué tan posible es que ocurra algo, entre 0 (imposible) y 1 (seguro).",
   html:`<p><b>Probabilidad clásica:</b> casos favorables / casos posibles. La probabilidad de sacar un número par con un dado es 3/6 = 0,5.</p>
   <h3>Reglas</h3>
@@ -879,12 +923,25 @@ lessons:[
   <h3>Valor esperado</h3>
   <p>Es el promedio de los resultados posibles ponderado por su probabilidad. Se usa para decidir con riesgo y para estimar previsiones.</p>
   <div class="formula">Proyecto: 60% gana $ 100.000 · 40% pierde $ 50.000 → VE = 0,6·100.000 + 0,4·(−50.000) = $ 40.000</div>
-  <div class="note"><b>Aplicación contable.</b> Las normas piden registrar una previsión cuando una pérdida es <b>probable</b> y se puede estimar. Para un juicio con 70% de probabilidad de perderse por $ 1.000.000 se registra la mejor estimación del importe, no el valor esperado mecánico. Lo vemos en el Módulo 13.</div>`,
+  <div class="note"><b>Aplicación contable.</b> Las normas piden registrar una previsión cuando una pérdida es <b>probable</b> y se puede estimar. Para un juicio con 70% de probabilidad de perderse por $ 1.000.000 se registra la mejor estimación del importe, no el valor esperado mecánico. Lo vemos en el Módulo 13.</div>
+  <h3>Ejemplos resueltos paso a paso</h3>
+  <div class="ejr"><b>Regla de la suma (sucesos que se superponen)</b>Tirás un dado. ¿Probabilidad de sacar par <b>o</b> mayor que 4?
+  <ol><li>Par: {2, 4, 6} → 3/6. Mayor que 4: {5, 6} → 2/6.</li><li>El 6 está en los dos: P(par y mayor que 4) = 1/6.</li><li>P = 3/6 + 2/6 − 1/6 = <b>4/6 ≈ 0,667</b>. Se resta para no contar el 6 dos veces. Comprobación: los casos son {2, 4, 5, 6}, o sea 4 de 6 ✔.</li></ol></div>
+  <div class="ejr"><b>Diagrama de árbol (una cosa después de la otra)</b>El 40% de las ventas son con tarjeta y, de esas, el 5% se rechaza.
+  <ol><li>Primera rama: tarjeta (0,40) o efectivo (0,60).</li><li>Segunda rama, desde “tarjeta”: rechazada (0,05) o aprobada (0,95).</li><li>Para llegar a “tarjeta y rechazada” se multiplican las ramas del camino: 0,40 × 0,05 = <b>0,02 = 2%</b>.</li></ol></div>
+  <div class="ejr"><b>Probabilidad condicional con una tabla</b>200 clientes:
+  <div class="tw"><table><thead><tr><th></th><th class="r">En mora</th><th class="r">Al día</th><th class="r">Total</th></tr></thead><tbody>
+  <tr><td>Empresas</td><td class="r num">12</td><td class="r num">108</td><td class="r num">120</td></tr>
+  <tr><td>Personas</td><td class="r num">18</td><td class="r num">62</td><td class="r num">80</td></tr>
+  <tr><td>Total</td><td class="r num">30</td><td class="r num">170</td><td class="r num">200</td></tr></tbody></table></div>
+  <ol><li>P(mora) = 30 / 200 = 15%.</li><li>P(mora | empresa): “sabiendo que es empresa”, el total pasa a ser solo las 120 empresas: 12 / 120 = <b>10%</b>.</li><li>Con la fórmula: P(empresa y mora) / P(empresa) = (12/200) / (120/200) = 0,06 / 0,60 = 0,10 ✔.</li><li>P(mora | persona) = 18 / 80 = <b>22,5%</b>. Conclusión: las personas tienen más riesgo de mora que las empresas.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Sumar probabilidades de sucesos que se superponen sin restar la intersección.</li><li>En la condicional, dividir por el total general en vez de por el total del grupo que ya sabés que ocurrió.</li><li>Multiplicar probabilidades de sucesos que no son independientes como si lo fueran.</li></ul></div>
+  ${CAMPUS.vid([["Probabilidad desde cero (Matemáticas profe Alex)","matematicas profe alex probabilidad introduccion"],["Diagrama de árbol (Matemáticas profe Alex)","matematicas profe alex diagrama de arbol probabilidad"],["Probabilidad condicional (Julioprofe)","julioprofe probabilidad condicional"],["Valor esperado explicado","valor esperado probabilidad ejemplo explicado"]])}`,
   ex:[{type:"num",items:[
-   {q:"De 200 clientes, 30 están en mora. Si elegís uno al azar, ¿cuál es la probabilidad (en %) de que esté al día?",a:85,u:"%",tol:0.1},
-   {q:"Dos controles independientes detectan un error con probabilidad 0,8 y 0,7. ¿Cuál es la probabilidad de que ninguno lo detecte? (decimal)",a:0.06,tol:0.001,hint:"0,2 × 0,3"},
-   {q:"Una inversión: 50% gana $ 200.000, 30% gana $ 50.000, 20% pierde $ 300.000. ¿Valor esperado?",a:55000,u:"$"},
-   {q:"El 40% de las ventas son con tarjeta. De esas, el 5% se rechaza. ¿Qué % del total son ventas con tarjeta rechazadas?",a:2,u:"%",tol:0.05}]}]},
+   {q:"De 200 clientes, 30 están en mora. Si elegís uno al azar, ¿cuál es la probabilidad (en %) de que esté al día?",a:85,u:"%",tol:0.1,ex:"Al día: 170 / 200 = 0,85 → 85%. O con el complemento: 1 − 30/200."},
+   {q:"Dos controles independientes detectan un error con probabilidad 0,8 y 0,7. ¿Cuál es la probabilidad de que ninguno lo detecte? (decimal)",a:0.06,tol:0.001,hint:"0,2 × 0,3",ex:"Que el primero falle: 1 − 0,8 = 0,2. El segundo: 0,3. Independientes: 0,2 × 0,3 = 0,06."},
+   {q:"Una inversión: 50% gana $ 200.000, 30% gana $ 50.000, 20% pierde $ 300.000. ¿Valor esperado?",a:55000,u:"$",ex:"0,5 × 200.000 + 0,3 × 50.000 + 0,2 × (−300.000) = 100.000 + 15.000 − 60.000 = 55.000."},
+   {q:"El 40% de las ventas son con tarjeta. De esas, el 5% se rechaza. ¿Qué % del total son ventas con tarjeta rechazadas?",a:2,u:"%",tol:0.05,ex:"Árbol: 0,40 × 0,05 = 0,02 → 2%."},{q:"Con la tabla de clientes de la lección, ¿cuál es la probabilidad (en %) de mora sabiendo que el cliente es una persona?",a:22.5,u:"%",tol:0.05,hint:"18 / 80",ex:"Solo miro las 80 personas: 18 / 80 = 0,225 → 22,5%."}]}]},
  {lead:"Muchas variables (pesos, errores de medición, rendimientos promedio) se distribuyen con forma de campana: la distribución normal.",
   html:`<p>La normal queda definida por su media (μ) y su desvío (σ). Es simétrica: la media, la mediana y la moda coinciden.</p>
   <h3>Regla empírica 68 · 95 · 99,7</h3>
@@ -894,12 +951,21 @@ lessons:[
   <h3>Estandarizar: el valor z</h3>
   <div class="formula">z = (x − μ) / σ</div>
   <p>z dice a cuántos desvíos de la media está un valor. Con μ = 100 y σ = 15, el valor 130 tiene z = 2: está en el 2,5% superior.</p>
-  <p>Para valores exactos se usa una tabla de la normal estándar o la función <span class="mono">DISTR.NORM.ESTAND.N</span> de la hoja de cálculo. Algunos valores útiles: P(Z &lt; 1) = 0,8413; P(Z &lt; 1,645) = 0,95; P(Z &lt; 1,96) = 0,975.</p>`,
+  <p>Para valores exactos se usa una tabla de la normal estándar o la función <span class="mono">DISTR.NORM.ESTAND.N</span> de la hoja de cálculo. Algunos valores útiles: P(Z &lt; 1) = 0,8413; P(Z &lt; 1,645) = 0,95; P(Z &lt; 1,96) = 0,975.</p>
+  <h3>Paso a paso: usar la normal con la tabla</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Los sueldos de una empresa siguen una normal con μ = $ 1.000.000 y σ = $ 200.000.
+  <ol><li><b>¿Qué % gana menos de $ 1.200.000?</b> z = (1.200.000 − 1.000.000) / 200.000 = 1. La tabla da P(Z &lt; 1) = 0,8413 → <b>84,13%</b>.</li>
+  <li><b>¿Qué % gana menos de $ 800.000?</b> z = (800.000 − 1.000.000) / 200.000 = −1. Por simetría, P(Z &lt; −1) = 1 − P(Z &lt; 1) = 1 − 0,8413 = 0,1587 → <b>15,87%</b>.</li>
+  <li><b>¿Qué % gana entre $ 800.000 y $ 1.200.000?</b> Resto las dos áreas: 0,8413 − 0,1587 = 0,6826 → <b>68,26%</b>. Es el “68%” de la regla empírica.</li>
+  <li><b>¿Qué % gana más de $ 1.400.000?</b> z = 2. La tabla da P(Z &lt; 2) = 0,9772, entonces por encima queda 1 − 0,9772 = <b>2,28%</b>. La regla empírica decía “2,5%”: es una aproximación.</li></ol>
+  Truco para no perderse: dibujá siempre la campana y pintá el área que te piden. La tabla da el área <b>a la izquierda</b> de z; si te piden “más de”, restá de 1.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Restar la media al revés: es x − μ, no μ − x.</li><li>Dividir por la varianza en vez de por el desvío.</li><li>Leer la tabla como “área a la derecha” cuando da el área a la izquierda.</li></ul></div>
+  ${CAMPUS.vid([["Distribución normal desde cero (Matemáticas profe Alex)","matematicas profe alex distribucion normal"],["Uso de la tabla Z (Julioprofe)","julioprofe distribucion normal tabla z"],["Regla empírica 68-95-99,7 (Khan Academy en español)","khan academy español regla empirica 68 95 99.7"]])}`,
   ex:[{type:"num",items:[
-   {q:"μ = 500, σ = 50. ¿Cuál es el z de x = 600?",a:2},
-   {q:"Con esa distribución, ¿qué % de los datos cae entre 450 y 550 (regla empírica)?",a:68,u:"%",tol:0.5},
-   {q:"¿Qué % cae por encima de 600 (regla empírica)?",a:2.5,u:"%",tol:0.1,hint:"95% está entre ±2σ; el 5% restante se reparte en las dos colas."},
-   {q:"Con P(Z < 1) = 0,8413, ¿qué probabilidad (en %) hay de superar μ + 1σ?",a:15.87,u:"%",tol:0.02}]}]},
+   {q:"μ = 500, σ = 50. ¿Cuál es el z de x = 600?",a:2,ex:"(600 − 500) / 50 = 2."},
+   {q:"Con esa distribución, ¿qué % de los datos cae entre 450 y 550 (regla empírica)?",a:68,u:"%",tol:0.5,ex:"450 y 550 son μ ± 1σ: 68%."},
+   {q:"¿Qué % cae por encima de 600 (regla empírica)?",a:2.5,u:"%",tol:0.1,hint:"95% está entre ±2σ; el 5% restante se reparte en las dos colas.",ex:"600 es μ + 2σ. Fuera de ±2σ queda 5%, la mitad de cada lado: 2,5%."},
+   {q:"Con P(Z < 1) = 0,8413, ¿qué probabilidad (en %) hay de superar μ + 1σ?",a:15.87,u:"%",tol:0.02,ex:"1 − 0,8413 = 0,1587 → 15,87%."},{q:"Sueldos normales con μ = $ 1.000.000 y σ = $ 200.000. ¿Qué % gana menos de $ 800.000?",a:15.87,u:"%",tol:0.02,hint:"z = −1; P(Z < −1) = 1 − 0,8413",ex:"z = (800.000 − 1.000.000) / 200.000 = −1. Por simetría: 1 − 0,8413 = 0,1587 → 15,87%."}]}]},
  {lead:"Revisar una muestra bien elegida permite opinar sobre toda la población con un error controlado. Es la base del muestreo de auditoría.",
   html:`<h3>Tipos de muestreo</h3>
   <ul><li><b>Aleatorio simple:</b> cada elemento tiene la misma probabilidad de ser elegido.</li>
@@ -911,11 +977,22 @@ lessons:[
   <p>Ejemplo: 400 facturas, promedio $ 500, σ = $ 100. Error estándar = 100/√400 = 5. Intervalo al 95%: 500 ± 9,8 → <b>[490,2 ; 509,8]</b>.</p>
   <p>Para reducir el error a la mitad hay que <b>cuadruplicar</b> la muestra, porque el error depende de √n.</p>
   <h3>Prueba de hipótesis</h3>
-  <p>Se plantea una hipótesis nula (H₀, “no hay diferencia”) y se rechaza si los datos muestran algo muy improbable bajo H₀. El nivel de significación (α, típicamente 5%) es el riesgo aceptado de rechazar H₀ siendo verdadera.</p>`,
+  <p>Se plantea una hipótesis nula (H₀, “no hay diferencia”) y se rechaza si los datos muestran algo muy improbable bajo H₀. El nivel de significación (α, típicamente 5%) es el riesgo aceptado de rechazar H₀ siendo verdadera.</p>
+  <h3>Paso a paso: intervalo de confianza</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Revisaste 100 partidas: media $ 2.000 y σ = $ 500. Querés un intervalo al 95%.
+  <ol><li>Error estándar: σ / √n = 500 / √100 = 500 / 10 = <b>50</b>.</li><li>Valor z para 95%: <b>1,96</b> (para 90% sería 1,645; para 99%, 2,576).</li><li>Margen de error: 1,96 × 50 = <b>98</b>.</li><li>Intervalo: 2.000 − 98 = 1.902 y 2.000 + 98 = 2.098 → <b>[1.902 ; 2.098]</b>.</li></ol>
+  Se lee: “con 95% de confianza, el promedio real de todas las partidas está entre $ 1.902 y $ 2.098”.</div>
+  <div class="ejr"><b>Ejemplo resuelto · ¿de qué tamaño tiene que ser la muestra?</b>Querés estimar el promedio con un margen de error máximo (E) de $ 5, sabiendo que σ ≈ $ 100, al 95%.
+  <div class="formula">n = (z · σ / E)²</div>
+  <ol><li>z · σ / E = 1,96 × 100 / 5 = 39,2.</li><li>n = 39,2² = 1.536,64.</li><li>Siempre se redondea <b>hacia arriba</b>: <b>1.537</b> partidas.</li></ol></div>
+  <div class="ejr"><b>Ejemplo resuelto · prueba de hipótesis</b>Un proveedor dice que su entrega promedio es de 500 unidades. Medís 100 entregas: media 520, σ = 80. ¿Le creés, con α = 5%?
+  <ol><li>H₀: la media es 500. H₁: la media no es 500.</li><li>Estadístico: z = (520 − 500) / (80 / √100) = 20 / 8 = 2,5.</li><li>Límite al 5% (dos colas): ±1,96. Como 2,5 &gt; 1,96, el resultado es muy improbable si H₀ fuera cierta.</li><li>Conclusión: <b>se rechaza H₀</b>. La media real parece distinta de 500.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Dividir σ por n en vez de por √n.</li><li>Redondear el tamaño de muestra hacia abajo.</li><li>Decir “la hipótesis es verdadera” cuando no se rechaza: solo no hay evidencia suficiente en contra.</li></ul></div>
+  ${CAMPUS.vid([["Tipos de muestreo","tipos de muestreo aleatorio simple sistematico estratificado"],["Intervalo de confianza para la media, explicado","intervalo de confianza para la media explicacion paso a paso"],["Tamaño de muestra","calculo tamaño de muestra para la media ejercicio"],["Prueba de hipótesis, explicación fácil","prueba de hipotesis explicacion facil ejemplo"]])}`,
   ex:[{type:"pick",title:"¿Qué tipo de muestreo es?",options:["Aleatorio simple","Sistemático","Estratificado"],items:[
      ["Se sortean 60 legajos de empleados con números al azar","Aleatorio simple"],["Se revisa una factura cada 100, empezando por la n.º 37","Sistemático"],
      ["Se separan las cuentas a cobrar en mayores y menores a $ 1 millón y se muestrea cada grupo","Estratificado"]]},
-   {type:"num",items:[{q:"Muestra de 100 partidas, media $ 2.000, σ $ 500. ¿Cuál es el error estándar?",a:50,u:"$"},{q:"¿Cuál es el límite superior del intervalo al 95%?",a:2098,u:"$",hint:"2.000 + 1,96 × 50"}]}]},
+   {type:"num",items:[{q:"Muestra de 100 partidas, media $ 2.000, σ $ 500. ¿Cuál es el error estándar?",a:50,u:"$",ex:"500 / √100 = 500 / 10 = 50."},{q:"¿Cuál es el límite superior del intervalo al 95%?",a:2098,u:"$",hint:"2.000 + 1,96 × 50",ex:"2.000 + 1,96 × 50 = 2.000 + 98 = 2.098."},{q:"¿Cuántas partidas necesitás para estimar la media con un error máximo de $ 50, si σ = $ 500 y querés 95% de confianza?",a:385,hint:"n = (1,96 × 500 / 50)², redondeando hacia arriba",ex:"1,96 × 500 / 50 = 19,6. 19,6² = 384,16 → 385."}]}]},
  {lead:"Un número índice compara un valor con el de un período base. Es la herramienta para medir y corregir la inflación.",
   html:`<div class="formula">Índice = Valor actual / Valor base × 100   ·   Variación % = (I₁ / I₀ − 1) × 100</div>
   <p>El <b>IPC</b> del INDEC mide la evolución de los precios de una canasta de consumo (base diciembre 2016 = 100). Para el ajuste por inflación contable se usa un índice combinado definido por la FACPCE (IPIM hasta 2016 e IPC desde 2017), como vemos en el Módulo 14.</p>
@@ -924,12 +1001,19 @@ lessons:[
   <h3>Deflactar: pasar de valores nominales a reales</h3>
   <p>Si un sueldo subió 30% y la inflación fue 40%, la variación real es 1,30 / 1,40 − 1 = <b>−7,14%</b>: perdió poder adquisitivo.</p>
   <h3>Coeficiente de reexpresión</h3>
-  <p>Para expresar un importe de una fecha pasada en moneda de cierre: <span class="mono">importe × índice cierre / índice de origen</span>. Un bien comprado a $ 1.000.000 con índice 200, al cierre con índice 260, se reexpresa a 1.000.000 × 1,30 = $ 1.300.000.</p>`,
+  <p>Para expresar un importe de una fecha pasada en moneda de cierre: <span class="mono">importe × índice cierre / índice de origen</span>. Un bien comprado a $ 1.000.000 con índice 200, al cierre con índice 260, se reexpresa a 1.000.000 × 1,30 = $ 1.300.000.</p>
+  <h3>Paso a paso con una serie de IPC</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Índice de precios: enero 100, febrero 105, marzo 112, abril 120.
+  <ol><li>Variación de febrero: 105 / 100 − 1 = 0,05 → <b>5%</b>.</li><li>Marzo: 112 / 105 − 1 = 0,0667 → <b>6,67%</b>. Siempre se divide por el índice del mes <b>anterior</b>, no se restan puntos (112 − 105 = 7 puntos no es 7%).</li><li>Abril: 120 / 112 − 1 = <b>7,14%</b>.</li><li>Acumulada enero–abril: 120 / 100 − 1 = <b>20%</b>. Comprobación componiendo: 1,05 × 1,0667 × 1,0714 = 1,20 ✔.</li></ol></div>
+  <div class="ejr"><b>Ejemplo resuelto · deflactar un sueldo</b>Un sueldo pasó de $ 1.000.000 a $ 1.300.000 mientras el IPC pasó de 100 a 140.
+  <ol><li>Llevo el sueldo nuevo a pesos del período base: 1.300.000 / 1,40 = <b>928.571</b>.</li><li>Comparo con el sueldo original: 928.571 / 1.000.000 − 1 = <b>−7,14%</b>.</li><li>Conclusión: cobra más pesos, pero con ellos compra un 7,14% menos.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Restar puntos del índice en lugar de dividir.</li><li>Sumar inflaciones mensuales para obtener la anual.</li><li>Calcular la variación real restando (30% − 40% = −10%) en vez de dividiendo factores (1,30 / 1,40).</li></ul></div>
+  ${CAMPUS.vid([["Números índice, explicación","numeros indice estadistica explicacion ejemplo"],["Inflación acumulada a partir de la mensual","como calcular la inflacion acumulada mensual"],["Salario real: deflactar con el IPC","salario real deflactar ipc ejemplo"]])}`,
   ex:[{type:"num",items:[
-   {q:"El índice pasó de 250 a 300. ¿Cuál fue la variación en %?",a:20,u:"%",tol:0.05},
-   {q:"Inflación mensual del 2% durante 12 meses. ¿Inflación anual acumulada en %? (dos decimales)",a:26.82,u:"%",tol:0.02},
-   {q:"Un sueldo sube 50% y la inflación del período es 25%. ¿Variación real en %?",a:20,u:"%",tol:0.05},
-   {q:"Un terreno se compró a $ 2.000.000 con índice 400. Al cierre el índice es 520. ¿Importe reexpresado?",a:2600000,u:"$"}]}]},
+   {q:"El índice pasó de 250 a 300. ¿Cuál fue la variación en %?",a:20,u:"%",tol:0.05,ex:"300 / 250 − 1 = 0,20 → 20%."},
+   {q:"Inflación mensual del 2% durante 12 meses. ¿Inflación anual acumulada en %? (dos decimales)",a:26.82,u:"%",tol:0.02,ex:"1,02¹² = 1,2682 → 26,82%."},
+   {q:"Un sueldo sube 50% y la inflación del período es 25%. ¿Variación real en %?",a:20,u:"%",tol:0.05,ex:"1,50 / 1,25 − 1 = 0,20 → 20% real."},
+   {q:"Un terreno se compró a $ 2.000.000 con índice 400. Al cierre el índice es 520. ¿Importe reexpresado?",a:2600000,u:"$",ex:"Coeficiente 520 / 400 = 1,30. 2.000.000 × 1,30 = 2.600.000."},{q:"El IPC pasó de 105 a 112. ¿Cuál fue la inflación del mes en %? (dos decimales)",a:6.67,u:"%",tol:0.02,hint:"112 / 105 − 1",ex:"112 / 105 = 1,0667 → 6,67%. No son 7 puntos = 7%."}]}]},
 ],
 eval:[
  {q:"La cantidad de empleados de una empresa es una variable…",o:["Cualitativa nominal","Cuantitativa discreta","Cuantitativa continua","Cualitativa ordinal"],a:1,ex:"Se cuenta, toma valores enteros."},
@@ -956,7 +1040,20 @@ lessons:[
   <h3>Frontera de posibilidades de producción</h3>
   <p>Muestra las combinaciones máximas de dos bienes que se pueden producir con los recursos disponibles. Un punto dentro de la frontera indica recursos desaprovechados (desempleo); un punto fuera es inalcanzable hoy. El crecimiento económico corre la frontera hacia afuera.</p>
   <h3>Micro y macro</h3>
-  <p>La <b>microeconomía</b> estudia decisiones individuales: consumidores, empresas, mercados. La <b>macroeconomía</b> estudia agregados: PBI, inflación, desempleo (Módulo 5).</p>`,
+  <p>La <b>microeconomía</b> estudia decisiones individuales: consumidores, empresas, mercados. La <b>macroeconomía</b> estudia agregados: PBI, inflación, desempleo (Módulo 5).</p>
+  <h3>Ejemplos resueltos</h3>
+  <div class="ejr"><b>Costo de oportunidad paso a paso</b>Sofía puede (a) estudiar un año sin trabajar, en una facultad pública sin cuota, o (b) trabajar y ganar $ 9.600.000 en el año.
+  <ol><li>Identifico la mejor alternativa que deja: trabajar.</li><li>Su costo de oportunidad de estudiar es <b>$ 9.600.000</b>, aunque la cuota sea cero.</li><li>Conviene estudiar si espera que el título le dé, a futuro, más de lo que resigna hoy.</li></ol></div>
+  <div class="ejr"><b>La frontera de posibilidades con números</b>Un país produce pan y ropa con sus recursos:
+  <div class="tw"><table><thead><tr><th>Punto</th><th class="r">Ropa</th><th class="r">Pan</th><th class="r">Pan que se resigna por cada 10 de ropa</th></tr></thead><tbody>
+  <tr><td>A</td><td class="r num">0</td><td class="r num">100</td><td class="r num">—</td></tr>
+  <tr><td>B</td><td class="r num">10</td><td class="r num">90</td><td class="r num">10</td></tr>
+  <tr><td>C</td><td class="r num">20</td><td class="r num">70</td><td class="r num">20</td></tr>
+  <tr><td>D</td><td class="r num">30</td><td class="r num">40</td><td class="r num">30</td></tr>
+  <tr><td>E</td><td class="r num">40</td><td class="r num">0</td><td class="r num">40</td></tr></tbody></table></div>
+  Cada 10 unidades extra de ropa cuestan cada vez más pan (10, 20, 30, 40): el <b>costo de oportunidad es creciente</b>, porque se van pasando a la ropa recursos que eran cada vez mejores para hacer pan. Por eso la frontera es curva. El punto (20 ropa; 50 pan) está <b>dentro</b>: hay recursos ociosos, porque se podría tener 70 de pan.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Pensar que el costo de oportunidad es solo plata que sale del bolsillo.</li><li>Sumar todas las alternativas resignadas: se toma solo la <b>mejor</b>.</li></ul></div>
+  ${CAMPUS.vid([["Costo de oportunidad, explicado","costo de oportunidad economia explicacion ejemplo"],["Frontera de posibilidades de producción","frontera de posibilidades de produccion explicacion ejemplo"],["Micro y macroeconomía: diferencias","diferencia entre microeconomia y macroeconomia explicacion"]])}`,
   ex:[{type:"tf",items:[
    ["El costo de oportunidad de estudiar es solo lo que pagás de cuota","Falso","También incluye lo que dejás de ganar trabajando en ese tiempo."],
    ["Un punto dentro de la frontera de posibilidades indica recursos ociosos","Verdadero"],
@@ -972,11 +1069,20 @@ lessons:[
   <p>Si Qd = 100 − 2p y Qo = −20 + 4p, se igualan: 100 − 2p = −20 + 4p → <b>p = 20</b>, Q = 60.</p>
   <ul><li>Si el precio está por encima del equilibrio, hay <b>exceso de oferta</b> y el precio tiende a bajar.</li>
   <li>Si está por debajo (por ejemplo, un precio máximo fijado por el Estado), hay <b>exceso de demanda</b>: faltantes.</li></ul>
-  <div class="note"><b>Movimiento sobre la curva o desplazamiento.</b> Si cambia el precio del propio bien, te movés por la curva. Si cambia otra cosa (ingreso, costos), la curva entera se desplaza.</div>`,
+  <div class="note"><b>Movimiento sobre la curva o desplazamiento.</b> Si cambia el precio del propio bien, te movés por la curva. Si cambia otra cosa (ingreso, costos), la curva entera se desplaza.</div>
+  <h3>Paso a paso: hallar el equilibrio</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Qd = 200 − 5p; Qo = 20 + 4p.
+  <ol><li>En equilibrio lo que se quiere comprar es igual a lo que se quiere vender: Qd = Qo.</li><li>200 − 5p = 20 + 4p. Junto las p de un lado: 200 − 20 = 4p + 5p → 180 = 9p.</li><li><b>p = 20</b>.</li><li>Reemplazo en las dos ecuaciones para controlar: Qd = 200 − 5 · 20 = 100; Qo = 20 + 4 · 20 = 100 ✔. <b>Q = 100</b>.</li></ol></div>
+  <div class="ejr"><b>Ejemplo resuelto · precio máximo</b>El Estado fija un precio máximo de $ 10 (debajo del equilibrio de 20).
+  <ol><li>Demanda a $ 10: 200 − 50 = 150.</li><li>Oferta a $ 10: 20 + 40 = 60.</li><li>Faltante (exceso de demanda): 150 − 60 = <b>90 unidades</b>. Aparecen colas, desabastecimiento o mercado paralelo.</li></ol></div>
+  <div class="ejr"><b>Ejemplo resuelto · se desplaza la demanda</b>Sube el ingreso y la demanda pasa a Qd = 245 − 5p.
+  <ol><li>245 − 5p = 20 + 4p → 225 = 9p → p = 25.</li><li>Q = 20 + 4 · 25 = 120.</li><li>Resultado: con una demanda más alta, <b>suben el precio y la cantidad</b>. Fijate que la oferta no se desplazó: los vendedores se movieron <b>por</b> su curva.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Decir “sube el precio, entonces baja la demanda”: baja la <b>cantidad demandada</b> (movimiento), la curva de demanda no se mueve.</li><li>Desplazar la oferta por un cambio en el ingreso de los consumidores (eso mueve la demanda).</li><li>Olvidarse de controlar el resultado en las dos ecuaciones.</li></ul></div>
+  ${CAMPUS.vid([["Oferta y demanda, explicado desde cero","oferta y demanda explicacion desde cero economia"],["Equilibrio de mercado: ejercicio resuelto","equilibrio de mercado oferta y demanda ejercicio resuelto"],["Movimiento sobre la curva vs. desplazamiento","cambio en la cantidad demandada vs cambio en la demanda"],["Precios máximos y escasez","precio maximo exceso de demanda explicacion"]])}`,
   ex:[{type:"num",items:[
-   {q:"Qd = 200 − 5p y Qo = 20 + 4p. ¿Cuál es el precio de equilibrio?",a:20},
-   {q:"¿Y la cantidad de equilibrio?",a:100},
-   {q:"Si el Estado fija un precio máximo de 10, ¿cuál es el exceso de demanda (Qd − Qo)?",a:90,hint:"Qd = 150; Qo = 60"}]},
+   {q:"Qd = 200 − 5p y Qo = 20 + 4p. ¿Cuál es el precio de equilibrio?",a:20,ex:"200 − 5p = 20 + 4p → 180 = 9p → p = 20."},
+   {q:"¿Y la cantidad de equilibrio?",a:100,ex:"Reemplazo p = 20 en cualquiera: Qd = 200 − 100 = 100; Qo = 20 + 80 = 100."},
+   {q:"Si el Estado fija un precio máximo de 10, ¿cuál es el exceso de demanda (Qd − Qo)?",a:90,hint:"Qd = 150; Qo = 60",ex:"Qd = 200 − 50 = 150; Qo = 20 + 40 = 60. Faltan 150 − 60 = 90 unidades."},{q:"Sube el ingreso y la demanda pasa a Qd = 245 − 5p (la oferta sigue Qo = 20 + 4p). ¿Nuevo precio de equilibrio?",a:25,hint:"245 − 5p = 20 + 4p",ex:"225 = 9p → p = 25. La demanda se desplazó a la derecha: suben el precio y la cantidad (Q = 120)."}]},
    {type:"pick",title:"¿Qué curva se desplaza y hacia dónde?",options:["Demanda ↑","Demanda ↓","Oferta ↑","Oferta ↓"],items:[
     ["Sube el ingreso de los consumidores (bien normal)","Demanda ↑"],["Aumenta el precio de la harina para las panaderías","Oferta ↓"],
     ["Una nueva máquina reduce el costo de producción","Oferta ↑"],["Baja el precio de un bien sustituto","Demanda ↓"]]}]},
@@ -990,10 +1096,18 @@ lessons:[
   <h3>Otras elasticidades</h3>
   <ul><li><b>Ingreso:</b> positiva en bienes normales, negativa en bienes inferiores, mayor a 1 en bienes de lujo.</li>
   <li><b>Cruzada:</b> positiva entre sustitutos (manteca y margarina), negativa entre complementarios (impresora y cartuchos).</li></ul>
-  <div class="note"><b>Y los impuestos.</b> Un impuesto recae más sobre el lado del mercado que es más inelástico, porque tiene menos opciones para escapar. Por eso los impuestos a los combustibles o al tabaco recaudan mucho. Esto se llama incidencia y se ve en el Módulo 19.</div>`,
+  <div class="note"><b>Y los impuestos.</b> Un impuesto recae más sobre el lado del mercado que es más inelástico, porque tiene menos opciones para escapar. Por eso los impuestos a los combustibles o al tabaco recaudan mucho. Esto se llama incidencia y se ve en el Módulo 19.</div>
+  <h3>Paso a paso: elasticidad y facturación</h3>
+  <div class="ejr"><b>Ejemplo resuelto · demanda elástica</b>Precio $ 100, se venden 1.000 u. Subís a $ 110 y vendés 750.
+  <ol><li>Variación % del precio: (110 − 100) / 100 = <b>+10%</b>.</li><li>Variación % de la cantidad: (750 − 1.000) / 1.000 = <b>−25%</b>.</li><li>Elasticidad: 25 / 10 = <b>2,5</b> (elástica).</li><li>Facturación antes: 100 × 1.000 = 100.000. Después: 110 × 750 = <b>82.500</b>. Bajó.</li></ol></div>
+  <div class="ejr"><b>Ejemplo resuelto · demanda inelástica</b>Mismo producto, pero ahora al subir a $ 110 vendés 960.
+  <ol><li>Cantidad: (960 − 1.000) / 1.000 = −4%.</li><li>Elasticidad: 4 / 10 = <b>0,4</b> (inelástica).</li><li>Facturación: 110 × 960 = <b>105.600</b>. Subió.</li></ol>
+  La regla para acordarse: la facturación se mueve en la dirección de la variación <b>más grande</b>. Si el precio cambia más que la cantidad (inelástica), manda el precio.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Dividir al revés (precio sobre cantidad).</li><li>Confundir “inelástica” con “la cantidad no cambia nada”: cambia, pero menos que el precio.</li><li>Olvidarse de que la elasticidad se informa en valor absoluto.</li></ul></div>
+  ${CAMPUS.vid([["Elasticidad precio de la demanda, explicada","elasticidad precio de la demanda explicacion ejemplo"],["Elasticidad e ingreso total","elasticidad precio e ingreso total explicacion"],["Elasticidad ingreso y cruzada","elasticidad ingreso y elasticidad cruzada ejemplos"]])}`,
   ex:[{type:"num",items:[
-   {q:"El precio baja 5% y la cantidad sube 15%. ¿Cuál es la elasticidad precio (en valor absoluto)?",a:3},
-   {q:"Un producto con elasticidad 0,4 sube 10% su precio. ¿Cuánto cae la cantidad, en %?",a:4,u:"%",tol:0.05}]},
+   {q:"El precio baja 5% y la cantidad sube 15%. ¿Cuál es la elasticidad precio (en valor absoluto)?",a:3,ex:"15 / 5 = 3. Es elástica."},
+   {q:"Un producto con elasticidad 0,4 sube 10% su precio. ¿Cuánto cae la cantidad, en %?",a:4,u:"%",tol:0.05,ex:"Variación de la cantidad = elasticidad × variación del precio = 0,4 × 10% = 4%."},{q:"Precio $ 100 y 1.000 unidades. El precio sube a $ 110 y se venden 960. ¿Cuál es la nueva facturación?",a:105600,u:"$",hint:"110 × 960",ex:"Antes 100.000; ahora 105.600. La cantidad cayó 4% y el precio subió 10%: es inelástica (0,4) y la facturación sube."}]},
    {type:"pick",title:"Si la empresa sube el precio, ¿qué pasa con su facturación?",options:["Sube","Baja","No cambia"],items:[
     ["Elasticidad 0,3","Sube"],["Elasticidad 1,8","Baja"],["Elasticidad 1","No cambia"],["Medicamento sin sustituto","Sube"],["Una marca de gaseosa entre muchas parecidas","Baja"]]}]},
  {lead:"La teoría de la producción explica cómo combina una empresa sus recursos y por qué sus costos tienen la forma que tienen.",
@@ -1008,11 +1122,23 @@ lessons:[
   <h3>Costo económico y costo contable</h3>
   <p>El costo contable incluye lo que efectivamente se pagó o devengó. El <b>costo económico</b> suma además los costos de oportunidad, como el sueldo que el dueño no se paga o el rendimiento del capital propio. Una empresa puede tener <b>ganancia contable</b> y <b>pérdida económica</b>.</p>
   <h3>Economías de escala</h3>
-  <p>En el largo plazo, si al crecer baja el costo medio, hay economías de escala (compras por volumen, especialización). Si sube, deseconomías (burocracia, coordinación).</p>`,
+  <p>En el largo plazo, si al crecer baja el costo medio, hay economías de escala (compras por volumen, especialización). Si sube, deseconomías (burocracia, coordinación).</p>
+  <h3>Paso a paso con una tabla de costos</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Un taller tiene CF = $ 100 por día. El costo variable según la producción es:
+  <div class="tw"><table><thead><tr><th class="r">q</th><th class="r">CV</th><th class="r">CT = CF + CV</th><th class="r">CMg = ΔCT</th><th class="r">CMe = CT/q</th><th class="r">CVMe = CV/q</th></tr></thead><tbody>
+  <tr><td class="r num">0</td><td class="r num">0</td><td class="r num">100</td><td class="r num">—</td><td class="r num">—</td><td class="r num">—</td></tr>
+  <tr><td class="r num">1</td><td class="r num">40</td><td class="r num">140</td><td class="r num">40</td><td class="r num">140</td><td class="r num">40</td></tr>
+  <tr><td class="r num">2</td><td class="r num">70</td><td class="r num">170</td><td class="r num">30</td><td class="r num">85</td><td class="r num">35</td></tr>
+  <tr><td class="r num">3</td><td class="r num">90</td><td class="r num">190</td><td class="r num">20</td><td class="r num">63,33</td><td class="r num">30</td></tr>
+  <tr><td class="r num">4</td><td class="r num">120</td><td class="r num">220</td><td class="r num">30</td><td class="r num">55</td><td class="r num">30</td></tr>
+  <tr><td class="r num">5</td><td class="r num">170</td><td class="r num">270</td><td class="r num">50</td><td class="r num">54</td><td class="r num">34</td></tr></tbody></table></div>
+  <ol><li>CT: a cada CV le sumo los 100 fijos.</li><li>CMg: resto el CT de la fila anterior (por ejemplo, 220 − 190 = 30).</li><li>CMe y CVMe: divido por q.</li><li>Leé la columna CMg: baja (40, 30, 20) y después sube (30, 50). La suba es la <b>ley de rendimientos decrecientes</b> en acción.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Calcular el marginal dividiendo el CT por q (eso es el medio).</li><li>Olvidarse de sumar el costo fijo al CT.</li><li>Pensar que una ganancia contable siempre es una buena noticia económica.</li></ul></div>
+  ${CAMPUS.vid([["Costos de producción en el corto plazo","costos de produccion corto plazo costo medio costo marginal tabla"],["Ley de rendimientos decrecientes","ley de rendimientos marginales decrecientes explicacion ejemplo"],["Economías de escala","economias de escala explicacion ejemplo"]])}`,
   ex:[{type:"num",items:[
-   {q:"CF = $ 50.000, CV de 1.000 unidades = $ 150.000. ¿Costo medio?",a:200,u:"$"},
-   {q:"Producir 1.000 u cuesta $ 200.000 en total y 1.001 u cuesta $ 200.180. ¿Costo marginal de la unidad 1.001?",a:180,u:"$"},
-   {q:"Un negocio tuvo ganancia contable de $ 3.000.000 en el año. El dueño podría ganar $ 4.000.000 trabajando en relación de dependencia. ¿Ganancia económica? (con signo)",a:-1000000,u:"$"}]}]},
+   {q:"CF = $ 50.000, CV de 1.000 unidades = $ 150.000. ¿Costo medio?",a:200,u:"$",ex:"CT = 50.000 + 150.000 = 200.000. CMe = 200.000 / 1.000 = 200."},
+   {q:"Producir 1.000 u cuesta $ 200.000 en total y 1.001 u cuesta $ 200.180. ¿Costo marginal de la unidad 1.001?",a:180,u:"$",ex:"200.180 − 200.000 = 180 para una unidad más."},
+   {q:"Un negocio tuvo ganancia contable de $ 3.000.000 en el año. El dueño podría ganar $ 4.000.000 trabajando en relación de dependencia. ¿Ganancia económica? (con signo)",a:-1000000,u:"$",ex:"Ganancia económica = contable − costo de oportunidad = 3.000.000 − 4.000.000 = −1.000.000."},{q:"Con la tabla de costos de la lección, ¿cuál es el costo medio de producir 4 unidades?",a:55,u:"$",hint:"CT(4) / 4",ex:"CT(4) = 100 + 120 = 220. 220 / 4 = 55."},{q:"Con la misma tabla, ¿cuál es el costo marginal de la 5.ª unidad?",a:50,u:"$",hint:"CT(5) − CT(4)",ex:"270 − 220 = 50."}]}]},
  {lead:"Cuánto poder tiene una empresa para fijar precios depende de cuántos competidores tiene y de qué tan parecidos son sus productos.",
   html:`<div class="tw"><table><thead><tr><th>Estructura</th><th>Empresas</th><th>Producto</th><th>Poder sobre el precio</th><th>Ejemplo</th></tr></thead><tbody>
   <tr><td><b>Competencia perfecta</b></td><td>Muchas</td><td>Homogéneo</td><td>Ninguno: es tomadora de precio</td><td>Soja, trigo</td></tr>
@@ -1023,18 +1149,33 @@ lessons:[
   <p>Toda empresa maximiza su beneficio produciendo donde <b>IMg = CMg</b>. En competencia perfecta el ingreso marginal es igual al precio, entonces produce donde <b>p = CMg</b>. El monopolista produce menos y cobra más que en competencia.</p>
   <h3>Cerrar o seguir</h3>
   <p>En el corto plazo, una empresa con pérdidas sigue produciendo mientras el precio cubra el <b>costo variable medio</b>, porque los fijos los paga igual. Si el precio no cubre ni los variables, conviene cerrar temporalmente.</p>
-  <div class="note"><b>Defensa de la competencia.</b> En Argentina la Ley 27.442 prohíbe acuerdos entre competidores para fijar precios y el abuso de posición dominante. La aplica la Autoridad Nacional de la Competencia.</div>`,
+  <div class="note"><b>Defensa de la competencia.</b> En Argentina la Ley 27.442 prohíbe acuerdos entre competidores para fijar precios y el abuso de posición dominante. La aplica la Autoridad Nacional de la Competencia.</div>
+  <h3>Ejemplos resueltos</h3>
+  <div class="ejr"><b>¿Cuánto produce una empresa competitiva? ¿Le conviene cerrar?</b>El taller de la lección anterior vende en un mercado competitivo a p = $ 50.
+  <ol><li>Produce mientras cada unidad extra cueste menos o igual que el precio (CMg ≤ p). Los CMg son 40, 30, 20, 30 y 50: la 5.ª unidad cuesta justo 50. Produce <b>q = 5</b>.</li><li>Ingreso: 50 × 5 = 250. Costo: 270. Pierde <b>$ 20</b>.</li><li>¿Cierra? Si cierra, igual paga los $ 100 fijos: pierde 100. Si produce, pierde solo 20. El precio (50) cubre el CVMe (34): <b>conviene seguir</b> en el corto plazo.</li></ol></div>
+  <div class="ejr"><b>Monopolio contra competencia</b>Demanda p = 100 − q y costo marginal constante de $ 20.
+  <ol><li>Competencia perfecta: p = CMg → 100 − q = 20 → q = 80, p = 20.</li><li>Monopolio: IT = 100q − q², IMg = 100 − 2q. IMg = CMg → 100 − 2q = 20 → <b>q = 40</b>.</li><li>Precio del monopolista: p = 100 − 40 = <b>$ 60</b>.</li><li>Conclusión: el monopolio produce la mitad y cobra el triple. Por eso existen las leyes de defensa de la competencia.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Pensar que una empresa con pérdidas siempre debe cerrar.</li><li>Comparar el precio con el costo medio total para decidir el cierre de corto plazo (se compara con el CVMe).</li><li>Creer que el monopolista cobra “lo que quiere”: está limitado por la demanda.</li></ul></div>
+  ${CAMPUS.vid([["Estructuras de mercado","estructuras de mercado competencia perfecta monopolio oligopolio explicacion"],["Maximización del beneficio en monopolio","monopolio ingreso marginal igual costo marginal ejercicio"],["Punto de cierre de la empresa","punto de cierre empresa costo variable medio explicacion"]])}`,
   ex:[{type:"pick",title:"Identificá la estructura de mercado",options:["Competencia perfecta","Comp. monopolística","Oligopolio","Monopolio"],items:[
     ["Miles de productores de maíz venden al precio de Chicago","Competencia perfecta"],["Tres empresas concentran casi toda la telefonía móvil","Oligopolio"],
     ["Cientos de peluquerías en una ciudad, cada una con su estilo","Comp. monopolística"],["Una única empresa con concesión de agua potable en la región","Monopolio"]]},
    {type:"tf",items:[["Una empresa en competencia perfecta puede subir su precio sin perder clientes","Falso","Si cobra más que el mercado, nadie le compra."],
-    ["En el corto plazo, conviene seguir produciendo si el precio cubre el costo variable medio","Verdadero"]]}]},
+    ["En el corto plazo, conviene seguir produciendo si el precio cubre el costo variable medio","Verdadero","Los fijos se pagan igual; si el precio cubre los variables, sobra algo para pagar parte de los fijos."]]},
+   {type:"num",title:"Monopolio y competencia",items:[{q:"Demanda p = 100 − q y CMg = 20 constante. ¿Qué cantidad produce el monopolista?",a:40,hint:"IMg = 100 − 2q = 20",ex:"100 − 2q = 20 → q = 40."},{q:"¿A qué precio vende el monopolista?",a:60,u:"$",hint:"p = 100 − 40",ex:"p = 60, contra 20 en competencia perfecta (donde q sería 80)."}]}]},
  {lead:"A veces el mercado por sí solo no llega a un resultado eficiente. Ahí aparece la justificación económica de la intervención del Estado.",
   html:`<ul><li><b>Externalidades:</b> efectos sobre terceros que no se reflejan en el precio. Negativas: una fábrica que contamina un río. Positivas: la educación o la vacunación. Se corrigen con impuestos, subsidios o regulación.</li>
   <li><b>Bienes públicos:</b> no rivales (que lo use uno no impide que lo use otro) y no excluibles (no se puede impedir que alguien lo use). Ejemplos: defensa, alumbrado público. Nadie quiere pagarlos voluntariamente (problema del <i>free rider</i>), por eso los financia el Estado con impuestos.</li>
   <li><b>Información asimétrica:</b> una parte sabe más que la otra. <i>Selección adversa</i>: en el mercado de autos usados, el vendedor conoce los defectos. <i>Riesgo moral</i>: alguien asegurado se cuida menos. Por eso existen auditorías, garantías y regulación de seguros y bancos.</li>
   <li><b>Poder de mercado:</b> monopolios y carteles que restringen la producción.</li></ul>
-  <div class="note"><b>Por qué importa para un contador.</b> La auditoría existe justamente por la información asimétrica entre quienes administran una empresa y quienes ponen el dinero (accionistas, bancos). El auditor reduce esa asimetría (Módulo 25).</div>`,
+  <div class="note"><b>Por qué importa para un contador.</b> La auditoría existe justamente por la información asimétrica entre quienes administran una empresa y quienes ponen el dinero (accionistas, bancos). El auditor reduce esa asimetría (Módulo 25).</div>
+  <h3>Ejemplos resueltos</h3>
+  <div class="ejr"><b>Externalidad con números</b>Producir una tonelada de cuero le cuesta a la curtiembre $ 100 (costo privado). Además, la contaminación genera un daño a los vecinos de $ 20 por tonelada que nadie paga.
+  <ol><li>Costo social = costo privado + daño = 100 + 20 = <b>$ 120</b>.</li><li>Como la empresa decide mirando solo sus $ 100, produce <b>más</b> de lo que convendría a la sociedad.</li><li>Solución clásica: un impuesto de $ 20 por tonelada (impuesto “pigouviano”), que hace que la empresa incluya el daño en su decisión. Alternativas: regulación (límites de vertido) o permisos de emisión.</li></ol></div>
+  <div class="ejr"><b>Selección adversa: el mercado de autos usados</b>
+  <ol><li>Los vendedores saben si su auto es bueno o malo; los compradores no.</li><li>Los compradores, desconfiados, solo ofrecen un precio promedio.</li><li>A ese precio, los dueños de autos buenos no venden (valen más) y sí venden los de autos malos.</li><li>Resultado: en el mercado quedan sobre todo autos malos. Por eso aparecen garantías, peritajes e informes de dominio, que reducen la asimetría.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Llamar “bien público” a todo lo que da el Estado: la educación pública es rival y excluible; no es un bien público en sentido estricto.</li><li>Pensar que las externalidades son siempre negativas.</li><li>Confundir selección adversa (antes del contrato) con riesgo moral (después del contrato).</li></ul></div>
+  ${CAMPUS.vid([["Fallas de mercado: externalidades y bienes públicos","fallas de mercado externalidades bienes publicos explicacion"],["Selección adversa y riesgo moral","seleccion adversa y riesgo moral ejemplos explicacion"],["Impuesto pigouviano","impuesto pigouviano externalidad negativa explicacion"]])}`,
   ex:[{type:"pick",title:"¿Qué falla de mercado es?",options:["Externalidad","Bien público","Info. asimétrica","Poder de mercado"],items:[
     ["Una curtiembre vuelca residuos al Riachuelo","Externalidad"],["El faro que guía a todos los barcos de la costa","Bien público"],
     ["Un gerente conoce los problemas de la empresa y los accionistas no","Info. asimétrica"],["Dos cementeras acuerdan subir los precios juntas","Poder de mercado"],
@@ -1066,11 +1207,24 @@ lessons:[
   <h3>Conceptos relacionados</h3>
   <ul><li><b>PBI per cápita:</b> PBI / población. Aproxima el nivel de vida, aunque no mide la distribución.</li>
   <li><b>PNB:</b> mide lo producido por los residentes del país, estén donde estén. Diferencia con el PBI: los ingresos netos de factores con el exterior (por ejemplo, intereses de deuda externa).</li></ul>
-  <p>En Argentina, el INDEC publica las cuentas nacionales trimestrales. El IVA, justamente, es un impuesto sobre el valor agregado (Módulo 20).</p>`,
+  <p>En Argentina, el INDEC publica las cuentas nacionales trimestrales. El IVA, justamente, es un impuesto sobre el valor agregado (Módulo 20).</p>
+  <h3>Paso a paso: el mismo PBI medido de tres formas</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Una economía muy simple: el productor vende trigo por $ 100 al molino, el molino vende harina por $ 250 a la panadería y la panadería vende pan a los hogares por $ 600.
+  <div class="tw"><table><thead><tr><th>Etapa</th><th class="r">Vende</th><th class="r">Compró a otros</th><th class="r">Valor agregado</th></tr></thead><tbody>
+  <tr><td>Productor</td><td class="r num">100</td><td class="r num">0</td><td class="r num">100</td></tr>
+  <tr><td>Molino</td><td class="r num">250</td><td class="r num">100</td><td class="r num">150</td></tr>
+  <tr><td>Panadería</td><td class="r num">600</td><td class="r num">250</td><td class="r num">350</td></tr>
+  <tr><td><b>Total</b></td><td class="r num">950</td><td></td><td class="r num"><b>600</b></td></tr></tbody></table></div>
+  <ol><li><b>Producción:</b> suma de valores agregados = 600.</li><li><b>Gasto:</b> el único bien final es el pan, que compran los hogares: C = 600.</li><li><b>Ingreso:</b> esos 600 se reparten como sueldos, ganancias, alquileres e intereses de las tres empresas.</li></ol>
+  Si sumaras todas las ventas (950) contarías el trigo tres veces: por eso solo cuentan los bienes <b>finales</b>.</div>
+  <div class="ejr"><b>Ejemplo resuelto · nominal y real</b>Año 1: se producen 10 panes a $ 60. Año 2: 11 panes a $ 90.
+  <ol><li>PBI nominal: año 1 = 600; año 2 = 990. Creció 65%… pero casi todo es suba de precios.</li><li>PBI real (a precios del año 1): año 2 = 11 × 60 = 660. Creció 660 / 600 − 1 = <b>10%</b>: esa es la producción de verdad.</li><li>Deflactor del año 2: 990 / 660 × 100 = 150. Los precios subieron 50%.</li><li>Control: 1,65 / 1,50 = 1,10 ✔.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Sumar los bienes intermedios (doble conteo).</li><li>Restar las importaciones dos veces o sumarlas.</li><li>Concluir que la economía creció mirando solo el PBI nominal.</li></ul></div>
+  ${CAMPUS.vid([["Qué es el PBI, explicado fácil","que es el pbi explicacion facil"],["PBI por el método del gasto y del valor agregado","pbi metodo del gasto valor agregado ingreso explicacion"],["PBI nominal, real y deflactor","pbi nominal y real deflactor ejemplo"]])}`,
   ex:[{type:"num",items:[
-   {q:"C = 700, I = 150, G = 200, X = 180, M = 160. ¿Cuál es el PBI?",a:1070},
-   {q:"Un productor vende trigo por $ 100 al molino; el molino vende harina por $ 250 a la panadería; la panadería vende pan por $ 600. ¿Cuál es el valor agregado total?",a:600,u:"$",hint:"Es igual al valor del bien final."},
-   {q:"El PBI nominal creció 60% y los precios 50%. ¿Cuánto creció el PBI real, en %? (dos decimales)",a:6.67,u:"%",tol:0.02,hint:"1,60 / 1,50 − 1"}]}]},
+   {q:"C = 700, I = 150, G = 200, X = 180, M = 160. ¿Cuál es el PBI?",a:1070,ex:"700 + 150 + 200 + (180 − 160) = 1.070."},
+   {q:"Un productor vende trigo por $ 100 al molino; el molino vende harina por $ 250 a la panadería; la panadería vende pan por $ 600. ¿Cuál es el valor agregado total?",a:600,u:"$",hint:"Es igual al valor del bien final.",ex:"Valor agregado: trigo 100 + molino (250 − 100) 150 + panadería (600 − 250) 350 = 600. Igual al valor del pan."},
+   {q:"El PBI nominal creció 60% y los precios 50%. ¿Cuánto creció el PBI real, en %? (dos decimales)",a:6.67,u:"%",tol:0.02,hint:"1,60 / 1,50 − 1",ex:"1,60 / 1,50 = 1,0667 → 6,67% real."},{q:"Año 1: 10 panes a $ 60. Año 2: 11 panes a $ 90. ¿Cuánto creció el PBI real (a precios del año 1), en %?",a:10,u:"%",tol:0.05,hint:"Año 2 a precios del año 1: 11 × 60",ex:"Real año 1 = 600; real año 2 = 660. 660 / 600 − 1 = 10%."}]}]},
  {lead:"El dinero es lo que se acepta para pagar. El Banco Central regula cuánto hay y los bancos lo multiplican al prestar.",
   html:`<h3>Funciones del dinero</h3><ul><li>Medio de cambio.</li><li>Unidad de cuenta.</li><li>Reserva de valor (la que se pierde con la inflación).</li></ul>
   <h3>Agregados monetarios</h3>
@@ -1080,8 +1234,20 @@ lessons:[
   <h3>Creación de dinero bancario</h3>
   <p>Los bancos guardan una parte de los depósitos como encaje y prestan el resto, que vuelve a depositarse. Con un encaje del 20%, un depósito inicial de $ 1.000 puede generar hasta 1.000 / 0,20 = $ 5.000 de depósitos totales (multiplicador = 1 / encaje).</p>
   <h3>El BCRA</h3>
-  <p>Creado en 1935. Según su Carta Orgánica (Ley 24.144, con reformas), tiene como finalidad promover la estabilidad monetaria y financiera, y con ella el empleo y el desarrollo. Sus herramientas: emisión, tasas de interés de referencia, encajes, operaciones de mercado abierto y regulación del mercado de cambios. También supervisa a las entidades financieras.</p>`,
-  ex:[{type:"num",items:[{q:"Con un encaje del 25%, ¿cuál es el multiplicador bancario máximo?",a:4},{q:"Con ese encaje, un depósito inicial de $ 2.000 puede generar hasta ¿cuántos pesos de depósitos totales?",a:8000,u:"$"}]},
+  <p>Creado en 1935. Según su Carta Orgánica (Ley 24.144, con reformas), tiene como finalidad promover la estabilidad monetaria y financiera, y con ella el empleo y el desarrollo. Sus herramientas: emisión, tasas de interés de referencia, encajes, operaciones de mercado abierto y regulación del mercado de cambios. También supervisa a las entidades financieras.</p>
+  <h3>Paso a paso: cómo los bancos “multiplican” el dinero</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Encaje del 20%. Alguien deposita $ 1.000.
+  <div class="tw"><table><thead><tr><th>Ronda</th><th class="r">Depósito</th><th class="r">Encaje (20%)</th><th class="r">Préstamo (80%)</th></tr></thead><tbody>
+  <tr><td>1</td><td class="r num">1.000</td><td class="r num">200</td><td class="r num">800</td></tr>
+  <tr><td>2</td><td class="r num">800</td><td class="r num">160</td><td class="r num">640</td></tr>
+  <tr><td>3</td><td class="r num">640</td><td class="r num">128</td><td class="r num">512</td></tr>
+  <tr><td>…</td><td class="r num">…</td><td class="r num">…</td><td class="r num">…</td></tr>
+  <tr><td><b>Total</b></td><td class="r num"><b>5.000</b></td><td class="r num">1.000</td><td class="r num">4.000</td></tr></tbody></table></div>
+  <ol><li>El banco guarda 200 y presta 800.</li><li>Quien recibe el préstamo lo gasta y el vendedor lo deposita en un banco: aparece un depósito nuevo de 800.</li><li>Se repite: cada ronda es el 80% de la anterior.</li><li>La suma de todos los depósitos tiende a 1.000 / 0,20 = <b>5.000</b>. Se frena cuando todo el depósito original quedó como encaje (200 + 160 + 128 + … = 1.000).</li></ol>
+  Es un máximo teórico: en la realidad la gente se queda con efectivo y los bancos no prestan todo, así que el multiplicador es menor.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Multiplicar por el encaje en lugar de dividir.</li><li>Creer que el BCRA es el único que crea dinero: los bancos crean dinero bancario al prestar.</li></ul></div>
+  ${CAMPUS.vid([["Funciones del dinero","funciones del dinero explicacion"],["Agregados monetarios M1, M2 y M3","agregados monetarios m1 m2 m3 explicacion"],["Multiplicador bancario y encaje","multiplicador bancario encaje explicacion ejemplo"],["Qué hace un banco central","que hace un banco central explicacion"]])}`,
+  ex:[{type:"num",items:[{q:"Con un encaje del 25%, ¿cuál es el multiplicador bancario máximo?",a:4,ex:"1 / 0,25 = 4."},{q:"Con ese encaje, un depósito inicial de $ 2.000 puede generar hasta ¿cuántos pesos de depósitos totales?",a:8000,u:"$",ex:"2.000 × 4 = 8.000."},{q:"Encaje 20% y depósito inicial de $ 1.000. ¿Cuánto presta el banco en la primera ronda?",a:800,u:"$",hint:"Guarda el 20% y presta el resto.",ex:"Guarda 200 de encaje y presta 1.000 − 200 = 800."}]},
    {type:"pick",title:"¿En qué agregado entra por primera vez?",options:["Base monetaria","M1","M2","M3"],items:[
     ["Billetes en tu billetera","Base monetaria"],["Saldo de una cuenta corriente","M1"],["Saldo de una caja de ahorro","M2"],["Un plazo fijo a 30 días","M3"]]}]},
  {lead:"La inflación es el aumento generalizado y sostenido de los precios. Argentina es uno de los casos de inflación crónica más estudiados del mundo.",
@@ -1095,13 +1261,23 @@ lessons:[
   <ul><li>Pérdida de poder adquisitivo de salarios y jubilaciones.</li><li>Distorsión de precios relativos y dificultad para planificar.</li>
   <li>El <b>impuesto inflacionario</b>: quien tiene pesos pierde valor y el emisor gana (señoreaje).</li>
   <li><b>Distorsión contable:</b> los estados contables en moneda histórica dejan de ser comparables. Por eso las normas contables (hoy la RT 54, que absorbió a la antigua RT 6) exigen el ajuste por inflación (Módulo 14) y el ajuste impositivo en Ganancias (Módulo 21).</li></ul>
-  <div class="note"><b>Efecto Olivera-Tanzi.</b> Descripto por el economista argentino Julio Olivera (y luego por Vito Tanzi): con inflación alta, el Estado cobra los impuestos con atraso y recauda menos en términos reales, lo que agranda el déficit.</div>`,
+  <div class="note"><b>Efecto Olivera-Tanzi.</b> Descripto por el economista argentino Julio Olivera (y luego por Vito Tanzi): con inflación alta, el Estado cobra los impuestos con atraso y recauda menos en términos reales, lo que agranda el déficit.</div>
+  <h3>Ejemplos resueltos: quién gana y quién pierde</h3>
+  <div class="ejr"><b>El que tiene efectivo pierde</b>Tenés $ 100.000 guardados un año y la inflación es 40%.
+  <ol><li>Lo que antes costaba $ 100.000 ahora cuesta $ 140.000.</li><li>Tus $ 100.000 compran lo que antes valía 100.000 / 1,40 = $ 71.429.</li><li>Perdiste <b>$ 28.571</b> de poder de compra, sin que nadie te cobre nada visible: eso es el impuesto inflacionario.</li></ol></div>
+  <div class="ejr"><b>El que debe a tasa fija gana</b>Debés $ 1.000.000 a devolver en un año sin intereses, y la inflación es 50%.
+  <ol><li>Devolvés $ 1.000.000, que valen 1.000.000 / 1,50 = $ 666.667 en pesos del inicio.</li><li>El acreedor pierde un tercio del valor real; vos “ganás” esa diferencia.</li></ol></div>
+  <div class="ejr"><b>Efecto Olivera-Tanzi con números</b>Un impuesto de $ 1.000 se genera hoy y se cobra 3 meses después, con inflación del 10% mensual.
+  <ol><li>Inflación de los 3 meses: 1,1³ = 1,331.</li><li>Valor real de lo cobrado: 1.000 / 1,331 = <b>$ 751</b>.</li><li>El Estado pierde casi 25% de lo que tenía que recaudar solo por el atraso.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Llamar inflación a una suba de un solo precio o de un solo mes.</li><li>Calcular la pérdida de poder de compra como 40% de 100.000 (sería 40.000): es 100.000 − 100.000 / 1,40.</li></ul></div>
+  ${CAMPUS.vid([["Qué es la inflación, explicado fácil","que es la inflacion explicacion facil"],["Causas de la inflación","causas de la inflacion explicacion economia"],["Impuesto inflacionario y señoreaje","impuesto inflacionario señoreaje explicacion"],["Efecto Olivera-Tanzi","efecto olivera tanzi explicacion"]])}`,
   ex:[{type:"tf",items:[
    ["La inflación beneficia a quienes tienen deudas en pesos a tasa fija","Verdadero","Devuelven pesos que valen menos."],
    ["Si los precios suben 2% un solo mes por una suba de tarifas y después se estabilizan, eso es inflación sostenida","Falso","Es un salto de precios puntual."],
    ["Con inflación alta, los estados contables en moneda histórica pierden comparabilidad","Verdadero"],
    ["El efecto Olivera-Tanzi aumenta la recaudación real","Falso","La reduce, porque el impuesto se cobra con pesos depreciados."],
-   ["La inflación es un impuesto implícito sobre quienes tienen dinero en efectivo","Verdadero"]]}]},
+   ["La inflación es un impuesto implícito sobre quienes tienen dinero en efectivo","Verdadero","Su poder de compra cae sin que paguen nada en forma visible."]]},
+   {type:"num",title:"Con números",items:[{q:"Tenés $ 100.000 en efectivo durante un año con inflación del 40%. ¿Cuánto poder de compra perdiste, en pesos del inicio? (sin decimales)",a:28571,u:"$",tol:1,hint:"100.000 − 100.000 / 1,40",ex:"100.000 / 1,40 = 71.429 de poder de compra. Perdiste 28.571."},{q:"Un impuesto de $ 1.000 se cobra 3 meses después, con inflación del 10% mensual. ¿Cuánto vale en pesos de la fecha del hecho? (sin decimales)",a:751,u:"$",tol:1,hint:"1.000 / 1,1³",ex:"1,1³ = 1,331. 1.000 / 1,331 = 751: el Estado pierde casi 25% (efecto Olivera-Tanzi)."}]}]},
  {lead:"El Estado influye en la actividad económica con dos grandes palancas: el presupuesto (política fiscal) y el dinero y las tasas (política monetaria).",
   html:`<h3>Política fiscal</h3>
   <p>Se maneja con el gasto público y los impuestos. Una política <b>expansiva</b> (más gasto o menos impuestos) estimula la demanda; una <b>contractiva</b>, la enfría. El resultado fiscal puede ser:</p>
@@ -1112,8 +1288,16 @@ lessons:[
   <h3>Política monetaria</h3>
   <p>El banco central controla la cantidad de dinero o la tasa de interés. Bajar la tasa abarata el crédito y estimula consumo e inversión; subirla frena la demanda y la inflación, y hace más atractivo ahorrar en pesos.</p>
   <h3>Política cambiaria</h3>
-  <p>Define el régimen de tipo de cambio: fijo, flotante, o intermedios (bandas, flotación administrada, crawling peg). Lo vemos en la próxima lección.</p>`,
-  ex:[{type:"num",items:[{q:"Si la propensión marginal a consumir es 0,75, ¿cuál es el multiplicador simple del gasto?",a:4},{q:"Con ese multiplicador, ¿cuánto aumenta el PBI si el gasto público sube $ 100.000 millones? (en millones)",a:400000,u:"millones"},{q:"Ingresos $ 1.000, gastos primarios $ 950, intereses $ 120. ¿Resultado financiero? (con signo)",a:-70}]},
+  <p>Define el régimen de tipo de cambio: fijo, flotante, o intermedios (bandas, flotación administrada, crawling peg). Lo vemos en la próxima lección.</p>
+  <h3>Paso a paso: el multiplicador ronda por ronda</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>El Estado gasta $ 100 más en obras. La propensión marginal a consumir es 0,8: de cada peso que recibe la gente, gasta 80 centavos.
+  <ol><li>Ronda 1: los constructores reciben 100.</li><li>Ronda 2: gastan el 80%: 80, que es ingreso de los comercios.</li><li>Ronda 3: los comercios gastan el 80% de 80: 64.</li><li>Ronda 4: 51,2… y así sigue, cada vez menos.</li><li>Suma total: 100 / (1 − 0,8) = 100 × 5 = <b>500</b>.</li></ol>
+  Cuanto mayor es la parte del ingreso que se gasta (c), mayor es el multiplicador.</div>
+  <div class="ejr"><b>Ejemplo resuelto · resultado primario y financiero</b>Ingresos 1.000; gastos sin intereses 950; intereses de la deuda 120.
+  <ol><li>Primario: 1.000 − 950 = <b>+50</b> (superávit primario).</li><li>Financiero: 50 − 120 = <b>−70</b> (déficit financiero).</li><li>Lectura: el Estado cubre sus gastos corrientes, pero no le alcanza para pagar todos los intereses.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Calcular el multiplicador como 1 / c en lugar de 1 / (1 − c).</li><li>Incluir los intereses en el resultado primario.</li><li>Pensar que bajar la tasa de interés es contractivo.</li></ul></div>
+  ${CAMPUS.vid([["Política fiscal y monetaria","politica fiscal y politica monetaria explicacion"],["Multiplicador del gasto keynesiano","multiplicador del gasto keynesiano explicacion ejemplo"],["Déficit primario y financiero","deficit primario y deficit financiero explicacion"]])}`,
+  ex:[{type:"num",items:[{q:"Si la propensión marginal a consumir es 0,75, ¿cuál es el multiplicador simple del gasto?",a:4,ex:"1 / (1 − 0,75) = 1 / 0,25 = 4."},{q:"Con ese multiplicador, ¿cuánto aumenta el PBI si el gasto público sube $ 100.000 millones? (en millones)",a:400000,u:"millones",ex:"100.000 × 4 = 400.000 millones."},{q:"Ingresos $ 1.000, gastos primarios $ 950, intereses $ 120. ¿Resultado financiero? (con signo)",a:-70,ex:"Primario: 1.000 − 950 = 50 (superávit). Financiero: 50 − 120 = −70 (déficit)."},{q:"Propensión marginal a consumir 0,8. El gasto sube $ 100. ¿Cuánto se gasta en la tercera ronda?",a:64,u:"$",hint:"100 → 80 → ?",ex:"Ronda 1: 100. Ronda 2: 0,8 × 100 = 80. Ronda 3: 0,8 × 80 = 64."}]},
    {type:"pick",title:"¿Expansiva o contractiva?",options:["Expansiva","Contractiva"],items:[["El BCRA baja la tasa de referencia","Expansiva"],["Se reduce el IVA","Expansiva"],["Se recortan obras públicas","Contractiva"],["Se suben los encajes bancarios","Contractiva"]]}]},
  {lead:"El tipo de cambio es el precio de una moneda extranjera. En Argentina es una de las variables que más afectan a las empresas.",
   html:`<h3>Balanza de pagos</h3>
@@ -1127,10 +1311,17 @@ lessons:[
   <ul><li>Abarata las exportaciones y encarece las importaciones.</li><li>Puede trasladarse a precios (<i>pass-through</i>).</li>
   <li>Para la contabilidad: genera diferencias de cambio en activos y pasivos en moneda extranjera (Módulo 13).</li></ul>
   <h3>Comercio exterior</h3>
-  <p>Los derechos de exportación (retenciones) y de importación los cobra la Aduana (dentro de ARCA). Las operaciones se rigen por el Código Aduanero (Ley 22.415).</p>`,
+  <p>Los derechos de exportación (retenciones) y de importación los cobra la Aduana (dentro de ARCA). Las operaciones se rigen por el Código Aduanero (Ley 22.415).</p>
+  <h3>Paso a paso: diferencia de cambio y tipo de cambio real</h3>
+  <div class="ejr"><b>Ejemplo resuelto · diferencia de cambio</b>Una empresa debe US$ 10.000. El dólar pasa de $ 1.000 a $ 1.200.
+  <ol><li>Deuda en pesos antes: 10.000 × 1.000 = 10.000.000.</li><li>Deuda en pesos después: 10.000 × 1.200 = 12.000.000.</li><li>Diferencia: <b>2.000.000 de pérdida</b>. Si en vez de deber tuviera US$ 10.000 a cobrar, sería una ganancia por el mismo importe.</li></ol></div>
+  <div class="ejr"><b>Ejemplo resuelto · tipo de cambio real</b>El dólar sube de $ 1.000 a $ 1.300 (+30%), la inflación argentina es 50% y la de EE. UU. 3%.
+  <ol><li>Factores: dólar 1,30; precios externos 1,03; precios internos 1,50.</li><li>TCR = 1,30 × 1,03 / 1,50 = 0,8927.</li><li>Variación: <b>−10,73%</b>. Aunque el dólar subió, los precios locales subieron más: el país se <b>encareció</b> en dólares y pierde competitividad.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Pensar que si el dólar sube, siempre hay devaluación real.</li><li>Registrar la diferencia de cambio de una deuda como ganancia cuando el dólar sube.</li><li>Confundir cuenta corriente (comercio, rentas) con cuenta financiera (préstamos, inversiones).</li></ul></div>
+  ${CAMPUS.vid([["Balanza de pagos, explicación fácil","balanza de pagos explicacion facil"],["Tipo de cambio nominal y real","tipo de cambio real explicacion ejemplo"],["Efectos de una devaluación","devaluacion efectos explicacion economia"]])}`,
   ex:[{type:"num",items:[
-   {q:"Una empresa debe US$ 10.000. El tipo de cambio pasa de $ 1.000 a $ 1.200. ¿Cuál es la diferencia de cambio en pesos? (pérdida, sin signo)",a:2000000,u:"$"},
-   {q:"El tipo de cambio nominal sube 20%, la inflación local es 30% y la externa 0%. ¿Cuál es la variación del tipo de cambio real en %? (con signo, dos decimales)",a:-7.69,u:"%",tol:0.02,hint:"1,20 / 1,30 − 1"}]},
+   {q:"Una empresa debe US$ 10.000. El tipo de cambio pasa de $ 1.000 a $ 1.200. ¿Cuál es la diferencia de cambio en pesos? (pérdida, sin signo)",a:2000000,u:"$",ex:"10.000 × (1.200 − 1.000) = 2.000.000 de pérdida: la deuda en pesos creció."},
+   {q:"El tipo de cambio nominal sube 20%, la inflación local es 30% y la externa 0%. ¿Cuál es la variación del tipo de cambio real en %? (con signo, dos decimales)",a:-7.69,u:"%",tol:0.02,hint:"1,20 / 1,30 − 1",ex:"1,20 × 1,00 / 1,30 = 0,9231 → −7,69%. El peso se apreció en términos reales."},{q:"El dólar sube 30%, la inflación local es 50% y la de EE. UU. 3%. ¿Variación del tipo de cambio real en %? (con signo, dos decimales)",a:-10.73,u:"%",tol:0.02,hint:"1,30 × 1,03 / 1,50 − 1",ex:"1,339 / 1,50 = 0,8927 → −10,73%. El país se encareció en dólares."}]},
    {type:"tf",items:[["Una devaluación favorece a los exportadores","Verdadero"],["Las reservas del BCRA aumentan cuando el Banco Central vende dólares","Falso"],["Los intereses que paga el país por su deuda externa se registran en la cuenta corriente","Verdadero","Se registran como renta de la inversión."]]}]},
  {lead:"El INDEC produce las estadísticas oficiales que vas a usar como contador: IPC, salarios, empleo, pobreza y actividad.",
   html:`<h3>Mercado de trabajo (Encuesta Permanente de Hogares, EPH)</h3>
@@ -1142,11 +1333,20 @@ lessons:[
   <p>Se miden por ingresos: un hogar es <b>indigente</b> si no cubre la Canasta Básica Alimentaria (CBA) y <b>pobre</b> si no cubre la Canasta Básica Total (CBT), que suma bienes y servicios no alimentarios. Se calculan por adulto equivalente.</p>
   <h3>Otros indicadores útiles</h3>
   <ul><li><b>EMAE:</b> estimador mensual de actividad económica.</li><li><b>Índice de salarios:</b> evolución de salarios registrados y no registrados.</li>
-  <li><b>Coeficiente de Gini:</b> desigualdad del ingreso, entre 0 (igualdad total) y 1 (máxima desigualdad).</li></ul>`,
+  <li><b>Coeficiente de Gini:</b> desigualdad del ingreso, entre 0 (igualdad total) y 1 (máxima desigualdad).</li></ul>
+  <h3>Paso a paso: las tasas del mercado de trabajo</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Población 1.000: 420 ocupados, 30 desocupados (no trabajan y buscan) y 550 inactivos (no trabajan ni buscan: estudiantes, jubilados, etc.).
+  <ol><li>Población económicamente activa (PEA) = ocupados + desocupados = 450.</li><li>Tasa de actividad = 450 / 1.000 = <b>45%</b>.</li><li>Tasa de empleo = 420 / 1.000 = <b>42%</b>.</li><li>Tasa de desocupación = 30 / <b>450</b> = <b>6,67%</b>. Se divide por la PEA, no por la población total.</li></ol>
+  Dato curioso: si 20 desocupados se cansan y dejan de buscar, pasan a ser inactivos y la desocupación <b>baja</b>, aunque nadie consiguió trabajo.</div>
+  <div class="ejr"><b>Ejemplo resuelto · pobreza</b>Números de ejemplo: la CBT por adulto equivalente es $ 300.000 y un hogar equivale a 3 adultos.
+  <ol><li>CBT del hogar = 300.000 × 3 = $ 900.000.</li><li>Si el hogar gana $ 650.000, no la cubre: es <b>pobre</b>.</li><li>Si la CBA del hogar es $ 400.000, sí la cubre: <b>no es indigente</b>.</li></ol>
+  El “adulto equivalente” existe porque un nene no necesita lo mismo que un adulto. Los valores reales los publica el INDEC cada mes.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Calcular la desocupación sobre la población total.</li><li>Contar como desocupado a quien no trabaja pero tampoco busca.</li></ul></div>
+  ${CAMPUS.vid([["Cómo se calcula la tasa de desocupación","tasa de desocupacion como se calcula poblacion economicamente activa"],["Línea de pobreza y canasta básica","linea de pobreza canasta basica total explicacion"],["Coeficiente de Gini","coeficiente de gini explicacion facil"]])}`,
   ex:[{type:"num",items:[
-   {q:"Población 1.000, ocupados 420, desocupados 30. ¿Tasa de desocupación en %? (dos decimales)",a:6.67,u:"%",tol:0.02,hint:"30 / (420 + 30)"},
-   {q:"Con los mismos datos, ¿tasa de actividad en %?",a:45,u:"%",tol:0.05},
-   {q:"Un hogar necesita $ 900.000 para la CBT y $ 400.000 para la CBA. Gana $ 650.000. ¿Es pobre? Respondé 1 si es pobre y 0 si no.",a:1,tol:0}]}]},
+   {q:"Población 1.000, ocupados 420, desocupados 30. ¿Tasa de desocupación en %? (dos decimales)",a:6.67,u:"%",tol:0.02,hint:"30 / (420 + 30)",ex:"PEA = 420 + 30 = 450. 30 / 450 = 6,67%."},
+   {q:"Con los mismos datos, ¿tasa de actividad en %?",a:45,u:"%",tol:0.05,ex:"PEA / población = 450 / 1.000 = 45%."},{q:"Con los mismos datos, ¿tasa de empleo en %?",a:42,u:"%",tol:0.05,hint:"Ocupados / población total",ex:"420 / 1.000 = 42%."},
+   {q:"Un hogar necesita $ 900.000 para la CBT y $ 400.000 para la CBA. Gana $ 650.000. ¿Es pobre? Respondé 1 si es pobre y 0 si no.",a:1,tol:0,ex:"Cubre la CBA (no es indigente) pero no la CBT (650.000 &lt; 900.000): es pobre."}]}]},
  {lead:"Entender la historia económica argentina explica por qué las normas contables e impositivas del país son como son.",
   html:`<div class="tw"><table><thead><tr><th>Período</th><th>Modelo</th><th>Rasgos</th></tr></thead><tbody>
   <tr><td class="mono">1880 – 1930</td><td><b>Agroexportador</b></td><td>Exportación de carnes y granos a Europa, inmigración masiva, ferrocarriles con capital británico.</td></tr>
@@ -1155,7 +1355,10 @@ lessons:[
   <tr><td class="mono">1983 – 1990</td><td><b>Inestabilidad</b></td><td>Plan Austral (1985). Hiperinflación de 1989 y 1990.</td></tr>
   <tr><td class="mono">1991 – 2001</td><td><b>Convertibilidad</b></td><td>Ley 23.928: 1 peso = 1 dólar, prohibición de indexar. Privatizaciones. Termina con la crisis de 2001 y la devaluación de enero de 2002.</td></tr>
   <tr><td class="mono">2002 – hoy</td><td><b>Posconvertibilidad</b></td><td>Pesificación, recuperación con alto precio de las materias primas, regreso de la inflación alta, controles de cambio en distintos períodos, reestructuraciones de deuda y programas de estabilización.</td></tr></tbody></table></div>
-  <div class="note"><b>Huella contable.</b> La Convertibilidad prohibió la indexación y por eso el ajuste por inflación contable se suspendió desde 1995 (con una breve vuelta en 2002 y 2003). Recién se restableció con la Ley 27.468 (2018) y la Resolución JG 539/18 de la FACPCE, cuando la inflación acumulada de tres años superó el 100%.</div>`,
+  <div class="note"><b>Huella contable.</b> La Convertibilidad prohibió la indexación y por eso el ajuste por inflación contable se suspendió desde 1995 (con una breve vuelta en 2002 y 2003). Recién se restableció con la Ley 27.468 (2018) y la Resolución JG 539/18 de la FACPCE, cuando la inflación acumulada de tres años superó el 100%.</div>
+  <div class="ejr"><b>Cómo estudiar esta lección</b>
+  <ol><li>Aprendete los seis períodos en orden con una palabra clave cada uno: <b>exportar</b> (agroexportador), <b>fabricar</b> (sustitución), <b>endeudarse</b> (1976), <b>hiperinflación</b> (1989), <b>uno a uno</b> (Convertibilidad), <b>salida</b> (2002 en adelante).</li><li>Para cada período preguntate: ¿de dónde venían los dólares? ¿qué pasó con la inflación?</li><li>Conectalo con lo contable: la inflación explica el ajuste por inflación (Módulo 14) y las crisis cambiarias explican la importancia de las diferencias de cambio (Módulo 13).</li></ol></div>
+  ${CAMPUS.vid([["Historia económica argentina: modelo agroexportador","historia economica argentina modelo agroexportador"],["Industrialización por sustitución de importaciones","industrializacion por sustitucion de importaciones argentina explicacion"],["La Convertibilidad, explicada","convertibilidad argentina 1991 explicacion"],["La crisis de 2001","crisis 2001 argentina explicacion economica"]])}`,
   ex:[{type:"order",title:"Ordená los períodos de la historia económica argentina",items:["Modelo agroexportador","Industrialización por sustitución de importaciones","Reforma financiera y endeudamiento externo","Hiperinflación de 1989","Convertibilidad","Crisis de 2001 y salida de la Convertibilidad"]},
    {type:"tf",items:[["La Ley de Convertibilidad prohibía la indexación de precios y contratos","Verdadero"],["El BCRA se creó durante el modelo agroexportador, antes de 1930","Falso","Se creó en 1935."]]}]},
 ],
