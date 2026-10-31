@@ -14,12 +14,74 @@ function parseNum(s){
 }
 let uid = 0; const nid = p => (p||"x")+(++uid);
 
-/* ---------- progreso (se guarda en este navegador) ---------- */
+/* ---------- progreso (en este navegador y, dentro de claude.ai, en tu cuenta) ---------- */
 const KEY = "campus-contable-v1";
 let state = {done:{}, evals:{}};
 try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s) state = Object.assign(state,s); }catch(e){}
 if(state.eval!=null && state.evals[1]==null){ state.evals[1]=state.eval; delete state.eval; }
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} updateProg(); renderSide(); }
+function storeLocal(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+function save(){ storeLocal(); pushCloud(); updateProg(); renderSide(); }
+
+/* ---------- sincronización con tu cuenta de Claude (solo dentro de claude.ai) ---------- */
+let cloud = null, cloudT = null, cloudBusy = false, syncState = "local";
+function mergeState(a, b){
+  const r = {done:Object.assign({}, a.done||{}, b.done||{}), evals:Object.assign({}, a.evals||{}), last:a.last, lastAt:a.lastAt||0};
+  for(const k in (b.evals||{})) r.evals[k] = Math.max(r.evals[k]||0, b.evals[k]||0);
+  if((b.lastAt||0) > r.lastAt){ r.last = b.last; r.lastAt = b.lastAt; }
+  if(!r.last) delete r.last;
+  return r;
+}
+function setSync(s){ syncState = s; const el = document.getElementById("syncNote"); if(el) el.innerHTML = syncHTML(); }
+function pushCloud(){
+  if(!cloud) return;
+  clearTimeout(cloudT);
+  cloudT = setTimeout(async ()=>{
+    if(cloudBusy){ pushCloud(); return; }
+    cloudBusy = true;
+    try{ await cloud.set(JSON.parse(JSON.stringify(state))); setSync("ok"); }
+    catch(e){ setSync("err"); }
+    cloudBusy = false;
+  }, 1200);
+}
+(async ()=>{
+  try{
+    if(!window.claude || !window.claude.use) return;
+    const [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
+    if(!db || !user) return;
+    const id = await user.id(); if(!id) return;
+    const ref = db.doc("data/users/" + id + "/progress");
+    setSync("loading");
+    const snap = await ref.get();
+    const remote = snap.exists ? snap.data() : null;
+    const before = JSON.stringify(state);
+    if(remote) state = mergeState(state, remote);
+    storeLocal(); cloud = ref;
+    if(JSON.stringify(state) !== before){ route(); }
+    if(!remote || JSON.stringify(state) !== JSON.stringify(mergeState(remote, {}))) pushCloud(); else setSync("ok");
+    setSync("ok");
+  }catch(e){ setSync("err"); }
+})();
+function syncHTML(){
+  if(syncState==="ok") return `<b>Progreso sincronizado.</b> Se guarda en tu cuenta de Claude: si abrís el campus desde este mismo enlace en otro dispositivo, seguís donde dejaste.`;
+  if(syncState==="loading") return `<b>Sincronizando…</b> Buscando tu progreso guardado en tu cuenta.`;
+  if(syncState==="err") return `<b>No se pudo sincronizar ahora.</b> Tu progreso quedó guardado en este dispositivo y se vuelve a intentar con el próximo cambio.`;
+  return `<b>Progreso guardado en este dispositivo.</b> Para tenerlo en todos tus dispositivos, abrí el campus desde tu enlace de claude.ai: ahí se sincroniza solo. También podés pasar el progreso a mano con un código: <a href="#" id="codeBtn">copiar o pegar código de progreso</a>.`;
+}
+function progressCodeUI(box){
+  const code = btoa(unescape(encodeURIComponent(JSON.stringify(state))));
+  box.innerHTML = `<p class="src">Copiá este código en el otro dispositivo, o pegá acá uno que traigas. Al pegarlo se suma a lo que ya tenés: no se pierde nada.</p>
+    <textarea id="codeOut" readonly rows="3" style="width:100%;font-family:var(--f-mono);font-size:.75rem">${code}</textarea>
+    <div class="row"><button class="btn ghost" type="button" id="codeCopy">Copiar mi código</button></div>
+    <textarea id="codeIn" rows="3" placeholder="Pegá acá el código del otro dispositivo" style="width:100%;font-family:var(--f-mono);font-size:.75rem"></textarea>
+    <div class="row"><button class="btn" type="button" id="codeLoad">Cargar código</button></div><div id="codeFb"></div>`;
+  $("#codeCopy",box).onclick = async ()=>{ const t=$("#codeOut",box); t.select(); try{ await navigator.clipboard.writeText(t.value); $("#codeFb",box).innerHTML=fbHTML(true,"Código copiado."); }catch(e){ document.execCommand && document.execCommand("copy"); $("#codeFb",box).innerHTML=fbHTML(true,"Seleccionado: copialo con el menú del teléfono."); } };
+  $("#codeLoad",box).onclick = ()=>{
+    try{ const s = JSON.parse(decodeURIComponent(escape(atob($("#codeIn",box).value.trim()))));
+      if(!s || typeof s.done!=="object") throw 0;
+      state = mergeState(state, s); save(); route();
+    }catch(e){ $("#codeFb",box).innerHTML = fbHTML(false,"Ese código no es válido. Copialo completo y volvé a probar."); }
+  };
+}
 function complete(id){ if(!state.done[id]){ state.done[id]=true; save(); } }
 
 const MOD = n => CAMPUS.modules.find(m=>m.n===n);
@@ -187,7 +249,8 @@ function HOME(v){
   const nLess = CAMPUS.modules.reduce((a,m)=>a+m.l.length,0);
   const next = avail.find(m=>!passed(m.n));
   const nextHref = next ? `#${(next.l.map((_,i)=>lid(next.n,i)).find(id=>!state.done[id])) || `m${next.n}-eval`}` : "#m28";
-  const started = Object.keys(state.done).length>0;
+  const started = Object.keys(state.done).length>0 || !!state.last;
+  const contHref = state.last ? "#"+state.last : nextHref;
   v.innerHTML = `
   <div class="eyebrow">Bienvenido, Santiago</div>
   <h1>Tu formación como Contador Público</h1>
@@ -198,8 +261,9 @@ function HOME(v){
     <div><b class="num">${CAMPUS.modules.filter(m=>passed(m.n)).length}</b><span>aprobados</span></div>
     <div><b class="num">${avail.length}</b><span>disponibles</span></div>
   </div>
-  <div class="note"><b>Cómo estudiar.</b> Cada módulo tiene un programa como el de la facultad, con objetivos, bibliografía y normativa. Leé cada lección y hacé sus ejercicios hasta que te den bien: la lección se marca sola. Después resolvé el trabajo práctico integrador y rendí la evaluación, que toma 15 preguntas al azar de un banco y se aprueba con 70%. Seguí el orden de los ciclos, porque cada uno se apoya en el anterior. Tu progreso se guarda en este navegador.</div>
-  ${next?`<div class="row"><a class="btn" href="${nextHref}" style="text-decoration:none">${started?"Continuar donde dejaste":"Empezar por el Módulo 1"}</a><span class="src">Próximo: Módulo ${next.n}, ${esc(next.t)}</span></div>`:""}
+  <div class="note"><b>Cómo estudiar.</b> Cada módulo tiene un programa como el de la facultad, con objetivos, bibliografía y normativa. Leé cada lección y hacé sus ejercicios hasta que te den bien: la lección se marca sola. Después resolvé el trabajo práctico integrador y rendí la evaluación, que toma 15 preguntas al azar de un banco y se aprueba con 70%. Seguí el orden de los ciclos, porque cada uno se apoya en el anterior. </div>
+  ${next||state.last?`<div class="row"><a class="btn" href="${started?contHref:nextHref}" style="text-decoration:none">${started?"Continuar donde dejaste":"Empezar por el Módulo 1"}</a><span class="src">${state.last?"Última lección abierta: "+esc(state.last.replace(/^m(\d+)-(\d+)$/,"$1.$2").replace(/^m(\d+)-eval$/,"evaluación del módulo $1").replace(/^m(\d+)-tp$/,"trabajo práctico del módulo $1")):next?`Próximo: Módulo ${next.n}, ${esc(next.t)}`:""}</span></div>`:""}
+  <div class="note" id="syncNote">${syncHTML()}</div><div id="codeBox"></div>
   ${CAMPUS.cycles.map(c=>`<section class="cycle"><h2>${esc(c.t)}</h2><p class="src" style="max-width:68ch">${esc(c.d)}</p>
     <div class="plan">${CAMPUS.modules.filter(m=>m.c===c.id).map(m=>{const p=modProgress(m.n);return `
       <a class="mod ${has(m.n)?"open":""}" href="#m${m.n}">
@@ -209,6 +273,7 @@ function HOME(v){
       </a>`;}).join("")}</div></section>`).join("")}
   <p class="src">Contenidos elaborados a partir de la legislación argentina vigente (Código Civil y Comercial, Ley General de Sociedades, leyes tributarias y laborales), las Resoluciones Técnicas de la FACPCE y la bibliografía usada en las universidades nacionales. Mirá la sección <a href="#fuentes">Fuentes y normas</a>.</p>`;
 }
+document.addEventListener("click", e=>{ const a=e.target.closest("#codeBtn"); if(!a) return; e.preventDefault(); const b=document.getElementById("codeBox"); if(b){ if(b.innerHTML) b.innerHTML=""; else progressCodeUI(b); } });
 function MODULE(v, n){
   const m = MOD(n); const p = modProgress(n);
   v.innerHTML = `<div class="eyebrow">${esc(CAMPUS.cycles.find(c=>c.id===m.c).t)} · Módulo ${n}</div><h1>${esc(m.t)}</h1>
@@ -327,6 +392,7 @@ function route(){
   else if((mm=id.match(/^m(\d+)-(\d+)$/)) && has(+mm[1]) && MOD(+mm[1]).l[+mm[2]-1]) LESSON(v,+mm[1],+mm[2]-1);
   else if((mm=id.match(/^m(\d+)$/)) && MOD(+mm[1])) MODULE(v,+mm[1]);
   else HOME(v);
+  if(/^m\d+-(\d+|tp|eval)$/.test(id) && state.last!==id){ state.last=id; state.lastAt=Date.now(); storeLocal(); pushCloud(); }
   renderSide(); updateProg(); $("#side").classList.remove("open"); window.scrollTo(0,0);
 }
 window.addEventListener("hashchange",route);
