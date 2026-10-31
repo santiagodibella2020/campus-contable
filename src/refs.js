@@ -28,6 +28,7 @@ CAMPUS.L = {
   rt54:["RT 54 (t.o. RT 59 y modificaciones), micrositio del CPCECABA","https://consejo.org.ar/micrositios-profesionales/rt-54-norma-unificada-argentina-de-contabilidad"],
   rt54g:["CPCECABA: Guía de preguntas y respuestas sobre la RT 54","https://www.consejo.org.ar/storage/attachments/GUIA%20DE%20PREGUNTAS%20Y%20RESPUESTAS.pdf-Er92AK1Btg.pdf"],
   uba:["FCE-UBA: plan 2019 y programas de Contador Público","https://economicas.uba.ar/alumnos/contador/"],
+  lroL:["Ley 25.877 de Ordenamiento del Régimen Laboral (balance social, arts. 25 a 27)",N+"norma-93595"],
   cpce:["Consejo Profesional de Ciencias Económicas de CABA","https://www.consejo.org.ar"],
   arca:["ARCA (ex AFIP)","https://www.arca.gob.ar"],
   ca:["Comisión Arbitral del Convenio Multilateral","https://www.ca.gob.ar"],
@@ -125,5 +126,14 @@ CAMPUS.prog = {
 28:{obj:["Integrar lo aprendido en un caso completo de un ejercicio.","Producir estados contables y un informe de gestión.","Tomar decisiones societarias, impositivas y financieras fundadas."],
  cont:"Constitución de una SRL. Operaciones, IVA e Ingresos Brutos. Sueldos y cargas sociales. Ajustes y cierre. Estados contables. Análisis e informe a los socios.",
  bib:["Toda la bibliografía de los módulos anteriores."],norm:["lgs","iva","lct","gan","rt54"]},
+29:{obj:["Comprender el alcance de la contabilidad social y ambiental.","Preparar un estado de valor económico generado y distribuido.","Reconocer costos, pasivos y contingencias ambientales.","Conocer los marcos de reporte de sostenibilidad."],
+ cont:"Responsabilidad social y grupos de interés. Balance social (RT 36 y RT 44): memoria de sustentabilidad y EVEGyD. Ley 25.877. Costos y pasivos ambientales; Ley 25.675. Estándares GRI, NIIF S1 y S2, ODS. Aseguramiento.",
+ bib:["FACPCE, RT 36 (Balance Social) y RT 44.","Global Reporting Initiative, Estándares GRI.","IFRS Foundation, NIIF S1 y NIIF S2 (2023).","Material de Contabilidad Social y Ambiental, FCE-UBA (asignatura 1330)."],norm:["facpce","lroL","ifrs"]},
+30:{obj:["Conocer la organización de la administración financiera del Estado nacional.","Registrar las etapas del gasto y del recurso.","Interpretar el esquema ahorro-inversión-financiamiento.","Diseñar indicadores de control de gestión."],
+ cont:"Ley 24.156: sistemas de presupuesto, crédito público, tesorería y contabilidad; control interno (SIGEN) y externo (AGN). Clasificadores presupuestarios. Etapas del gasto: compromiso, devengado y pagado. Cuenta de Inversión. Control de gestión: eficacia, eficiencia y economía; tablero de control.",
+ bib:["Ley 24.156 y su Decreto reglamentario 1344/2007.","Ministerio de Economía, Manual de clasificaciones presupuestarias para el sector público nacional.","Kaplan, R. y Norton, D., El cuadro de mando integral, Gestión 2000.","Material de Contabilidad Gubernamental y Control de Gestión, FCE-UBA (asignatura 1374)."],norm:["laf","cn"]},
+31:{obj:["Distinguir los títulos valores y sus caracteres.","Conocer los contratos bancarios y las garantías.","Comprender el funcionamiento del mercado de capitales.","Conocer las salidas a la insolvencia y el rol del contador."],
+ cont:"Títulos valores en el CCyC; pagaré, letra de cambio, cheque y factura de crédito electrónica. Contratos bancarios, leasing, factoring y garantías. Mercado de capitales: Ley 26.831 y Ley 27.440, CNV, ON, FCI y fideicomisos financieros. Cesación de pagos, APE, concurso y quiebra.",
+ bib:["Gómez Leo, O., Instituciones de derecho cambiario, Depalma.","Villegas, C. G., Operaciones bancarias, Rubinzal-Culzoni.","Rouillon, A., Régimen de concursos y quiebras, Astrea.","Material de Derecho Crediticio, Bursátil e Insolvencia, FCE-UBA (asignatura 1360)."],norm:["ccyc","lcq","cnv"]},
 };
 })();

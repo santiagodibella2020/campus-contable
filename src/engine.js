@@ -195,7 +195,7 @@ function HOME(v){
     <div class="plan">${CAMPUS.modules.filter(m=>m.c===c.id).map(m=>{const p=modProgress(m.n);return `
       <a class="mod ${has(m.n)?"open":""}" href="#m${m.n}">
         <div class="row" style="justify-content:space-between"><span class="n">MÓDULO ${m.n}</span><span class="pill ${passed(m.n)?"ok":has(m.n)?"av":""}">${passed(m.n)?"Aprobado":has(m.n)?(p.d?p.p+"%":"Disponible"):"En preparación"}</span></div>
-        <h3>${esc(m.t)}</h3><p class="src">${esc(m.d)}</p><span class="eq-tag">Equivale a: ${esc(m.eq)}</span>
+        <h3>${esc(m.t)}</h3><p class="src">${esc(m.d)}</p><span class="eq-tag">En la UBA: ${esc(m.eq)}</span>
         ${has(m.n)&&p.d?`<div class="bar mini"><i style="width:${p.p}%"></i></div>`:""}
       </a>`;}).join("")}</div></section>`).join("")}
   <p class="src">Contenidos elaborados a partir de la legislación argentina vigente (Código Civil y Comercial, Ley General de Sociedades, leyes tributarias y laborales), las Resoluciones Técnicas de la FACPCE y la bibliografía usada en las universidades nacionales. Mirá la sección <a href="#fuentes">Fuentes y normas</a>.</p>`;
@@ -203,7 +203,7 @@ function HOME(v){
 function MODULE(v, n){
   const m = MOD(n); const p = modProgress(n);
   v.innerHTML = `<div class="eyebrow">${esc(CAMPUS.cycles.find(c=>c.id===m.c).t)} · Módulo ${n}</div><h1>${esc(m.t)}</h1>
-  <p class="lead">${esc(m.d)}</p><span class="eq-tag">Equivale a la materia: ${esc(m.eq)}</span>
+  <p class="lead">${esc(m.d)}</p><span class="eq-tag">Equivale en la FCE-UBA (Plan 2019) a: ${esc(m.eq)}</span>
   ${has(n)?`<div class="row"><div class="bar" style="width:200px"><i style="width:${p.p}%"></i></div><span class="src num">${p.d} de ${p.tot} actividades</span></div>`:`<div class="note"><b>En preparación.</b> Este módulo todavía no tiene contenido cargado. Estas son las lecciones que va a tener.</div>`}
   <ol class="lessons">${m.l.map((t,i)=>`<li>${has(n)?`<a href="#${lid(n,i)}">${esc(t)}</a>`:esc(t)} ${state.done[lid(n,i)]?`<span class="pill ok">Hecha</span>`:""}</li>`).join("")}
   ${hasTP(n)?`<li class="ev"><a href="#m${n}-tp">Trabajo práctico integrador</a> ${state.done[`m${n}-tp`]?`<span class="pill ok">Hecho</span>`:""}</li>`:""}
