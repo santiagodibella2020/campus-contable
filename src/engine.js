@@ -38,7 +38,7 @@ function modProgress(n){
 function fbHTML(ok, msg){ return `<div class="fb ${ok?"ok":"bad"}">${msg}</div>`; }
 /* ayuda al equivocarse (solo ejercicios y TP; las evaluaciones no la usan) */
 function helpHTML(main, why){ return `<div class="help"><b>Ayuda.</b> ${main}${why?` <span>${why}</span>`:""}</div>`; }
-const ansFmt = (n,u) => u==="$" ? fmt(n) : u==="%" ? nf(n)+"%" : nf(n,4)+(u?" "+u:"");
+const ansFmt = (n,u) => u==="$" ? fmt(n) : u==="%" ? nf(n,3)+"%" : nf(n,4)+(u?" "+u:"");
 
 const EX = {
   /* opción múltiple: {type:"mc", items:[{q,o:[],a,ex}]} */
