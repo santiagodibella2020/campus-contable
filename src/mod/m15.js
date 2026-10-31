@@ -60,7 +60,8 @@ lessons:[
   <tr><td><b>= Resultado antes del impuesto a las ganancias</b></td><td></td></tr>
   <tr><td>− Impuesto a las ganancias</td><td>Impuesto corriente y diferido</td></tr>
   <tr><td><b>= Resultado neto del ejercicio</b></td><td>Pasa al estado de evolución del PN</td></tr></tbody></table></div>
-  <p>Si hay operaciones en discontinuación, su resultado se muestra por separado. El <b>Anexo de gastos</b> (información requerida por el art. 64 de la Ley General de Sociedades) desagrega los gastos por naturaleza (sueldos, alquileres, amortizaciones) y por función.</p>`,
+  <p>Si hay operaciones en discontinuación, su resultado se muestra por separado. El <b>Anexo de gastos</b> (información requerida por el art. 64 de la Ley General de Sociedades) desagrega los gastos por naturaleza (sueldos, alquileres, amortizaciones) y por función.</p>
+  <p><b>Novedades de la RT 54:</b> ya no existe la categoría de <b>resultados extraordinarios</b>, así que todos los resultados se presentan dentro de los ordinarios. Además, el ente puede mostrar los resultados financieros y por tenencia (incluido el RECPAM) en <b>una sola línea</b> y desagregarlos en notas.</p>`,
   ex:[{type:"custom",title:"Armá el estado de resultados",render:armarER},
    {type:"pick",title:"¿Comercialización o administración?",options:["Comercialización","Administración"],items:[["Comisiones de vendedores","Comercialización"],["Honorarios del contador","Administración"],["Publicidad en redes","Comercialización"],["Sueldo del gerente general","Administración"],["Fletes de entrega a clientes","Comercialización"],["Deudores incobrables","Comercialización"]]}]},
  {lead:"El estado de evolución del patrimonio neto muestra qué cambió en el PN durante el ejercicio y por qué.",
