@@ -99,7 +99,7 @@ CAMPUS.glosario = [
 ["Significatividad","Importe o naturaleza de un error a partir del cual puede influir en las decisiones de los usuarios.",25],
 ["Síndico concursal","Contador público designado por el juez en un concurso o quiebra para verificar créditos, informar y, en la quiebra, liquidar.",26],
 ["Sociedad anónima","Tipo social con capital representado por acciones y responsabilidad limitada a la integración de lo suscripto (LGS, art. 163).",16],
-["SRL","Sociedad de responsabilidad limitada: capital en cuotas, de 1 a 50 socios (LGS, arts. 146 y siguientes).",16],
+["SRL","Sociedad de responsabilidad limitada: capital en cuotas, hasta 50 socios (LGS, arts. 146 y siguientes).",16],
 ["Tasa efectiva","Tasa que efectivamente se gana o paga en un período, considerando la capitalización.",11],
 ["Tasa real","Tasa de interés descontada la inflación: (1 + nominal) / (1 + inflación) − 1.",11],
 ["TIR","Tasa interna de retorno: la tasa que hace cero el VAN de un proyecto.",11],

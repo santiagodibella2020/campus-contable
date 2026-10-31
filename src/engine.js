@@ -256,13 +256,13 @@ function EVAL(v, n){
   v.innerHTML = `<div class="eyebrow">Módulo ${n} · Evaluación</div><h1>Evaluación: ${esc(m.t)}</h1>
   <p class="lead">${K} preguntas elegidas al azar de un banco de ${Q.length}. Aprobás con 70% (${need} respuestas correctas). Cada vez que la rendís te tocan preguntas distintas; se guarda tu mejor nota.</p>
   ${state.evals[n]!=null?`<div class="note"><b>Tu mejor nota hasta ahora:</b> ${state.evals[n]}%</div>`:""}
-  <form id="qf" class="page" style="gap:18px">${order.map((qi,k)=>`<div class="box q" data-q="${qi}"><span class="tag">Pregunta ${k+1}</span><b>${Q[qi].q}</b><div class="ch">${Q[qi].o.map((o,j)=>`<label><input type="radio" name="${name}-${qi}" value="${j}"> <span>${o}</span></label>`).join("")}</div><div class="ex" hidden></div></div>`).join("")}
+  <form id="qf" class="page" style="gap:18px">${order.map((qi,k)=>`<div class="box q" data-q="${qi}"><span class="tag">Pregunta ${k+1}</span><b>${Q[qi].q}</b><div class="ch">${shuffle(Q[qi].o.map((_,j)=>j)).map(j=>`<label data-j="${j}"><input type="radio" name="${name}-${qi}" value="${j}"> <span>${Q[qi].o[j]}</span></label>`).join("")}</div><div class="ex" hidden></div></div>`).join("")}
   <div class="row"><button class="btn" type="submit">Entregar evaluación</button></div></form><div id="res"></div>${pagerMod(n)}`;
   $("#qf").addEventListener("submit",e=>{
     e.preventDefault(); let ok=0;
     document.querySelectorAll(".q[data-q]").forEach(b=>{
       const q = Q[+b.dataset.q]; const sel = b.querySelector("input:checked");
-      b.querySelectorAll("label").forEach((l,j)=>{ l.classList.remove("ok","bad"); if(j===q.a) l.classList.add("ok"); else if(sel && +sel.value===j) l.classList.add("bad"); });
+      b.querySelectorAll("label").forEach(l=>{ const j=+l.dataset.j; l.classList.remove("ok","bad"); if(j===q.a) l.classList.add("ok"); else if(sel && +sel.value===j) l.classList.add("bad"); });
       if(sel && +sel.value===q.a) ok++;
       const x = b.querySelector(".ex"); x.hidden=false; x.innerHTML = q.ex||"";
     });

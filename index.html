@@ -2894,7 +2894,7 @@ CAMPUS.content[28] = {
 lessons:[
  {lead:"Todo empieza con un contrato. Antes de vender un solo tornillo, la empresa tiene que existir legalmente y estar inscripta ante el fisco.",
   html:`${CASO}
-  <h3>Por qué una SRL</h3><p>Ana y Bruno quieren limitar su responsabilidad al capital que aportan y no necesitan salir a buscar inversores. La <b>SRL</b> (LGS 19.550, arts. 146 a 162) encaja: su capital se divide en <b>cuotas</b>, tiene entre 1 y 50 socios y la administra una <b>gerencia</b>. Una SA tendría más requisitos (directorio, asambleas, en algunos casos fiscalización estatal) y sus acciones se transfieren con más facilidad, cosa que acá no buscan.</p>
+  <h3>Por qué una SRL</h3><p>Ana y Bruno quieren limitar su responsabilidad al capital que aportan y no necesitan salir a buscar inversores. La <b>SRL</b> (LGS 19.550, arts. 146 a 162) encaja: su capital se divide en <b>cuotas</b>, tiene como máximo 50 socios y la administra una <b>gerencia</b>. Una SA tendría más requisitos (directorio, asambleas, en algunos casos fiscalización estatal) y sus acciones se transfieren con más facilidad, cosa que acá no buscan.</p>
   <h3>Capital, suscripción e integración</h3><p>Suscriben un capital de <b>$ 10.000.000</b>: Ana $ 6.000.000 y Bruno $ 4.000.000, todo en dinero. La ley exige integrar al menos el <b>25%</b> de los aportes en dinero al constituir la sociedad y completar el resto en un plazo de hasta dos años (LGS, art. 149). Integran el 25% depositándolo en el Banco Nación.</p>
   <div class="formula">Suscripción: Socios cuenta aporte a Capital social · Integración: Banco a Socios cuenta aporte</div>
   <p>La cuenta <b>Socios cuenta aporte</b> es un crédito de la sociedad contra sus socios: mientras no integren, le deben ese dinero. En el estado de situación patrimonial se muestra restando del patrimonio neto (porque es capital todavía no aportado).</p>
@@ -3567,6 +3567,406 @@ CAMPUS.tp[27] = {t:"TP 27: dilemas del ejercicio profesional",
   {type:"pick",title:"¿Es una actividad reservada al contador público?",options:["Reservada","No reservada"],items:[["Dictamen de auditoría sobre estados para terceros","Reservada"],["Liquidar sueldos para un cliente","No reservada"],["Actuar como perito contable en la justicia","Reservada"],["Cargar facturas en un sistema contable","No reservada"],["Actuar como síndico en un concurso","Reservada"]]}]};
 })();
 
+/* Banco ampliado de preguntas de evaluación · módulos 1 a 7 */
+CAMPUS.xeval = CAMPUS.xeval || {};
+CAMPUS.xeval[1] = [
+ {q:"Un aporte de los dueños en efectivo produce…",o:["Aumento del activo y del pasivo","Aumento del activo y del patrimonio neto","Disminución del activo","Solo un cambio dentro del activo"],a:1},
+ {q:"Pagar una deuda con proveedores en efectivo…",o:["Disminuye activo y pasivo","Aumenta el activo","Disminuye el patrimonio neto","No cambia nada"],a:0},
+ {q:"Comprar mercaderías al contado es un hecho…",o:["Permutativo","Modificativo positivo","Modificativo negativo","Que no se registra"],a:0},
+ {q:"Pagar el alquiler del mes es un hecho…",o:["Permutativo","Modificativo negativo","Modificativo positivo","Que solo afecta al pasivo"],a:1},
+ {q:"La cuenta Proveedores tiene saldo normalmente…",o:["Deudor","Acreedor","Nulo","Variable según el mes"],a:1},
+ {q:"La cuenta Costo de mercaderías vendidas aumenta por el…",o:["Debe","Haber","Saldo","No tiene movimientos"],a:0},
+ {q:"En todo asiento, la suma del Debe…",o:["Es mayor que la del Haber","Es igual a la del Haber","Es menor que la del Haber","No se compara"],a:1},
+ {q:"El libro que agrupa los movimientos por cuenta es el…",o:["Diario","Mayor","Inventarios y Balances","Copiador"],a:1},
+ {q:"Si A = 900 y P = 300, el patrimonio neto es…",o:["1.200","600","300","900"],a:1},
+ {q:"Una venta a crédito aumenta…",o:["Caja","Deudores por ventas","Proveedores","Capital"],a:1},
+ {q:"El plan de cuentas sirve para…",o:["Calcular impuestos","Ordenar y codificar las cuentas que usa el ente","Reemplazar el Diario","Fijar precios"],a:1},
+ {q:"El balance de sumas y saldos puede cerrar aunque haya un error si…",o:["Se omitió por completo un asiento","Se sumó mal una cuenta","Se registró solo el Debe","Nunca puede cerrar con errores"],a:0,ex:"Si falta un asiento entero, Debe y Haber siguen siendo iguales."},
+];
+CAMPUS.xeval[2] = [
+ {q:"Si el precio sube 20% y luego baja 20%, el precio final es…",o:["Igual al inicial","4% menor que el inicial","4% mayor","20% menor"],a:1},
+ {q:"La pendiente de C(q) = 5.000 + 30 q representa…",o:["El costo fijo","El costo variable unitario","El precio","La ganancia"],a:1},
+ {q:"El ingreso marginal es…",o:["La derivada del ingreso total","El ingreso promedio","El precio menos el costo","El ingreso del último mes"],a:0},
+ {q:"Para maximizar la ganancia se iguala…",o:["Ingreso total y costo total","Ingreso marginal y costo marginal","Precio y costo fijo","Cantidad y precio"],a:1},
+ {q:"La derivada de 5q² es…",o:["5q","10q","10","q²"],a:1},
+ {q:"Un capital crece a una tasa constante. Su gráfico en el tiempo es…",o:["Lineal","Exponencial","Constante","Una parábola hacia abajo"],a:1},
+ {q:"log(a·b) es igual a…",o:["log a · log b","log a + log b","log a − log b","a·log b"],a:1},
+ {q:"Un sistema de 2 ecuaciones lineales sin solución representa rectas…",o:["Que se cortan","Paralelas distintas","Coincidentes","Perpendiculares"],a:1},
+ {q:"Si π''(q) < 0 en un punto crítico, hay un…",o:["Mínimo","Máximo","Punto de inflexión siempre","Error"],a:1},
+ {q:"El 15% de 2.000 más el 10% del resultado da…",o:["2.530","2.300","2.330","2.500"],a:0,ex:"2.000 × 1,15 = 2.300; × 1,10 = 2.530."},
+ {q:"La integral del costo marginal entre 0 y q da…",o:["El costo total","El costo variable total","El costo fijo","El precio"],a:1},
+ {q:"Una matriz de 2×3 tiene…",o:["2 filas y 3 columnas","3 filas y 2 columnas","6 filas","2 elementos"],a:0},
+];
+CAMPUS.xeval[3] = [
+ {q:"La mediana es preferible a la media cuando hay…",o:["Pocos datos","Valores extremos","Datos negativos","Datos iguales"],a:1},
+ {q:"El desvío estándar mide…",o:["El centro","La dispersión","La forma","El tamaño de la muestra"],a:1},
+ {q:"En una normal, alrededor del 95% de los datos está a menos de…",o:["1 desvío","2 desvíos","3 desvíos","0,5 desvíos"],a:1},
+ {q:"Dos sucesos son independientes si…",o:["No pueden ocurrir juntos","P(A y B) = P(A) × P(B)","P(A) = P(B)","Suman 1"],a:1},
+ {q:"Un intervalo de confianza más angosto se logra con…",o:["Menos datos","Más datos","Más confianza","Más dispersión"],a:1},
+ {q:"El error de tipo I es…",o:["Aceptar una hipótesis falsa","Rechazar una hipótesis nula verdadera","Calcular mal la media","Usar una muestra chica"],a:1},
+ {q:"Un coeficiente de correlación de −0,9 indica…",o:["Relación débil","Relación lineal fuerte e inversa","Ninguna relación","Causalidad"],a:1},
+ {q:"En la regresión y = a + b x, b representa…",o:["El valor de y cuando x = 0","El cambio de y por cada unidad de x","El error","La correlación"],a:1},
+ {q:"La varianza muestral divide por…",o:["n","n − 1","n + 1","n²"],a:1},
+ {q:"Un número índice de 130 respecto de una base 100 indica un aumento del…",o:["13%","30%","130%","1,3%"],a:1},
+ {q:"La probabilidad de un suceso imposible es…",o:["0","1","0,5","−1"],a:0},
+ {q:"Si la muestra no es aleatoria, el principal riesgo es…",o:["Más cálculos","El sesgo","Menor varianza","Ninguno"],a:1},
+];
+CAMPUS.xeval[4] = [
+ {q:"Si sube el precio de un bien sustituto, la demanda del bien…",o:["Disminuye","Aumenta","No cambia","Se vuelve inelástica"],a:1},
+ {q:"Un control de precio máximo por debajo del equilibrio genera…",o:["Excedente","Escasez","Equilibrio","Más oferta"],a:1},
+ {q:"Con demanda elástica, si baja el precio el ingreso total…",o:["Baja","Sube","No cambia","Se anula"],a:1},
+ {q:"La ley de rendimientos marginales decrecientes se refiere a…",o:["El largo plazo","Agregar un factor variable a uno fijo","Los precios","La demanda"],a:1},
+ {q:"En competencia perfecta, la empresa produce donde…",o:["P = CMg","P > CMg","IMg > CMg","P = CF"],a:0},
+ {q:"Un monopolio, comparado con la competencia, produce…",o:["Más y más barato","Menos y más caro","Lo mismo","Más caro y más cantidad"],a:1},
+ {q:"El costo fijo medio, al aumentar la producción…",o:["Sube","Baja","Es constante","Se vuelve variable"],a:1},
+ {q:"Una externalidad negativa es…",o:["Un beneficio para terceros","Un costo que soportan terceros","Un impuesto","Un subsidio"],a:1},
+ {q:"Un bien inferior es aquel cuya demanda…",o:["Sube cuando sube el ingreso","Baja cuando sube el ingreso","No depende del ingreso","Es perfectamente elástica"],a:1},
+ {q:"El excedente del consumidor es…",o:["Lo que paga","La diferencia entre lo que estaría dispuesto a pagar y lo que paga","La ganancia de la empresa","El impuesto"],a:1},
+ {q:"En el oligopolio, las decisiones de una empresa…",o:["No afectan a las demás","Dependen de cómo reaccionen las otras","Son fijadas por el Estado","Iguales a las de competencia perfecta"],a:1},
+ {q:"Un bien público se caracteriza por ser…",o:["Rival y excluible","No rival y no excluible","Producido solo por el Estado","Gratuito siempre"],a:1},
+];
+CAMPUS.xeval[5] = [
+ {q:"El PBI real se calcula a…",o:["Precios corrientes","Precios de un año base","Tipo de cambio oficial","Costo de factores siempre"],a:1},
+ {q:"Si el PBI nominal sube 30% y los precios 25%, el PBI real crece aproximadamente…",o:["55%","5%","4%","30%"],a:2,ex:"1,30 / 1,25 − 1 = 4%."},
+ {q:"La emisión monetaria sin respaldo en demanda de dinero tiende a generar…",o:["Deflación","Inflación","Superávit","Crecimiento seguro"],a:1},
+ {q:"Una devaluación, en principio, hace que las exportaciones sean…",o:["Más caras en dólares","Más baratas en dólares","Imposibles","Iguales"],a:1},
+ {q:"La cuenta corriente del balance de pagos incluye…",o:["Préstamos recibidos","Comercio de bienes y servicios y rentas","Solo reservas","Inversión directa"],a:1},
+ {q:"El organismo que mide el IPC en Argentina es…",o:["El BCRA","El INDEC","ARCA","La CNV"],a:1},
+ {q:"La política monetaria la conduce…",o:["El Congreso","El BCRA","El Ministerio de Trabajo","Las provincias"],a:1},
+ {q:"Un déficit fiscal financiado con emisión tiende a…",o:["Bajar la inflación","Presionar sobre la inflación","Bajar la tasa de interés real siempre","No tener efectos"],a:1},
+ {q:"El modelo agroexportador argentino predominó aproximadamente entre…",o:["1880 y 1930","1950 y 1975","1990 y 2001","2002 y 2015"],a:0},
+ {q:"La convertibilidad fijó 1 peso = 1 dólar entre…",o:["1976 y 1981","1991 y 2001","2002 y 2008","1985 y 1989"],a:1},
+ {q:"La tasa de desempleo se calcula sobre…",o:["La población total","La población económicamente activa","Los ocupados","Los mayores de 65"],a:1},
+ {q:"Si la inflación es 40% y la tasa nominal 30%, la tasa real es…",o:["Positiva","Negativa","Cero","10%"],a:1},
+];
+CAMPUS.xeval[6] = [
+ {q:"Las funciones del proceso administrativo son…",o:["Comprar, producir, vender","Planificar, organizar, dirigir y controlar","Registrar y auditar","Contratar y despedir"],a:1},
+ {q:"Taylor es el principal referente de la…",o:["Escuela de relaciones humanas","Administración científica","Teoría de sistemas","Contingencia"],a:1},
+ {q:"Fayol se enfocó en…",o:["Los tiempos y movimientos","Las funciones y principios de la administración","La motivación","La burocracia"],a:1},
+ {q:"El experimento de Hawthorne dio origen a…",o:["La escuela de relaciones humanas","La administración científica","El marketing","La contabilidad de gestión"],a:0},
+ {q:"Una estructura matricial combina…",o:["Funciones y proyectos","Solo departamentos","Solo líneas de producto","Socios y empleados"],a:0},
+ {q:"La visión de una organización describe…",o:["Lo que hace hoy","Lo que quiere llegar a ser","Su balance","Sus normas internas"],a:1},
+ {q:"Un objetivo SMART debe ser…",o:["General y flexible","Específico, medible, alcanzable, relevante y con plazo","Solo cualitativo","Secreto"],a:1},
+ {q:"La amplitud de control es…",o:["La cantidad de subordinados de un jefe","El presupuesto de un área","La cantidad de niveles","El control interno"],a:0},
+ {q:"La teoría de Maslow ordena las necesidades en…",o:["Una pirámide","Un círculo","Dos factores","Un tablero"],a:0},
+ {q:"Delegar implica transferir…",o:["La responsabilidad final","Autoridad para decidir sobre una tarea","El sueldo","La propiedad"],a:1},
+ {q:"El control que se hace mientras ocurre la actividad es…",o:["Preventivo","Concurrente","Posterior","Presupuestario"],a:1},
+ {q:"Las cinco fuerzas de Porter analizan…",o:["La estructura de la empresa","La competencia en una industria","Las finanzas","El liderazgo"],a:1},
+];
+CAMPUS.xeval[7] = [
+ {q:"La Constitución Nacional se reformó por última vez en…",o:["1853","1949","1994","2001"],a:2},
+ {q:"El sistema de gobierno argentino es…",o:["Parlamentario y unitario","Representativo, republicano y federal","Monárquico","Confederal"],a:1},
+ {q:"Los tratados de derechos humanos con jerarquía constitucional están en el…",o:["Art. 14","Art. 75 inc. 22","Art. 99","Art. 31"],a:1},
+ {q:"El principio de legalidad tributaria exige que los tributos se creen por…",o:["Decreto","Ley","Resolución de ARCA","Ordenanza siempre"],a:1},
+ {q:"Los DNU en materia tributaria están…",o:["Permitidos si hay urgencia","Prohibidos (art. 99 inc. 3)","Permitidos con acuerdo del Senado","Permitidos si son temporales"],a:1},
+ {q:"La coparticipación federal de impuestos está prevista en…",o:["El art. 75 inc. 2","El art. 14","El art. 16","El art. 99"],a:0},
+ {q:"Los impuestos directos corresponden, en principio, a…",o:["La Nación exclusivamente","Las provincias, y a la Nación por tiempo determinado","Los municipios","Nadie"],a:1},
+ {q:"Un acto administrativo se presume…",o:["Nulo","Legítimo","Provisorio","Inconstitucional"],a:1},
+ {q:"El control de constitucionalidad en Argentina lo ejerce…",o:["El Congreso","Cualquier juez en un caso concreto","Solo la Corte en abstracto","El Presidente"],a:1},
+ {q:"El amparo es una acción para…",o:["Cobrar deudas","Proteger derechos constitucionales frente a actos manifiestamente ilegales","Constituir sociedades","Recurrir multas de tránsito"],a:1},
+ {q:"El derecho de propiedad está protegido en el…",o:["Art. 14 y 17","Art. 75","Art. 99","Art. 116"],a:0},
+ {q:"La igualdad como base del impuesto está en el…",o:["Art. 4","Art. 16","Art. 19","Art. 52"],a:1},
+];
+
+/* Banco ampliado de preguntas de evaluación · módulos 8 a 14 */
+CAMPUS.xeval[8] = [
+ {q:"La persona jurídica tiene un patrimonio…",o:["Confundido con el de sus miembros","Distinto del de sus miembros","Que pertenece al Estado","Sin obligaciones"],a:1},
+ {q:"Un acto jurídico es…",o:["Cualquier hecho de la naturaleza","Un acto voluntario lícito que busca producir efectos jurídicos","Un delito","Una sentencia"],a:1},
+ {q:"En el contrato de mutuo, el mutuario se obliga a…",o:["Devolver la misma cosa","Devolver igual cantidad de cosas de la misma especie y calidad","Pagar un alquiler","Prestar un servicio"],a:1},
+ {q:"El fiador responde por…",o:["Una deuda propia","La deuda de otro si este no paga","Las deudas del Estado","Nada"],a:1},
+ {q:"El Código Civil y Comercial está vigente desde…",o:["1871","2015","2001","2024"],a:1},
+ {q:"Los registros contables deben llevarse…",o:["En cualquier idioma","En idioma y moneda nacional","Solo en papel","Solo en dólares"],a:1},
+ {q:"El cheque es un…",o:["Contrato de locación","Título valor","Acto administrativo","Impuesto"],a:1},
+ {q:"La compraventa es un contrato…",o:["Gratuito","Oneroso y bilateral","Unilateral","Real"],a:1},
+ {q:"La capacidad de ejercicio plena se adquiere, en general, a los…",o:["16 años","18 años","21 años","13 años"],a:1},
+ {q:"La prescripción liberatoria es…",o:["La adquisición de un derecho por el paso del tiempo","La extinción de la acción para exigir una obligación por el paso del tiempo","Un contrato","Una multa"],a:1},
+ {q:"Desde la Ley 27.799, la prescripción de impuestos nacionales para un inscripto cumplidor puede ser de…",o:["1 año","3 años","7 años","15 años"],a:1},
+ {q:"Los estados contables deben transcribirse en el libro…",o:["Diario","Inventarios y Balances","Mayor","Copiador"],a:1},
+];
+CAMPUS.xeval[9] = [
+ {q:"Con precios en alza, PEPS deja el stock final valuado…",o:["A precios más antiguos","A precios más recientes","A cero","Al precio de venta"],a:1},
+ {q:"Con inventario periódico, el CMV se obtiene…",o:["En cada venta","Por diferencia al cierre: EI + compras − EF","Del precio de venta","No se calcula"],a:1},
+ {q:"Un cobro anticipado de un cliente es…",o:["Un ingreso del período","Un pasivo","Un activo","Patrimonio neto"],a:1},
+ {q:"Los intereses devengados y no pagados al cierre se registran como…",o:["Activo","Pasivo (intereses a pagar)","Patrimonio neto","No se registran"],a:1},
+ {q:"La previsión para deudores incobrables se expone…",o:["En el pasivo","Restando de los créditos","En el patrimonio neto","En las ventas"],a:1},
+ {q:"La amortización acumulada es una cuenta…",o:["De resultado","Regularizadora del activo","De pasivo","De patrimonio neto"],a:1},
+ {q:"Un faltante de mercaderías no explicado se registra como…",o:["Ganancia","Pérdida","Aumento del costo del año siguiente","Pasivo"],a:1},
+ {q:"En la conciliación bancaria, un cheque emitido no cobrado…",o:["Se suma al saldo del banco","Se resta del saldo según el extracto","Se registra como gasto","Se anula"],a:1},
+ {q:"Las notas de crédito recibidas de un proveedor…",o:["Aumentan la deuda","Disminuyen la deuda con el proveedor","Aumentan las ventas","No se registran"],a:1},
+ {q:"El IVA crédito fiscal es para un responsable inscripto…",o:["Un gasto","Un activo (crédito contra el fisco)","Un ingreso","Patrimonio neto"],a:1},
+ {q:"La refundición de cuentas de resultado se hace…",o:["Al abrir el ejercicio","Al cierre, contra Resultado del ejercicio","Cada día","Nunca"],a:1},
+ {q:"Un bien de uso comprado el 1/10 con cierre al 31/12, con criterio proporcional, se amortiza…",o:["12 meses","3 meses","Nada","6 meses"],a:1},
+ {q:"El remito documenta…",o:["El pago","La entrega de la mercadería","La deuda impositiva","El precio final"],a:1},
+];
+CAMPUS.xeval[10] = [
+ {q:"La oposición de intereses busca que…",o:["Una persona controle todo el circuito","Las funciones incompatibles estén separadas","Haya más empleados","No haya controles"],a:1},
+ {q:"El informe COSO tiene… componentes",o:["3","5","7","10"],a:1},
+ {q:"Un cursograma sirve para…",o:["Calcular costos","Representar gráficamente un circuito administrativo","Liquidar sueldos","Hacer el balance"],a:1},
+ {q:"El control interno brinda una seguridad…",o:["Absoluta","Razonable","Nula","Total si hay auditoría"],a:1},
+ {q:"El fondo fijo de caja se repone…",o:["Por el total del fondo","Por el importe de los comprobantes rendidos","Una vez al año","Sin comprobantes"],a:1},
+ {q:"La conciliación de facturas con orden de compra y remito se conoce como…",o:["Arqueo","Control cruzado de tres vías","Inventario","Auditoría externa"],a:1},
+ {q:"Un manual de procedimientos describe…",o:["La estrategia","Paso a paso cómo se hace cada tarea y quién la hace","Los estados contables","El presupuesto"],a:1},
+ {q:"El arqueo de caja es un control…",o:["Preventivo","Detectivo","Correctivo","Innecesario"],a:1},
+ {q:"En el circuito de ventas, quien aprueba el crédito al cliente no debería…",o:["Conocer al cliente","Registrar las cobranzas","Trabajar en la empresa","Ver las ventas"],a:1},
+ {q:"El triángulo del fraude incluye presión, oportunidad y…",o:["Racionalización","Rentabilidad","Riesgo","Rotación"],a:0},
+ {q:"La rotación del personal en tareas sensibles ayuda a…",o:["Ahorrar sueldos","Detectar irregularidades","Eliminar controles","Bajar ventas"],a:1},
+ {q:"Un sistema de información transforma…",o:["Información en datos","Datos en información útil","Ventas en costos","Impuestos en tasas"],a:1},
+];
+CAMPUS.xeval[11] = [
+ {q:"Con interés compuesto, los intereses…",o:["Se calculan siempre sobre el capital inicial","Se capitalizan y generan nuevos intereses","Se pagan por adelantado","No existen"],a:1},
+ {q:"Una TNA del 36% con capitalización mensual equivale a una TEM del…",o:["36%","3%","12%","0,36%"],a:1},
+ {q:"La TEA correspondiente a una TEM del 2% es aproximadamente…",o:["24%","26,8%","22%","2%"],a:1,ex:"1,02¹² − 1 = 26,8%."},
+ {q:"En el sistema francés, la cuota es…",o:["Decreciente","Constante","Creciente","Igual a la amortización"],a:1},
+ {q:"En el sistema alemán, la amortización de capital es…",o:["Constante","Creciente","Decreciente","Nula"],a:0},
+ {q:"El CFT de un préstamo incluye…",o:["Solo la tasa","La tasa más gastos, comisiones e impuestos","Solo el IVA","El capital"],a:1},
+ {q:"El valor actual de $ 110 dentro de un año al 10% es…",o:["$ 100","$ 110","$ 121","$ 99"],a:0},
+ {q:"Si el VAN de un proyecto es positivo, la TIR es…",o:["Menor que la tasa de descuento","Mayor que la tasa de descuento","Igual a cero","Negativa"],a:1},
+ {q:"Una renta perpetua de $ 100 al 5% vale hoy…",o:["$ 500","$ 2.000","$ 105","$ 100"],a:1},
+ {q:"El descuento comercial se calcula sobre…",o:["El valor actual","El valor nominal","El interés","La cuota"],a:1},
+ {q:"Si la inflación supera a la tasa nominal, la tasa real es…",o:["Positiva","Negativa","Cero","Igual a la nominal"],a:1},
+ {q:"Un bono que paga cupones fijos baja de precio cuando las tasas de mercado…",o:["Bajan","Suben","No cambian","Se publican"],a:1},
+];
+CAMPUS.xeval[12] = [
+ {q:"Un ERP es…",o:["Un impuesto","Un sistema integrado de gestión de toda la empresa","Una planilla de cálculo","Un banco"],a:1},
+ {q:"Una base de datos relacional organiza la información en…",o:["Tablas relacionadas","Archivos de texto sueltos","Imágenes","Correos"],a:0},
+ {q:"El CAE de una factura electrónica lo otorga…",o:["El cliente","ARCA","El banco","La provincia"],a:1},
+ {q:"Una copia de seguridad (backup) protege contra…",o:["Errores de liquidación","La pérdida de datos","La inflación","Los impuestos"],a:1},
+ {q:"El phishing es…",o:["Un tipo de backup","Un engaño para obtener credenciales","Un sistema contable","Un control interno"],a:1},
+ {q:"La segregación de funciones en un sistema se implementa con…",o:["Perfiles y permisos de usuario","Más computadoras","Contraseñas compartidas","Impresoras"],a:0},
+ {q:"En una planilla, la función que suma condicionalmente es…",o:["SUMAR.SI","CONTAR","PROMEDIO","SI.ERROR"],a:0},
+ {q:"La nube (cloud) implica que los datos y sistemas…",o:["Están en servidores de un proveedor accesibles por internet","No existen","Solo están en papel","Están siempre en la oficina"],a:0},
+ {q:"Un control de aplicación típico es…",o:["La política de contraseñas","La validación de que un CUIT tenga formato correcto","El plan de continuidad","El antivirus"],a:1},
+ {q:"La autenticación de dos factores agrega…",o:["Una segunda prueba de identidad","Más usuarios","Más velocidad","Menos seguridad"],a:0},
+ {q:"Los libros contables pueden llevarse por medios digitales cuando…",o:["Nunca","Lo autoriza el registro público o la normativa aplicable","El contador quiere","Hay internet"],a:1},
+ {q:"La pista de auditoría (log) registra…",o:["Quién hizo cada cambio y cuándo","Los sueldos","Los impuestos","Las ventas futuras"],a:0},
+];
+CAMPUS.xeval[13] = [
+ {q:"La medición inicial de un activo adquirido es, en general, su…",o:["Valor de venta","Costo","Valor de mercado futuro","Valor fiscal"],a:1},
+ {q:"El límite general para la medición de un activo es su…",o:["Costo histórico","Valor recuperable","Valor nominal","Precio de lista"],a:1},
+ {q:"La moneda extranjera al cierre se mide al tipo de cambio…",o:["De la compra","De cierre","Promedio del año","Oficial de 2001"],a:1},
+ {q:"Un resultado por tenencia surge cuando…",o:["Se vende un bien","Cambia el valor de un activo mientras se lo mantiene","Se paga un impuesto","Se cobra un crédito"],a:1},
+ {q:"La llave de negocio surge en…",o:["La compra de una empresa por más de su valor contable","La venta de mercaderías","Un préstamo","Una amortización"],a:0},
+ {q:"Las previsiones se reconocen cuando el hecho es…",o:["Remoto","Probable y estimable","Imposible","Futuro e incierto sin estimación"],a:1},
+ {q:"El RECPAM surge de mantener…",o:["Partidas no monetarias","Partidas monetarias en inflación","Dólares","Inmuebles"],a:1},
+ {q:"La reexpresión de una partida no monetaria se hace con el coeficiente desde…",o:["El cierre","Su fecha de origen","El año 2000","La fecha del pago del impuesto"],a:1},
+ {q:"Un intangible desarrollado internamente puede activarse si…",o:["Siempre","Cumple condiciones de factibilidad y beneficios futuros","Nunca","Lo pide el dueño"],a:1},
+ {q:"Las inversiones en otras sociedades con influencia significativa se miden por el método del…",o:["Costo","Valor patrimonial proporcional","Valor nominal","Precio de lista"],a:1},
+ {q:"La RT 54 rige para ejercicios iniciados desde…",o:["1/1/2020","1/1/2025","1/1/2030","1/1/2015"],a:1},
+];
+CAMPUS.xeval[14] = [
+ {q:"El capital a mantener puede ser financiero o…",o:["Contable","Físico (operativo)","Fiscal","Legal"],a:1},
+ {q:"La FACPCE emite normas que se vuelven obligatorias cuando…",o:["Se publican","Las adopta cada Consejo Profesional","Lo decide ARCA","Lo pide un cliente"],a:1},
+ {q:"El IASB emite…",o:["Las RT","Las NIIF","Las normas de ARCA","Las normas del BCRA"],a:1},
+ {q:"La NIC 29 se refiere a…",o:["Inventarios","Economías hiperinflacionarias","Arrendamientos","Ingresos"],a:1},
+ {q:"La NIIF 16 trata…",o:["Ingresos","Arrendamientos","Instrumentos financieros","Inventarios"],a:1},
+ {q:"La información contable es confiable si es…",o:["Breve","Verificable, neutral y completa","Optimista","Secreta"],a:1},
+ {q:"El principio de esencia sobre forma significa…",o:["Seguir siempre el contrato","Registrar según la realidad económica","Ignorar los documentos","Usar solo la ley"],a:1},
+ {q:"Las normas contables legales incluyen las de…",o:["La CNV, la IGJ y el BCRA","Los clientes","Los auditores","Los bancos privados"],a:0},
+ {q:"La RT 26 trata…",o:["Auditoría","La adopción de las NIIF","Moneda homogénea","Cooperativas"],a:1},
+ {q:"Los usuarios tipo de los estados contables son principalmente…",o:["Los empleados del área contable","Inversores y acreedores","El contador","El Estado exclusivamente"],a:1},
+ {q:"La RT 59 de la FACPCE…",o:["Derogó la RT 54","Modificó la RT 54 y dio lugar a su texto ordenado","Es una norma de auditoría","Trata del IVA"],a:1},
+ {q:"La prudencia en la información contable implica…",o:["Subvaluar todo","No anticipar ganancias y reconocer pérdidas probables","Inventar previsiones","Ignorar riesgos"],a:1},
+];
+
+/* Banco ampliado de preguntas de evaluación · módulos 15 a 21 */
+CAMPUS.xeval[15] = [
+ {q:"Un pasivo que vence dentro de los 12 meses del cierre es…",o:["No corriente","Corriente","Patrimonio neto","Contingente"],a:1},
+ {q:"Las amortizaciones, en el flujo de efectivo por método indirecto, se…",o:["Restan","Suman al resultado","Ignoran","Pasan a financiación"],a:1},
+ {q:"Un aumento de deudores por ventas, en el método indirecto, se…",o:["Suma","Resta","Ignora","Pasa a inversión"],a:1},
+ {q:"El pago de dividendos se clasifica, en general, como actividad de…",o:["Operación","Inversión","Financiación","Resultado"],a:2},
+ {q:"El estado de evolución del patrimonio neto muestra…",o:["Los cobros","Los movimientos de capital, reservas y resultados","Las ventas","Los impuestos"],a:1},
+ {q:"Los hechos posteriores al cierre que dan evidencia de situaciones existentes al cierre…",o:["No se consideran","Se ajustan en los estados","Solo se mencionan en la memoria","Se registran al año siguiente"],a:1},
+ {q:"La información comparativa obliga a presentar…",o:["Las cifras del ejercicio anterior","El presupuesto","Los estados de la competencia","El IVA mensual"],a:0},
+ {q:"Los anexos de bienes de uso muestran…",o:["Las ventas","Valores de origen, altas, bajas y amortizaciones","Los sueldos","Los impuestos"],a:1},
+ {q:"El resultado operativo se obtiene antes de…",o:["El costo de ventas","Los resultados financieros y el impuesto","Las ventas","Los gastos de comercialización"],a:1},
+ {q:"El efectivo y equivalentes incluye inversiones de muy corto plazo y…",o:["Alto riesgo","Riesgo insignificante de cambio de valor","Vencimiento a 5 años","Acciones de otras empresas"],a:1},
+ {q:"La memoria de la sociedad la prepara…",o:["El auditor","El órgano de administración","ARCA","Los clientes"],a:1},
+ {q:"Los gastos de administración incluyen típicamente…",o:["Fletes de ventas","Sueldos del área contable y honorarios","Costo de mercaderías","Intereses"],a:1},
+];
+CAMPUS.xeval[16] = [
+ {q:"En una SRL, el capital se divide en…",o:["Acciones","Cuotas","Partes de interés","Bonos"],a:1},
+ {q:"La SRL puede tener como máximo…",o:["10 socios","50 socios","100 socios","Sin límite"],a:1},
+ {q:"En la SA, el órgano de gobierno es…",o:["El directorio","La asamblea","La sindicatura","La gerencia"],a:1},
+ {q:"La reserva legal se constituye con el 5% de las ganancias hasta llegar al…",o:["10% del capital","20% del capital","50% del capital","100% del capital"],a:1},
+ {q:"Las SAS están reguladas por la Ley…",o:["19.550","27.349","24.522","20.744"],a:1},
+ {q:"Al constituir una SA, el capital en dinero se integra como mínimo en un…",o:["10%","25%","50%","100%"],a:1},
+ {q:"Un dividendo en acciones…",o:["Reduce el efectivo","Capitaliza resultados sin salida de fondos","Es un gasto","Es un pasivo con terceros"],a:1},
+ {q:"La fusión por absorción implica que…",o:["Se crea una sociedad nueva","Una sociedad incorpora a otra que se disuelve sin liquidarse","Se divide una sociedad","Se liquida todo"],a:1},
+ {q:"La escisión es…",o:["La unión de dos sociedades","La división del patrimonio de una sociedad","La quiebra","El aumento de capital"],a:1},
+ {q:"En la liquidación de una sociedad, primero se…",o:["Distribuye el capital","Pagan las deudas","Reparten los dividendos","Cambia el nombre"],a:1},
+ {q:"El aumento de capital con prima de emisión registra la prima en…",o:["Resultados","Patrimonio neto (aportes)","Pasivo","Activo"],a:1},
+ {q:"La sociedad de un solo socio puede ser una…",o:["Una SA unipersonal (SAU) o una SAS","Sociedad colectiva","Sociedad de hecho","Cooperativa"],a:0},
+];
+CAMPUS.xeval[17] = [
+ {q:"Los tres elementos del costo de producción son…",o:["Ventas, compras y stock","Materia prima, mano de obra directa y carga fabril","Fijos, variables y semivariables","Impuestos, tasas y contribuciones"],a:1},
+ {q:"El costeo por órdenes se usa cuando…",o:["La producción es continua y homogénea","Se produce por pedido","No hay costos","Se vende solo al contado"],a:1},
+ {q:"El costeo por procesos acumula costos por…",o:["Pedido","Departamento o proceso","Cliente","Vendedor"],a:1},
+ {q:"Las unidades equivalentes sirven para…",o:["Valuar producción en proceso","Calcular IVA","Pagar sueldos","Fijar precios de venta"],a:0},
+ {q:"La carga fabril se aplica con una tasa…",o:["Real","Predeterminada","Fiscal","Bancaria"],a:1},
+ {q:"Un desvío de precio desfavorable de materia prima indica que se pagó…",o:["Menos que el estándar","Más que el estándar","Lo mismo","Nada"],a:1},
+ {q:"El costeo basado en actividades (ABC) asigna costos indirectos usando…",o:["Una sola base","Generadores de costo por actividad","El precio de venta","El IVA"],a:1},
+ {q:"La mano de obra de un supervisor de planta es…",o:["Mano de obra directa","Carga fabril","Gasto de comercialización","Materia prima"],a:1},
+ {q:"Un costo semivariable tiene…",o:["Solo parte fija","Una parte fija y una variable","Solo parte variable","Ninguna parte"],a:1},
+ {q:"Los productos conjuntos surgen de…",o:["Un mismo proceso con una misma materia prima","Distintos clientes","Distintas fábricas","Importaciones"],a:0},
+ {q:"La sobreaplicación de carga fabril ocurre cuando lo aplicado es…",o:["Menor que lo real","Mayor que lo real","Igual","Cero"],a:1},
+ {q:"El costo primo es…",o:["MP + MOD","MOD + CIF","MP + CIF","Solo MP"],a:0},
+];
+CAMPUS.xeval[18] = [
+ {q:"La contribución marginal unitaria es…",o:["Precio − costo variable unitario","Precio − costo total","Costo fijo / unidades","Ventas − impuestos"],a:0},
+ {q:"El punto de equilibrio en unidades es…",o:["CF / contribución marginal unitaria","CF × precio","Ventas / CF","CV / precio"],a:0},
+ {q:"Con capacidad ociosa, un pedido especial conviene si el precio supera…",o:["El costo total unitario","El costo variable unitario","El precio normal","Cero"],a:1},
+ {q:"Un costo hundido es…",o:["Relevante","Irrelevante para decidir","Futuro","Variable"],a:1},
+ {q:"En el costeo variable, los costos fijos de producción…",o:["Se activan en el stock","Se imputan al período","Se ignoran","Son variables"],a:1},
+ {q:"Si la producción supera a las ventas, el resultado por costeo completo es…",o:["Menor que por variable","Mayor que por variable","Igual","Negativo siempre"],a:1},
+ {q:"Con un factor limitante, se prioriza el producto con mayor…",o:["Precio","Contribución marginal por unidad del factor escaso","Costo fijo","Volumen"],a:1},
+ {q:"El presupuesto financiero proyecta…",o:["Ventas","Ingresos y egresos de fondos","Unidades a producir","Costos estándar"],a:1},
+ {q:"El presupuesto base cero exige…",o:["Copiar el año anterior","Justificar cada gasto desde cero","No presupuestar","Solo ajustar por inflación"],a:1},
+ {q:"El cuadro de mando integral tiene las perspectivas financiera, clientes, procesos y…",o:["Impuestos","Aprendizaje y crecimiento","Competencia","Proveedores"],a:1},
+ {q:"El apalancamiento operativo es alto cuando hay muchos…",o:["Costos variables","Costos fijos","Clientes","Productos"],a:1},
+ {q:"El margen de seguridad mide…",o:["Cuánto pueden caer las ventas antes de llegar al equilibrio","La ganancia","El costo fijo","La liquidez"],a:0},
+];
+CAMPUS.xeval[19] = [
+ {q:"Los servicios públicos indivisibles se financian principalmente con…",o:["Tasas","Impuestos","Precios","Donaciones"],a:1},
+ {q:"La tasa exige como contraprestación…",o:["Ninguna","Un servicio individualizado al contribuyente","Una obra pública","Un préstamo"],a:1},
+ {q:"El presupuesto nacional lo aprueba…",o:["El Presidente","El Congreso por ley","ARCA","La Corte"],a:1},
+ {q:"La Ley 24.156 regula…",o:["El IVA","La administración financiera y los sistemas de control del sector público nacional","Las sociedades","Los concursos"],a:1},
+ {q:"La traslación de un impuesto ocurre cuando…",o:["El contribuyente de derecho lo transfiere a otro","Se paga a tiempo","Se condona","Se recauda más"],a:0},
+ {q:"Un impuesto regresivo pesa proporcionalmente más sobre…",o:["Los ingresos altos","Los ingresos bajos","Las empresas","Nadie"],a:1},
+ {q:"La coparticipación distribuye recursos entre…",o:["Empresas","La Nación y las provincias","Bancos","Municipios y empresas"],a:1},
+ {q:"El crédito público es un recurso…",o:["Tributario","Que genera deuda a devolver","Gratuito","Privado"],a:1},
+ {q:"La curva de Laffer sugiere que, con alícuotas muy altas, la recaudación puede…",o:["Subir siempre","Bajar","Ser constante","Duplicarse"],a:1},
+ {q:"Los organismos de control externo del sector público nacional incluyen…",o:["La SIGEN y la AGN","ARCA","El BCRA","La CNV"],a:0,ex:"La SIGEN hace control interno y la AGN control externo."},
+ {q:"El gasto tributario es…",o:["Un gasto del presupuesto","Lo que el Estado deja de recaudar por exenciones o beneficios","Un tributo nuevo","Un subsidio directo"],a:1},
+ {q:"La presión tributaria se mide como…",o:["Recaudación / PBI","PBI / población","Gasto / recaudación","Deuda / exportaciones"],a:0},
+];
+CAMPUS.xeval[20] = [
+ {q:"El domicilio fiscal electrónico es…",o:["Optativo para todos","Obligatorio y válido para notificaciones","Solo para empresas grandes","Un correo personal"],a:1},
+ {q:"La determinación de oficio procede cuando…",o:["El contribuyente paga a tiempo","No hay DDJJ o se la impugna","Lo pide el contribuyente","Siempre"],a:1},
+ {q:"Los intereses resarcitorios se deben por…",o:["Pagar fuera de término","Ganar un juicio","Presentar tarde sin deuda","Nada"],a:0},
+ {q:"La multa por omisión (art. 45) requiere…",o:["Dolo","Una declaración inexacta sin dolo que hace pagar de menos","Un delito","Una denuncia penal"],a:1},
+ {q:"La alícuota general del IVA es…",o:["10,5%","21%","27%","3%"],a:1},
+ {q:"El IVA se genera en la venta de cosas muebles cuando…",o:["Se cobra siempre","Se entrega o se factura, lo que ocurra primero","Termina el año","Lo dice el cliente"],a:1},
+ {q:"Un monotributista que compra a un responsable inscripto…",o:["Computa el IVA como crédito","No discrimina ni computa IVA","Recupera el IVA en efectivo","Paga IVA doble"],a:1},
+ {q:"Las retenciones de IVA sufridas se computan…",o:["Como gasto","Como pago a cuenta del impuesto","Como ingreso","No se computan"],a:1},
+ {q:"Ingresos Brutos es un impuesto…",o:["Nacional","Provincial","Municipal","Internacional"],a:1},
+ {q:"El Convenio Multilateral aplica a quien…",o:["Opera en una sola provincia","Ejerce actividades en varias jurisdicciones","Es monotributista","No tiene ingresos"],a:1},
+ {q:"La Ley 27.826 introdujo para MiPyMEs y personas humanas una reducción automática de…",o:["El 25% de ciertas multas formales","Todos los impuestos","El IVA","Las contribuciones"],a:0},
+ {q:"El monto de evasión agravada fijado por la Ley 27.799 es…",o:["$ 15.000.000","$ 100.000.000","$ 1.000.000.000","$ 1.500.000"],a:2},
+ {q:"Contra una determinación de oficio se puede interponer, dentro de 15 días hábiles…",o:["Solo un amparo","Recurso de reconsideración o apelación ante el Tribunal Fiscal","Nada","Una denuncia penal"],a:1},
+];
+CAMPUS.xeval[21] = [
+ {q:"Las personas humanas residentes tributan Ganancias por sus rentas…",o:["Solo argentinas","De fuente argentina y extranjera","Solo extranjeras","Solo del trabajo"],a:1},
+ {q:"La cuarta categoría comprende…",o:["Alquileres","Rentas del trabajo personal","Dividendos","Ganancias de empresas"],a:1},
+ {q:"Las sociedades de capital tributan con…",o:["Una alícuota fija del 35% siempre","Una escala de alícuotas por tramos","El monotributo","Bienes Personales"],a:1},
+ {q:"El impuesto a los dividendos para personas humanas residentes es del…",o:["7%","21%","35%","0%"],a:0},
+ {q:"Las deducciones personales (mínimo no imponible, cónyuge, hijos) corresponden a…",o:["Sociedades","Personas humanas","Monotributistas","Fideicomisos"],a:1},
+ {q:"El empleador actúa en Ganancias de cuarta categoría como…",o:["Contribuyente","Agente de retención","Fiscalizador","Exento"],a:1},
+ {q:"El régimen simplificado de Ganancias de la Ley 27.799 está pensado para…",o:["Sociedades anónimas","Personas humanas y sucesiones indivisas residentes","Bancos","Municipios"],a:1},
+ {q:"Bienes Personales grava…",o:["Las ganancias del año","El patrimonio de personas humanas al 31 de diciembre","Las ventas","Los sueldos"],a:1},
+ {q:"Los anticipos de Ganancias se calculan sobre…",o:["El impuesto del año anterior","Las ventas del mes","El patrimonio","El IVA"],a:0},
+ {q:"Un gasto no deducible en Ganancias…",o:["Disminuye la ganancia imponible","Se suma al resultado contable para llegar a la ganancia imponible","Es un ingreso exento","No existe"],a:1},
+ {q:"Los quebrantos impositivos de una sociedad se pueden compensar con ganancias…",o:["Del año anterior","De los años siguientes, dentro del plazo legal","Nunca","De otra sociedad"],a:1},
+ {q:"El impuesto diferido en contabilidad surge de…",o:["Diferencias temporarias entre la base contable y la fiscal","El IVA","Las multas","Los anticipos"],a:0},
+];
+
+/* Banco ampliado de preguntas de evaluación · módulos 22 a 28 */
+CAMPUS.xeval[22] = [
+ {q:"La registración de la relación laboral, desde la Ley 27.802, se hace ante…",o:["El Ministerio de Trabajo exclusivamente","ARCA, como registro único","La provincia","El sindicato"],a:1},
+ {q:"Las vacaciones, según el art. 154 reformado, se otorgan en principio entre…",o:["1/1 y 31/3","1/10 y 30/4","1/6 y 31/8","Cualquier fecha sin aviso"],a:1},
+ {q:"El aviso de las vacaciones debe darse con…",o:["7 días","15 días","30 días","Sin anticipación"],a:2},
+ {q:"El banco de horas permite…",o:["No pagar horas extra nunca","Compensar horas extra con descanso por acuerdo escrito","Trabajar sin descanso","Pagar en especie"],a:1},
+ {q:"El SAC sobre el preaviso equivale a…",o:["La mitad del preaviso","Un doceavo del preaviso","Nada","Un mes de sueldo"],a:1},
+ {q:"El aporte a la obra social del trabajador es del…",o:["3%","6%","11%","17%"],a:0},
+ {q:"La licencia por matrimonio es de…",o:["2 días","5 días","10 días corridos","30 días"],a:2},
+ {q:"Un trabajador con 3 años de antigüedad tiene… días de vacaciones",o:["14","21","28","35"],a:0},
+ {q:"El FAL cubre trabajadores registrados con una antigüedad mínima de…",o:["1 mes","6 meses","12 meses","5 años"],a:2},
+ {q:"Las deudas laborales, según el art. 276 reformado, se actualizan por…",o:["Tasa activa del BNA","IPC más 3% anual","Dólar oficial","No se actualizan"],a:1},
+ {q:"La renuncia del trabajador requiere un preaviso de…",o:["No requiere","15 días","1 mes","2 meses"],a:1},
+ {q:"Los beneficios sociales del art. 103 bis (comedor, guardería, útiles) son…",o:["Remunerativos","No remunerativos","Impuestos","Indemnizaciones"],a:1},
+];
+CAMPUS.xeval[23] = [
+ {q:"El objetivo financiero de la empresa suele expresarse como…",o:["Maximizar ventas","Maximizar el valor para los accionistas","Minimizar impuestos","Tener más empleados"],a:1},
+ {q:"La beta de una acción mide…",o:["El riesgo total","El riesgo sistemático respecto del mercado","La liquidez","El dividendo"],a:1},
+ {q:"La diversificación reduce el riesgo…",o:["Sistemático","No sistemático (propio)","De mercado","De tipo de cambio siempre"],a:1},
+ {q:"El escudo fiscal de la deuda se debe a que los intereses son…",o:["Exentos","Deducibles del impuesto a las ganancias","Pagados por el banco","Capital"],a:1},
+ {q:"Si el WACC sube, el VAN de un proyecto…",o:["Sube","Baja","No cambia","Se duplica"],a:1},
+ {q:"El ciclo de conversión del efectivo se acorta si…",o:["Se cobra antes a los clientes","Se paga antes a los proveedores","Se acumula stock","Se vende menos"],a:0},
+ {q:"Una obligación negociable es…",o:["Una acción","Un título de deuda emitido por una empresa","Un préstamo bancario","Un impuesto"],a:1},
+ {q:"El descuento de cheques diferidos en el mercado de capitales es una fuente de financiamiento de…",o:["Largo plazo","Corto plazo","Capital propio","Ninguna"],a:1},
+ {q:"El período de recupero de una inversión ignora…",o:["La inversión inicial","Los flujos posteriores al recupero y el valor tiempo (en su versión simple)","Los flujos","Todo"],a:1},
+ {q:"El costo del capital propio es, en general, … que el de la deuda",o:["Menor","Mayor","Igual","Cero"],a:1},
+ {q:"Un leasing permite…",o:["Usar un bien pagando un canon, con opción de compra","Vender acciones","Emitir bonos","Evitar impuestos"],a:0},
+ {q:"La relación deuda / capital óptima busca…",o:["Cero deuda siempre","Minimizar el WACC","Maximizar intereses","Maximizar dividendos"],a:1},
+];
+CAMPUS.xeval[24] = [
+ {q:"El análisis vertical del estado de resultados toma como base…",o:["El activo","Las ventas netas","El patrimonio neto","El resultado"],a:1},
+ {q:"Una liquidez corriente menor que 1 indica que…",o:["El activo corriente no alcanza a cubrir el pasivo corriente","La empresa gana poco","Tiene mucho stock","Todo está bien"],a:0},
+ {q:"La rotación de inventarios se calcula como…",o:["Ventas / activo","CMV / inventario promedio","Inventario / ventas","Resultado / inventario"],a:1},
+ {q:"El plazo promedio de cobranza mide…",o:["Cuánto tarda en pagar","Cuánto tarda en cobrar a sus clientes","La rentabilidad","El endeudamiento"],a:1},
+ {q:"El ROA se calcula como…",o:["Resultado / activo","Resultado / PN","Ventas / activo","Pasivo / activo"],a:0},
+ {q:"Si el ROA supera el costo de la deuda, endeudarse…",o:["Reduce el ROE","Aumenta el ROE (efecto palanca positivo)","No cambia nada","Es ilegal"],a:1},
+ {q:"La cobertura de intereses es…",o:["Resultado operativo / intereses","Intereses / ventas","Deuda / PN","Activo / pasivo"],a:0},
+ {q:"Comparar estados sin reexpresar en un contexto inflacionario…",o:["Es correcto","Distorsiona las conclusiones","Mejora el análisis","Es obligatorio"],a:1},
+ {q:"La solvencia se mide como…",o:["PN / pasivo","Activo corriente / pasivo corriente","Ventas / activo","Resultado / ventas"],a:0},
+ {q:"El análisis horizontal muestra…",o:["La estructura de un año","La evolución de cada rubro entre años","El flujo de efectivo","El IVA"],a:1},
+ {q:"Un margen bruto que baja con ventas que suben puede indicar…",o:["Mejor eficiencia","Que se bajaron precios o subieron costos","Más liquidez","Menos deuda"],a:1},
+ {q:"El EBITDA es el resultado antes de intereses, impuestos y…",o:["Ventas","Amortizaciones","Sueldos","Dividendos"],a:1},
+];
+CAMPUS.xeval[25] = [
+ {q:"La independencia del auditor debe ser…",o:["Solo de hecho","De hecho y de apariencia","Opcional","Solo con clientes grandes"],a:1},
+ {q:"El riesgo inherente depende de…",o:["La calidad del auditor","La naturaleza del negocio y de la cuenta","El muestreo","El informe"],a:1},
+ {q:"La circularización de saldos con clientes es un procedimiento de…",o:["Confirmación externa","Observación","Recálculo","Indagación"],a:0},
+ {q:"La observación del recuento físico de inventarios da evidencia sobre…",o:["La existencia","La valuación de mercado","Los impuestos","La propiedad del capital"],a:0},
+ {q:"Los papeles de trabajo son…",o:["Del cliente","Propiedad del auditor y documentan su tarea","Públicos","Innecesarios"],a:1},
+ {q:"La carta de manifestaciones la firma…",o:["El auditor","La dirección del ente","El síndico","ARCA"],a:1},
+ {q:"Una revisión limitada de estados intermedios brinda…",o:["Seguridad razonable","Seguridad limitada","Ninguna seguridad","Garantía total"],a:1},
+ {q:"Un párrafo de énfasis en el informe…",o:["Modifica la opinión","Llama la atención sobre algo ya revelado sin modificar la opinión","Es una salvedad","Es una abstención"],a:1},
+ {q:"Ante un indicio de empresa en marcha dudosa, el auditor debe…",o:["Ignorarlo","Evaluarlo e informarlo adecuadamente","Abstenerse siempre","Renunciar"],a:1},
+ {q:"El contador como sujeto obligado de la Ley 25.246 debe reportar operaciones sospechosas a…",o:["ARCA","La UIF","El BCRA","El juez civil"],a:1},
+ {q:"El muestreo estadístico permite…",o:["Revisar todo","Medir el riesgo de muestreo","Evitar planificar","No documentar"],a:1},
+ {q:"La significatividad se fija durante…",o:["La emisión del informe","La planificación, y se revisa durante el trabajo","Nunca","El cobro de honorarios"],a:1},
+];
+CAMPUS.xeval[26] = [
+ {q:"El presupuesto para abrir un concurso o una quiebra es…",o:["La pérdida del ejercicio","La cesación de pagos","Un juicio laboral","La falta de ventas"],a:1},
+ {q:"El síndico concursal es designado entre…",o:["Abogados","Contadores públicos inscriptos en listas","Empleados del deudor","Acreedores"],a:1},
+ {q:"El informe individual se refiere a…",o:["La situación general del deudor","Cada crédito pedido en verificación","Los impuestos","La propuesta de acuerdo"],a:1},
+ {q:"El informe general analiza, entre otras cosas…",o:["Solo los sueldos","Las causas del desequilibrio, el activo y el pasivo","El precio de los bienes de uso solamente","Los anticipos de Ganancias"],a:1},
+ {q:"En la quiebra, el fallido queda…",o:["Con plena administración","Desapoderado de sus bienes","Exento de deudas","Liberado de inmediato"],a:1},
+ {q:"Los créditos con privilegio especial se cobran sobre…",o:["Todos los bienes","El bien afectado (por ejemplo, el inmueble hipotecado)","Nada","Los sueldos"],a:1},
+ {q:"Los créditos quirografarios son…",o:["Privilegiados","Comunes, sin privilegio","Laborales","Fiscales siempre"],a:1},
+ {q:"El perito contable en un juicio es auxiliar…",o:["De la parte que lo paga","Del juez","Del síndico","De ARCA"],a:1},
+ {q:"Las partes pueden designar, para controlar la pericia, a un…",o:["Consultor técnico","Síndico","Auditor externo","Escribano"],a:0},
+ {q:"El cramdown (art. 48) permite, en ciertos casos…",o:["Que terceros adquieran las acciones del deudor concursado","Cerrar la empresa sin juicio","Evitar la verificación","Pagar sin acuerdo"],a:0},
+ {q:"La homologación del acuerdo la dicta…",o:["El síndico","El juez","Los acreedores","La IGJ"],a:1},
+ {q:"El período de exclusividad para obtener conformidades es de…",o:["30 días","90 días hábiles, ampliables","1 año","180 días corridos"],a:1},
+];
+CAMPUS.xeval[27] = [
+ {q:"Para ejercer como contador público hace falta…",o:["Solo el título","Título y matrícula en el Consejo de la jurisdicción","Solo matrícula","Un certificado de ARCA"],a:1},
+ {q:"El secreto profesional cede cuando…",o:["Lo pide un amigo del cliente","Una ley o un juez lo exigen","El contador quiere","Nunca"],a:1},
+ {q:"La publicidad profesional debe ser…",o:["Comparativa y agresiva","Digna y veraz","Prohibida siempre","Anónima"],a:1},
+ {q:"Aceptar un trabajo sin la competencia técnica necesaria viola el deber de…",o:["Independencia","Competencia y diligencia","Secreto","Honorarios"],a:1},
+ {q:"Los tribunales de ética funcionan en…",o:["La justicia penal","Los Consejos Profesionales","ARCA","La universidad"],a:1},
+ {q:"La responsabilidad civil del contador surge por…",o:["Daños causados por su actuación culposa o dolosa","Ganar un juicio","Cobrar honorarios","Firmar un balance correcto"],a:0},
+ {q:"El Régimen Penal Tributario prevé para profesionales que intervienen en delitos…",o:["Nada","Penas e inhabilitación","Solo multas al cliente","Un descuento"],a:1},
+ {q:"La legalización de la firma del contador acredita…",o:["Que el trabajo es correcto","Que la firma corresponde a un matriculado habilitado","El pago de impuestos","La aprobación del balance"],a:1},
+ {q:"Un honorario pactado por escrito antes de empezar…",o:["Es poco profesional","Evita conflictos y es recomendable","Está prohibido","Lo fija ARCA"],a:1},
+ {q:"Si el cliente pide registrar una operación ficticia, el contador debe…",o:["Hacerlo y cobrar más","Negarse y, si corresponde, renunciar al encargo","Hacerlo sin firmar","Avisar después"],a:1},
+ {q:"La educación profesional continua sirve para…",o:["Nada","Mantener actualizada la competencia técnica","Cobrar menos","Evitar la matrícula"],a:1},
+ {q:"Actuar como perito en un juicio donde el contador asesoró a una de las partes…",o:["Es correcto","Genera un conflicto de intereses","Es obligatorio","Es indiferente"],a:1},
+];
+CAMPUS.xeval[28] = [
+ {q:"En una SRL, la responsabilidad de los socios se limita a…",o:["Todo su patrimonio","La integración de las cuotas suscriptas","Nada","El doble del capital"],a:1},
+ {q:"El primer anticipo de Ganancias de una sociedad nueva…",o:["Se paga desde el primer mes","No existe en el primer ejercicio, porque no hay impuesto anterior","Es del 50%","Lo fija la provincia"],a:1},
+ {q:"Un utilitario comprado por un responsable inscripto se activa…",o:["Con IVA","Sin el IVA, que es crédito fiscal","Por el doble","Como gasto"],a:1},
+ {q:"El préstamo que vence dentro de los 12 meses se expone como…",o:["No corriente","Corriente","Patrimonio neto","Nota"],a:1},
+ {q:"La previsión para incobrables se calcula sobre…",o:["Las ventas al contado","Los créditos al cierre","El capital","El IVA"],a:1},
+ {q:"El costo laboral de un empleado es…",o:["El sueldo neto","El bruto más las contribuciones patronales","El bruto menos aportes","Las horas trabajadas"],a:1},
+ {q:"Un recuento menor que la ficha de stock, sin explicación, es…",o:["Un sobrante","Un faltante (pérdida)","Un error del contador","Un aumento de capital"],a:1},
+ {q:"Los intereses del préstamo se reconocen…",o:["Al pagarlos","A medida que se devengan","Al tomar el préstamo","Nunca"],a:1},
+ {q:"El informe a los socios debería empezar por…",o:["La normativa","La conclusión principal","Los anexos","Las fórmulas"],a:1},
+ {q:"Antes de distribuir utilidades, una SRL debe constituir…",o:["Una reserva facultativa","La reserva legal","Un fondo de inversión","Una previsión"],a:1},
+];
+
 /* Glosario: [término, definición, módulo] */
 CAMPUS.glosario = [
 ["Activo","Recursos que controla el ente por hechos pasados y de los que espera beneficios económicos futuros.",1],
@@ -3668,7 +4068,7 @@ CAMPUS.glosario = [
 ["Significatividad","Importe o naturaleza de un error a partir del cual puede influir en las decisiones de los usuarios.",25],
 ["Síndico concursal","Contador público designado por el juez en un concurso o quiebra para verificar créditos, informar y, en la quiebra, liquidar.",26],
 ["Sociedad anónima","Tipo social con capital representado por acciones y responsabilidad limitada a la integración de lo suscripto (LGS, art. 163).",16],
-["SRL","Sociedad de responsabilidad limitada: capital en cuotas, de 1 a 50 socios (LGS, arts. 146 y siguientes).",16],
+["SRL","Sociedad de responsabilidad limitada: capital en cuotas, hasta 50 socios (LGS, arts. 146 y siguientes).",16],
 ["Tasa efectiva","Tasa que efectivamente se gana o paga en un período, considerando la capitalización.",11],
 ["Tasa real","Tasa de interés descontada la inflación: (1 + nominal) / (1 + inflación) − 1.",11],
 ["TIR","Tasa interna de retorno: la tasa que hace cero el VAN de un proyecto.",11],
@@ -3938,13 +4338,13 @@ function EVAL(v, n){
   v.innerHTML = `<div class="eyebrow">Módulo ${n} · Evaluación</div><h1>Evaluación: ${esc(m.t)}</h1>
   <p class="lead">${K} preguntas elegidas al azar de un banco de ${Q.length}. Aprobás con 70% (${need} respuestas correctas). Cada vez que la rendís te tocan preguntas distintas; se guarda tu mejor nota.</p>
   ${state.evals[n]!=null?`<div class="note"><b>Tu mejor nota hasta ahora:</b> ${state.evals[n]}%</div>`:""}
-  <form id="qf" class="page" style="gap:18px">${order.map((qi,k)=>`<div class="box q" data-q="${qi}"><span class="tag">Pregunta ${k+1}</span><b>${Q[qi].q}</b><div class="ch">${Q[qi].o.map((o,j)=>`<label><input type="radio" name="${name}-${qi}" value="${j}"> <span>${o}</span></label>`).join("")}</div><div class="ex" hidden></div></div>`).join("")}
+  <form id="qf" class="page" style="gap:18px">${order.map((qi,k)=>`<div class="box q" data-q="${qi}"><span class="tag">Pregunta ${k+1}</span><b>${Q[qi].q}</b><div class="ch">${shuffle(Q[qi].o.map((_,j)=>j)).map(j=>`<label data-j="${j}"><input type="radio" name="${name}-${qi}" value="${j}"> <span>${Q[qi].o[j]}</span></label>`).join("")}</div><div class="ex" hidden></div></div>`).join("")}
   <div class="row"><button class="btn" type="submit">Entregar evaluación</button></div></form><div id="res"></div>${pagerMod(n)}`;
   $("#qf").addEventListener("submit",e=>{
     e.preventDefault(); let ok=0;
     document.querySelectorAll(".q[data-q]").forEach(b=>{
       const q = Q[+b.dataset.q]; const sel = b.querySelector("input:checked");
-      b.querySelectorAll("label").forEach((l,j)=>{ l.classList.remove("ok","bad"); if(j===q.a) l.classList.add("ok"); else if(sel && +sel.value===j) l.classList.add("bad"); });
+      b.querySelectorAll("label").forEach(l=>{ const j=+l.dataset.j; l.classList.remove("ok","bad"); if(j===q.a) l.classList.add("ok"); else if(sel && +sel.value===j) l.classList.add("bad"); });
       if(sel && +sel.value===q.a) ok++;
       const x = b.querySelector(".ex"); x.hidden=false; x.innerHTML = q.ex||"";
     });
