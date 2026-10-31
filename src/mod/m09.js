@@ -40,7 +40,15 @@ lessons:[
   <ul><li><b>PEPS (FIFO):</b> lo primero que entró es lo primero que sale. El stock queda valuado a los precios más recientes.</li>
   <li><b>PPP (precio promedio ponderado):</b> después de cada compra se recalcula el costo promedio.</li>
   <li><b>Identificación específica:</b> para bienes únicos (autos, inmuebles).</li></ul>
-  <div class="note"><b>Y la norma.</b> Al cierre, las normas contables argentinas miden los bienes de cambio a su costo de reposición o a su valor neto de realización, según el caso (Módulo 13). Para el impuesto a las Ganancias, la ley fija sus propios criterios (Módulo 21). La ficha PEPS o PPP sirve para el día a día y la gestión.</div>`,
+  <div class="note"><b>Y la norma.</b> Al cierre, las normas contables argentinas miden los bienes de cambio a su costo de reposición o a su valor neto de realización, según el caso (Módulo 13). Para el impuesto a las Ganancias, la ley fija sus propios criterios (Módulo 21). La ficha PEPS o PPP sirve para el día a día y la gestión.</div>
+  <h3>Paso a paso: PEPS y PPP con los mismos datos</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Tenés 10 u a $ 100. Comprás 30 u a $ 120. Después vendés 20 u.
+  <ol><li><b>PEPS:</b> salen primero las más viejas. Las 20 u vendidas son: 10 a $ 100 (1.000) + 10 a $ 120 (1.200) → CMV <b>2.200</b>. Quedan 20 u a $ 120 = <b>2.400</b>.</li>
+  <li><b>PPP:</b> después de la compra recalculo el promedio: (10 × 100 + 30 × 120) / 40 = (1.000 + 3.600) / 40 = <b>115</b>. CMV = 20 × 115 = <b>2.300</b>. Quedan 20 u a $ 115 = <b>2.300</b>.</li>
+  <li>Control: en los dos métodos, CMV + stock = 4.600, que es todo lo que costó la mercadería (1.000 + 3.600). El método solo cambia cómo se reparte.</li></ol>
+  Con precios en suba, PEPS da un CMV más bajo (más ganancia) y un stock más actualizado.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Registrar el CMV a precio de venta en lugar de a costo.</li><li>Olvidarse de recalcular el promedio después de cada compra (PPP).</li><li>Hacer solo el asiento de la venta y no el del costo.</li></ul></div>
+  ${CAMPUS.vid([["Inventario permanente: ficha PEPS","ficha de stock peps ejercicio resuelto"],["Precio promedio ponderado","ficha de stock precio promedio ponderado ejercicio"],["Asiento de costo de mercaderías vendidas","asiento costo de mercaderias vendidas inventario permanente"]])}`,
   ex:[{type:"custom",title:"Ficha de stock",render:fichaStock},
    {type:"asiento",title:"Registrá la venta del 15/04 con PEPS (cobrada por banco)",accounts:ACC,entries:[
     {t:"15/04 · Se venden 15 unidades a $ 200 cada una más IVA 21%. El cliente paga por transferencia al Banco Nación.",e:[["Banco Nación c/c",3630,0],["Ventas",0,3000],["IVA Débito Fiscal",0,630]]},
@@ -51,8 +59,13 @@ lessons:[
   <p>Ejemplo: EI $ 50.000, compras $ 200.000, EF (recuento) $ 70.000 → CMV = <b>$ 180.000</b>. Es simple, pero no permite saber durante el año cuánto stock hay ni detectar faltantes.</p>
   <h3>Faltantes y sobrantes con inventario permanente</h3><p>Aunque lleves fichas, igual hay que hacer recuentos físicos periódicos. Si el recuento da menos que la ficha hay un <b>faltante</b> (robo, rotura, error); si da más, un <b>sobrante</b>.</p>
   <ul><li>Faltante: <span class="mono">Faltante de mercaderías (R−) a Mercaderías</span>.</li><li>Sobrante: <span class="mono">Mercaderías a Sobrante de mercaderías (R+)</span>.</li></ul>
-  <p>Antes de registrarlo como pérdida, se investiga: puede ser un remito sin facturar o una devolución no registrada.</p>`,
-  ex:[{type:"num",items:[{q:"EI $ 120.000, compras $ 480.000, EF $ 150.000. ¿Cuál es el CMV?",a:450000,u:"$"},{q:"Con esos datos y ventas por $ 700.000, ¿cuál es la utilidad bruta?",a:250000,u:"$"},{q:"Ventas $ 1.000.000 con margen bruto del 40%, EI $ 100.000 y compras $ 650.000. ¿Cuál debería ser la existencia final?",a:150000,u:"$",hint:"CMV = 600.000"}]},
+  <p>Antes de registrarlo como pérdida, se investiga: puede ser un remito sin facturar o una devolución no registrada.</p>
+  <div class="ejr"><b>Por qué funciona la fórmula del CMV</b>EI $ 50.000, compras $ 200.000, recuento final $ 70.000.
+  <ol><li>Todo lo que pudiste vender en el año es lo que tenías más lo que compraste: 50.000 + 200.000 = <b>250.000</b> (mercadería disponible).</li><li>Si al final quedan 70.000 en el depósito, el resto salió.</li><li>Lo que salió se supone vendido: 250.000 − 70.000 = <b>180.000</b> de CMV.</li></ol>
+  El problema: si algo se robó o se rompió, también queda dentro del CMV y no te enterás. Por eso el inventario permanente es mejor para controlar.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Restar la existencia inicial en lugar de sumarla.</li><li>Registrar un faltante como pérdida sin investigar antes.</li></ul></div>
+  ${CAMPUS.vid([["Inventario periódico y CMV por diferencia","costo de mercaderias vendidas por diferencia inventario periodico"],["Faltantes y sobrantes de mercaderías","faltante y sobrante de mercaderias asiento contable"]])}`,
+  ex:[{type:"num",items:[{q:"EI $ 120.000, compras $ 480.000, EF $ 150.000. ¿Cuál es el CMV?",a:450000,u:"$",ex:"Disponible para vender: 120.000 + 480.000 = 600.000. Lo que no está en el depósito se vendió: 600.000 − 150.000 = 450.000."},{q:"Con esos datos y ventas por $ 700.000, ¿cuál es la utilidad bruta?",a:250000,u:"$",ex:"700.000 − 450.000 = 250.000."},{q:"Ventas $ 1.000.000 con margen bruto del 40%, EI $ 100.000 y compras $ 650.000. ¿Cuál debería ser la existencia final?",a:150000,u:"$",hint:"CMV = 600.000",ex:"CMV = 60% de las ventas = 600.000. EF = EI + compras − CMV = 100.000 + 650.000 − 600.000 = 150.000."}]},
    {type:"asiento",accounts:ACC,entries:[{t:"30/06 · La ficha de stock indica mercaderías por $ 85.000 y el recuento físico da $ 82.000. Se confirma que es un faltante.",e:[["Faltante de mercaderías",3000,0],["Mercaderías",0,3000]]}]}]},
  {lead:"Los resultados se registran cuando se devengan, no cuando se cobran o se pagan. Al cierre hay que ajustar lo que todavía no está bien imputado.",
   html:`<p>El <b>devengamiento</b> dice que los ingresos y gastos se imputan al período en que se generan, sin importar cuándo se mueve el dinero. Al cierre del ejercicio hay cuatro situaciones típicas:</p>
@@ -61,7 +74,14 @@ lessons:[
   <tr><td><b>Gasto devengado no pagado</b></td><td>Intereses del préstamo del mes, a pagar en enero</td><td>Gasto contra un pasivo</td></tr>
   <tr><td><b>Ingreso cobrado por adelantado</b></td><td>Un cliente pagó un servicio que se presta el mes siguiente</td><td>Es un pasivo hasta que se presta</td></tr>
   <tr><td><b>Ingreso devengado no cobrado</b></td><td>Intereses ganados de un plazo fijo que vence después del cierre</td><td>Crédito contra un resultado positivo</td></tr></tbody></table></div>
-  <p>Para registrar un pago anticipado se usa una cuenta de activo (por ejemplo, <i>Alquileres pagados por adelantado</i>). A medida que pasa el tiempo, se transfiere a la cuenta de gasto.</p>`,
+  <p>Para registrar un pago anticipado se usa una cuenta de activo (por ejemplo, <i>Alquileres pagados por adelantado</i>). A medida que pasa el tiempo, se transfiere a la cuenta de gasto.</p>
+  <h3>Paso a paso: cómo pensar un ajuste</h3>
+  <div class="ejr"><b>Ejemplo resuelto · gasto pagado por adelantado</b>El 1/10 pagaste $ 600.000 por 6 meses de alquiler. Cierre: 31/12.
+  <ol><li>Cuánto vale cada mes: 600.000 / 6 = 100.000.</li><li>Meses ya usados al cierre: octubre, noviembre y diciembre = 3 → 300.000 son gasto de este ejercicio.</li><li>Los otros 300.000 (enero a marzo) siguen siendo un activo: es un derecho a usar el local.</li></ol></div>
+  <div class="ejr"><b>Ejemplo resuelto · ingreso devengado no cobrado</b>El 1/12 hiciste un plazo fijo de $ 1.000.000 a 60 días, TNA 36%. Cierre: 31/12.
+  <ol><li>Días transcurridos al cierre: 30.</li><li>Interés ganado hasta el cierre: 1.000.000 × 0,36 × 30/365 = <b>29.589,04</b>.</li><li>Aunque se cobra al vencimiento (en enero), ya se ganó: Intereses a cobrar (activo) a Intereses ganados (R+) 29.589,04.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Registrar como gasto todo lo pagado aunque cubra meses del ejercicio siguiente.</li><li>No registrar los gastos del mes que se pagan en el mes siguiente (sueldos, intereses, servicios).</li></ul></div>
+  ${CAMPUS.vid([["Devengado y percibido","devengado y percibido contabilidad explicacion ejemplos"],["Asientos de ajuste al cierre","asientos de ajuste al cierre del ejercicio ejemplos"]])}`,
   ex:[{type:"asiento",accounts:ACC,entries:[
    {t:"01/10 · Se pagan por banco 6 meses de alquiler del local por adelantado: $ 600.000.",e:[["Alquileres pagados por adelantado",600000,0],["Banco Nación c/c",0,600000]]},
    {t:"31/12 · Cierre de ejercicio. Ajustá el alquiler: transcurrieron 3 de los 6 meses.",e:[["Alquileres perdidos",300000,0],["Alquileres pagados por adelantado",0,300000]],why:"Quedan $ 300.000 como activo: corresponden a enero, febrero y marzo."},
@@ -76,12 +96,24 @@ lessons:[
   <p>La <b>amortización acumulada</b> es una cuenta <b>regularizadora del activo</b>: tiene saldo acreedor y se resta del valor de origen. El <b>valor residual contable</b> (o valor de libros) es origen menos amortización acumulada.</p>
   <h3>Otros métodos</h3><ul><li><b>Por unidades de producción:</b> según horas de uso o kilómetros recorridos.</li><li><b>Decrecientes:</b> más amortización los primeros años (por ejemplo, suma de dígitos).</li></ul>
   <h3>Criterios prácticos</h3><ul><li>Los <b>terrenos no se amortizan</b>: no tienen vida útil limitada.</li><li>Las <b>mejoras</b> que aumentan la vida útil o la capacidad se suman al valor del bien; las reparaciones comunes son gasto.</li>
-  <li>En el año de alta se puede amortizar por meses de uso o, por convención de la empresa, el año completo. Para Ganancias, la ley permite computar el año de alta completo (Módulo 21).</li></ul>`,
+  <li>En el año de alta se puede amortizar por meses de uso o, por convención de la empresa, el año completo. Para Ganancias, la ley permite computar el año de alta completo (Módulo 21).</li></ul>
+  <h3>Paso a paso: cuadro de amortizaciones</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Máquina de $ 8.000.000, valor residual $ 800.000, 6 años.
+  <ol><li>Base amortizable: 8.000.000 − 800.000 = 7.200.000 (el residual es lo que se espera recuperar al final, no se amortiza).</li><li>Cuota anual: 7.200.000 / 6 = <b>1.200.000</b>.</li></ol>
+  <div class="tw"><table><thead><tr><th>Año</th><th class="r">Amortización</th><th class="r">Acumulada</th><th class="r">Valor de libros</th></tr></thead><tbody>
+  <tr><td>1</td><td class="r num">1.200.000</td><td class="r num">1.200.000</td><td class="r num">6.800.000</td></tr>
+  <tr><td>2</td><td class="r num">1.200.000</td><td class="r num">2.400.000</td><td class="r num">5.600.000</td></tr>
+  <tr><td>3</td><td class="r num">1.200.000</td><td class="r num">3.600.000</td><td class="r num">4.400.000</td></tr>
+  <tr><td>…</td><td></td><td></td><td></td></tr>
+  <tr><td>6</td><td class="r num">1.200.000</td><td class="r num">7.200.000</td><td class="r num">800.000</td></tr></tbody></table></div>
+  Al final del año 6 el valor de libros es igual al residual: control ✔.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Amortizar sobre el valor de origen sin restar el residual.</li><li>Amortizar terrenos.</li><li>Acreditar directamente la cuenta del bien en lugar de la amortización acumulada.</li></ul></div>
+  ${CAMPUS.vid([["Amortización de bienes de uso, método lineal","amortizacion bienes de uso metodo lineal ejercicio"],["Cuadro de amortizaciones","cuadro de amortizaciones bienes de uso contabilidad"]])}`,
   ex:[{type:"num",items:[
-   {q:"Una máquina cuesta $ 8.000.000, valor residual $ 800.000, vida útil 6 años. ¿Amortización anual lineal?",a:1200000,u:"$"},
-   {q:"¿Cuál es el valor residual contable de esa máquina al final del año 4?",a:3200000,u:"$",hint:"8.000.000 − 4 × 1.200.000"},
-   {q:"Un camión de $ 30.000.000 tiene vida útil de 500.000 km, sin valor residual. Este año recorrió 60.000 km. ¿Amortización del año?",a:3600000,u:"$"},
-   {q:"Unos muebles de $ 1.200.000 (sin residual, 10 años) se compran el 1/10 y el cierre es el 31/12. Amortizando por meses, ¿cuánto corresponde al primer ejercicio?",a:30000,u:"$",hint:"120.000 por año × 3/12"}]},
+   {q:"Una máquina cuesta $ 8.000.000, valor residual $ 800.000, vida útil 6 años. ¿Amortización anual lineal?",a:1200000,u:"$",ex:"(8.000.000 − 800.000) / 6 = 1.200.000."},
+   {q:"¿Cuál es el valor residual contable de esa máquina al final del año 4?",a:3200000,u:"$",hint:"8.000.000 − 4 × 1.200.000",ex:"Amortización acumulada 4 × 1.200.000 = 4.800.000. 8.000.000 − 4.800.000 = 3.200.000."},
+   {q:"Un camión de $ 30.000.000 tiene vida útil de 500.000 km, sin valor residual. Este año recorrió 60.000 km. ¿Amortización del año?",a:3600000,u:"$",ex:"Por km: 30.000.000 / 500.000 = 60. × 60.000 km = 3.600.000."},
+   {q:"Unos muebles de $ 1.200.000 (sin residual, 10 años) se compran el 1/10 y el cierre es el 31/12. Amortizando por meses, ¿cuánto corresponde al primer ejercicio?",a:30000,u:"$",hint:"120.000 por año × 3/12",ex:"Anual: 120.000. Octubre, noviembre y diciembre: 120.000 × 3/12 = 30.000."}]},
    {type:"asiento",accounts:ACC,entries:[{t:"31/12 · Registrá la amortización anual de muebles y útiles por $ 120.000.",e:[["Amortización muebles y útiles",120000,0],["Amortización acumulada muebles y útiles",0,120000]]}]}]},
  {lead:"No todos los clientes van a pagar. La prudencia exige reconocer esa pérdida probable antes de que se confirme.",
   html:`<p>Una <b>previsión</b> es una estimación de una pérdida probable. La <b>Previsión para deudores incobrables</b> es una cuenta regularizadora del activo: se resta de Deudores por ventas.</p>
@@ -89,8 +121,18 @@ lessons:[
   <h3>Registración</h3><ol><li>Al cierre, se ajusta la previsión al importe estimado: <span class="mono">Deudores incobrables (R−) a Previsión para deudores incobrables</span>, por la diferencia con el saldo que ya tenía.</li>
   <li>Cuando un cliente se atrasa, se reclasifica: <span class="mono">Deudores morosos a Deudores por ventas</span>.</li>
   <li>Cuando se confirma que no va a pagar, se usa la previsión: <span class="mono">Previsión para deudores incobrables a Deudores morosos</span>. No se toca el resultado de nuevo, porque ya se reconoció.</li></ol>
-  <div class="note"><b>Previsión y provisión.</b> En la terminología argentina, una <b>previsión</b> cubre algo incierto (incobrables, juicios) y una <b>provisión</b> es un pasivo cierto de importe estimado (por ejemplo, la provisión para impuesto a las Ganancias). En las NIIF se usa “provisión” para ambos.</div>`,
-  ex:[{type:"num",items:[{q:"Saldo de Deudores por ventas $ 5.000.000. Se estima incobrable el 4%. ¿Qué saldo debe tener la previsión?",a:200000,u:"$"},{q:"La previsión ya tenía un saldo de $ 50.000. ¿Por cuánto se registra el ajuste del año?",a:150000,u:"$"}]},
+  <div class="note"><b>Previsión y provisión.</b> En la terminología argentina, una <b>previsión</b> cubre algo incierto (incobrables, juicios) y una <b>provisión</b> es un pasivo cierto de importe estimado (por ejemplo, la provisión para impuesto a las Ganancias). En las NIIF se usa “provisión” para ambos.</div>
+  <h3>Paso a paso: previsión por antigüedad</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Créditos al cierre según su antigüedad. La previsión ya tenía $ 50.000.
+  <div class="tw"><table><thead><tr><th>Antigüedad</th><th class="r">Saldo</th><th class="r">% incobrable</th><th class="r">Previsión</th></tr></thead><tbody>
+  <tr><td>No vencidos</td><td class="r num">3.000.000</td><td class="r num">1%</td><td class="r num">30.000</td></tr>
+  <tr><td>Vencidos 1 a 90 días</td><td class="r num">1.500.000</td><td class="r num">5%</td><td class="r num">75.000</td></tr>
+  <tr><td>Vencidos más de 90 días</td><td class="r num">500.000</td><td class="r num">20%</td><td class="r num">100.000</td></tr>
+  <tr><td><b>Total</b></td><td class="r num">5.000.000</td><td></td><td class="r num"><b>205.000</b></td></tr></tbody></table></div>
+  <ol><li>Cuanto más vencido el crédito, más alto el porcentaje.</li><li>Saldo necesario: 205.000. Ya hay 50.000.</li><li>Ajuste del año: 205.000 − 50.000 = <b>155.000</b> (Deudores incobrables a Previsión).</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Registrar el saldo total necesario como ajuste, sin restar lo que ya había.</li><li>Debitar Deudores incobrables otra vez cuando se da de baja un cliente ya previsionado.</li></ul></div>
+  ${CAMPUS.vid([["Previsión para deudores incobrables","prevision deudores incobrables asiento ejemplo"],["Previsión por antigüedad de saldos","prevision incobrables antiguedad de saldos ejercicio"]])}`,
+  ex:[{type:"num",items:[{q:"Saldo de Deudores por ventas $ 5.000.000. Se estima incobrable el 4%. ¿Qué saldo debe tener la previsión?",a:200000,u:"$",ex:"5.000.000 × 4% = 200.000."},{q:"La previsión ya tenía un saldo de $ 50.000. ¿Por cuánto se registra el ajuste del año?",a:150000,u:"$",ex:"Se registra solo lo que falta: 200.000 − 50.000 = 150.000."}]},
    {type:"asiento",accounts:ACC,entries:[
     {t:"31/12 · Ajustá la previsión según el cálculo anterior.",e:[["Deudores incobrables",150000,0],["Previsión para deudores incobrables",0,150000]]},
     {t:"10/02 · El cliente Pérez, con deuda de $ 80.000, entra en mora. Reclasificá su crédito.",e:[["Deudores morosos",80000,0],["Deudores por ventas",0,80000]]},
@@ -103,7 +145,12 @@ lessons:[
   <tr><td>Créditos bancarios no registrados (transferencias recibidas, intereses)</td><td>Banco, no en libros</td><td>Registrarlos en libros</td></tr>
   <tr><td>Errores</td><td>Cualquiera</td><td>Corregir donde esté el error</td></tr></tbody></table></div>
   <h3>Método de los saldos ajustados</h3><p>Se ajusta por separado el saldo de libros (con lo que falta registrar) y el saldo del extracto (con las partidas en tránsito). Los dos ajustados deben dar lo mismo.</p>
-  <div class="note"><b>Signo del extracto.</b> El banco muestra tu saldo a favor como saldo <b>acreedor</b>, porque para el banco es una deuda con vos. En tus libros es deudor.</div>`,
+  <div class="note"><b>Signo del extracto.</b> El banco muestra tu saldo a favor como saldo <b>acreedor</b>, porque para el banco es una deuda con vos. En tus libros es deudor.</div>
+  <h3>Paso a paso: conciliación por saldos ajustados</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Saldo en libros $ 500.000. Partidas: cheques emitidos no debitados $ 80.000; depósito en tránsito $ 50.000; comisiones debitadas por el banco no registradas $ 3.000; transferencia de un cliente no registrada $ 40.000.
+  <ol><li><b>Ajusto los libros</b> con lo que el banco ya hizo y yo no anoté: 500.000 − 3.000 + 40.000 = <b>537.000</b>.</li><li><b>Ajusto el extracto</b> con lo que yo hice y el banco todavía no: saldo del extracto − 80.000 (cheques que va a debitar) + 50.000 (depósito que va a acreditar).</li><li>Si todo está bien, el extracto ajustado también da 537.000. Entonces el extracto tenía que decir 537.000 + 80.000 − 50.000 = <b>567.000</b>.</li><li>Solo se registran en libros las partidas del paso 1.</li></ol></div>
+  <div class="err"><b>Errores comunes</b><ul><li>Registrar en libros los cheques no debitados o los depósitos en tránsito (ya están registrados).</li><li>Sumar los cheques pendientes al saldo del banco en lugar de restarlos.</li></ul></div>
+  ${CAMPUS.vid([["Conciliación bancaria paso a paso","conciliacion bancaria ejercicio resuelto paso a paso"],["Partidas conciliatorias","partidas conciliatorias conciliacion bancaria explicacion"]])}`,
   ex:[{type:"custom",title:"Conciliá el Banco Nación al 30/06",render:conciliacion},
    {type:"asiento",title:"Registrá en libros lo que faltaba",accounts:ACC,entries:[
     {t:"30/06 · Gastos de mantenimiento de cuenta debitados por el banco: $ 5.000 (ignorá el IVA).",e:[["Gastos bancarios",5000,0],["Banco Nación c/c",0,5000]]},
@@ -114,7 +161,13 @@ lessons:[
   <li>Se transfiere el resultado a <i>Resultados no asignados</i>, dentro del patrimonio neto.</li><li>Se preparan los estados contables (Módulo 15) y se transcriben al Libro de Inventarios y Balances.</li>
   <li><b>Asiento de cierre:</b> se cancelan todas las cuentas patrimoniales.</li><li>Al inicio del ejercicio siguiente, <b>asiento de apertura</b> con los mismos saldos.</li></ol>
   <h3>Refundición, paso a paso</h3><p>Las cuentas de resultado positivo tienen saldo acreedor: se debitan. Las de resultado negativo tienen saldo deudor: se acreditan. La diferencia va a Resultado del ejercicio. Si los ingresos superan a los gastos, Resultado del ejercicio queda con saldo acreedor (ganancia).</p>
-  <div class="note"><b>Qué pasa después.</b> La asamblea de socios decide qué hacer con los Resultados no asignados: reservas, dividendos o dejarlos sin asignar (Módulo 16).</div>`,
+  <div class="note"><b>Qué pasa después.</b> La asamblea de socios decide qué hacer con los Resultados no asignados: reservas, dividendos o dejarlos sin asignar (Módulo 16).</div>
+  <h3>Paso a paso: la refundición</h3>
+  <div class="ejr"><b>Ejemplo resuelto</b>Saldos al cierre: Ventas 500.000 y Intereses ganados 20.000 (acreedores); CMV 300.000 y Sueldos 150.000 (deudores).
+  <ol><li>Para dejar en cero una cuenta con saldo acreedor, se la debita: Ventas 500.000 y Intereses ganados 20.000 van al Debe.</li><li>Las de saldo deudor se acreditan: CMV 300.000 y Sueldos 150.000 al Haber.</li><li>Debe 520.000; Haber 450.000. Falta 70.000 en el Haber para que cierre: va a <b>Resultado del ejercicio</b>, con saldo acreedor = <b>ganancia de 70.000</b>.</li><li>Después: Resultado del ejercicio a Resultados no asignados 70.000.</li></ol>
+  Si el número que falta fuera del lado del Debe, sería una pérdida.</div>
+  <div class="err"><b>Errores comunes</b><ul><li>Refundir también cuentas patrimoniales (solo se refunden las de resultado).</li><li>Poner la ganancia en el Debe de Resultado del ejercicio.</li></ul></div>
+  ${CAMPUS.vid([["Refundición de cuentas de resultado","refundicion de cuentas de resultado asiento"],["Cierre y apertura del ejercicio","asiento de cierre y apertura contabilidad"]])}`,
   ex:[{type:"asiento",title:"Refundí los resultados de Comercial Del Sur SRL",accounts:ACC,entries:[
    {t:"31/12 · Saldos de resultados: Ventas $ 900.000 (acreedor), Costo de mercaderías vendidas $ 500.000, Sueldos y jornales $ 200.000 y Alquileres perdidos $ 100.000 (deudores). Refundilos en Resultado del ejercicio.",
     e:[["Ventas",900000,0],["Costo de mercaderías vendidas",0,500000],["Sueldos y jornales",0,200000],["Alquileres perdidos",0,100000],["Resultado del ejercicio",0,100000]],why:"Ganancia del ejercicio: $ 100.000."},
