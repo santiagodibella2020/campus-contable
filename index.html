@@ -211,6 +211,12 @@ ol.lessons li.ev{list-style:"★  "}
 .srcbox summary{cursor:pointer;font-weight:600}
 .gloss dt{font-weight:700;margin-top:14px}
 .gloss dd{margin:4px 0 0 0;color:var(--ink)}
+
+/* ayuda al equivocarse */
+.help{margin-top:6px;padding:8px 10px;border-left:3px solid var(--bad);background:var(--bad-soft);border-radius:4px;font-size:.92rem;line-height:1.45;color:var(--ink)}
+.help ol{margin:6px 0 0 18px;padding:0}
+.cls .it .why{flex-basis:100%}
+.ch label.right{outline:2px solid var(--ok);border-radius:6px}
 </style>
 <header class="top">
   <button class="menu-btn" id="menuBtn" aria-label="Abrir plan de estudios">Plan ☰</button>
@@ -4864,6 +4870,9 @@ function modProgress(n){
 
 /* ---------- motor de ejercicios ---------- */
 function fbHTML(ok, msg){ return `<div class="fb ${ok?"ok":"bad"}">${msg}</div>`; }
+/* ayuda al equivocarse (solo ejercicios y TP; las evaluaciones no la usan) */
+function helpHTML(main, why){ return `<div class="help"><b>Ayuda.</b> ${main}${why?` <span>${why}</span>`:""}</div>`; }
+const ansFmt = (n,u) => u==="$" ? fmt(n) : u==="%" ? nf(n)+"%" : nf(n,4)+(u?" "+u:"");
 
 const EX = {
   /* opción múltiple: {type:"mc", items:[{q,o:[],a,ex}]} */
@@ -4876,8 +4885,11 @@ const EX = {
       el.querySelectorAll(".q").forEach(b=>{
         const Q = items[+b.dataset.qi]; const sel = b.querySelector("input:checked");
         const good = sel && +sel.value===Q.a; if(good) ok++;
-        b.querySelectorAll("label").forEach((l,j)=>{ l.classList.remove("ok","bad"); if(sel && +sel.value===j) l.classList.add(good?"ok":"bad"); });
-        const e = b.querySelector(".ex"); if(good && Q.ex){ e.hidden=false; e.innerHTML=Q.ex; } else e.hidden=true;
+        b.querySelectorAll("label").forEach((l,j)=>{ l.classList.remove("ok","bad","right"); if(sel && +sel.value===j) l.classList.add(good?"ok":"bad"); if(sel && !good && j===Q.a) l.classList.add("right"); });
+        const e = b.querySelector(".ex");
+        if(good && Q.ex){ e.hidden=false; e.innerHTML=Q.ex; }
+        else if(sel && !good){ e.hidden=false; e.innerHTML=helpHTML(`La correcta es <b>${Q.o[Q.a]}</b>.`, Q.ex); }
+        else e.hidden=true;
       });
       const all = ok===items.length;
       $("[data-fb]",el).innerHTML = fbHTML(all, all?"¡Todo correcto!":`Tenés ${ok} de ${items.length} bien. Revisá las marcadas en rojo o sin responder.`);
@@ -4887,19 +4899,20 @@ const EX = {
   /* clasificar: {type:"pick", options:[], items:[[texto, respuesta, porqué?]]} */
   pick(ex, el, done){
     const items = ex.shuffle===false ? ex.items : shuffle(ex.items); const ans = {};
-    el.innerHTML = `<div class="cls">${items.map((it,i)=>`<div class="it" data-i="${i}"><span>${it[0]}</span><div class="opts">${ex.options.map(o=>`<button type="button" data-o="${esc(o)}">${o}</button>`).join("")}</div></div>`).join("")}</div>
+    el.innerHTML = `<div class="cls">${items.map((it,i)=>`<div class="it" data-i="${i}"><span>${it[0]}</span><div class="opts">${ex.options.map(o=>`<button type="button" data-o="${esc(o)}">${o}</button>`).join("")}</div><div class="why" hidden></div></div>`).join("")}</div>
       <div class="row"><button class="btn" data-act="chk">Corregir</button></div><div data-fb></div>`;
     el.querySelector(".cls").addEventListener("click",e=>{
       const b = e.target.closest("button[data-o]"); if(!b) return; const row = b.closest(".it");
-      ans[row.dataset.i] = b.dataset.o; row.classList.remove("ok","bad");
+      ans[row.dataset.i] = b.dataset.o; row.classList.remove("ok","bad"); $(".why",row).hidden=true;
       row.querySelectorAll("button").forEach(x=>x.classList.toggle("sel",x===b));
     });
     $("[data-act=chk]",el).onclick = ()=>{
-      let ok=0; const notes=[];
-      items.forEach((it,i)=>{ const row = el.querySelector(`.it[data-i="${i}"]`); const g = ans[i]===it[1];
-        row.classList.toggle("ok",g); row.classList.toggle("bad",!g); if(g) ok++; else if(it[2] && ans[i]) notes.push(it[2]); });
+      let ok=0;
+      items.forEach((it,i)=>{ const row = el.querySelector(`.it[data-i="${i}"]`); const g = ans[i]===it[1]; const w=$(".why",row);
+        row.classList.toggle("ok",g); row.classList.toggle("bad",!g); if(g) ok++;
+        if(!g && ans[i]){ w.hidden=false; w.innerHTML=helpHTML(`Elegiste <b>${esc(ans[i])}</b>, pero la correcta es <b>${esc(it[1])}</b>.`, it[2]); } else w.hidden=true; });
       const all = ok===items.length;
-      $("[data-fb]",el).innerHTML = fbHTML(all, (all?"¡Todo correcto!":`Tenés ${ok} de ${items.length} bien. Revisá las marcadas en rojo.`) + (notes.length?"<br>"+notes.join("<br>"):""));
+      $("[data-fb]",el).innerHTML = fbHTML(all, all?"¡Todo correcto!":`Tenés ${ok} de ${items.length} bien. Debajo de cada respuesta en rojo tenés la correcta y por qué. Cambiala y volvé a corregir.`);
       if(all) done();
     };
   },
@@ -4916,10 +4929,12 @@ const EX = {
         const g = !isNaN(v) && Math.abs(v-Q.a) <= tol; if(g) ok++;
         inp.style.borderColor = inp.value? (g?"var(--ok)":"var(--bad)") : "var(--rule)";
         const e = box.querySelector(".ex");
-        if(g && Q.ex){ e.hidden=false; e.innerHTML=Q.ex; } else if(!g && inp.value && Q.hint){ e.hidden=false; e.innerHTML="Pista: "+Q.hint; } else e.hidden=true;
+        if(g && Q.ex){ e.hidden=false; e.innerHTML=Q.ex; }
+        else if(!g && inp.value){ e.hidden=false; e.innerHTML=helpHTML(`Pusiste <b>${isNaN(v)?esc(inp.value):ansFmt(v,Q.u)}</b>. La respuesta es <b>${ansFmt(Q.a,Q.u)}</b>.`, [Q.hint?"Pista: "+Q.hint:"", Q.ex||""].filter(Boolean).join(" ")); }
+        else e.hidden=true;
       });
       const all = ok===items.length;
-      $("[data-fb]",el).innerHTML = fbHTML(all, all?"¡Todo correcto!":`Tenés ${ok} de ${items.length} bien.`);
+      $("[data-fb]",el).innerHTML = fbHTML(all, all?"¡Todo correcto!":`Tenés ${ok} de ${items.length} bien. Debajo de cada respuesta en rojo tenés el resultado correcto${items.some(Q=>Q.hint||Q.ex)?" y cómo se llega":""}. Corregilo y volvé a probar.`);
       if(all) done();
     };
   },
@@ -4945,7 +4960,7 @@ const EX = {
         const L=lines(); const D=L.reduce((a,l)=>a+l[1],0), H=L.reduce((a,l)=>a+l[2],0); const F=$("[data-fb]",el);
         if(!L.length) return F.innerHTML=fbHTML(false,"Completá al menos un renglón.");
         if(L.some(l=>!l[0])) return F.innerHTML=fbHTML(false,"Hay un renglón con importe pero sin cuenta.");
-        if(Math.abs(D-H)>0.005) return F.innerHTML=fbHTML(false,`El asiento no balancea: Debe ${fmt(D)} y Haber ${fmt(H)}.`);
+        if(Math.abs(D-H)>0.005) return F.innerHTML=fbHTML(false,`El asiento no balancea: Debe ${fmt(D)} y Haber ${fmt(H)}. El total del Debe siempre tiene que ser igual al del Haber.`);
         const norm = arr => { const m={}; arr.forEach(([c,d,h])=>{m[c]=(m[c]||0)+d-h;}); return m; };
         const got=norm(L), exp=norm(A.e); const errs=new Set();
         new Set([...Object.keys(got),...Object.keys(exp)]).forEach(c=>{ const g=got[c]||0, x=exp[c]||0; if(Math.abs(g-x)>0.005){
@@ -4953,7 +4968,7 @@ const EX = {
           else if(!(c in got)) errs.add("Falta una cuenta que se mueve en esta operación.");
           else if(Math.sign(g)!==Math.sign(x)) errs.add(`<b>${esc(c)}</b> está del lado equivocado.`);
           else errs.add(`Revisá el importe de <b>${esc(c)}</b>.`); }});
-        if(errs.size) return F.innerHTML=fbHTML(false,[...errs].join("<br>"));
+        if(errs.size) return F.innerHTML=fbHTML(false,[...errs].join("<br>")+helpHTML("Si no lo encontrás, tocá <b>Ver solución</b>: te muestra el asiento correcto y por qué.",""));
         F.innerHTML=fbHTML(true,"¡Asiento correcto!"+(A.why?` ${A.why}`:"")); const b=$("[data-act=chk]",el); b.textContent="Siguiente asiento"; b.onclick=()=>{k++;draw();};
       };
       asi.querySelectorAll("select").forEach(s=>s.value="");
@@ -4971,7 +4986,7 @@ const EX = {
       el.querySelectorAll(".mv").forEach(b=>b.onclick=()=>{ const j=+b.dataset.j, d=+b.dataset.d; [cur[j],cur[j+d]]=[cur[j+d],cur[j]]; draw(); });
       $("[data-act=chk]",el).onclick=()=>{ const n=cur.filter((x,j)=>x.i===j).length; const all=n===cur.length;
         el.querySelectorAll(".ord li").forEach((li,j)=>li.classList.toggle(cur[j].i===j?"ok":"bad",true));
-        $("[data-fb]",el).innerHTML=fbHTML(all, all?"¡Orden correcto!":`${n} de ${cur.length} pasos están en su lugar.`); if(all) done(); };
+        $("[data-fb]",el).innerHTML=fbHTML(all, all?"¡Orden correcto!":`${n} de ${cur.length} pasos están en su lugar.`+helpHTML("El orden correcto es:",`<ol>${ex.items.map(t=>`<li>${t}</li>`).join("")}</ol>`)); if(all) done(); };
     };
     draw();
   },

@@ -202,3 +202,9 @@ ol.lessons li.ev{list-style:"★  "}
 .srcbox summary{cursor:pointer;font-weight:600}
 .gloss dt{font-weight:700;margin-top:14px}
 .gloss dd{margin:4px 0 0 0;color:var(--ink)}
+
+/* ayuda al equivocarse */
+.help{margin-top:6px;padding:8px 10px;border-left:3px solid var(--bad);background:var(--bad-soft);border-radius:4px;font-size:.92rem;line-height:1.45;color:var(--ink)}
+.help ol{margin:6px 0 0 18px;padding:0}
+.cls .it .why{flex-basis:100%}
+.ch label.right{outline:2px solid var(--ok);border-radius:6px}
