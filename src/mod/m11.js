@@ -90,7 +90,7 @@ lessons:[
   <p>Ejemplo: un plazo fijo con TEA 40% y una inflación anual de 30% → tasa real = 1,40/1,30 − 1 = <b>7,69%</b>. Si la inflación fuera 50%, la tasa real sería −6,67%: perderías poder de compra.</p>
   <p>La aproximación r ≈ i − π solo sirve con tasas bajas. Con las tasas argentinas, siempre usá la fórmula exacta.</p>
   <h3>Instrumentos ajustables</h3><ul><li><b>Plazo fijo UVA:</b> el capital se ajusta por CER más una tasa adicional.</li><li><b>Bonos CER</b> (como los Boncer del Tesoro): ajustan por inflación.</li><li><b>Dólar linked:</b> ajustan por tipo de cambio.</li></ul>
-  <h3>Para los estados contables</h3><p>Con inflación, una parte de los intereses nominales es solo compensación por la pérdida del poder adquisitivo. Las normas contables argentinas en moneda homogénea (RT 6) muestran los resultados financieros en términos reales (Módulo 14).</p>`,
+  <h3>Para los estados contables</h3><p>Con inflación, una parte de los intereses nominales es solo compensación por la pérdida del poder adquisitivo. Las normas contables argentinas en moneda homogénea (RT 54) muestran los resultados financieros en términos reales (Módulo 14).</p>`,
   ex:[{type:"num",items:[
    {q:"TEA de un plazo fijo 40%, inflación anual 30%. ¿Tasa real, en %? (dos decimales)",a:7.69,u:"%",tol:0.02},
    {q:"Un préstamo cobra 80% anual y la inflación es 100%. ¿Tasa real, en %? (con signo)",a:-10,u:"%",tol:0.02},

@@ -39,7 +39,7 @@ lessons:[
   <h3>Efectos</h3>
   <ul><li>Pérdida de poder adquisitivo de salarios y jubilaciones.</li><li>Distorsión de precios relativos y dificultad para planificar.</li>
   <li>El <b>impuesto inflacionario</b>: quien tiene pesos pierde valor y el emisor gana (señoreaje).</li>
-  <li><b>Distorsión contable:</b> los estados contables en moneda histórica dejan de ser comparables. Por eso existe la RT 6 de ajuste por inflación (Módulo 14) y el ajuste impositivo en Ganancias (Módulo 21).</li></ul>
+  <li><b>Distorsión contable:</b> los estados contables en moneda histórica dejan de ser comparables. Por eso las normas contables (hoy la RT 54, que absorbió a la antigua RT 6) exigen el ajuste por inflación (Módulo 14) y el ajuste impositivo en Ganancias (Módulo 21).</li></ul>
   <div class="note"><b>Efecto Olivera-Tanzi.</b> Descripto por el economista argentino Julio Olivera (y luego por Vito Tanzi): con inflación alta, el Estado cobra los impuestos con atraso y recauda menos en términos reales, lo que agranda el déficit.</div>`,
   ex:[{type:"tf",items:[
    ["La inflación beneficia a quienes tienen deudas en pesos a tasa fija","Verdadero","Devuelven pesos que valen menos."],

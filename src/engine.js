@@ -26,9 +26,11 @@ const MOD = n => CAMPUS.modules.find(m=>m.n===n);
 const has = n => !!CAMPUS.content[n];
 const lid = (n,i) => `m${n}-${i+1}`;
 const passed = n => (state.evals[n]||0) >= 70;
+function hasTP(n){ return !!(CAMPUS.tp && CAMPUS.tp[n]); }
+function srcLinks(keys){ return (keys||[]).filter(k=>CAMPUS.L[k]).map(k=>`<li><a href="${CAMPUS.L[k][1]}" target="_blank" rel="noopener">${esc(CAMPUS.L[k][0])}</a></li>`).join(""); }
 function modProgress(n){
-  const m = MOD(n); const tot = m.l.length + 1;
-  const d = m.l.filter((_,i)=>state.done[lid(n,i)]).length + (passed(n)?1:0);
+  const m = MOD(n); const tp = hasTP(n); const tot = m.l.length + 1 + (tp?1:0);
+  const d = m.l.filter((_,i)=>state.done[lid(n,i)]).length + (passed(n)?1:0) + (tp&&state.done[`m${n}-tp`]?1:0);
   return {d, tot, p: Math.round(d/tot*100)};
 }
 
@@ -131,7 +133,7 @@ const EX = {
     draw();
   },
   /* verdadero/falso: {type:"tf", items:[[afirmación, true|false, porqué]]} */
-  tf(ex, el, done){ EX.pick({options:["Verdadero","Falso"], items:ex.items.map(i=>[i[0], i[1]?"Verdadero":"Falso", i[2]]), shuffle:ex.shuffle}, el, done); },
+  tf(ex, el, done){ EX.pick({options:["Verdadero","Falso"], items:ex.items.map(i=>[i[0], typeof i[1]==="string"?i[1]:(i[1]?"Verdadero":"Falso"), i[2]]), shuffle:ex.shuffle}, el, done); },
   /* ordenar pasos: {type:"order", items:[en orden correcto]} */
   order(ex, el, done){
     let cur = shuffle(ex.items.map((t,i)=>({t,i}))); if(cur.every((x,j)=>x.i===j)) cur.reverse();
@@ -152,14 +154,14 @@ const EX = {
 function renderSide(){
   const cur = location.hash.slice(1) || "inicio";
   const mcur = (cur.match(/^m(\d+)/)||[])[1]|0;
-  let h = `<a href="#inicio" class="${cur==="inicio"?"on":""}"><span class="dot">≡</span>Plan de estudios</a><a href="#fuentes" class="${cur==="fuentes"?"on":""}"><span class="dot">§</span>Fuentes y normas</a>`;
+  let h = `<a href="#inicio" class="${cur==="inicio"?"on":""}"><span class="dot">≡</span>Plan de estudios</a><a href="#fuentes" class="${cur==="fuentes"?"on":""}"><span class="dot">§</span>Fuentes y normas</a><a href="#glosario" class="${cur==="glosario"?"on":""}"><span class="dot">A</span>Glosario</a>`;
   CAMPUS.cycles.forEach(c=>{
     h += `<h4>${esc(c.t)}</h4>`;
     CAMPUS.modules.filter(m=>m.c===c.id).forEach(m=>{
       const p = modProgress(m.n); const open = m.n===mcur;
       h += `<a href="#m${m.n}" class="mlink ${cur===`m${m.n}`?"on":""} ${passed(m.n)?"done":""} ${has(m.n)?"":"soon"}"><span class="dot">${passed(m.n)?"✓":m.n}</span><span>${esc(m.t)}${has(m.n)&&p.d&&!passed(m.n)?` <small class="num">${p.p}%</small>`:""}</span></a>`;
       if(open && has(m.n)){
-        h += `<div class="sub">${m.l.map((t,i)=>`<a href="#${lid(m.n,i)}" class="${cur===lid(m.n,i)?"on":""} ${state.done[lid(m.n,i)]?"done":""}"><span class="dot">${state.done[lid(m.n,i)]?"✓":""}</span>${m.n}.${i+1} ${esc(t)}</a>`).join("")}<a href="#m${m.n}-eval" class="${cur===`m${m.n}-eval`?"on":""} ${passed(m.n)?"done":""}"><span class="dot">${passed(m.n)?"✓":"★"}</span>Evaluación</a></div>`;
+        h += `<div class="sub">${m.l.map((t,i)=>`<a href="#${lid(m.n,i)}" class="${cur===lid(m.n,i)?"on":""} ${state.done[lid(m.n,i)]?"done":""}"><span class="dot">${state.done[lid(m.n,i)]?"✓":""}</span>${m.n}.${i+1} ${esc(t)}</a>`).join("")}${hasTP(m.n)?`<a href="#m${m.n}-tp" class="${cur===`m${m.n}-tp`?"on":""} ${state.done[`m${m.n}-tp`]?"done":""}"><span class="dot">${state.done[`m${m.n}-tp`]?"✓":"TP"}</span>Trabajo práctico</a>`:""}<a href="#m${m.n}-eval" class="${cur===`m${m.n}-eval`?"on":""} ${passed(m.n)?"done":""}"><span class="dot">${passed(m.n)?"✓":"★"}</span>Evaluación</a></div>`;
       }
     });
   });
@@ -187,7 +189,7 @@ function HOME(v){
     <div><b class="num">${CAMPUS.modules.filter(m=>passed(m.n)).length}</b><span>aprobados</span></div>
     <div><b class="num">${avail.length}</b><span>disponibles</span></div>
   </div>
-  <div class="note"><b>Cómo estudiar.</b> Leé cada lección y hacé su ejercicio hasta que te dé todo bien: la lección se marca sola. Al final de cada módulo rendís una evaluación y aprobás con 70%. Seguí el orden de los ciclos, porque cada uno se apoya en el anterior. Tu progreso se guarda en este navegador.</div>
+  <div class="note"><b>Cómo estudiar.</b> Cada módulo tiene un programa como el de la facultad, con objetivos, bibliografía y normativa. Leé cada lección y hacé sus ejercicios hasta que te den bien: la lección se marca sola. Después resolvé el trabajo práctico integrador y rendí la evaluación, que toma 15 preguntas al azar de un banco y se aprueba con 70%. Seguí el orden de los ciclos, porque cada uno se apoya en el anterior. Tu progreso se guarda en este navegador.</div>
   ${next?`<div class="row"><a class="btn" href="${nextHref}" style="text-decoration:none">${started?"Continuar donde dejaste":"Empezar por el Módulo 1"}</a><span class="src">Próximo: Módulo ${next.n}, ${esc(next.t)}</span></div>`:""}
   ${CAMPUS.cycles.map(c=>`<section class="cycle"><h2>${esc(c.t)}</h2><p class="src" style="max-width:68ch">${esc(c.d)}</p>
     <div class="plan">${CAMPUS.modules.filter(m=>m.c===c.id).map(m=>{const p=modProgress(m.n);return `
@@ -204,13 +206,30 @@ function MODULE(v, n){
   <p class="lead">${esc(m.d)}</p><span class="eq-tag">Equivale a la materia: ${esc(m.eq)}</span>
   ${has(n)?`<div class="row"><div class="bar" style="width:200px"><i style="width:${p.p}%"></i></div><span class="src num">${p.d} de ${p.tot} actividades</span></div>`:`<div class="note"><b>En preparación.</b> Este módulo todavía no tiene contenido cargado. Estas son las lecciones que va a tener.</div>`}
   <ol class="lessons">${m.l.map((t,i)=>`<li>${has(n)?`<a href="#${lid(n,i)}">${esc(t)}</a>`:esc(t)} ${state.done[lid(n,i)]?`<span class="pill ok">Hecha</span>`:""}</li>`).join("")}
+  ${hasTP(n)?`<li class="ev"><a href="#m${n}-tp">Trabajo práctico integrador</a> ${state.done[`m${n}-tp`]?`<span class="pill ok">Hecho</span>`:""}</li>`:""}
   <li class="ev">${has(n)?`<a href="#m${n}-eval">Evaluación del módulo</a>`:"Evaluación del módulo"} ${state.evals[n]!=null?`<span class="pill ${passed(n)?"ok":""}">Mejor nota ${state.evals[n]}%</span>`:""}</li></ol>
   ${has(n)?`<div class="row"><a class="btn" style="text-decoration:none" href="#${m.l.map((_,i)=>lid(n,i)).find(id=>!state.done[id]) || `m${n}-eval`}">${p.d?"Continuar":"Empezar el módulo"}</a></div>`:""}
+  ${PROG(n)}
   ${pagerMod(n)}`;
+}
+function PROG(n){
+  const P = CAMPUS.prog && CAMPUS.prog[n]; if(!P) return "";
+  return `<section class="prog-sec"><h2>Programa de la materia</h2>
+  <h3>Objetivos</h3><p>Al terminar este módulo vas a poder:</p><ul>${P.obj.map(o=>`<li>${esc(o)}</li>`).join("")}</ul>
+  <h3>Contenidos mínimos</h3><p>${esc(P.cont)}</p>
+  <h3>Bibliografía de referencia</h3><ul class="bib">${P.bib.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>
+  ${P.norm.length?`<h3>Normativa y fuentes oficiales</h3><ul class="srcl">${srcLinks(P.norm)}</ul>`:""}
+  <p class="src">Las normas cambian. Antes de aplicar un importe, una alícuota o un plazo en un caso real, verificá el texto vigente en la fuente oficial.</p></section>`;
 }
 function pagerMod(n){
   const prev = MOD(n-1), next = MOD(n+1);
   return `<div class="pager">${prev?`<a href="#m${prev.n}">← Módulo ${prev.n}</a>`:`<a href="#inicio">← Plan de estudios</a>`}${next?`<a href="#m${next.n}">Módulo ${next.n} →</a>`:"<span></span>"}</div>`;
+}
+function lessonSrc(n,L){
+  const P = CAMPUS.prog && CAMPUS.prog[n]; const keys = L.src || (P?P.norm:[]);
+  const extra = (L.cite||[]).map(c=>`<li>${c}</li>`).join("");
+  if(!keys.length && !extra && !P) return "";
+  return `<details class="srcbox"><summary>Fuentes y bibliografía</summary><ul class="srcl">${srcLinks(keys)}${extra}${P?P.bib.map(b=>`<li>${esc(b)}</li>`).join(""):""}</ul></details>`;
 }
 function LESSON(v, n, i){
   const m = MOD(n); const L = CAMPUS.content[n].lessons[i]; const id = lid(n,i);
@@ -221,18 +240,21 @@ function LESSON(v, n, i){
   ${exs.map((e,k)=>`<div class="box"><span class="tag">${e.type==="custom"?"Actividad":"Ejercicio"}${exs.length>1?` ${k+1}`:""}${e.title?" · "+e.title:""}</span>${e.prompt?`<p>${e.prompt}</p>`:""}<div class="exbody" id="ex-${id}-${k}"></div></div>`).join("")}
   ${!exs.length?`<div class="row"><button class="btn" id="readBtn">${state.done[id]?"Lección leída ✓":"Marcar como leída"}</button></div>`:""}
   <div id="lessonDone"></div>
-  <div class="pager">${i>0?`<a href="#${lid(n,i-1)}">← ${esc(m.l[i-1])}</a>`:`<a href="#m${n}">← Módulo ${n}</a>`}${i<m.l.length-1?`<a href="#${lid(n,i+1)}">${esc(m.l[i+1])} →</a>`:`<a href="#m${n}-eval">Evaluación del módulo →</a>`}</div>`;
+  ${lessonSrc(n,L)}
+  <div class="pager">${i>0?`<a href="#${lid(n,i-1)}">← ${esc(m.l[i-1])}</a>`:`<a href="#m${n}">← Módulo ${n}</a>`}${i<m.l.length-1?`<a href="#${lid(n,i+1)}">${esc(m.l[i+1])} →</a>`:(hasTP(n)?`<a href="#m${n}-tp">Trabajo práctico →</a>`:`<a href="#m${n}-eval">Evaluación del módulo →</a>`)}</div>`;
   const left = new Set(exs.map((_,k)=>k));
   const finish = ()=>{ if(!state.done[id]){ complete(id); $("#lessonDone").innerHTML = fbHTML(true,`Lección ${n}.${i+1} completada.`); } };
   exs.forEach((e,k)=>EX[e.type](e, $(`#ex-${id}-${k}`), ()=>{ left.delete(k); if(!left.size) finish(); }));
   if(!exs.length) $("#readBtn").onclick = ()=>{ finish(); $("#readBtn").textContent="Lección leída ✓"; };
   if(state.done[id]) $("#lessonDone").innerHTML = `<p class="src">Ya completaste esta lección. Podés repetir los ejercicios para practicar.</p>`;
 }
+const EVAL_N = 15;
 function EVAL(v, n){
-  const m = MOD(n); const Q = CAMPUS.content[n].eval; const order = shuffle(Q.map((_,i)=>i)); const name=nid("ev");
-  const need = Math.ceil(Q.length*0.7);
+  const m = MOD(n); const Q = CAMPUS.content[n].eval.concat((CAMPUS.xeval&&CAMPUS.xeval[n])||[]); const K = Math.min(EVAL_N, Q.length);
+  const order = shuffle(Q.map((_,i)=>i)).slice(0,K); const name=nid("ev");
+  const need = Math.ceil(K*0.7);
   v.innerHTML = `<div class="eyebrow">Módulo ${n} · Evaluación</div><h1>Evaluación: ${esc(m.t)}</h1>
-  <p class="lead">${Q.length} preguntas. Aprobás con 70% (${need} respuestas correctas). Podés rendirla las veces que quieras; se guarda tu mejor nota.</p>
+  <p class="lead">${K} preguntas elegidas al azar de un banco de ${Q.length}. Aprobás con 70% (${need} respuestas correctas). Cada vez que la rendís te tocan preguntas distintas; se guarda tu mejor nota.</p>
   ${state.evals[n]!=null?`<div class="note"><b>Tu mejor nota hasta ahora:</b> ${state.evals[n]}%</div>`:""}
   <form id="qf" class="page" style="gap:18px">${order.map((qi,k)=>`<div class="box q" data-q="${qi}"><span class="tag">Pregunta ${k+1}</span><b>${Q[qi].q}</b><div class="ch">${Q[qi].o.map((o,j)=>`<label><input type="radio" name="${name}-${qi}" value="${j}"> <span>${o}</span></label>`).join("")}</div><div class="ex" hidden></div></div>`).join("")}
   <div class="row"><button class="btn" type="submit">Entregar evaluación</button></div></form><div id="res"></div>${pagerMod(n)}`;
@@ -244,46 +266,54 @@ function EVAL(v, n){
       if(sel && +sel.value===q.a) ok++;
       const x = b.querySelector(".ex"); x.hidden=false; x.innerHTML = q.ex||"";
     });
-    const p = Math.round(ok/Q.length*100);
+    const p = Math.round(ok/K*100);
     state.evals[n] = Math.max(state.evals[n]||0, p); save();
     const nx = MOD(n+1);
-    $("#res").innerHTML = `<div class="box" style="align-items:center;text-align:center"><span class="tag">Resultado</span><div class="score num">${p}%</div><p><b>${ok} de ${Q.length}</b> correctas. ${p>=70?`¡Aprobaste el Módulo ${n}!${nx?` Seguí con <a href="#m${nx.n}">${esc(nx.t)}</a>.`:" Terminaste el plan completo."}`:"Todavía no alcanza. Leé la explicación de cada pregunta, repasá las lecciones y volvé a intentar."}</p><button class="btn ghost" id="retry" type="button">Volver a rendir</button></div>`;
+    $("#res").innerHTML = `<div class="box" style="align-items:center;text-align:center"><span class="tag">Resultado</span><div class="score num">${p}%</div><p><b>${ok} de ${K}</b> correctas. ${p>=70?`¡Aprobaste el Módulo ${n}!${nx?` Seguí con <a href="#m${nx.n}">${esc(nx.t)}</a>.`:" Terminaste el plan completo."}`:"Todavía no alcanza. Leé la explicación de cada pregunta, repasá las lecciones y volvé a intentar."}</p><button class="btn ghost" id="retry" type="button">Volver a rendir</button></div>`;
     $("#retry").onclick = ()=>route();
     $("#res").scrollIntoView({behavior:"smooth"});
   });
+}
+function TP(v, n){
+  const m = MOD(n); const T = CAMPUS.tp[n]; const id = `m${n}-tp`; const exs = T.ex||[];
+  v.innerHTML = `<div class="eyebrow">Módulo ${n} · Trabajo práctico</div><h1>${esc(T.t||"Trabajo práctico integrador")}</h1>${T.lead?`<p class="lead">${T.lead}</p>`:""}
+  <div class="prose">${T.html||""}</div>
+  ${exs.map((e,k)=>`<div class="box"><span class="tag">Consigna ${k+1}${e.title?" · "+e.title:""}</span>${e.prompt?`<p>${e.prompt}</p>`:""}<div class="exbody" id="ex-${id}-${k}"></div></div>`).join("")}
+  <div id="lessonDone"></div>
+  ${lessonSrc(n,T)}
+  <div class="pager"><a href="#${lid(n,m.l.length-1)}">← ${esc(m.l[m.l.length-1])}</a><a href="#m${n}-eval">Evaluación del módulo →</a></div>`;
+  const left = new Set(exs.map((_,k)=>k));
+  exs.forEach((e,k)=>EX[e.type](e, $(`#ex-${id}-${k}`), ()=>{ left.delete(k); if(!left.size && !state.done[id]){ complete(id); $("#lessonDone").innerHTML = fbHTML(true,"Trabajo práctico completado."); } }));
+  if(state.done[id]) $("#lessonDone").innerHTML = `<p class="src">Ya completaste este trabajo práctico. Podés repetirlo para practicar.</p>`;
+}
+function GLOSS(v){
+  const G = (CAMPUS.glosario||[]).slice().sort((a,b)=>a[0].localeCompare(b[0],"es"));
+  v.innerHTML = `<div class="eyebrow">Biblioteca</div><h1>Glosario</h1><p class="lead">${G.length} términos de la carrera, con el módulo donde se estudian.</p>
+  <input class="inp" id="gq" type="search" placeholder="Buscar un término…" autocomplete="off" style="width:100%;max-width:420px">
+  <dl class="gloss" id="gl"></dl>`;
+  const draw = q=>{ const f = q.trim().toLowerCase(); $("#gl").innerHTML = G.filter(g=>!f||g[0].toLowerCase().includes(f)||g[1].toLowerCase().includes(f)).map(g=>`<dt>${esc(g[0])}${g[2]?` <a class="src" href="#m${g[2]}">Módulo ${g[2]}</a>`:""}</dt><dd>${g[1]}</dd>`).join("") || `<p class="src">No hay términos que coincidan.</p>`; };
+  $("#gq").oninput = e=>draw(e.target.value); draw("");
 }
 function SOURCES(v){
   v.innerHTML = `<div class="eyebrow">Biblioteca</div><h1>Fuentes y normas</h1>
   <p class="lead">Las normas cambian. Antes de aplicar un importe, una alícuota o un plazo en la vida real, verificá la versión vigente en la fuente oficial.</p>
   <div class="tw"><table><thead><tr><th>Fuente</th><th>Qué vas a encontrar</th></tr></thead><tbody>
-  ${[
-    ["InfoLEG (Ministerio de Justicia)","https://www.infoleg.gob.ar","Texto actualizado de leyes y decretos: Código Civil y Comercial, Ley 19.550, Ley 11.683, Ley de IVA, Ganancias, LCT 20.744, Ley 24.522, Ley 20.488."],
-    ["FACPCE","https://www.facpce.org.ar","Resoluciones Técnicas (RT 54, RT 37, RT 6 y demás), interpretaciones y normas de auditoría."],
-    ["CPCE de la Ciudad de Buenos Aires","https://www.consejo.org.ar","Matrícula, Código de Ética, normativa profesional, cursos y modelos de informes."],
-    ["ARCA (ex AFIP)","https://www.arca.gob.ar","Impuestos, monotributo, factura electrónica, aportes y contribuciones, valores vigentes."],
-    ["BCRA","https://www.bcra.gob.ar","Tipo de cambio de referencia, tasas, política monetaria."],
-    ["INDEC","https://www.indec.gob.ar","IPC, IPIM (índices para ajuste por inflación), PBI, empleo y pobreza."],
-    ["CNV","https://www.argentina.gob.ar/cnv","Mercado de capitales, obligaciones negociables, normas para emisoras."],
-    ["UIF","https://www.argentina.gob.ar/uif","Prevención del lavado de activos para profesionales en ciencias económicas."],
-    ["IFRS Foundation","https://www.ifrs.org","Normas Internacionales de Información Financiera (NIIF)."],
-  ].map(r=>`<tr><td><a href="${r[1]}" target="_blank" rel="noopener">${r[0]}</a></td><td>${r[2]}</td></tr>`).join("")}
+  ${["arca","facpce","rt54","cpce","bcra","indec","cnv","uif","ca","ifrs","leysimple"].map(k=>`<tr><td><a href="${CAMPUS.L[k][1]}" target="_blank" rel="noopener">${esc(CAMPUS.L[k][0])}</a></td><td>${SRCDESC[k]||""}</td></tr>`).join("")}
   </tbody></table></div>
-  <h2>Bibliografía de referencia</h2>
-  <div class="prose"><ul>
-    <li>Enrique Fowler Newton, <i>Contabilidad Básica</i>, <i>Cuestiones Contables Fundamentales</i> y <i>Contabilidad Superior</i> (La Ley).</li>
-    <li>Juan Carlos Viegas y otros, <i>Contabilidad: Presente y Futuro</i>.</li>
-    <li>Carlos Biondi, <i>Teoría Contable</i> y <i>Contabilidad Financiera</i>.</li>
-    <li>Amaro Yardín, <i>El análisis marginal</i>; Osvaldo Giménez, <i>Costos para empresarios</i>.</li>
-    <li>Jorge Gil, <i>Ganancias</i> y <i>Procedimiento tributario</i>; Reig, <i>Impuesto a las Ganancias</i>.</li>
-    <li>Pahlen Acuña (coord.), <i>Contabilidad: Pasado, Presente y Futuro</i>; Slosse y otros, <i>Auditoría</i>.</li>
-    <li>Brealey, Myers y Allen, <i>Principios de Finanzas Corporativas</i>; Ross, Westerfield y Jaffe, <i>Finanzas Corporativas</i>.</li>
-  </ul></div>`;
+  <h2>Leyes y decretos citados</h2><p class="src">Enlaces al texto actualizado en el sitio oficial de normativa del Estado nacional (InfoLEG).</p>
+  <ul class="srcl">${srcLinks(["cn","ccyc","lgs","lpt","inoc","inoc2","rpt","iva","gan","gandr","bp","mono","lct","modlab","d408","bases","sipa","lrt","lcq","uifl","laf","prof"])}</ul>
+  <h2>Bibliografía de referencia</h2><p class="src">Libros de uso habitual en las facultades de ciencias económicas. Cada módulo indica los suyos en su programa.</p>
+  <div class="prose"><ul>${[...new Set(Object.values(CAMPUS.prog).flatMap(p=>p.bib))].filter(b=>!b.startsWith("Toda")).sort((a,b)=>a.localeCompare(b,"es")).map(b=>`<li>${esc(b)}</li>`).join("")}</ul></div>`;
 }
+const SRCDESC = {arca:"Impuestos, monotributo, factura electrónica, aportes y contribuciones, valores vigentes.",facpce:"Resoluciones Técnicas, interpretaciones y normas de auditoría vigentes.",rt54:"Texto ordenado de la Norma Unificada Argentina de Contabilidad y material explicativo.",cpce:"Matrícula, Código de Ética, normativa profesional y modelos de informes.",bcra:"Tipo de cambio de referencia, tasas, UVA y política monetaria.",indec:"IPC, IPIM (índices para el ajuste por inflación), PBI y empleo.",cnv:"Mercado de capitales y normas para emisoras.",uif:"Prevención del lavado de activos para profesionales en ciencias económicas.",ca:"Normas y resoluciones del Convenio Multilateral de Ingresos Brutos.",ifrs:"Normas Internacionales de Información Financiera (NIIF).",leysimple:"Explicaciones oficiales de leyes en lenguaje claro."};
+
 
 /* ---------- router ---------- */
 function route(){
   const id = location.hash.slice(1) || "inicio"; const v = $("#view"); let mm;
   if(id==="fuentes") SOURCES(v);
+  else if(id==="glosario") GLOSS(v);
+  else if((mm=id.match(/^m(\d+)-tp$/)) && hasTP(+mm[1])) TP(v,+mm[1]);
   else if((mm=id.match(/^m(\d+)-eval$/)) && has(+mm[1])) EVAL(v,+mm[1]);
   else if((mm=id.match(/^m(\d+)-(\d+)$/)) && has(+mm[1]) && MOD(+mm[1]).l[+mm[2]-1]) LESSON(v,+mm[1],+mm[2]-1);
   else if((mm=id.match(/^m(\d+)$/)) && MOD(+mm[1])) MODULE(v,+mm[1]);

@@ -68,7 +68,7 @@ lessons:[
 ],
 eval:[
  {q:"La auditoría externa brinda una seguridad…",o:["Absoluta","Razonable","Limitada","Nula"],a:1},
- {q:"La norma argentina de auditoría es la…",o:["RT 6","RT 37","RT 26","RT 54"],a:1},
+ {q:"La norma argentina de auditoría es la…",o:["RT 54","RT 37","RT 26","RT 59"],a:1},
  {q:"Un auditor no es independiente si…",o:["Cobra honorarios fijos","Sus honorarios dependen del resultado del informe","Es contador matriculado","Tiene experiencia en el sector"],a:1},
  {q:"El único componente del riesgo de auditoría que controla el auditor es el riesgo…",o:["Inherente","De control","De detección","De negocio"],a:2},
  {q:"Verificar que las ventas se registraron en el período correcto prueba la aseveración de…",o:["Existencia","Corte","Valuación","Derechos"],a:1},

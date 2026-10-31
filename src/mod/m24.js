@@ -11,7 +11,7 @@ lessons:[
   html:`<p>Usamos los datos de Andina SA en todo el módulo:</p>${DATA}
   <h3>Análisis vertical</h3><p>Cada rubro como porcentaje de un total del mismo estado: del activo total en el balance, de las ventas en el estado de resultados. Muestra la <b>estructura</b>. Por ejemplo, el costo de ventas es 60% de las ventas en el año 2 (7.200 / 12.000) y 58% en el año 1.</p>
   <h3>Análisis horizontal</h3><p>La variación de cada rubro entre períodos, en pesos y en porcentaje. Muestra la <b>tendencia</b>. Las ventas crecieron 20%; los créditos por ventas, 36%: los clientes están tardando más en pagar.</p>
-  <div class="note"><b>Antes de calcular.</b> Los estados tienen que estar en moneda homogénea (RT 6), si no las comparaciones entre años no sirven. Y conviene leer las notas: un cambio de criterio contable puede explicar una variación.</div>`,
+  <div class="note"><b>Antes de calcular.</b> Los estados tienen que estar en moneda homogénea (RT 54), si no las comparaciones entre años no sirven. Y conviene leer las notas: un cambio de criterio contable puede explicar una variación.</div>`,
   ex:[{type:"num",items:[{q:"Análisis vertical: ¿qué % del activo total representan los bienes de uso en el año 2?",a:62.5,u:"%",tol:0.05},{q:"Análisis horizontal: ¿cuánto crecieron las ventas, en %?",a:20,u:"%",tol:0.05},{q:"¿Cuánto crecieron los créditos por ventas, en %? (una decimal)",a:36.4,u:"%",tol:0.1},{q:"Margen bruto del año 2 sobre ventas, en %",a:40,u:"%",tol:0.05}]}]},
  {lead:"Los indicadores de liquidez miden la capacidad de pagar las deudas de corto plazo.",
   html:`<div class="tw"><table><thead><tr><th>Indicador</th><th>Fórmula</th><th>Lectura</th></tr></thead><tbody>

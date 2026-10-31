@@ -202,6 +202,15 @@ ol.lessons li.ev{list-style:"★  "}
 .prose table{font-size:.92rem}
 .q b{font-weight:600}
 @media (max-width:560px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* v3: programa, fuentes, glosario */
+.prog-sec{margin-top:28px;padding-top:8px;border-top:1px solid var(--rule)}
+.prog-sec h3{margin-top:18px}
+.srcl,.bib{padding-left:1.2em}
+.srcl li,.bib li{margin:4px 0}
+.srcbox{margin:18px 0;border:1px solid var(--rule);border-radius:8px;padding:10px 14px;background:var(--sheet)}
+.srcbox summary{cursor:pointer;font-weight:600}
+.gloss dt{font-weight:700;margin-top:14px}
+.gloss dd{margin:4px 0 0 0;color:var(--ink)}
 </style>
 <header class="top">
   <button class="menu-btn" id="menuBtn" aria-label="Abrir plan de estudios">Plan ☰</button>
@@ -856,7 +865,7 @@ lessons:[
   <h3>Efectos</h3>
   <ul><li>Pérdida de poder adquisitivo de salarios y jubilaciones.</li><li>Distorsión de precios relativos y dificultad para planificar.</li>
   <li>El <b>impuesto inflacionario</b>: quien tiene pesos pierde valor y el emisor gana (señoreaje).</li>
-  <li><b>Distorsión contable:</b> los estados contables en moneda histórica dejan de ser comparables. Por eso existe la RT 6 de ajuste por inflación (Módulo 14) y el ajuste impositivo en Ganancias (Módulo 21).</li></ul>
+  <li><b>Distorsión contable:</b> los estados contables en moneda histórica dejan de ser comparables. Por eso las normas contables (hoy la RT 54, que absorbió a la antigua RT 6) exigen el ajuste por inflación (Módulo 14) y el ajuste impositivo en Ganancias (Módulo 21).</li></ul>
   <div class="note"><b>Efecto Olivera-Tanzi.</b> Descripto por el economista argentino Julio Olivera (y luego por Vito Tanzi): con inflación alta, el Estado cobra los impuestos con atraso y recauda menos en términos reales, lo que agranda el déficit.</div>`,
   ex:[{type:"tf",items:[
    ["La inflación beneficia a quienes tienen deudas en pesos a tasa fija","Verdadero","Devuelven pesos que valen menos."],
@@ -1181,7 +1190,7 @@ lessons:[
   <h3>Suspensión e interrupción</h3><ul><li><b>Suspensión:</b> detiene el cómputo por un tiempo; después sigue contando lo que faltaba. Por ejemplo, la interpelación fehaciente suspende por seis meses (art. 2541).</li>
   <li><b>Interrupción:</b> borra el tiempo transcurrido y empieza a contar de nuevo. Por ejemplo, el reconocimiento de la deuda o la demanda judicial.</li></ul>
   <h3>Caducidad</h3><p>Extingue el derecho no ejercido en el plazo. A diferencia de la prescripción, no se suspende ni se interrumpe, salvo disposición legal (art. 2567).</p>
-  <div class="note"><b>Plazos tributarios.</b> En impuestos nacionales, la Ley 11.683 fija su propia prescripción: 5 años para contribuyentes inscriptos y 10 años para no inscriptos (art. 56). Por eso, y por el art. 328 del CCyC, se conservan los registros contables y la documentación al menos 10 años.</div>`,
+  <div class="note"><b>Plazos tributarios.</b> En impuestos nacionales, la Ley 11.683 fija su propia prescripción: 5 años para contribuyentes inscriptos y 10 años para no inscriptos (art. 56). Desde la Ley 27.799 de Inocencia Fiscal (2026), el plazo baja a 3 años para el inscripto que presentó sus declaraciones juradas en término y pagó, si ARCA no detecta una “discrepancia significativa”. Por eso, y por el art. 328 del CCyC, se conservan los registros contables y la documentación al menos 10 años.</div>`,
   ex:[{type:"num",items:[{q:"¿Cuál es el plazo genérico de prescripción del CCyC, en años?",a:5,tol:0},{q:"¿Cuántos años prescribe la acción de ARCA contra un contribuyente no inscripto?",a:10,tol:0},{q:"¿Cuántos años se deben conservar los libros contables según el art. 328 del CCyC?",a:10,tol:0}]},
    {type:"tf",items:[["La interrupción de la prescripción borra el tiempo ya transcurrido","Verdadero"],["La caducidad, como regla, se puede interrumpir con una carta documento","Falso"]]}]},
  {lead:"El Código Civil y Comercial regula la contabilidad en los arts. 320 a 331. Es la base legal de los libros que llevás como contador.",
@@ -1527,7 +1536,7 @@ lessons:[
   <p>Ejemplo: un plazo fijo con TEA 40% y una inflación anual de 30% → tasa real = 1,40/1,30 − 1 = <b>7,69%</b>. Si la inflación fuera 50%, la tasa real sería −6,67%: perderías poder de compra.</p>
   <p>La aproximación r ≈ i − π solo sirve con tasas bajas. Con las tasas argentinas, siempre usá la fórmula exacta.</p>
   <h3>Instrumentos ajustables</h3><ul><li><b>Plazo fijo UVA:</b> el capital se ajusta por CER más una tasa adicional.</li><li><b>Bonos CER</b> (como los Boncer del Tesoro): ajustan por inflación.</li><li><b>Dólar linked:</b> ajustan por tipo de cambio.</li></ul>
-  <h3>Para los estados contables</h3><p>Con inflación, una parte de los intereses nominales es solo compensación por la pérdida del poder adquisitivo. Las normas contables argentinas en moneda homogénea (RT 6) muestran los resultados financieros en términos reales (Módulo 14).</p>`,
+  <h3>Para los estados contables</h3><p>Con inflación, una parte de los intereses nominales es solo compensación por la pérdida del poder adquisitivo. Las normas contables argentinas en moneda homogénea (RT 54) muestran los resultados financieros en términos reales (Módulo 14).</p>`,
   ex:[{type:"num",items:[
    {q:"TEA de un plazo fijo 40%, inflación anual 30%. ¿Tasa real, en %? (dos decimales)",a:7.69,u:"%",tol:0.02},
    {q:"Un préstamo cobra 80% anual y la inflación es 100%. ¿Tasa real, en %? (con signo)",a:-10,u:"%",tol:0.02},
@@ -1631,7 +1640,7 @@ lessons:[
   <tr><td><b>Valor razonable</b></td><td>Precio que se recibiría entre partes independientes</td><td>Acciones con cotización, propiedades de inversión</td></tr>
   <tr><td><b>Valor descontado</b></td><td>Flujos futuros traídos a hoy con una tasa</td><td>Créditos y deudas a largo plazo</td></tr></tbody></table></div>
   <h3>El límite: valor recuperable</h3><p>Ningún activo puede figurar por más de lo que se espera recuperar de él. El <b>valor recuperable</b> es el mayor entre el VNR (vendiéndolo) y el valor de uso (usándolo). Si la medición contable lo supera, se registra una <b>desvalorización</b>.</p>
-  <h3>Normas aplicables</h3><p>En Argentina, la <b>RT 54</b> de la FACPCE (Norma Unificada Argentina de Contabilidad) rige para los ejercicios iniciados desde el 1/1/2025 y reemplazó a las RT 16, 17, 41 y otras. Mantiene la lógica de medición inicial al costo, mediciones periódicas según el rubro y el límite del valor recuperable, e incorporó simplificaciones para entes pequeños y medianos. Antes de aplicar un criterio concreto, revisá el texto vigente en la web de la FACPCE.</p>`,
+  <h3>Normas aplicables</h3><p>En Argentina, la <b>RT 54</b> de la FACPCE (Norma Unificada Argentina de Contabilidad) rige para los ejercicios iniciados desde el 1/1/2025 y reemplazó a las RT 6, 8, 9, 11, 14, 17, 18, 21, 22, 23 y 41, entre otras (hoy rige con el texto ordenado por la RT 59). Mantiene la lógica de medición inicial al costo, mediciones periódicas según el rubro y el límite del valor recuperable, e incorporó simplificaciones para entes pequeños y medianos. Antes de aplicar un criterio concreto, revisá el texto vigente en la web de la FACPCE.</p>`,
   ex:[{type:"pick",title:"¿Qué criterio de medición se describe?",options:["Costo histórico","Costo de reposición","VNR","Valor descontado"],items:[
    ["Una deuda a pagar en 3 años se trae a hoy con una tasa de mercado","Valor descontado"],["Se mide el stock de soja por su cotización menos los gastos de venta","VNR"],["Se mide la mercadería al precio que hoy cobra el proveedor","Costo de reposición"],["Un terreno se mide por lo que se pagó en la escritura","Costo histórico"]]},
    {type:"num",items:[{q:"Una máquina tiene valor contable de $ 5.000.000. Su VNR es $ 3.800.000 y su valor de uso $ 4.200.000. ¿Cuál es su valor recuperable?",a:4200000,u:"$"},{q:"¿Por cuánto hay que registrar la desvalorización?",a:800000,u:"$"}]}]},
@@ -1665,7 +1674,7 @@ lessons:[
   <h3>Baja y venta</h3><p>Al vender un bien de uso, se dan de baja su costo y su amortización acumulada. La diferencia entre el precio de venta y el valor residual contable es un resultado.</p>
   <div class="formula">Resultado de la venta = Precio − (Valor de origen − Amortización acumulada)</div>
   <h3>Propiedades de inversión</h3><p>Inmuebles que se tienen para obtener rentas o por su valorización, no para usarlos en la actividad principal. Se pueden medir al costo o a su valor razonable, con los cambios a resultados.</p>
-  <h3>Activos biológicos</h3><p>Hacienda, cultivos, plantaciones. Tienen una norma específica (RT 22) que privilegia el VNR.</p>`,
+  <h3>Activos biológicos</h3><p>Hacienda, cultivos, plantaciones. Tienen reglas específicas, antes en la RT 22 y hoy en el capítulo de actividad agropecuaria de la RT 54, que privilegian el VNR.</p>`,
   ex:[{type:"num",items:[{q:"Una máquina costó $ 6.000.000 y tiene amortización acumulada de $ 4.000.000. Se vende en $ 2.500.000. ¿Resultado de la venta?",a:500000,u:"$"}]},
    {type:"asiento",accounts:ACC,entries:[{t:"30/06 · Se vende la máquina anterior (costo $ 6.000.000, amortización acumulada $ 4.000.000) en $ 2.500.000 cobrados por banco (ignorá el IVA).",e:[["Banco Nación c/c",2500000,0],["Amortización acumulada maquinarias",4000000,0],["Maquinarias",0,6000000],["Resultado venta de bienes de uso",0,500000]]},
     {t:"31/12 · Una máquina con valor residual contable de $ 5.000.000 tiene un valor recuperable de $ 4.200.000. Registrá la desvalorización.",e:[["Pérdida por desvalorización de bienes de uso",800000,0],["Desvalorización de bienes de uso (regularizadora)",0,800000]]}]}]},
@@ -1754,15 +1763,11 @@ lessons:[
  {lead:"En Argentina las normas contables las elabora la FACPCE, pero cada Consejo Profesional las pone en vigencia en su jurisdicción.",
   html:`<h3>Actores</h3><ul><li><b>FACPCE</b> (Federación Argentina de Consejos Profesionales de Ciencias Económicas): aprueba las Resoluciones Técnicas (RT), con proyectos del CENCyA (Consejo Elaborador de Normas de Contabilidad y Auditoría).</li><li><b>Consejos Profesionales</b> provinciales y de CABA (CPCE): adoptan las RT en su jurisdicción. Las normas obligan a los matriculados de ese Consejo.</li><li><b>Organismos de control</b> con facultades propias: CNV (sociedades con oferta pública), BCRA (bancos), Superintendencia de Seguros, IGJ (sociedades en CABA), INAES (cooperativas y mutuales).</li></ul>
   <h3>Resoluciones Técnicas más importantes</h3><div class="tw"><table><thead><tr><th>RT</th><th>Tema</th></tr></thead><tbody>
-  <tr><td class="mono">RT 54</td><td>Norma Unificada Argentina de Contabilidad (marco conceptual, reconocimiento, medición y presentación). Vigente para ejercicios iniciados desde el 1/1/2025.</td></tr>
-  <tr><td class="mono">RT 6</td><td>Estados contables en moneda homogénea (ajuste por inflación).</td></tr>
-  <tr><td class="mono">RT 21</td><td>Valor patrimonial proporcional, consolidación y combinaciones de negocios (según el alcance que hoy mantiene).</td></tr>
-  <tr><td class="mono">RT 22</td><td>Actividad agropecuaria.</td></tr>
-  <tr><td class="mono">RT 24</td><td>Cooperativas.</td></tr>
+  <tr><td class="mono">RT 54</td><td>Norma Unificada Argentina de Contabilidad: marco conceptual, unidad de medida y ajuste por inflación, reconocimiento, medición, presentación, y normas específicas para actividad agropecuaria, negocios conjuntos y cooperativas. Rige para ejercicios iniciados desde el 1/1/2025, con el texto ordenado por la RT 59 y modificaciones posteriores (RT 62).</td></tr>
   <tr><td class="mono">RT 26</td><td>Adopción de las NIIF y de la NIIF para PyMEs.</td></tr>
   <tr><td class="mono">RT 37</td><td>Normas de auditoría, revisión, otros encargos de aseguramiento, certificación y servicios relacionados.</td></tr></tbody></table></div>
-  <p>Antes de la RT 54, la estructura era: RT 16 (marco conceptual), RT 17 (desarrollo de cuestiones de aplicación general), RT 8 y 9 (presentación), RT 41 (entes pequeños y medianos). Vas a encontrar referencias a ellas en balances de ejercicios anteriores a 2025.</p>`,
-  ex:[{type:"tf",items:[["Las RT de la FACPCE rigen automáticamente en todo el país, sin intervención de los Consejos","Falso","Cada CPCE las adopta para su jurisdicción."],["La CNV puede exigir normas específicas a las sociedades que cotizan","Verdadero"],["La RT 6 trata del ajuste por inflación","Verdadero"],["La RT 54 unificó en una sola norma el marco conceptual, la medición y la presentación","Verdadero"]]}]},
+  <p>La RT 54 reemplazó a las RT 6 (moneda homogénea), 8 y 9 (presentación), 11, 14, 17 (medición), 18, 21, 22 (agropecuaria), 23, 41 (entes pequeños y medianos) y a parte de la 24 (cooperativas). El marco conceptual de la RT 16 también quedó integrado.</p><p> Vas a encontrar referencias a ellas en balances de ejercicios anteriores a 2025.</p>`,
+  ex:[{type:"tf",items:[["Las RT de la FACPCE rigen automáticamente en todo el país, sin intervención de los Consejos","Falso","Cada CPCE las adopta para su jurisdicción."],["La CNV puede exigir normas específicas a las sociedades que cotizan","Verdadero"],["El ajuste por inflación contable hoy está regulado dentro de la RT 54","Verdadero","Antes estaba en la RT 6, que la RT 54 reemplazó."],["La RT 54 unificó en una sola norma el marco conceptual, la medición y la presentación","Verdadero"]]}]},
  {lead:"Las NIIF son las normas contables internacionales del IASB. En Argentina son obligatorias para algunas entidades y optativas para el resto.",
   html:`<h3>Quién las aplica en Argentina</h3><ul><li><b>Obligatorias</b> (RT 26 y normas de la CNV): las sociedades con oferta pública de acciones u obligaciones negociables, salvo algunas exceptuadas.</li><li><b>Bancos:</b> el BCRA las adoptó con algunas excepciones propias.</li><li><b>Optativas:</b> cualquier otra entidad puede elegir NIIF completas o la NIIF para PyMEs, en lugar de las normas argentinas.</li></ul>
   <h3>Algunas normas NIIF clave</h3><div class="tw"><table><thead><tr><th>Norma</th><th>Tema</th></tr></thead><tbody>
@@ -1772,7 +1777,7 @@ lessons:[
   <h3>Diferencias frecuentes con las normas argentinas</h3><ul><li><b>Inventarios:</b> NIIF usa el menor entre costo y VNR; la tradición argentina, el costo de reposición.</li><li><b>Arrendamientos:</b> NIIF 16 obliga a reconocer el derecho de uso y el pasivo; las normas argentinas mantienen un enfoque más simple para los arrendatarios.</li><li><b>Terminología:</b> “estados financieros” en NIIF, “estados contables” en las RT.</li></ul>`,
   ex:[{type:"tf",items:[["Una sociedad que emite obligaciones negociables en la bolsa debe aplicar NIIF","Verdadero"],["Una PyME argentina no puede aplicar NIIF aunque quiera","Falso","Puede optar por NIIF completas o NIIF para PyMEs."],["La NIC 29 trata de las economías hiperinflacionarias","Verdadero"],["Según NIIF, los inventarios se miden al mayor entre costo y VNR","Falso","Al menor."]]}]},
  {lead:"Con inflación, sumar pesos de distintas fechas es como sumar monedas distintas. El ajuste por inflación expresa todo en moneda de poder adquisitivo de cierre.",
-  html:`<h3>Cuándo se aplica</h3><p>La RT 6 se aplica cuando el contexto es de inflación alta. El indicador principal es que la inflación acumulada de tres años alcance o supere el <b>100%</b>. La FACPCE declaró que esa condición se cumplía desde los cierres del 1/7/2018 (Resolución JG 539/18). El índice que se usa es una serie que combina IPIM e IPC del INDEC.</p>
+  html:`<h3>Cuándo se aplica</h3><p>La RT 54 (que reemplazó a la RT 6) exige reexpresar los estados en moneda de cierre cuando el contexto es de inflación alta. El indicador principal es que la inflación acumulada de tres años alcance o supere el <b>100%</b>. La FACPCE declaró que esa condición se cumplía desde los cierres del 1/7/2018 (Resolución JG 539/18). El índice que se usa es una serie que combina IPIM e IPC del INDEC.</p>
   <h3>Partidas monetarias y no monetarias</h3><ul><li><b>Monetarias:</b> están expresadas en moneda de cierre por su naturaleza (caja, créditos y deudas en pesos sin cláusula de ajuste). No se reexpresan, pero generan un resultado por la pérdida del poder adquisitivo.</li><li><b>No monetarias:</b> mercaderías, bienes de uso, capital. Se reexpresan con el coeficiente desde su fecha de origen.</li></ul>
   <div class="formula">Coeficiente = Índice de cierre / Índice de la fecha de origen</div>
   <h3>RECPAM</h3><p>El <b>Resultado por Exposición al Cambio en el Poder Adquisitivo de la Moneda</b> surge por tener partidas monetarias. Tener efectivo o créditos en pesos genera una <b>pérdida</b>; tener deudas en pesos, una <b>ganancia</b>.</p>
@@ -1795,7 +1800,7 @@ eval:[
  {q:"Subvaluar activos “por prudencia” viola…",o:["La neutralidad","La significación","La oportunidad","Nada"],a:0},
  {q:"¿Quién pone en vigencia las RT en cada provincia?",o:["ARCA","El Consejo Profesional de la jurisdicción","El Congreso","La CNV"],a:1},
  {q:"La RT 26 trata de…",o:["Ajuste por inflación","Adopción de NIIF","Cooperativas","Auditoría"],a:1},
- {q:"La condición de inflación para aplicar la RT 6 es una inflación acumulada en 3 años de…",o:["25%","50%","100% o más","200%"],a:2},
+ {q:"La condición de inflación para reexpresar los estados es una inflación acumulada en 3 años de…",o:["25%","50%","100% o más","200%"],a:2},
  {q:"Tener efectivo en pesos durante un año con inflación genera…",o:["Una ganancia por exposición","Una pérdida por exposición (RECPAM)","Un resultado por tenencia","Nada"],a:1},
  {q:"En moneda homogénea, el capital social se muestra…",o:["Reexpresado en la misma cuenta","A valor nominal, con la reexpresión en Ajuste de capital","En el pasivo","En resultados"],a:1},
  {q:"Las normas argentinas adoptan el concepto de capital…",o:["Físico","Financiero","Operativo","Tributario"],a:1},
@@ -1833,8 +1838,8 @@ lessons:[
  {lead:"Los estados contables son el producto final de la contabilidad. Tienen una estructura definida para que cualquier lector los entienda.",
   html:`<h3>Estados básicos</h3><ol><li><b>Estado de situación patrimonial</b> (o balance general): el patrimonio a una fecha.</li><li><b>Estado de resultados:</b> cómo se generó el resultado del período.</li><li><b>Estado de evolución del patrimonio neto:</b> los cambios en el PN.</li><li><b>Estado de flujo de efectivo:</b> de dónde vino y a dónde fue el efectivo.</li></ol>
   <p>Se complementan con <b>notas</b> y <b>anexos</b>, que forman parte integrante de los estados.</p>
-  <h3>Reglas generales de presentación</h3><ul><li>Se presentan <b>comparativos</b> con el ejercicio anterior.</li><li>Identifican al ente, la fecha de cierre, el período cubierto y la moneda de presentación.</li><li>Expresados en moneda homogénea cuando corresponde (RT 6).</li><li>Firmados por el representante legal; si se auditan, se acompañan del informe del auditor.</li></ul>
-  <p>Las normas de presentación estaban en las RT 8 (general) y RT 9 (entes comerciales, industriales y de servicios); hoy están en la RT 54. Los modelos de estados que vas a ver en este módulo siguen esa estructura.</p>
+  <h3>Reglas generales de presentación</h3><ul><li>Se presentan <b>comparativos</b> con el ejercicio anterior.</li><li>Identifican al ente, la fecha de cierre, el período cubierto y la moneda de presentación.</li><li>Expresados en moneda homogénea cuando corresponde (RT 54).</li><li>Firmados por el representante legal; si se auditan, se acompañan del informe del auditor.</li></ul>
+  <p>Las normas de presentación estaban en las RT 8 (general) y RT 9 (entes comerciales, industriales y de servicios); hoy están en el capítulo de presentación de la RT 54. Los modelos de estados que vas a ver en este módulo siguen esa estructura.</p>
   <h3>Obligaciones legales</h3><p>El art. 326 del CCyC exige confeccionar estados contables al cierre de cada ejercicio. Las sociedades tienen, además, las reglas de los arts. 62 a 65 de la Ley General de Sociedades, y las que están en el art. 299 deben presentarlos ante el organismo de control.</p>`,
   ex:[{type:"pick",title:"¿Qué estado contable responde la pregunta?",options:["Situación patrimonial","Resultados","Evolución del PN","Flujo de efectivo"],items:[["¿Cuánto debe la empresa al cierre?","Situación patrimonial"],["¿Cuánto ganó en el año?","Resultados"],["¿Cuántos dividendos se distribuyeron?","Evolución del PN"],["¿Por qué tiene menos plata si ganó?","Flujo de efectivo"],["¿Cuánto vale su stock de mercaderías?","Situación patrimonial"]]}]},
  {lead:"El estado de situación patrimonial muestra el activo, el pasivo y el patrimonio neto, ordenados de mayor a menor liquidez.",
@@ -2267,10 +2272,10 @@ lessons:[
   <tr><td>Clausura (art. 40)</td><td>No emitir factura, no estar inscripto, no tener registradas las mercaderías o los empleados</td></tr>
   <tr><td>Omisión (art. 45)</td><td>Dejar de pagar por declaración inexacta, sin dolo</td></tr>
   <tr><td>Defraudación (art. 46)</td><td>Dejar de pagar mediante maniobras engañosas</td></tr></tbody></table></div>
-  <p>Por encima de los montos que fija el Régimen Penal Tributario (Título IX de la Ley 27.430), la evasión es un delito con penas de prisión.</p>
+  <p>Por encima de los montos que fija el Régimen Penal Tributario (Título IX de la Ley 27.430), la evasión es un delito con penas de prisión. La Ley 27.799 de Inocencia Fiscal (B.O. 2/1/2026) elevó esos umbrales a $ 100.000.000 por tributo y por ejercicio para la evasión simple y $ 1.000.000.000 para la agravada, y desde 2027 se actualizan por UVA. También permite extinguir la acción penal pagando lo evadido, los intereses y un 50% adicional dentro de los 30 días hábiles de notificada la imputación.</p>
   <h3>Recursos (art. 76)</h3><p>Contra determinaciones de oficio y multas, dentro de los <b>15 días hábiles</b>: recurso de <b>reconsideración</b> ante el superior de ARCA, o <b>apelación ante el Tribunal Fiscal de la Nación</b> si el monto supera el mínimo legal. Son excluyentes.</p>
   <h3>Prescripción (art. 56)</h3><p>5 años para inscriptos; 10 años para no inscriptos. Corre desde el 1 de enero siguiente al año del vencimiento de la declaración jurada.</p>`,
-  ex:[{type:"tf",items:[["Las notificaciones en el domicilio fiscal electrónico son válidas aunque el contribuyente no las abra","Verdadero"],["La vista en la determinación de oficio dura 15 días hábiles","Verdadero"],["Contra una determinación de oficio se puede presentar al mismo tiempo reconsideración y apelación al Tribunal Fiscal","Falso","Son vías excluyentes."],["Pagar un impuesto un mes tarde genera intereses resarcitorios","Verdadero"],["La prescripción para un contribuyente inscripto es de 10 años","Falso","Es de 5 años; 10 para no inscriptos."]]},
+  ex:[{type:"tf",items:[["Las notificaciones en el domicilio fiscal electrónico son válidas aunque el contribuyente no las abra","Verdadero"],["La vista en la determinación de oficio dura 15 días hábiles","Verdadero"],["Contra una determinación de oficio se puede presentar al mismo tiempo reconsideración y apelación al Tribunal Fiscal","Falso","Son vías excluyentes."],["Pagar un impuesto un mes tarde genera intereses resarcitorios","Verdadero"],["La prescripción para un contribuyente inscripto es, como regla, de 10 años","Falso","Es de 5 años (10 para no inscriptos), y puede bajar a 3 años con la Ley 27.799 si presentó y pagó en término."]]},
    {type:"num",items:[{q:"La DDJJ de Ganancias del período fiscal 2023 venció en junio de 2024. Para un inscripto, ¿en qué año se completa la prescripción? (el plazo corre desde el 1/1/2025)",a:2029,tol:0,hint:"5 años desde el 1/1/2025 → termina el 31/12/2029"}]}]},
  {lead:"El IVA grava el consumo en cada etapa, pero cada uno paga solo sobre el valor que agrega, porque descuenta lo que pagó al comprar.",
   html:`<p>Se rige por la Ley 23.349 (texto ordenado en 1997) y su decreto reglamentario.</p>
@@ -2388,10 +2393,10 @@ lessons:[
  {lead:"Con inflación alta, un impuesto sobre resultados nominales grava ganancias ficticias. Por eso la ley de Ganancias tiene su propio ajuste por inflación.",
   html:`<h3>Dos ajustes en el Título VI de la ley</h3><ul><li><b>Ajuste estático:</b> se calcula sobre la posición monetaria del inicio del ejercicio. Tener activos monetarios (caja, créditos) genera un ajuste negativo (menos impuesto); tener pasivos monetarios genera un ajuste positivo.</li><li><b>Ajuste dinámico:</b> por los movimientos del ejercicio (retiros de socios, dividendos, aportes, compras y ventas de bienes) desde su fecha hasta el cierre.</li></ul>
   <h3>Cuándo se aplica</h3><p>Cuando la variación del IPC acumulada en los 36 meses anteriores al cierre supera el <b>100%</b>. Durante la transición (2018 a 2020) los umbrales fueron menores. Se aplica también la actualización de las amortizaciones y del costo de los bienes vendidos.</p>
-  <h3>Diferencias con el ajuste contable</h3><p>El ajuste impositivo no es igual a la RT 6: usa reglas propias para definir qué partidas son monetarias, cómo se computan los bienes de cambio y qué se excluye. Por eso el resultado impositivo ajustado difiere del contable.</p>
+  <h3>Diferencias con el ajuste contable</h3><p>El ajuste impositivo no es igual al ajuste contable de la RT 54: usa reglas propias para definir qué partidas son monetarias, cómo se computan los bienes de cambio y qué se excluye. Por eso el resultado impositivo ajustado difiere del contable.</p>
   <div class="note"><b>Por qué importa.</b> En los años de alta inflación, una empresa con mucha caja puede tener un ajuste negativo importante que reduce el impuesto; una muy endeudada en pesos, un ajuste positivo que lo aumenta.</div>`,
   ex:[{type:"pick",title:"¿El ajuste estático aumenta o disminuye la ganancia impositiva?",options:["Aumenta","Disminuye"],items:[["Empresa con mucho efectivo y créditos en pesos al inicio","Disminuye"],["Empresa con grandes deudas en pesos al inicio","Aumenta"]]},
-   {type:"tf",items:[["El ajuste por inflación impositivo es idéntico al contable de la RT 6","Falso"],["El ajuste impositivo procede si el IPC acumulado de 36 meses supera el 100%","Verdadero"]]}]},
+   {type:"tf",items:[["El ajuste por inflación impositivo es idéntico al contable de la RT 54","Falso"],["El ajuste impositivo procede si el IPC acumulado de 36 meses supera el 100%","Verdadero"]]}]},
  {lead:"Bienes Personales es un impuesto anual sobre el patrimonio de las personas humanas, regulado por la Ley 23.966.",
   html:`<h3>Características</h3><ul><li><b>Sujetos:</b> personas humanas y sucesiones indivisas. Los residentes, por sus bienes en el país y en el exterior; los no residentes, por sus bienes en el país.</li><li><b>Momento:</b> los bienes que se tienen al <b>31 de diciembre</b> de cada año.</li><li><b>Base:</b> el valor de los bienes según las reglas de valuación de la ley (inmuebles, automotores, depósitos, títulos, participaciones, moneda extranjera al tipo de cambio de cierre).</li><li><b>Mínimo no imponible:</b> si el total no lo supera, no se paga. La casa habitación tiene un tratamiento especial. Los montos se actualizan.</li><li><b>Alícuotas</b> progresivas sobre el excedente del mínimo.</li></ul>
   <h3>Acciones y participaciones</h3><p>Las acciones y cuotas de sociedades argentinas en manos de personas humanas no las declara cada socio: las paga la sociedad como <b>responsable sustituto</b>, con una alícuota sobre el valor patrimonial proporcional, que puede recuperar de sus socios.</p>
@@ -2441,9 +2446,9 @@ lessons:[
   html:`<h3>El contrato de trabajo (art. 21)</h3><p>Hay contrato de trabajo cuando una persona se obliga a realizar actos, ejecutar obras o prestar servicios a favor de otra, bajo su dependencia, durante un tiempo, a cambio de una remuneración.</p>
   <h3>Notas de la dependencia</h3><ul><li><b>Técnica:</b> el empleador dirige cómo se hace el trabajo.</li><li><b>Económica:</b> el trabajador recibe una remuneración y no asume el riesgo del negocio.</li><li><b>Jurídica:</b> el empleador tiene poder de dirección y disciplinario.</li></ul>
   <h3>Presunción (art. 23)</h3><p>La prestación de servicios hace presumir la existencia de un contrato de trabajo, salvo que se demuestre lo contrario. La Ley 27.742 (2024) aclaró que la presunción no opera cuando la relación se instrumenta con facturas y pagos bancarios de servicios profesionales u oficios.</p>
-  <h3>Período de prueba (art. 92 bis)</h3><p>Los contratos por tiempo indeterminado se entienden celebrados a prueba durante los primeros <b>6 meses</b> (según la reforma de la Ley 27.742; los convenios colectivos pueden extenderlo en ciertos casos). Durante ese período cualquiera de las partes puede extinguir la relación sin indemnización, con preaviso.</p>
+  <h3>Período de prueba (art. 92 bis)</h3><p>Los contratos por tiempo indeterminado se entienden celebrados a prueba durante los primeros <b>6 meses</b> (plazo fijado por la Ley 27.742; los convenios colectivos pueden extenderlo en ciertos casos). Durante ese período cualquiera de las partes puede extinguir la relación sin indemnización. Desde la <b>Ley 27.802 de Modernización Laboral</b> (B.O. 6/3/2026) tampoco se debe preaviso (art. 231). El trabajador tiene que estar registrado desde el primer día y el empleador no puede usar el período de prueba más de una vez con la misma persona.</p>
   <h3>Modalidades</h3><ul><li><b>Tiempo indeterminado</b> (la regla).</li><li><b>Plazo fijo</b>, <b>eventual</b>, <b>de temporada</b> y <b>a tiempo parcial</b>, con requisitos específicos.</li></ul>
-  <h3>Registración</h3><p>El empleador debe registrar al trabajador antes de que empiece a trabajar (alta temprana en el sistema “Simplificación Registral” de ARCA) y en el libro de sueldos (art. 52 LCT), hoy digital en la mayoría de los casos.</p>
+  <h3>Registración</h3><p>El empleador debe registrar al trabajador antes de que empiece a trabajar, con el alta en el sistema “Simplificación Registral” de ARCA. Con la Ley 27.802, ARCA pasó a ser el <b>registro único</b> de la relación laboral (arts. 52 y 55 LCT): el registro digital reemplaza a los libros laborales, que igual se conservan 10 años si ya existían. Si falta la registración, la ley presume a favor de lo que declare el trabajador.</p>
   <h3>Convenios colectivos</h3><p>Además de la LCT, cada actividad tiene su <b>convenio colectivo de trabajo</b> (por ejemplo, el CCT 130/75 de Empleados de Comercio), con escalas salariales, adicionales y categorías.</p>`,
   ex:[{type:"tf",items:[["La prestación de servicios hace presumir, en principio, un contrato de trabajo","Verdadero"],["El período de prueba permite despedir sin indemnización","Verdadero"],["El alta del trabajador se puede hacer después del primer mes","Falso","Debe ser previa al inicio de la prestación."],["Los convenios colectivos fijan escalas salariales por actividad","Verdadero"]]}]},
  {lead:"La ley limita cuánto se puede trabajar y garantiza descansos y licencias pagas.",
@@ -2451,7 +2456,7 @@ lessons:[
   <h3>Descansos</h3><p>Descanso semanal desde el sábado a las 13 hasta el domingo a las 24 (art. 204), y 12 horas como mínimo entre jornadas.</p>
   <h3>Vacaciones (art. 150)</h3><div class="tw"><table><thead><tr><th>Antigüedad al 31/12</th><th class="r">Días corridos</th></tr></thead><tbody>
   <tr><td>Hasta 5 años</td><td class="r num">14</td></tr><tr><td>Más de 5 y hasta 10</td><td class="r num">21</td></tr><tr><td>Más de 10 y hasta 20</td><td class="r num">28</td></tr><tr><td>Más de 20</td><td class="r num">35</td></tr></tbody></table></div>
-  <p>Para tener derecho al período completo hay que haber trabajado al menos la mitad de los días hábiles del año; si no, corresponde un día de vacaciones cada 20 trabajados.</p>
+  <p>Para tener derecho al período completo hay que haber trabajado al menos la mitad de los días hábiles del año; si no, corresponde un día de vacaciones cada 20 trabajados.</p><p><b>Cómo se otorgan (art. 154, texto de la Ley 27.802).</b> El empleador las da entre el 1 de octubre y el 30 de abril, salvo acuerdo distinto, y las avisa por escrito con 30 días de anticipación. Se pueden fraccionar en tramos de al menos 7 días, y cada trabajador tiene que gozarlas en verano al menos una vez cada 3 años.</p><p><b>Banco de horas (art. 197 bis).</b> Por acuerdo escrito, las horas extra pueden compensarse con descanso en lugar de pagarse, respetando los descansos mínimos. Los convenios colectivos pueden calcular la jornada máxima como promedio.</p>
   <h3>Licencias especiales (art. 158)</h3><ul><li>Nacimiento de hijo: 2 días corridos (para el progenitor no gestante).</li><li>Matrimonio: 10 días corridos.</li><li>Fallecimiento de cónyuge, hijos o padres: 3 días corridos.</li><li>Fallecimiento de hermano: 1 día.</li><li>Examen: 2 días corridos por examen, hasta 10 días por año.</li></ul>
   <p>La licencia por <b>maternidad</b> es de 90 días (art. 177), y durante ella la trabajadora cobra una asignación de la seguridad social.</p>`,
   ex:[{type:"num",items:[{q:"Una empleada ingresó el 1/03/2018. ¿Cuántos días de vacaciones le corresponden por el año 2024? (antigüedad al 31/12/2024)",a:21,tol:0,hint:"Tiene 6 años y 10 meses"},{q:"Un empleado gana $ 6.000 por hora y hace 4 horas extra un martes. ¿Cuánto cobra por esas horas?",a:36000,u:"$"},{q:"¿Y si las hace un domingo?",a:48000,u:"$"},{q:"¿Cuántos días corridos de licencia corresponden por matrimonio?",a:10,tol:0}]}]},
@@ -2487,17 +2492,24 @@ lessons:[
  {lead:"Cuando termina la relación laboral, lo que se paga depende de cómo termina. El despido sin causa es el caso que más indemnización genera.",
   html:`<h3>Formas de extinción</h3><ul><li><b>Renuncia:</b> el trabajador debe dar 15 días de preaviso. No hay indemnización.</li><li><b>Mutuo acuerdo</b> (art. 241), ante escribano o autoridad.</li><li><b>Despido con justa causa:</b> por una injuria grave del trabajador. No hay indemnización.</li><li><b>Despido sin causa:</b> corresponden indemnizaciones.</li><li><b>Otras:</b> jubilación, fallecimiento, fuerza mayor.</li></ul>
   <h3>Liquidación final por despido sin causa</h3><div class="tw"><table><thead><tr><th>Rubro</th><th>Cálculo</th></tr></thead><tbody>
-  <tr><td><b>Indemnización por antigüedad</b> (art. 245)</td><td>1 mes de la mejor remuneración mensual, normal y habitual del último año, por cada año de servicio o fracción mayor de 3 meses. Tiene un tope (3 veces el promedio del convenio), que según la Corte Suprema (caso Vizzoti, 2004) no puede reducir la base en más del 33%.</td></tr>
-  <tr><td><b>Preaviso</b> (art. 231)</td><td>Si no se avisó: 15 días en período de prueba, 1 mes con antigüedad de hasta 5 años, 2 meses con más de 5 años.</td></tr>
+  <tr><td><b>Indemnización por antigüedad</b> (art. 245)</td><td>1 mes de la mejor remuneración mensual, normal y habitual del último año, por cada año de servicio o fracción mayor de 3 meses, con un mínimo de 1 mes. Desde la Ley 27.802 la base <b>excluye el SAC, las vacaciones y los premios no mensuales</b>; es “habitual” lo que se cobró en al menos 6 de los últimos 12 meses, y los variables se promedian. El tope es 3 veces el salario promedio del convenio, pero no puede reducir la base a menos del 67% (criterio de la Corte en “Vizzoti”, 2004, que ahora está en la ley).</td></tr>
+  <tr><td><b>Preaviso</b> (art. 231)</td><td>Si no se avisó: 1 mes con antigüedad de hasta 5 años y 2 meses con más de 5 años. En el período de prueba no corresponde preaviso (Ley 27.802).</td></tr>
   <tr><td><b>Integración del mes de despido</b> (art. 233)</td><td>Los días que faltan hasta fin de mes, si el despido no coincide con el último día.</td></tr>
   <tr><td><b>Vacaciones no gozadas</b> y <b>SAC proporcional</b></td><td>Lo devengado hasta la fecha, más el SAC sobre el preaviso y la integración.</td></tr></tbody></table></div>
-  <p>La Ley 27.742 (2024) permitió que los convenios colectivos reemplacen la indemnización por un <b>fondo o sistema de cese laboral</b>. Verificá qué rige en cada actividad.</p>`,
+  <h3>El Fondo de Asistencia Laboral (FAL)</h3><p>La Ley 27.802 creó el <b>FAL</b>, reglamentado por el Decreto 408/2026. No cambia cuánto cobra el trabajador despedido: cambia cómo se financia. Cada empleador aporta todos los meses un porcentaje de la nómina (1% las grandes empresas y 2,5% las MiPyMEs, según la reglamentación), y ese aporte se descuenta de sus contribuciones patronales. El fondo se invierte en fondos comunes o fideicomisos regulados por la CNV, y cubre la indemnización de trabajadores registrados con al menos 12 meses de antigüedad.</p>
+  <h3>Después de la extinción</h3><ul><li><b>Certificados de trabajo (art. 80):</b> el empleador tiene 45 días hábiles para entregarlos, y cumple si los pone a disposición en forma física, digital o a través de ARCA.</li><li><b>Actualización de créditos laborales (art. 276):</b> las deudas laborales se actualizan por IPC del INDEC más un 3% anual.</li><li><b>Multas por falta de registración:</b> las de la Ley 24.013 y la Ley 25.323 siguen vigentes.</li></ul>
+  <div class="note"><b>Norma nueva.</b> La Ley 27.802 tiene 218 artículos, varios con reglamentación reciente y algunos cuestionados judicialmente (por ejemplo, el pago en moneda extranjera). Antes de liquidar un caso real, revisá el texto actualizado de la LCT y la reglamentación vigente.</div>`,
   ex:[{type:"num",items:[{q:"Un empleado con 7 años y 4 meses de antigüedad y mejor remuneración de $ 1.200.000 es despedido sin causa. ¿Indemnización por antigüedad (sin tope)?",a:9600000,u:"$",hint:"4 meses es fracción mayor a 3: cuenta como año → 8 años"},{q:"Sin preaviso, ¿cuánto corresponde por indemnización sustitutiva de preaviso?",a:2400000,u:"$",hint:"Más de 5 años: 2 meses"},{q:"Otro empleado con 2 años y 2 meses, mejor sueldo $ 900.000. ¿Indemnización por antigüedad?",a:1800000,u:"$"}]},
-   {type:"pick",title:"¿Corresponde indemnización por antigüedad?",options:["Sí","No"],items:[["Renuncia del trabajador","No"],["Despido sin causa después de 3 años","Sí"],["Despido con justa causa probada","No"],["Despido durante el período de prueba","No"]]}]},
+   {type:"pick",title:"¿Corresponde indemnización por antigüedad?",options:["Sí","No"],items:[["Renuncia del trabajador","No"],["Despido sin causa después de 3 años","Sí"],["Despido con justa causa probada","No"],["Despido durante el período de prueba","No"]]},
+   {type:"tf",title:"Lo que cambió con la Ley 27.802",items:[["En el período de prueba ya no corresponde preaviso",true],["El SAC integra la base de la indemnización del art. 245",false,"La Ley 27.802 lo excluye expresamente, igual que las vacaciones y los premios no mensuales."],["El FAL reduce lo que cobra el trabajador despedido",false,"Cambia el financiamiento, no el monto."],["Las vacaciones se pueden fraccionar en tramos de al menos 7 días",true],["Las multas de la Ley 24.013 por falta de registración fueron derogadas",false,"Siguen vigentes."]]}]},
 ],
 eval:[
  {q:"¿Qué ley regula el contrato de trabajo?",o:["Ley 19.550","Ley 20.744","Ley 24.977","Ley 11.683"],a:1},
- {q:"Según la reforma de 2024, el período de prueba general es de…",o:["1 mes","3 meses","6 meses","1 año"],a:2},
+ {q:"El período de prueba general es de…",o:["1 mes","3 meses","6 meses","1 año"],a:2},
+ {q:"Desde la Ley 27.802, ¿qué se excluye de la base del art. 245?",o:["El sueldo básico","El SAC, las vacaciones y los premios no mensuales","Las horas extra habituales","Nada"],a:1},
+ {q:"El Fondo de Asistencia Laboral (FAL)…",o:["Reemplaza el sueldo","Financia las indemnizaciones con aportes mensuales del empleador","Es un impuesto nuevo","Lo paga el trabajador"],a:1},
+ {q:"El plazo para entregar los certificados del art. 80 es de…",o:["30 días corridos","45 días hábiles","10 días","1 año"],a:1},
+ {q:"El preaviso durante el período de prueba es de…",o:["15 días","1 mes","No corresponde","2 meses"],a:2},
  {q:"La jornada máxima legal es de…",o:["6 horas diarias","8 horas diarias o 48 semanales","10 horas diarias","40 semanales sin límite diario"],a:1},
  {q:"Las horas extra un domingo se pagan con un recargo del…",o:["25%","50%","100%","200%"],a:2},
  {q:"Con 12 años de antigüedad corresponden… días de vacaciones",o:["14","21","28","35"],a:2},
@@ -2586,7 +2598,7 @@ lessons:[
   html:`<p>Usamos los datos de Andina SA en todo el módulo:</p>${DATA}
   <h3>Análisis vertical</h3><p>Cada rubro como porcentaje de un total del mismo estado: del activo total en el balance, de las ventas en el estado de resultados. Muestra la <b>estructura</b>. Por ejemplo, el costo de ventas es 60% de las ventas en el año 2 (7.200 / 12.000) y 58% en el año 1.</p>
   <h3>Análisis horizontal</h3><p>La variación de cada rubro entre períodos, en pesos y en porcentaje. Muestra la <b>tendencia</b>. Las ventas crecieron 20%; los créditos por ventas, 36%: los clientes están tardando más en pagar.</p>
-  <div class="note"><b>Antes de calcular.</b> Los estados tienen que estar en moneda homogénea (RT 6), si no las comparaciones entre años no sirven. Y conviene leer las notas: un cambio de criterio contable puede explicar una variación.</div>`,
+  <div class="note"><b>Antes de calcular.</b> Los estados tienen que estar en moneda homogénea (RT 54), si no las comparaciones entre años no sirven. Y conviene leer las notas: un cambio de criterio contable puede explicar una variación.</div>`,
   ex:[{type:"num",items:[{q:"Análisis vertical: ¿qué % del activo total representan los bienes de uso en el año 2?",a:62.5,u:"%",tol:0.05},{q:"Análisis horizontal: ¿cuánto crecieron las ventas, en %?",a:20,u:"%",tol:0.05},{q:"¿Cuánto crecieron los créditos por ventas, en %? (una decimal)",a:36.4,u:"%",tol:0.1},{q:"Margen bruto del año 2 sobre ventas, en %",a:40,u:"%",tol:0.05}]}]},
  {lead:"Los indicadores de liquidez miden la capacidad de pagar las deudas de corto plazo.",
   html:`<div class="tw"><table><thead><tr><th>Indicador</th><th>Fórmula</th><th>Lectura</th></tr></thead><tbody>
@@ -2713,7 +2725,7 @@ lessons:[
 ],
 eval:[
  {q:"La auditoría externa brinda una seguridad…",o:["Absoluta","Razonable","Limitada","Nula"],a:1},
- {q:"La norma argentina de auditoría es la…",o:["RT 6","RT 37","RT 26","RT 54"],a:1},
+ {q:"La norma argentina de auditoría es la…",o:["RT 54","RT 37","RT 26","RT 59"],a:1},
  {q:"Un auditor no es independiente si…",o:["Cobra honorarios fijos","Sus honorarios dependen del resultado del informe","Es contador matriculado","Tiene experiencia en el sector"],a:1},
  {q:"El único componente del riesgo de auditoría que controla el auditor es el riesgo…",o:["Inherente","De control","De detección","De negocio"],a:2},
  {q:"Verificar que las ventas se registraron en el período correcto prueba la aseveración de…",o:["Existencia","Corte","Valuación","Derechos"],a:1},
@@ -2962,7 +2974,7 @@ lessons:[
   <li><b>Incobrables</b>: los deudores suman $ 4.000.000 y, por la experiencia del rubro, se estima que no se cobrará el 3%.</li>
   <li><b>Recuento físico</b>: la ficha de stock dice $ 5.200.000 y el recuento da $ 5.000.000. No aparece ninguna explicación.</li></ol>
   <h3>Del balance de comprobación a los estados</h3><p>El proceso es siempre el mismo: balance de comprobación, asientos de ajuste, balance ajustado, estados contables y, por último, la <b>refundición</b> de las cuentas de resultado contra <i>Resultado del ejercicio</i> y el asiento de cierre. Al día siguiente se reabren las cuentas patrimoniales.</p>
-  <div class="note"><b>Inflación.</b> En Argentina, la RT 6 obliga a reexpresar los estados en moneda de cierre cuando la inflación supera los parámetros de la RT 54. En el caso real, cada partida no monetaria se reexpresaría y aparecería el RECPAM (Módulo 13). Acá lo dejamos fuera para que el caso se pueda seguir a mano.</div>`,
+  <div class="note"><b>Inflación.</b> En Argentina, la RT 54 obliga a reexpresar los estados en moneda de cierre cuando la inflación supera los parámetros que ella misma fija. En el caso real, cada partida no monetaria se reexpresaría y aparecería el RECPAM (Módulo 13). Acá lo dejamos fuera para que el caso se pueda seguir a mano.</div>`,
   ex:[{type:"asiento",title:"Registrá los ajustes de cierre",accounts:ACC,entries:[
     {t:"31/12 · Amortización anual del utilitario.",e:[["Amortizaciones rodados",1600000,0],["Amortización acumulada rodados",0,1600000]]},
     {t:"31/12 · Ajuste del alquiler pagado el 01/09.",e:[["Alquileres pagados por adelantado",400000,0],["Alquileres perdidos",0,400000]],why:"Dos meses de $ 200.000 todavía no se consumieron."},
@@ -3001,7 +3013,7 @@ lessons:[
   ex:[{type:"num",title:"Calculá los indicadores",items:[{q:"Liquidez corriente",a:1.54,tol:0.01,ex:"19.960.000 / 12.985.000 = 1,54."},{q:"Prueba ácida",a:1.15,tol:0.01,ex:"(19.960.000 − 5.000.000) / 12.985.000."},{q:"Endeudamiento (pasivo / PN)",a:0.97,tol:0.01},{q:"Margen neto sobre ventas",a:3.75,u:"%",tol:0.02},{q:"Rentabilidad del PN al cierre (ROE)",a:25.2,u:"%",tol:0.1,ex:"3.375.000 / 13.375.000 = 25,2%. Sobre el capital aportado sería 33,75%."},{q:"Rotación de inventarios (CMV / stock final)",a:10.8,tol:0.05,ex:"Unas 10,8 veces al año: el stock dura unos 34 días."}]},
    {type:"num",title:"Distribución de utilidades",items:[{q:"¿Cuánto debe ir como mínimo a la reserva legal?",a:168750,u:"$",ex:"5% de $ 3.375.000."},{q:"Si se distribuyen $ 2.000.000 entre Ana y Bruno, ¿cuánto le corresponde a Ana antes de la retención?",a:1200000,u:"$"},{q:"¿Cuánto le retiene la sociedad a Ana por el impuesto sobre dividendos?",a:84000,u:"$",ex:"7% de $ 1.200.000."}]},
    {type:"mc",items:[{q:"Todo el pasivo es corriente y la mayor parte es el préstamo que vence en febrero. ¿Qué es lo más razonable recomendar?",o:["Distribuir todas las utilidades","Negociar la refinanciación a largo plazo o asegurar la caja para el vencimiento antes de distribuir","Comprar otro utilitario","Dejar de pagar a los proveedores"],a:1,ex:"La liquidez es aceptable, pero el vencimiento concentra el riesgo. Distribuir todo dejaría a la empresa justa para pagar."},
-    {q:"¿Cuál es la mejor primera oración para el informe a los socios?",o:["Según la RT 54 y la RT 8, los estados contables se exponen…","En su primer año la empresa ganó $ 3,4 millones, un 25% sobre su patrimonio, y puede pagar sus deudas, aunque el préstamo de febrero exige cuidar la caja.","Se adjuntan los anexos A a H.","La liquidez corriente es 1,537."],a:1,ex:"Empieza por la conclusión, en el idioma de quien la lee."},
+    {q:"¿Cuál es la mejor primera oración para el informe a los socios?",o:["Según la RT 54, los estados contables se exponen…","En su primer año la empresa ganó $ 3,4 millones, un 25% sobre su patrimonio, y puede pagar sus deudas, aunque el préstamo de febrero exige cuidar la caja.","Se adjuntan los anexos A a H.","La liquidez corriente es 1,537."],a:1,ex:"Empieza por la conclusión, en el idioma de quien la lee."},
     {q:"Para que el análisis del año que viene sea más útil, lo más importante es…",o:["Cambiar de contador","Tener cifras comparativas y un presupuesto para contrastar","Usar más indicadores","Dejar de ajustar por inflación"],a:1}]}]}
 ],
 eval:[
@@ -3018,6 +3030,134 @@ eval:[
  {q:"Un informe de gestión para los socios debería empezar por…",o:["La normativa aplicada","La conclusión principal en lenguaje claro","Los anexos","La fórmula de cada indicador"],a:1},
  {q:"Al distribuir utilidades a socios personas humanas, la sociedad retiene…",o:["El 7%","El 21%","El 35%","Nada"],a:0},
 ]};
+})();
+
+/* Fuentes verificadas y programas de las materias */
+(function(){
+const N = "https://www.argentina.gob.ar/normativa/nacional/";
+CAMPUS.L = {
+  cn:["Constitución Nacional (Ley 24.430)",N+"norma-804/texto"],
+  ccyc:["Código Civil y Comercial de la Nación (Ley 26.994), texto actualizado",N+"ley-26994-235975/actualizacion"],
+  lgs:["Ley General de Sociedades 19.550, texto actualizado",N+"ley-19550-25553/actualizacion"],
+  lpt:["Ley 11.683 de Procedimiento Tributario, texto actualizado",N+"ley-11683-18771/actualizacion"],
+  iva:["Ley de IVA (t.o. Decreto 280/1997), texto actualizado",N+"ley-23349-42701/actualizacion"],
+  gan:["Ley de Impuesto a las Ganancias (t.o. Decreto 824/2019)",N+"norma-332890"],
+  gandr:["Decreto 862/2019, reglamentario de Ganancias, texto actualizado",N+"decreto-862-2019-332991/actualizacion"],
+  bp:["Ley 23.966 (Bienes Personales, Título VI), texto actualizado",N+"norma-365/actualizacion"],
+  mono:["Ley 24.977 (Régimen Simplificado, Monotributo)",N+"ley-24977-51609/texto"],
+  rpt:["Ley 27.430 (Título IX: Régimen Penal Tributario), texto actualizado",N+"ley-27430-305262/actualizacion"],
+  inoc:["Ley 27.799 de Inocencia Fiscal, texto actualizado",N+"norma-422008/actualizacion"],
+  inoc2:["Ley 27.826 (Inocencia Fiscal II), Boletín Oficial 9/10/2026","https://www.boletinoficial.gob.ar/detalleAviso/primera/348757/20261009"],
+  lct:["Ley de Contrato de Trabajo 20.744, texto actualizado",N+"ley-20744-25552/actualizacion"],
+  modlab:["Ley 27.802 de Modernización Laboral",N+"norma-423680/texto"],
+  d408:["Decreto 408/2026 (Fondo de Asistencia Laboral)",N+"norma-426272/texto"],
+  bases:["Ley 27.742 de Bases y Puntos de Partida",N+"401266/texto"],
+  sipa:["Ley 24.241 (Sistema Integrado de Jubilaciones y Pensiones), texto actualizado",N+"ley-24241-639/actualizacion"],
+  lrt:["Ley 24.557 de Riesgos del Trabajo, texto actualizado",N+"ley-24557-27971/actualizacion"],
+  lcq:["Ley 24.522 de Concursos y Quiebras, texto actualizado",N+"ley-24522-25379/actualizacion"],
+  uifl:["Ley 25.246 (prevención del lavado de activos), texto actualizado",N+"ley-25246-62977/actualizacion"],
+  laf:["Ley 24.156 de Administración Financiera, texto actualizado",N+"554/actualizacion"],
+  prof:["Ley 20.488 (profesiones en ciencias económicas)",N+"ley-20488-38590/texto"],
+  facpce:["FACPCE: Resoluciones Técnicas e interpretaciones vigentes","https://normasweb.facpce.org.ar/normas-argentinas/"],
+  rt54:["RT 54 (t.o. RT 59 y modificaciones), micrositio del CPCECABA","https://consejo.org.ar/micrositios-profesionales/rt-54-norma-unificada-argentina-de-contabilidad"],
+  cpce:["Consejo Profesional de Ciencias Económicas de CABA","https://www.consejo.org.ar"],
+  arca:["ARCA (ex AFIP)","https://www.arca.gob.ar"],
+  ca:["Comisión Arbitral del Convenio Multilateral","https://www.ca.gob.ar"],
+  bcra:["Banco Central de la República Argentina","https://www.bcra.gob.ar"],
+  indec:["INDEC","https://www.indec.gob.ar"],
+  cnv:["Comisión Nacional de Valores","https://www.argentina.gob.ar/cnv"],
+  uif:["Unidad de Información Financiera","https://www.argentina.gob.ar/uif"],
+  ifrs:["IFRS Foundation (NIIF)","https://www.ifrs.org"],
+  leysimple:["Derecho Fácil: leyes explicadas en lenguaje claro (Ministerio de Justicia)","https://www.argentina.gob.ar/justicia/derechofacil/leysimple/constitucion-nacional"],
+};
+
+/* p: obj = objetivos, cont = contenidos mínimos, bib = bibliografía de referencia, norm = claves de CAMPUS.L */
+CAMPUS.prog = {
+1:{obj:["Explicar qué es la contabilidad, para qué sirve y quiénes la usan.","Aplicar la ecuación patrimonial y la partida doble a hechos económicos simples.","Registrar asientos en el Libro Diario y pasarlos al Mayor y al balance de sumas y saldos."],
+ cont:"Ente, patrimonio y hechos económicos. Ecuación patrimonial estática y dinámica. Cuentas y plan de cuentas. Partida doble. Libro Diario, Mayor y balance de comprobación.",
+ bib:["Fowler Newton, E., Contabilidad Básica, La Ley.","Biondi, M., Contabilidad Financiera, Errepar.","Pahlen Acuña, R. (coord.), Contabilidad: sistemas y procesos, La Ley."],norm:["ccyc","rt54","facpce"]},
+2:{obj:["Resolver ecuaciones, sistemas e inecuaciones aplicados a problemas de negocios.","Interpretar funciones de costo, ingreso y beneficio y su punto de equilibrio.","Usar derivadas e integrales para analizar variaciones marginales."],
+ cont:"Números reales y porcentajes. Funciones lineales, cuadráticas, exponenciales y logarítmicas. Sistemas de ecuaciones y matrices. Límites, derivadas y optimización. Integrales y excedentes.",
+ bib:["Haeussler, E., Paul, R. y Wood, R., Matemáticas para administración y economía, Pearson.","Arya, J. y Lardner, R., Matemáticas aplicadas a la administración y a la economía, Pearson."],norm:[]},
+3:{obj:["Resumir datos con medidas de posición y dispersión.","Calcular probabilidades y usar las distribuciones binomial y normal.","Estimar parámetros, probar hipótesis y medir relaciones con regresión lineal."],
+ cont:"Estadística descriptiva. Probabilidad. Variables aleatorias y distribuciones. Muestreo e intervalos de confianza. Pruebas de hipótesis. Correlación y regresión. Números índice.",
+ bib:["Levin, R. y Rubin, D., Estadística para administración y economía, Pearson.","Anderson, D., Sweeney, D. y Williams, T., Estadística para administración y economía, Cengage."],norm:["indec"]},
+4:{obj:["Analizar el funcionamiento de oferta y demanda y calcular elasticidades.","Explicar las decisiones de producción y costos de la empresa.","Comparar estructuras de mercado y sus resultados."],
+ cont:"Problema económico y costo de oportunidad. Oferta, demanda y equilibrio. Elasticidades. Consumidor. Producción y costos. Competencia perfecta, monopolio, oligopolio y competencia monopolística. Fallas de mercado.",
+ bib:["Mankiw, N. G., Principios de Economía, Cengage.","Pindyck, R. y Rubinfeld, D., Microeconomía, Pearson."],norm:[]},
+5:{obj:["Interpretar los agregados macroeconómicos y su medición en Argentina.","Explicar el funcionamiento del dinero, la inflación y el tipo de cambio.","Ubicar los grandes ciclos de la historia económica argentina."],
+ cont:"PBI y cuentas nacionales. Consumo, inversión y gasto público. Dinero, bancos e inflación. Política fiscal y monetaria. Sector externo y balance de pagos. Historia económica argentina.",
+ bib:["Blanchard, O., Macroeconomía, Pearson.","Gerchunoff, P. y Llach, L., El ciclo de la ilusión y el desencanto, Crítica.","Rapoport, M., Historia económica, política y social de la Argentina, Emecé."],norm:["bcra","indec"]},
+6:{obj:["Describir las funciones del proceso administrativo.","Comparar estructuras organizativas y herramientas de planificación.","Relacionar la estrategia con el control de gestión."],
+ cont:"Organizaciones y su entorno. Escuelas de la administración. Planificación y estrategia. Estructura y diseño organizacional. Dirección, liderazgo y motivación. Control.",
+ bib:["Chiavenato, I., Introducción a la teoría general de la administración, McGraw-Hill.","Robbins, S. y Coulter, M., Administración, Pearson."],norm:[]},
+7:{obj:["Explicar la organización del Estado argentino según la Constitución.","Identificar los derechos y garantías relevantes para la actividad económica.","Reconocer el acto administrativo y los principios del derecho tributario constitucional."],
+ cont:"Constitución Nacional: declaraciones, derechos y garantías. Poderes del Estado. Federalismo y reparto de potestades tributarias. Administración pública y acto administrativo. Principios constitucionales de la tributación.",
+ bib:["Bidart Campos, G., Manual de la Constitución reformada, Ediar.","Gordillo, A., Tratado de derecho administrativo (edición gratuita en gordillo.com)."],norm:["cn","leysimple"]},
+8:{obj:["Identificar personas, bienes, hechos y actos jurídicos.","Analizar obligaciones y contratos frecuentes en la empresa.","Conocer las obligaciones contables del Código Civil y Comercial."],
+ cont:"Persona humana y jurídica. Hechos y actos jurídicos. Obligaciones. Contratos: compraventa, locación, mutuo, fianza. Títulos valores. Contabilidad y estados contables (arts. 320 a 331 CCyC). Prescripción.",
+ bib:["Rivera, J. C. y Medina, G., Derecho civil: parte general, Abeledo-Perrot.","Código Civil y Comercial comentado (Lorenzetti, dir.), Rubinzal-Culzoni."],norm:["ccyc","lpt","inoc"]},
+9:{obj:["Registrar el ciclo contable completo de un comercio.","Valuar mercaderías con inventario permanente (PEPS y PPP).","Preparar asientos de ajuste y cierre por devengamiento."],
+ cont:"Operaciones con mercaderías e IVA. Inventario permanente y periódico. Documentación comercial. Bancos y conciliación. Devengamiento y ajustes. Amortizaciones. Previsiones. Cierre y reapertura.",
+ bib:["Fowler Newton, E., Contabilidad Básica, La Ley.","Pahlen Acuña, R. (coord.), Contabilidad: sistemas y procesos, La Ley."],norm:["rt54","iva","ccyc"]},
+10:{obj:["Diseñar circuitos administrativos con controles adecuados.","Aplicar los componentes del control interno según COSO.","Identificar riesgos de fraude y su prevención."],
+ cont:"Sistemas administrativos y de información. Circuitos de compras, ventas, cobranzas, pagos y stock. Cursogramas. Control interno: modelo COSO. Oposición de intereses. Manuales de procedimientos.",
+ bib:["Volpentesta, J. R., Sistemas administrativos y sistemas de información, Buyatti.","COSO, Control interno: marco integrado (2013)."],norm:[]},
+11:{obj:["Calcular intereses simples y compuestos y tasas equivalentes.","Valuar rentas, préstamos y sistemas de amortización.","Comparar inversiones con VAN y TIR, considerando la inflación."],
+ cont:"Interés simple y compuesto. Descuento. Tasas nominal, efectiva y equivalentes. Tasa real. Rentas. Sistemas francés y alemán. CFT. Bonos. VAN y TIR.",
+ bib:["López Dumrauf, G., Cálculo financiero aplicado: un enfoque profesional, La Ley.","Brealey, R., Myers, S. y Allen, F., Principios de finanzas corporativas, McGraw-Hill."],norm:["bcra"]},
+12:{obj:["Describir los componentes de un sistema de información.","Evaluar sistemas de gestión (ERP) y sus controles.","Conocer la factura electrónica, la seguridad y la protección de datos."],
+ cont:"Hardware, software y datos. Bases de datos. ERP y sistemas contables. Factura electrónica y libros digitales. Seguridad informática y controles generales. Planillas de cálculo para el contador.",
+ bib:["Laudon, K. y Laudon, J., Sistemas de información gerencial, Pearson."],norm:["arca"]},
+13:{obj:["Medir activos y pasivos según la RT 54.","Registrar operaciones de cada rubro del balance.","Aplicar el ajuste por inflación contable."],
+ cont:"Medición inicial y posterior. Disponibilidades, créditos, bienes de cambio, bienes de uso, intangibles e inversiones. Pasivos y previsiones. Patrimonio neto. Moneda homogénea y RECPAM.",
+ bib:["Fowler Newton, E., Cuestiones contables fundamentales, La Ley.","Fowler Newton, E., Contabilidad Superior, La Ley."],norm:["rt54","facpce"]},
+14:{obj:["Explicar el marco conceptual y los requisitos de la información contable.","Conocer el sistema de normas contables argentinas y su relación con las NIIF.","Comparar modelos contables (capital a mantener, unidad de medida, criterios de medición)."],
+ cont:"Marco conceptual. Usuarios y requisitos de la información. Modelos contables. Normas contables profesionales (RT 54, RT 26) y legales. NIIF y NIIF para PyMEs. Ajuste por inflación.",
+ bib:["Fowler Newton, E., Cuestiones contables fundamentales, La Ley.","Biondi, M., Teoría contable, Errepar."],norm:["rt54","facpce","ifrs"]},
+15:{obj:["Preparar los estados contables básicos y sus notas.","Elaborar el estado de flujo de efectivo por método directo e indirecto.","Presentar la información comparativa y los anexos."],
+ cont:"Estado de situación patrimonial. Estado de resultados. Evolución del patrimonio neto. Flujo de efectivo. Notas y anexos. Información comparativa. Hechos posteriores.",
+ bib:["Fowler Newton, E., Contabilidad Superior, La Ley."],norm:["rt54","ccyc","lgs"]},
+16:{obj:["Distinguir los tipos sociales y su régimen.","Registrar constitución, aumentos de capital, distribución de utilidades y disolución.","Conocer los órganos sociales y su documentación."],
+ cont:"Ley General de Sociedades. SRL y SA. SAS. Órganos de administración, gobierno y fiscalización. Capital y aportes. Reservas y dividendos. Transformación, fusión, escisión. Disolución y liquidación.",
+ bib:["Nissen, R., Curso de derecho societario, Hammurabi.","Fowler Newton, E., Contabilidad Superior, La Ley."],norm:["lgs","ccyc","bases"]},
+17:{obj:["Clasificar los costos y calcular el costo de producción.","Aplicar costeo por órdenes y por procesos.","Usar costos estándar y analizar desvíos."],
+ cont:"Elementos del costo. Materia prima, mano de obra y carga fabril. Bases de asignación. Costeo por órdenes y por procesos. Costeo estándar y desvíos. Costeo basado en actividades.",
+ bib:["Horngren, C., Datar, S. y Rajan, M., Contabilidad de costos: un enfoque gerencial, Pearson.","Giménez, C. M. (coord.), Costos para empresarios, Macchi."],norm:[]},
+18:{obj:["Aplicar el costeo variable y el análisis costo-volumen-utilidad.","Tomar decisiones de corto plazo con información relevante.","Construir presupuestos y tableros de control."],
+ cont:"Costeo variable vs. completo. Contribución marginal. Punto de equilibrio. Decisiones: hacer o comprar, pedidos especiales, mezcla. Presupuesto integrado. Tablero de control.",
+ bib:["Yardin, A., El análisis marginal, Buyatti.","Horngren, C., Datar, S. y Rajan, M., Contabilidad de costos: un enfoque gerencial, Pearson.","Kaplan, R. y Norton, D., El cuadro de mando integral, Gestión 2000."],norm:[]},
+19:{obj:["Explicar el rol económico del Estado y el presupuesto público.","Clasificar los recursos públicos y los tributos.","Evaluar efectos económicos de los impuestos."],
+ cont:"Necesidades y servicios públicos. Gasto público. Presupuesto (Ley 24.156). Recursos públicos. Teoría del tributo. Efectos de los impuestos. Federalismo fiscal y coparticipación. Deuda pública.",
+ bib:["Villegas, H., Curso de finanzas, derecho financiero y tributario, Astrea.","Núñez Miñana, H., Finanzas públicas, Macchi."],norm:["laf","cn"]},
+20:{obj:["Aplicar la Ley 11.683 a casos de procedimiento y sanciones.","Liquidar el IVA mensual de un responsable inscripto.","Calcular Ingresos Brutos y entender el Monotributo."],
+ cont:"Tributo y obligación tributaria. Procedimiento: domicilio, determinación, intereses, infracciones, recursos y prescripción. Régimen penal tributario. IVA. Retenciones y percepciones. Ingresos Brutos y Convenio Multilateral. Monotributo.",
+ bib:["Villegas, H., Curso de finanzas, derecho financiero y tributario, Astrea.","Leyes comentadas de IVA y procedimiento tributario (Errepar, La Ley)."],norm:["lpt","inoc","inoc2","rpt","iva","mono","ca","arca"]},
+21:{obj:["Determinar la ganancia neta de personas humanas y sociedades.","Liquidar el impuesto de cuarta categoría y las deducciones personales.","Calcular Bienes Personales."],
+ cont:"Ganancias: sujetos, objeto, fuente, categorías. Deducciones y escalas. Sociedades y dividendos. Ajuste por inflación impositivo. Retenciones de cuarta categoría. Régimen simplificado de Ganancias. Bienes Personales.",
+ bib:["Reig, E., Impuesto a las ganancias, Macchi.","Leyes comentadas de Ganancias y Bienes Personales (Errepar, La Ley)."],norm:["gan","gandr","inoc","bp","arca"]},
+22:{obj:["Aplicar la LCT, con las reformas de 2024 y 2026, a casos concretos.","Liquidar sueldos, SAC, vacaciones y cargas sociales.","Calcular la liquidación final por despido."],
+ cont:"Contrato de trabajo y modalidades. Período de prueba. Jornada, descansos, vacaciones y licencias. Remuneración. Aportes y contribuciones. Recibo de sueldo. SAC. Extinción e indemnizaciones. Fondo de Asistencia Laboral.",
+ bib:["Grisolía, J. A., Manual de derecho laboral, Abeledo-Perrot.","Texto actualizado de la LCT con las Leyes 27.742 y 27.802."],norm:["lct","modlab","d408","bases","sipa","lrt"]},
+23:{obj:["Evaluar proyectos de inversión.","Estimar el costo del capital (CAPM y WACC).","Gestionar el capital de trabajo y el financiamiento."],
+ cont:"Objetivo financiero. Valor tiempo del dinero. Evaluación de proyectos. Riesgo y rendimiento, CAPM. Estructura de capital y WACC. Capital de trabajo. Fuentes de financiamiento y mercado de capitales.",
+ bib:["Brealey, R., Myers, S. y Allen, F., Principios de finanzas corporativas, McGraw-Hill.","López Dumrauf, G., Finanzas corporativas, Alfaomega.","Sapag Chain, N., Preparación y evaluación de proyectos, McGraw-Hill."],norm:["cnv","bcra"]},
+24:{obj:["Calcular e interpretar indicadores de liquidez, solvencia, rentabilidad y gestión.","Aplicar el análisis vertical, horizontal y de Du Pont.","Redactar un informe de análisis para usuarios."],
+ cont:"Objetivos del análisis. Análisis vertical y horizontal. Liquidez y ciclo operativo. Endeudamiento y solvencia. Rentabilidad y Du Pont. Flujos de efectivo. Informe.",
+ bib:["Fowler Newton, E., Análisis de estados contables, La Ley."],norm:["rt54"]},
+25:{obj:["Planificar una auditoría en base al riesgo.","Diseñar y evaluar procedimientos y muestreo.","Emitir el informe del auditor según la RT 37."],
+ cont:"Normas de auditoría (RT 37). Independencia. Riesgo de auditoría y significatividad. Control interno. Procedimientos y evidencia. Muestreo. Papeles de trabajo. Informe y tipos de opinión. Prevención del lavado de activos.",
+ bib:["Slosse, C. y otros, Auditoría, La Ley.","Arens, A., Elder, R. y Beasley, M., Auditoría: un enfoque integral, Pearson."],norm:["facpce","uifl","uif"]},
+26:{obj:["Desempeñarse como perito contable en un proceso judicial.","Explicar el concurso preventivo y la quiebra.","Describir las funciones del síndico concursal."],
+ cont:"Proceso judicial y prueba pericial. Informe pericial. Concurso preventivo: apertura, verificación, informes, acuerdo. Quiebra: declaración, efectos, liquidación y distribución. Sindicatura.",
+ bib:["Rouillon, A., Régimen de concursos y quiebras, Astrea."],norm:["lcq","ccyc"]},
+27:{obj:["Conocer las incumbencias del contador y el régimen de matrícula.","Aplicar el Código de Ética a dilemas profesionales.","Organizar un estudio contable con sus responsabilidades."],
+ cont:"Ley 20.488. Consejos Profesionales y matrícula. Código de Ética. Responsabilidad civil, penal, disciplinaria y tributaria. Secreto profesional. Honorarios. Prevención del lavado de activos.",
+ bib:["Código de Ética del Consejo Profesional de tu jurisdicción.","Ley 20.488 y reglamentos del CPCE."],norm:["prof","cpce","uifl","rpt"]},
+28:{obj:["Integrar lo aprendido en un caso completo de un ejercicio.","Producir estados contables y un informe de gestión.","Tomar decisiones societarias, impositivas y financieras fundadas."],
+ cont:"Constitución de una SRL. Operaciones, IVA e Ingresos Brutos. Sueldos y cargas sociales. Ajustes y cierre. Estados contables. Análisis e informe a los socios.",
+ bib:["Toda la bibliografía de los módulos anteriores."],norm:["lgs","iva","lct","gan","rt54"]},
+};
 })();
 
 /* ---------- utilidades ---------- */
@@ -3048,9 +3188,11 @@ const MOD = n => CAMPUS.modules.find(m=>m.n===n);
 const has = n => !!CAMPUS.content[n];
 const lid = (n,i) => `m${n}-${i+1}`;
 const passed = n => (state.evals[n]||0) >= 70;
+function hasTP(n){ return !!(CAMPUS.tp && CAMPUS.tp[n]); }
+function srcLinks(keys){ return (keys||[]).filter(k=>CAMPUS.L[k]).map(k=>`<li><a href="${CAMPUS.L[k][1]}" target="_blank" rel="noopener">${esc(CAMPUS.L[k][0])}</a></li>`).join(""); }
 function modProgress(n){
-  const m = MOD(n); const tot = m.l.length + 1;
-  const d = m.l.filter((_,i)=>state.done[lid(n,i)]).length + (passed(n)?1:0);
+  const m = MOD(n); const tp = hasTP(n); const tot = m.l.length + 1 + (tp?1:0);
+  const d = m.l.filter((_,i)=>state.done[lid(n,i)]).length + (passed(n)?1:0) + (tp&&state.done[`m${n}-tp`]?1:0);
   return {d, tot, p: Math.round(d/tot*100)};
 }
 
@@ -3153,7 +3295,7 @@ const EX = {
     draw();
   },
   /* verdadero/falso: {type:"tf", items:[[afirmación, true|false, porqué]]} */
-  tf(ex, el, done){ EX.pick({options:["Verdadero","Falso"], items:ex.items.map(i=>[i[0], i[1]?"Verdadero":"Falso", i[2]]), shuffle:ex.shuffle}, el, done); },
+  tf(ex, el, done){ EX.pick({options:["Verdadero","Falso"], items:ex.items.map(i=>[i[0], typeof i[1]==="string"?i[1]:(i[1]?"Verdadero":"Falso"), i[2]]), shuffle:ex.shuffle}, el, done); },
   /* ordenar pasos: {type:"order", items:[en orden correcto]} */
   order(ex, el, done){
     let cur = shuffle(ex.items.map((t,i)=>({t,i}))); if(cur.every((x,j)=>x.i===j)) cur.reverse();
@@ -3174,14 +3316,14 @@ const EX = {
 function renderSide(){
   const cur = location.hash.slice(1) || "inicio";
   const mcur = (cur.match(/^m(\d+)/)||[])[1]|0;
-  let h = `<a href="#inicio" class="${cur==="inicio"?"on":""}"><span class="dot">≡</span>Plan de estudios</a><a href="#fuentes" class="${cur==="fuentes"?"on":""}"><span class="dot">§</span>Fuentes y normas</a>`;
+  let h = `<a href="#inicio" class="${cur==="inicio"?"on":""}"><span class="dot">≡</span>Plan de estudios</a><a href="#fuentes" class="${cur==="fuentes"?"on":""}"><span class="dot">§</span>Fuentes y normas</a><a href="#glosario" class="${cur==="glosario"?"on":""}"><span class="dot">A</span>Glosario</a>`;
   CAMPUS.cycles.forEach(c=>{
     h += `<h4>${esc(c.t)}</h4>`;
     CAMPUS.modules.filter(m=>m.c===c.id).forEach(m=>{
       const p = modProgress(m.n); const open = m.n===mcur;
       h += `<a href="#m${m.n}" class="mlink ${cur===`m${m.n}`?"on":""} ${passed(m.n)?"done":""} ${has(m.n)?"":"soon"}"><span class="dot">${passed(m.n)?"✓":m.n}</span><span>${esc(m.t)}${has(m.n)&&p.d&&!passed(m.n)?` <small class="num">${p.p}%</small>`:""}</span></a>`;
       if(open && has(m.n)){
-        h += `<div class="sub">${m.l.map((t,i)=>`<a href="#${lid(m.n,i)}" class="${cur===lid(m.n,i)?"on":""} ${state.done[lid(m.n,i)]?"done":""}"><span class="dot">${state.done[lid(m.n,i)]?"✓":""}</span>${m.n}.${i+1} ${esc(t)}</a>`).join("")}<a href="#m${m.n}-eval" class="${cur===`m${m.n}-eval`?"on":""} ${passed(m.n)?"done":""}"><span class="dot">${passed(m.n)?"✓":"★"}</span>Evaluación</a></div>`;
+        h += `<div class="sub">${m.l.map((t,i)=>`<a href="#${lid(m.n,i)}" class="${cur===lid(m.n,i)?"on":""} ${state.done[lid(m.n,i)]?"done":""}"><span class="dot">${state.done[lid(m.n,i)]?"✓":""}</span>${m.n}.${i+1} ${esc(t)}</a>`).join("")}${hasTP(m.n)?`<a href="#m${m.n}-tp" class="${cur===`m${m.n}-tp`?"on":""} ${state.done[`m${m.n}-tp`]?"done":""}"><span class="dot">${state.done[`m${m.n}-tp`]?"✓":"TP"}</span>Trabajo práctico</a>`:""}<a href="#m${m.n}-eval" class="${cur===`m${m.n}-eval`?"on":""} ${passed(m.n)?"done":""}"><span class="dot">${passed(m.n)?"✓":"★"}</span>Evaluación</a></div>`;
       }
     });
   });
@@ -3209,7 +3351,7 @@ function HOME(v){
     <div><b class="num">${CAMPUS.modules.filter(m=>passed(m.n)).length}</b><span>aprobados</span></div>
     <div><b class="num">${avail.length}</b><span>disponibles</span></div>
   </div>
-  <div class="note"><b>Cómo estudiar.</b> Leé cada lección y hacé su ejercicio hasta que te dé todo bien: la lección se marca sola. Al final de cada módulo rendís una evaluación y aprobás con 70%. Seguí el orden de los ciclos, porque cada uno se apoya en el anterior. Tu progreso se guarda en este navegador.</div>
+  <div class="note"><b>Cómo estudiar.</b> Cada módulo tiene un programa como el de la facultad, con objetivos, bibliografía y normativa. Leé cada lección y hacé sus ejercicios hasta que te den bien: la lección se marca sola. Después resolvé el trabajo práctico integrador y rendí la evaluación, que toma 15 preguntas al azar de un banco y se aprueba con 70%. Seguí el orden de los ciclos, porque cada uno se apoya en el anterior. Tu progreso se guarda en este navegador.</div>
   ${next?`<div class="row"><a class="btn" href="${nextHref}" style="text-decoration:none">${started?"Continuar donde dejaste":"Empezar por el Módulo 1"}</a><span class="src">Próximo: Módulo ${next.n}, ${esc(next.t)}</span></div>`:""}
   ${CAMPUS.cycles.map(c=>`<section class="cycle"><h2>${esc(c.t)}</h2><p class="src" style="max-width:68ch">${esc(c.d)}</p>
     <div class="plan">${CAMPUS.modules.filter(m=>m.c===c.id).map(m=>{const p=modProgress(m.n);return `
@@ -3226,13 +3368,30 @@ function MODULE(v, n){
   <p class="lead">${esc(m.d)}</p><span class="eq-tag">Equivale a la materia: ${esc(m.eq)}</span>
   ${has(n)?`<div class="row"><div class="bar" style="width:200px"><i style="width:${p.p}%"></i></div><span class="src num">${p.d} de ${p.tot} actividades</span></div>`:`<div class="note"><b>En preparación.</b> Este módulo todavía no tiene contenido cargado. Estas son las lecciones que va a tener.</div>`}
   <ol class="lessons">${m.l.map((t,i)=>`<li>${has(n)?`<a href="#${lid(n,i)}">${esc(t)}</a>`:esc(t)} ${state.done[lid(n,i)]?`<span class="pill ok">Hecha</span>`:""}</li>`).join("")}
+  ${hasTP(n)?`<li class="ev"><a href="#m${n}-tp">Trabajo práctico integrador</a> ${state.done[`m${n}-tp`]?`<span class="pill ok">Hecho</span>`:""}</li>`:""}
   <li class="ev">${has(n)?`<a href="#m${n}-eval">Evaluación del módulo</a>`:"Evaluación del módulo"} ${state.evals[n]!=null?`<span class="pill ${passed(n)?"ok":""}">Mejor nota ${state.evals[n]}%</span>`:""}</li></ol>
   ${has(n)?`<div class="row"><a class="btn" style="text-decoration:none" href="#${m.l.map((_,i)=>lid(n,i)).find(id=>!state.done[id]) || `m${n}-eval`}">${p.d?"Continuar":"Empezar el módulo"}</a></div>`:""}
+  ${PROG(n)}
   ${pagerMod(n)}`;
+}
+function PROG(n){
+  const P = CAMPUS.prog && CAMPUS.prog[n]; if(!P) return "";
+  return `<section class="prog-sec"><h2>Programa de la materia</h2>
+  <h3>Objetivos</h3><p>Al terminar este módulo vas a poder:</p><ul>${P.obj.map(o=>`<li>${esc(o)}</li>`).join("")}</ul>
+  <h3>Contenidos mínimos</h3><p>${esc(P.cont)}</p>
+  <h3>Bibliografía de referencia</h3><ul class="bib">${P.bib.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>
+  ${P.norm.length?`<h3>Normativa y fuentes oficiales</h3><ul class="srcl">${srcLinks(P.norm)}</ul>`:""}
+  <p class="src">Las normas cambian. Antes de aplicar un importe, una alícuota o un plazo en un caso real, verificá el texto vigente en la fuente oficial.</p></section>`;
 }
 function pagerMod(n){
   const prev = MOD(n-1), next = MOD(n+1);
   return `<div class="pager">${prev?`<a href="#m${prev.n}">← Módulo ${prev.n}</a>`:`<a href="#inicio">← Plan de estudios</a>`}${next?`<a href="#m${next.n}">Módulo ${next.n} →</a>`:"<span></span>"}</div>`;
+}
+function lessonSrc(n,L){
+  const P = CAMPUS.prog && CAMPUS.prog[n]; const keys = L.src || (P?P.norm:[]);
+  const extra = (L.cite||[]).map(c=>`<li>${c}</li>`).join("");
+  if(!keys.length && !extra && !P) return "";
+  return `<details class="srcbox"><summary>Fuentes y bibliografía</summary><ul class="srcl">${srcLinks(keys)}${extra}${P?P.bib.map(b=>`<li>${esc(b)}</li>`).join(""):""}</ul></details>`;
 }
 function LESSON(v, n, i){
   const m = MOD(n); const L = CAMPUS.content[n].lessons[i]; const id = lid(n,i);
@@ -3243,18 +3402,21 @@ function LESSON(v, n, i){
   ${exs.map((e,k)=>`<div class="box"><span class="tag">${e.type==="custom"?"Actividad":"Ejercicio"}${exs.length>1?` ${k+1}`:""}${e.title?" · "+e.title:""}</span>${e.prompt?`<p>${e.prompt}</p>`:""}<div class="exbody" id="ex-${id}-${k}"></div></div>`).join("")}
   ${!exs.length?`<div class="row"><button class="btn" id="readBtn">${state.done[id]?"Lección leída ✓":"Marcar como leída"}</button></div>`:""}
   <div id="lessonDone"></div>
-  <div class="pager">${i>0?`<a href="#${lid(n,i-1)}">← ${esc(m.l[i-1])}</a>`:`<a href="#m${n}">← Módulo ${n}</a>`}${i<m.l.length-1?`<a href="#${lid(n,i+1)}">${esc(m.l[i+1])} →</a>`:`<a href="#m${n}-eval">Evaluación del módulo →</a>`}</div>`;
+  ${lessonSrc(n,L)}
+  <div class="pager">${i>0?`<a href="#${lid(n,i-1)}">← ${esc(m.l[i-1])}</a>`:`<a href="#m${n}">← Módulo ${n}</a>`}${i<m.l.length-1?`<a href="#${lid(n,i+1)}">${esc(m.l[i+1])} →</a>`:(hasTP(n)?`<a href="#m${n}-tp">Trabajo práctico →</a>`:`<a href="#m${n}-eval">Evaluación del módulo →</a>`)}</div>`;
   const left = new Set(exs.map((_,k)=>k));
   const finish = ()=>{ if(!state.done[id]){ complete(id); $("#lessonDone").innerHTML = fbHTML(true,`Lección ${n}.${i+1} completada.`); } };
   exs.forEach((e,k)=>EX[e.type](e, $(`#ex-${id}-${k}`), ()=>{ left.delete(k); if(!left.size) finish(); }));
   if(!exs.length) $("#readBtn").onclick = ()=>{ finish(); $("#readBtn").textContent="Lección leída ✓"; };
   if(state.done[id]) $("#lessonDone").innerHTML = `<p class="src">Ya completaste esta lección. Podés repetir los ejercicios para practicar.</p>`;
 }
+const EVAL_N = 15;
 function EVAL(v, n){
-  const m = MOD(n); const Q = CAMPUS.content[n].eval; const order = shuffle(Q.map((_,i)=>i)); const name=nid("ev");
-  const need = Math.ceil(Q.length*0.7);
+  const m = MOD(n); const Q = CAMPUS.content[n].eval.concat((CAMPUS.xeval&&CAMPUS.xeval[n])||[]); const K = Math.min(EVAL_N, Q.length);
+  const order = shuffle(Q.map((_,i)=>i)).slice(0,K); const name=nid("ev");
+  const need = Math.ceil(K*0.7);
   v.innerHTML = `<div class="eyebrow">Módulo ${n} · Evaluación</div><h1>Evaluación: ${esc(m.t)}</h1>
-  <p class="lead">${Q.length} preguntas. Aprobás con 70% (${need} respuestas correctas). Podés rendirla las veces que quieras; se guarda tu mejor nota.</p>
+  <p class="lead">${K} preguntas elegidas al azar de un banco de ${Q.length}. Aprobás con 70% (${need} respuestas correctas). Cada vez que la rendís te tocan preguntas distintas; se guarda tu mejor nota.</p>
   ${state.evals[n]!=null?`<div class="note"><b>Tu mejor nota hasta ahora:</b> ${state.evals[n]}%</div>`:""}
   <form id="qf" class="page" style="gap:18px">${order.map((qi,k)=>`<div class="box q" data-q="${qi}"><span class="tag">Pregunta ${k+1}</span><b>${Q[qi].q}</b><div class="ch">${Q[qi].o.map((o,j)=>`<label><input type="radio" name="${name}-${qi}" value="${j}"> <span>${o}</span></label>`).join("")}</div><div class="ex" hidden></div></div>`).join("")}
   <div class="row"><button class="btn" type="submit">Entregar evaluación</button></div></form><div id="res"></div>${pagerMod(n)}`;
@@ -3266,46 +3428,54 @@ function EVAL(v, n){
       if(sel && +sel.value===q.a) ok++;
       const x = b.querySelector(".ex"); x.hidden=false; x.innerHTML = q.ex||"";
     });
-    const p = Math.round(ok/Q.length*100);
+    const p = Math.round(ok/K*100);
     state.evals[n] = Math.max(state.evals[n]||0, p); save();
     const nx = MOD(n+1);
-    $("#res").innerHTML = `<div class="box" style="align-items:center;text-align:center"><span class="tag">Resultado</span><div class="score num">${p}%</div><p><b>${ok} de ${Q.length}</b> correctas. ${p>=70?`¡Aprobaste el Módulo ${n}!${nx?` Seguí con <a href="#m${nx.n}">${esc(nx.t)}</a>.`:" Terminaste el plan completo."}`:"Todavía no alcanza. Leé la explicación de cada pregunta, repasá las lecciones y volvé a intentar."}</p><button class="btn ghost" id="retry" type="button">Volver a rendir</button></div>`;
+    $("#res").innerHTML = `<div class="box" style="align-items:center;text-align:center"><span class="tag">Resultado</span><div class="score num">${p}%</div><p><b>${ok} de ${K}</b> correctas. ${p>=70?`¡Aprobaste el Módulo ${n}!${nx?` Seguí con <a href="#m${nx.n}">${esc(nx.t)}</a>.`:" Terminaste el plan completo."}`:"Todavía no alcanza. Leé la explicación de cada pregunta, repasá las lecciones y volvé a intentar."}</p><button class="btn ghost" id="retry" type="button">Volver a rendir</button></div>`;
     $("#retry").onclick = ()=>route();
     $("#res").scrollIntoView({behavior:"smooth"});
   });
+}
+function TP(v, n){
+  const m = MOD(n); const T = CAMPUS.tp[n]; const id = `m${n}-tp`; const exs = T.ex||[];
+  v.innerHTML = `<div class="eyebrow">Módulo ${n} · Trabajo práctico</div><h1>${esc(T.t||"Trabajo práctico integrador")}</h1>${T.lead?`<p class="lead">${T.lead}</p>`:""}
+  <div class="prose">${T.html||""}</div>
+  ${exs.map((e,k)=>`<div class="box"><span class="tag">Consigna ${k+1}${e.title?" · "+e.title:""}</span>${e.prompt?`<p>${e.prompt}</p>`:""}<div class="exbody" id="ex-${id}-${k}"></div></div>`).join("")}
+  <div id="lessonDone"></div>
+  ${lessonSrc(n,T)}
+  <div class="pager"><a href="#${lid(n,m.l.length-1)}">← ${esc(m.l[m.l.length-1])}</a><a href="#m${n}-eval">Evaluación del módulo →</a></div>`;
+  const left = new Set(exs.map((_,k)=>k));
+  exs.forEach((e,k)=>EX[e.type](e, $(`#ex-${id}-${k}`), ()=>{ left.delete(k); if(!left.size && !state.done[id]){ complete(id); $("#lessonDone").innerHTML = fbHTML(true,"Trabajo práctico completado."); } }));
+  if(state.done[id]) $("#lessonDone").innerHTML = `<p class="src">Ya completaste este trabajo práctico. Podés repetirlo para practicar.</p>`;
+}
+function GLOSS(v){
+  const G = (CAMPUS.glosario||[]).slice().sort((a,b)=>a[0].localeCompare(b[0],"es"));
+  v.innerHTML = `<div class="eyebrow">Biblioteca</div><h1>Glosario</h1><p class="lead">${G.length} términos de la carrera, con el módulo donde se estudian.</p>
+  <input class="inp" id="gq" type="search" placeholder="Buscar un término…" autocomplete="off" style="width:100%;max-width:420px">
+  <dl class="gloss" id="gl"></dl>`;
+  const draw = q=>{ const f = q.trim().toLowerCase(); $("#gl").innerHTML = G.filter(g=>!f||g[0].toLowerCase().includes(f)||g[1].toLowerCase().includes(f)).map(g=>`<dt>${esc(g[0])}${g[2]?` <a class="src" href="#m${g[2]}">Módulo ${g[2]}</a>`:""}</dt><dd>${g[1]}</dd>`).join("") || `<p class="src">No hay términos que coincidan.</p>`; };
+  $("#gq").oninput = e=>draw(e.target.value); draw("");
 }
 function SOURCES(v){
   v.innerHTML = `<div class="eyebrow">Biblioteca</div><h1>Fuentes y normas</h1>
   <p class="lead">Las normas cambian. Antes de aplicar un importe, una alícuota o un plazo en la vida real, verificá la versión vigente en la fuente oficial.</p>
   <div class="tw"><table><thead><tr><th>Fuente</th><th>Qué vas a encontrar</th></tr></thead><tbody>
-  ${[
-    ["InfoLEG (Ministerio de Justicia)","https://www.infoleg.gob.ar","Texto actualizado de leyes y decretos: Código Civil y Comercial, Ley 19.550, Ley 11.683, Ley de IVA, Ganancias, LCT 20.744, Ley 24.522, Ley 20.488."],
-    ["FACPCE","https://www.facpce.org.ar","Resoluciones Técnicas (RT 54, RT 37, RT 6 y demás), interpretaciones y normas de auditoría."],
-    ["CPCE de la Ciudad de Buenos Aires","https://www.consejo.org.ar","Matrícula, Código de Ética, normativa profesional, cursos y modelos de informes."],
-    ["ARCA (ex AFIP)","https://www.arca.gob.ar","Impuestos, monotributo, factura electrónica, aportes y contribuciones, valores vigentes."],
-    ["BCRA","https://www.bcra.gob.ar","Tipo de cambio de referencia, tasas, política monetaria."],
-    ["INDEC","https://www.indec.gob.ar","IPC, IPIM (índices para ajuste por inflación), PBI, empleo y pobreza."],
-    ["CNV","https://www.argentina.gob.ar/cnv","Mercado de capitales, obligaciones negociables, normas para emisoras."],
-    ["UIF","https://www.argentina.gob.ar/uif","Prevención del lavado de activos para profesionales en ciencias económicas."],
-    ["IFRS Foundation","https://www.ifrs.org","Normas Internacionales de Información Financiera (NIIF)."],
-  ].map(r=>`<tr><td><a href="${r[1]}" target="_blank" rel="noopener">${r[0]}</a></td><td>${r[2]}</td></tr>`).join("")}
+  ${["arca","facpce","rt54","cpce","bcra","indec","cnv","uif","ca","ifrs","leysimple"].map(k=>`<tr><td><a href="${CAMPUS.L[k][1]}" target="_blank" rel="noopener">${esc(CAMPUS.L[k][0])}</a></td><td>${SRCDESC[k]||""}</td></tr>`).join("")}
   </tbody></table></div>
-  <h2>Bibliografía de referencia</h2>
-  <div class="prose"><ul>
-    <li>Enrique Fowler Newton, <i>Contabilidad Básica</i>, <i>Cuestiones Contables Fundamentales</i> y <i>Contabilidad Superior</i> (La Ley).</li>
-    <li>Juan Carlos Viegas y otros, <i>Contabilidad: Presente y Futuro</i>.</li>
-    <li>Carlos Biondi, <i>Teoría Contable</i> y <i>Contabilidad Financiera</i>.</li>
-    <li>Amaro Yardín, <i>El análisis marginal</i>; Osvaldo Giménez, <i>Costos para empresarios</i>.</li>
-    <li>Jorge Gil, <i>Ganancias</i> y <i>Procedimiento tributario</i>; Reig, <i>Impuesto a las Ganancias</i>.</li>
-    <li>Pahlen Acuña (coord.), <i>Contabilidad: Pasado, Presente y Futuro</i>; Slosse y otros, <i>Auditoría</i>.</li>
-    <li>Brealey, Myers y Allen, <i>Principios de Finanzas Corporativas</i>; Ross, Westerfield y Jaffe, <i>Finanzas Corporativas</i>.</li>
-  </ul></div>`;
+  <h2>Leyes y decretos citados</h2><p class="src">Enlaces al texto actualizado en el sitio oficial de normativa del Estado nacional (InfoLEG).</p>
+  <ul class="srcl">${srcLinks(["cn","ccyc","lgs","lpt","inoc","inoc2","rpt","iva","gan","gandr","bp","mono","lct","modlab","d408","bases","sipa","lrt","lcq","uifl","laf","prof"])}</ul>
+  <h2>Bibliografía de referencia</h2><p class="src">Libros de uso habitual en las facultades de ciencias económicas. Cada módulo indica los suyos en su programa.</p>
+  <div class="prose"><ul>${[...new Set(Object.values(CAMPUS.prog).flatMap(p=>p.bib))].filter(b=>!b.startsWith("Toda")).sort((a,b)=>a.localeCompare(b,"es")).map(b=>`<li>${esc(b)}</li>`).join("")}</ul></div>`;
 }
+const SRCDESC = {arca:"Impuestos, monotributo, factura electrónica, aportes y contribuciones, valores vigentes.",facpce:"Resoluciones Técnicas, interpretaciones y normas de auditoría vigentes.",rt54:"Texto ordenado de la Norma Unificada Argentina de Contabilidad y material explicativo.",cpce:"Matrícula, Código de Ética, normativa profesional y modelos de informes.",bcra:"Tipo de cambio de referencia, tasas, UVA y política monetaria.",indec:"IPC, IPIM (índices para el ajuste por inflación), PBI y empleo.",cnv:"Mercado de capitales y normas para emisoras.",uif:"Prevención del lavado de activos para profesionales en ciencias económicas.",ca:"Normas y resoluciones del Convenio Multilateral de Ingresos Brutos.",ifrs:"Normas Internacionales de Información Financiera (NIIF).",leysimple:"Explicaciones oficiales de leyes en lenguaje claro."};
+
 
 /* ---------- router ---------- */
 function route(){
   const id = location.hash.slice(1) || "inicio"; const v = $("#view"); let mm;
   if(id==="fuentes") SOURCES(v);
+  else if(id==="glosario") GLOSS(v);
+  else if((mm=id.match(/^m(\d+)-tp$/)) && hasTP(+mm[1])) TP(v,+mm[1]);
   else if((mm=id.match(/^m(\d+)-eval$/)) && has(+mm[1])) EVAL(v,+mm[1]);
   else if((mm=id.match(/^m(\d+)-(\d+)$/)) && has(+mm[1]) && MOD(+mm[1]).l[+mm[2]-1]) LESSON(v,+mm[1],+mm[2]-1);
   else if((mm=id.match(/^m(\d+)$/)) && MOD(+mm[1])) MODULE(v,+mm[1]);

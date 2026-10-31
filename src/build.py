@@ -2,7 +2,8 @@ import glob,os,re
 d=os.path.dirname(os.path.abspath(__file__))
 css=open(f"{d}/style.css").read()
 mods=sorted(glob.glob(f"{d}/mod/m*.js"))
-js=open(f"{d}/plan.js").read()+"\n"+"\n".join(open(m).read() for m in mods)+"\n"+open(f"{d}/engine.js").read()
+extra=[f"{d}/refs.js"]+sorted(glob.glob(f"{d}/tp/*.js"))+sorted(glob.glob(f"{d}/xeval/*.js"))+[f for f in [f"{d}/glosario.js"] if os.path.exists(f)]
+js=open(f"{d}/plan.js").read()+"\n"+"\n".join(open(m).read() for m in mods+extra)+"\n"+open(f"{d}/engine.js").read()
 html=f'''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#14201c">

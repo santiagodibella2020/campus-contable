@@ -193,3 +193,12 @@ ol.lessons li.ev{list-style:"★  "}
 .prose table{font-size:.92rem}
 .q b{font-weight:600}
 @media (max-width:560px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* v3: programa, fuentes, glosario */
+.prog-sec{margin-top:28px;padding-top:8px;border-top:1px solid var(--rule)}
+.prog-sec h3{margin-top:18px}
+.srcl,.bib{padding-left:1.2em}
+.srcl li,.bib li{margin:4px 0}
+.srcbox{margin:18px 0;border:1px solid var(--rule);border-radius:8px;padding:10px 14px;background:var(--sheet)}
+.srcbox summary{cursor:pointer;font-weight:600}
+.gloss dt{font-weight:700;margin-top:14px}
+.gloss dd{margin:4px 0 0 0;color:var(--ink)}
