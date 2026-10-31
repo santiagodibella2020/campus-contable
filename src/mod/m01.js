@@ -100,7 +100,9 @@ lessons:[
     </ul>
     <div class="note"><b>Lo que dice la ley.</b> En Argentina, el Código Civil y Comercial (art. 320) obliga a llevar contabilidad a las personas jurídicas privadas y a quienes realizan una actividad económica organizada. El art. 322 exige como registros indispensables el <b>Libro Diario</b> y el <b>Libro de Inventarios y Balances</b>.</div>
     <h3>El rol del contador</h3>
-    <p>El Contador Público (Ley 20.488) es el único profesional habilitado para firmar dictámenes sobre estados contables, actuar como síndico en concursos y como perito contable en la justicia. También trabaja en impuestos, sueldos, costos, finanzas y consultoría.</p>`,
+    <p>El Contador Público (Ley 20.488) es el único profesional habilitado para firmar dictámenes sobre estados contables, actuar como síndico en concursos y como perito contable en la justicia. También trabaja en impuestos, sueldos, costos, finanzas y consultoría.</p>
+    <div class="ejr"><b>Ejemplo para fijar la idea</b>Una panadería compra harina: es un hecho económico (sale plata, entra mercadería). El dueño se va de vacaciones con su propio dinero: no lo es, porque es el patrimonio del dueño, no el de la panadería. Esta separación se llama <b>principio del ente</b> y es la primera pregunta que te tenés que hacer siempre: ¿esto le pasa al patrimonio de la empresa?</div>
+    ${CAMPUS.vid([["Qué es la contabilidad, explicado desde cero","que es la contabilidad explicacion desde cero"],["Patrimonio, activo, pasivo y patrimonio neto","patrimonio activo pasivo patrimonio neto contabilidad explicacion"]])}`,
   ex:[{type:"pick",title:"¿Es un hecho económico para la empresa?",options:["Sí","No"],items:[
     ["La empresa compra una computadora y la paga en efectivo","Sí"],["El gerente se toma vacaciones","No"],["Un cliente paga una factura que debía","Sí"],
     ["La empresa contrata un seguro y paga la primera cuota","Sí"],["Un socio compra un auto para uso personal con su propia plata","No","El patrimonio del socio no es el del ente."],
@@ -118,7 +120,14 @@ lessons:[
       <li><b>Permutativas:</b> cambian la composición del patrimonio pero no el PN. Ejemplo: comprar mercadería al contado.</li>
       <li><b>Modificativas:</b> cambian el PN. Pueden ser aumentos (ganancias, aportes) o disminuciones (gastos, pérdidas, retiros).</li>
     </ul>
-    <p>Ningún hecho económico rompe la igualdad. Probalo con el simulador de la empresa Comercial Del Sur SRL.</p>`,
+    <p>Ningún hecho económico rompe la igualdad. Probalo con el simulador de la empresa Comercial Del Sur SRL.</p>
+    <h3>Paso a paso con números</h3>
+    <div class="ejr"><b>Ejemplo resuelto</b>Una kiosquera tiene $ 50.000 en efectivo, mercadería por $ 150.000 y una moto de reparto de $ 300.000. Le debe $ 120.000 a un mayorista.
+    <ol><li>Activo (lo que tiene): 50.000 + 150.000 + 300.000 = <b>500.000</b>.</li><li>Pasivo (lo que debe a terceros): <b>120.000</b>.</li><li>Patrimonio Neto: 500.000 − 120.000 = <b>380.000</b>. Es lo que le quedaría si vendiera todo y pagara todas las deudas.</li><li>Control: 500.000 = 120.000 + 380.000 ✔.</li></ol></div>
+    <div class="ejr"><b>Ejemplo resuelto · cómo cambia con cada operación</b>
+    <ol><li>Paga $ 20.000 al mayorista en efectivo: Activo baja 20.000 (Caja) y Pasivo baja 20.000. Queda 480.000 = 100.000 + 380.000. PN igual: <b>permutativa</b>.</li><li>Vende en $ 30.000 mercadería que le costó $ 18.000: Caja sube 30.000 y Mercadería baja 18.000. Activo neto +12.000. Queda 492.000 = 100.000 + 392.000. El PN creció 12.000 por la ganancia: <b>modificativa</b>.</li></ol></div>
+    <div class="err"><b>Errores comunes</b><ul><li>Poner el Patrimonio Neto del lado del Activo.</li><li>Pensar que una compra a crédito cambia el PN: sube el activo y la deuda por igual.</li></ul></div>
+    ${CAMPUS.vid([["La ecuación patrimonial","ecuacion patrimonial contabilidad explicacion ejemplos"],["Variaciones permutativas y modificativas","variaciones patrimoniales permutativas modificativas ejemplos"]])}`,
   ex:[{type:"custom",title:"Simulador · Comercial Del Sur SRL",render:simulador},
       {type:"pick",title:"¿Permutativa o modificativa?",options:["Permutativa","Modificativa"],items:[
         ["Se cobra en efectivo una deuda de un cliente","Permutativa"],["Se pagan intereses por un préstamo","Modificativa"],["Se compra un rodado a crédito","Permutativa","El activo y el pasivo suben igual; el PN no cambia."],
@@ -133,7 +142,12 @@ lessons:[
       <tr><td><b>Resultado negativo (R−)</b></td><td>Gastos y pérdidas, bajan el PN</td><td>Sueldos y jornales, Alquileres perdidos, CMV</td></tr>
     </tbody></table></div>
     <p>El <b>plan de cuentas</b> es la lista ordenada y codificada de todas las cuentas que usa una empresa. Un esquema típico: 1 Activo, 2 Pasivo, 3 Patrimonio Neto, 4 Resultados positivos, 5 Resultados negativos. Por ejemplo, 1.1.01 Caja, 1.1.02 Banco Nación c/c. El <b>manual de cuentas</b> explica qué se registra en cada una, cuándo se debita y cuándo se acredita.</p>
-    <div class="note"><b>Ojo con el IVA.</b> El <i>IVA Crédito Fiscal</i> (el IVA que pagás al comprar) es un activo, porque lo podés descontar. El <i>IVA Débito Fiscal</i> (el IVA que cobrás al vender) es un pasivo, porque se lo debés a ARCA. La alícuota general es 21%.</div>`,
+    <div class="note"><b>Ojo con el IVA.</b> El <i>IVA Crédito Fiscal</i> (el IVA que pagás al comprar) es un activo, porque lo podés descontar. El <i>IVA Débito Fiscal</i> (el IVA que cobrás al vender) es un pasivo, porque se lo debés a ARCA. La alícuota general es 21%.</div>
+    <div class="ejr"><b>Cómo clasificar cualquier cuenta en 3 preguntas</b>
+    <ol><li>¿Es algo que la empresa <b>tiene</b> o le <b>deben</b>? → Activo.</li><li>¿Es algo que la empresa <b>debe</b> a terceros? → Pasivo.</li><li>¿Es lo que <b>aportaron o ganaron los dueños</b> y quedó en la empresa? → Patrimonio Neto.</li><li>Si no es ninguna de esas, es un <b>resultado</b>: si hace ganar plata (ventas, intereses ganados) es R+; si es un gasto o una pérdida, R−.</li></ol>
+    Ejemplo: “Deudores por ventas” → los clientes nos deben → nos deben a nosotros → <b>Activo</b>. “Documentos a pagar” → firmamos pagarés → debemos → <b>Pasivo</b>.</div>
+    <div class="err"><b>Errores comunes</b><ul><li>Clasificar “Deudores por ventas” como pasivo porque dice “deudores”: los deudores son ellos, la empresa tiene el derecho a cobrar.</li><li>Confundir IVA Crédito Fiscal (activo) con IVA Débito Fiscal (pasivo).</li></ul></div>
+    ${CAMPUS.vid([["Clasificación de cuentas contables","clasificacion de cuentas contables activo pasivo patrimonio neto resultados"],["Qué es un plan de cuentas","plan de cuentas contabilidad explicacion"]])}`,
   ex:[{type:"pick",title:"Clasificá cada cuenta",options:["Activo","Pasivo","PN","R+","R−"],items:CUENTAS}]},
  {lead:"Todo hecho económico se registra en al menos dos cuentas, y lo que se anota en el Debe siempre es igual a lo que se anota en el Haber.",
   html:`<p>Este método, descripto por Luca Pacioli en 1494, se basa en que todo hecho tiene un origen y un destino. Si entra plata al banco (destino) es porque alguien la aportó, la prestó o la pagó (origen).</p>
@@ -146,7 +160,14 @@ lessons:[
       <tr><td>Resultado negativo</td><td class="r d">Debe</td><td class="r">—</td><td class="r">Deudor</td></tr>
     </tbody></table></div>
     <div class="note"><b>Truco para recordar.</b> Lo que está a la izquierda de la ecuación (Activo) aumenta a la izquierda (Debe). Lo que está a la derecha (Pasivo y PN) aumenta a la derecha (Haber). Las ganancias aumentan el PN, entonces van al Haber; las pérdidas lo disminuyen, entonces van al Debe.</div>
-    <p>“Debe” y “Haber” son solo nombres de columnas. No significan que alguien deba algo.</p>`,
+    <p>“Debe” y “Haber” son solo nombres de columnas. No significan que alguien deba algo.</p>
+    <h3>Paso a paso: decidir Debe o Haber</h3>
+    <div class="ejr"><b>Ejemplo resuelto 1</b>Se paga a un proveedor $ 50.000 por transferencia.
+    <ol><li>¿Qué cuentas se mueven? Proveedores (la deuda) y Banco c/c (la plata).</li><li>¿Aumentan o disminuyen? Proveedores <b>disminuye</b> (debemos menos). Banco <b>disminuye</b> (sale plata).</li><li>Reglas: un pasivo que disminuye va al <b>Debe</b>. Un activo que disminuye va al <b>Haber</b>.</li><li>Asiento: Proveedores 50.000 a Banco c/c 50.000. Debe = Haber ✔.</li></ol></div>
+    <div class="ejr"><b>Ejemplo resuelto 2</b>Se cobra en efectivo un alquiler ganado de $ 40.000.
+    <ol><li>Cuentas: Caja y Alquileres ganados.</li><li>Caja <b>aumenta</b> (activo ↑) → Debe. Alquileres ganados es una ganancia (R+) → Haber.</li><li>Asiento: Caja 40.000 a Alquileres ganados 40.000.</li></ol></div>
+    <div class="err"><b>Errores comunes</b><ul><li>Pensar que “Debe” significa que alguien debe plata.</li><li>Registrar un gasto en el Haber porque “sale plata”: la plata que sale (Caja) va al Haber, pero el gasto va al Debe.</li></ul></div>
+    ${CAMPUS.vid([["Partida doble: Debe y Haber explicado","partida doble debe y haber explicacion facil"],["Reglas del cargo y abono","como saber si va al debe o al haber contabilidad"]])}`,
   ex:[{type:"pick",title:"¿Debe o Haber?",options:["Debe","Haber"],items:[
     ["Aumenta Caja","Debe"],["Disminuye Banco c/c","Haber"],["Aumenta Proveedores","Haber"],["Se cancela un Préstamo bancario","Debe"],
     ["Aumenta Capital social","Haber"],["Se registran Ventas","Haber"],["Se registran Sueldos y jornales","Debe"],["Aumenta Deudores por ventas","Debe"],
@@ -165,12 +186,33 @@ lessons:[
       <li>Aplicá las reglas de la lección anterior para saber si va al Debe o al Haber. Verificá que Debe = Haber.</li>
     </ol>
     <p>El art. 324 del Código Civil y Comercial prohíbe alterar el orden de los asientos, dejar espacios en blanco, hacer interlineaciones o raspaduras, y arrancar hojas. Los errores se corrigen con un <b>contraasiento</b>.</p>
-    <div class="note"><b>Simplificación.</b> En este módulo registramos las ventas sin el costo de la mercadería vendida, que vemos en el Módulo 9. Los sueldos van sin cargas sociales, que vemos en el Módulo 22.</div>`,
+    <div class="note"><b>Simplificación.</b> En este módulo registramos las ventas sin el costo de la mercadería vendida, que vemos en el Módulo 9. Los sueldos van sin cargas sociales, que vemos en el Módulo 22.</div>
+    <h3>Paso a paso: el asiento de una compra con IVA</h3>
+    <div class="ejr"><b>Ejemplo resuelto</b>Se compran mercaderías por $ 100.000 más IVA 21% (factura A), pagando por transferencia.
+    <ol><li>Calculo el IVA: 100.000 × 21% = 21.000. Total de la factura: 121.000.</li><li>¿Qué entra? Mercaderías (activo ↑) por 100.000 → Debe. El IVA que pagamos lo vamos a poder descontar: IVA Crédito Fiscal (activo ↑) por 21.000 → Debe.</li><li>¿Qué sale? El banco paga el total: Banco c/c (activo ↓) por 121.000 → Haber.</li><li>Control: Debe 100.000 + 21.000 = 121.000 = Haber ✔.</li></ol>
+    <div class="tw"><table><thead><tr><th>Cuenta</th><th class="r">Debe</th><th class="r">Haber</th></tr></thead><tbody>
+    <tr><td>Mercaderías</td><td class="r num d">100.000</td><td></td></tr>
+    <tr><td>IVA Crédito Fiscal</td><td class="r num d">21.000</td><td></td></tr>
+    <tr><td style="padding-left:32px">a Banco Nación c/c</td><td></td><td class="r num h">121.000</td></tr></tbody></table></div></div>
+    <div class="ejr"><b>Y una venta a crédito</b>Se vende por $ 80.000 más IVA 21%, a cobrar en 30 días.
+    <ol><li>IVA: 80.000 × 21% = 16.800. El cliente nos debe 96.800: Deudores por ventas (activo ↑) → Debe 96.800.</li><li>La venta es una ganancia: Ventas (R+) → Haber 80.000.</li><li>El IVA que cobramos se lo debemos a ARCA: IVA Débito Fiscal (pasivo ↑) → Haber 16.800.</li></ol></div>
+    <div class="err"><b>Errores comunes</b><ul><li>Registrar la mercadería con el IVA incluido cuando la factura es A (el IVA va aparte, como crédito fiscal).</li><li>Escribir primero el Haber: se escriben primero las cuentas del Debe.</li></ul></div>
+    ${CAMPUS.vid([["Cómo hacer un asiento contable","como hacer un asiento contable libro diario ejemplo"],["Asientos de compra y venta con IVA","asiento contable compra venta con iva ejemplo"]])}`,
   ex:[{type:"asiento",title:"Armá los asientos de Marzo",accounts:CUENTAS.map(c=>c[0]),entries:ASIENTOS}]},
  {lead:"El Diario ordena por fecha; el Mayor ordena por cuenta. El balance de sumas y saldos controla que todo esté bien pasado.",
   html:`<p><b>Mayorizar</b> es pasar cada renglón del Diario a la ficha de su cuenta. La ficha se dibuja como una “T”: a la izquierda los débitos, a la derecha los créditos.</p>
     <p>El <b>saldo</b> es la diferencia entre lo que suma el Debe y lo que suma el Haber. Si el Debe es mayor, el saldo es <b class="d">deudor</b>; si el Haber es mayor, es <b class="h">acreedor</b>.</p>
-    <p>El <b>balance de sumas y saldos</b> (o balance de comprobación) lista todas las cuentas con sus sumas y su saldo. Tiene dos controles: el total de sumas del Debe es igual al del Haber, y el total de saldos deudores es igual al de saldos acreedores. Si no da, hay un error de registración o de pase. Ojo: que dé no garantiza que no haya errores (por ejemplo, si se usó una cuenta equivocada).</p>`,
+    <p>El <b>balance de sumas y saldos</b> (o balance de comprobación) lista todas las cuentas con sus sumas y su saldo. Tiene dos controles: el total de sumas del Debe es igual al del Haber, y el total de saldos deudores es igual al de saldos acreedores. Si no da, hay un error de registración o de pase. Ojo: que dé no garantiza que no haya errores (por ejemplo, si se usó una cuenta equivocada).</p>
+    <h3>Paso a paso: mayorizar una cuenta</h3>
+    <div class="ejr"><b>Ejemplo resuelto</b>Movimientos de Proveedores en un mes: compra a crédito por $ 80.000; otra compra a crédito por $ 50.000; pago de $ 60.000.
+    <ol><li>Las compras a crédito aumentan la deuda: van al <b>Haber</b> de Proveedores (80.000 y 50.000).</li><li>El pago la disminuye: va al <b>Debe</b> (60.000).</li><li>Sumas: Debe 60.000; Haber 130.000.</li><li>Saldo: 130.000 − 60.000 = <b>70.000 acreedor</b> (el Haber es mayor). Lo que todavía le debemos a los proveedores.</li></ol>
+    <div class="tw"><table><thead><tr><th class="r">Debe</th><th class="r">Haber</th></tr></thead><tbody>
+    <tr><td class="r num d">60.000</td><td class="r num h">80.000</td></tr>
+    <tr><td></td><td class="r num h">50.000</td></tr>
+    <tr><td class="r num">60.000</td><td class="r num">130.000</td></tr></tbody></table></div>
+    Una cuenta de pasivo con saldo acreedor es lo normal. Si te diera deudor, revisá: le habrías pagado más de lo que le debías.</div>
+    <div class="err"><b>Errores comunes</b><ul><li>Restar al revés y poner el saldo del lado equivocado.</li><li>Olvidarse de pasar un renglón del Diario al Mayor: el balance de comprobación no cierra.</li></ul></div>
+    ${CAMPUS.vid([["Libro Mayor: cómo se hace","libro mayor contabilidad como se hace ejemplo"],["Balance de sumas y saldos","balance de sumas y saldos explicacion ejemplo"]])}`,
   ex:[{type:"custom",title:"Mayorización y balance",render:mayorEx}]},
 ],
 eval:[
