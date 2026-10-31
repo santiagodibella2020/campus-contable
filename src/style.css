@@ -208,3 +208,9 @@ ol.lessons li.ev{list-style:"★  "}
 .help ol{margin:6px 0 0 18px;padding:0}
 .cls .it .why{flex-basis:100%}
 .ch label.right{outline:2px solid var(--ok);border-radius:6px}
+
+.sim{display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--rule);border-radius:8px;background:var(--sheet)}
+.sim h4{margin:8px 0 0;font-size:.95rem}
+.sim label{display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+.sim select,.sim input{width:100%;max-width:100%}
+.fac{margin-top:8px;line-height:1.6}

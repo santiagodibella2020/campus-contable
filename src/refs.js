@@ -135,5 +135,8 @@ CAMPUS.prog = {
 31:{obj:["Distinguir los títulos valores y sus caracteres.","Conocer los contratos bancarios y las garantías.","Comprender el funcionamiento del mercado de capitales.","Conocer las salidas a la insolvencia y el rol del contador."],
  cont:"Títulos valores en el CCyC; pagaré, letra de cambio, cheque y factura de crédito electrónica. Contratos bancarios, leasing, factoring y garantías. Mercado de capitales: Ley 26.831 y Ley 27.440, CNV, ON, FCI y fideicomisos financieros. Cesación de pagos, APE, concurso y quiebra.",
  bib:["Gómez Leo, O., Instituciones de derecho cambiario, Depalma.","Villegas, C. G., Operaciones bancarias, Rubinzal-Culzoni.","Rouillon, A., Régimen de concursos y quiebras, Astrea.","Material de Derecho Crediticio, Bursátil e Insolvencia, FCE-UBA (asignatura 1360)."],norm:["ccyc","lcq","cnv"]},
+32:{obj:["Obtener y usar la Clave Fiscal con el nivel adecuado.","Delegar servicios y operar en nombre de un cliente.","Emitir facturas electrónicas y controlar comprobantes.","Pagar obligaciones y gestionar monotributo y empleadores en ARCA."],
+ cont:"Clave Fiscal y niveles. Administrador de Relaciones. Domicilio Fiscal Electrónico. Comprobantes en línea y CAE. Mis Comprobantes y Portal IVA. VEP y Sistema de Cuentas Tributarias. Monotributo: recategorización. Simplificación Registral, Libro de Sueldos Digital, F. 931 y SIRADIG.",
+ bib:["ARCA, Guías paso a paso de cada servicio (arca.gob.ar).","Argentina.gob.ar, Obtener Volante Electrónico de Pagos (VEP)."],norm:["arca","lpt","mono"]},
 };
 })();
